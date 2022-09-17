@@ -1,0 +1,50 @@
+%% Document-wide settings.
+\documentclass[letterpaper]{article}
+\title{Poaky documentation}
+\author{Thomas HOULLIER} 
+
+\usepackage[colorlinks=true, allcolors=blue,
+            hyperfootnotes=false,
+            pdfauthor={Thomas HOULLIER},
+            pdftitle={Poaky documentation},
+	    pdfkeywords={Optical design, Raytracing, C++}]
+            {hyperref} % Links for ref/cite.
+
+\input{preamble}
+
+% Document
+\begin{document}
+\frenchspacing
+\date{v1.0 -- \today}
+\maketitle
+\thispagestyle{FirstPage}
+
+\begin{abstract}
+We document the development of Poaky, a piece of software for raytracing
+through optical systems. Poaky is implemented in C++.
+\end{abstract}
+
+\keywords{Optical design, Raytracing, C++}
+
+\begin{versionhistory}
+\vhEntry{1.0}{\today}{TH}{creation}
+\end{versionhistory}
+\setcounter{table}{0} % Reset the table counter.
+
+\tableofcontents
+\printglossary[type=\acronymtype,style=index]
+\pagestyle{plain}
+\input{sections/content}
+
+\appendix
+\cleardoublepage
+
+%% \include{appendices}
+
+\apptocmd{\thebibliography}{\raggedright}{}{}
+\begingroup
+\setstretch{0.6}
+\setlength\bibitemsep{0pt}
+\printbibliography
+\endgroup
+\end{document}
