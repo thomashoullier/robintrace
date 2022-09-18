@@ -1,0 +1,11 @@
+digraph {
+rankdir="LR"
+ray -> rop
+ray -> bun
+
+lpart [shape=record, label="lpart | surf | tfr"]
+rop -> lpart
+
+lpart -> lsys
+{lsys,bun} -> ltrac
+}
