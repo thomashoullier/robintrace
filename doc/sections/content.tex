@@ -61,3 +61,49 @@ This architecture is summarized informally using a diagram
 \includesvg[width=.9\textwidth]{images/arch/overview/overview.svg}
 \caption{\label{fig:arch-overview} Architecture overview.}
 \end{figure}
+
+\section{Functional description}
+
+\textcolor{red}{TODO:Detail the behavior of a minimal set of components for
+only 3D mirrors.}
+
+\subsection{ray}
+
+\textcolor{red}{xyzlmn description, short rationale on the fact rays hold
+minimal information and their meaning depends on context.
+Error codes for each ray?}
+
+\subsection{rop}
+
+\textcolor{red}{
+\begin{itemize}
+\item ray/plane intersection
+\item ray/sphere intersection
+\item ray reflection on a plane mirror
+\item ray reflection on spherical mirror
+\item transfer operation
+\end{itemize}
+Explain rationale to have the most specialized operations possible here.
+And why operations are dissociated from lpart.}
+
+\subsection{lpart}
+
+\subsubsection{tfr}
+
+\subsubsection{surf}
+\textcolor{red}{
+\begin{itemize}
+\item Plane (which does nothing)
+\item Plane mirror
+\item Spherical mirror
+\end{itemize}}
+
+\section{Tests and benchmarks}
+We document what tests are performed on the components of the software.
+We also detail a representative performance report.
+
+\subsection{Tests}
+
+\subsection{Performance report}
+A performance report helps both the user and developer understand the strengths
+and weaknesses of the software computations.
