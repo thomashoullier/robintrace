@@ -3,10 +3,8 @@
 
 int main(){
   ray ray1;
-  ray1.x = 0.0;
 
-
-  std::cout << "Hello World " << ray1.y << std::endl;
+  std::cout << "Hello World " << ray1.p.x << std::endl;
 
   // TODO:
   // * Create very basic objects such as point in 3d, and lmn vector in 3d.
