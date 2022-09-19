@@ -2,9 +2,11 @@ digraph {
 rankdir="LR"
 ray -> rop
 ray -> bun
+nshape [label="shape"]
+ray -> nshape
 
 lpart [shape=record, label="lpart | surf | tfr"]
-rop -> lpart
+{rop,nshape} -> lpart
 
 lpart -> lsys
 {lsys,bun} -> ltrac

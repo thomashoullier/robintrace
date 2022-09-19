@@ -31,7 +31,10 @@ n)$ local direction cosines.
 \item \lstinline{rop} (ray operations): These are low-level operations
 modifying \lstinline{rays}.  They are used by \lstinline{low-level surfaces}.
 They may be common to multiple surface types. A typical example is the
-intersection of a ray with a sphere.
+Snell law.
+\item \lstinline{shape}: These are geometric surface shapes. They are used
+mainly for specifying intersection methods with rays, and respond to queries
+about normal vector and altitude at given $(x, y)$ coordinates.
 \item \lstinline{lpart} (low-level part): These are low-level objects which
 are ordered in succession. These are groupings of \lstinline{rop}
 which correspond to common optical design surface elements. There are two
@@ -39,7 +42,7 @@ fundamental subtypes:
 \begin{itemize}
 \item \lstinline{surf} (surface): This group of operations takes a ray starting
 from the local surface plane and outputs rays also in the local coordinate
-system at the computed positions.
+system at the computed positions. May inherit a \lstinline{shape}.
 \item \lstinline{tfr} (transfer): These operations take rays from a starting
 surface coordinate system and propagate them in straight lines to another
 plane. The output rays are expressed in a new local surface plane.
@@ -69,6 +72,20 @@ This architecture is summarized informally using a diagram
 only 3D mirrors.
 \end{itemize}}
 
+\subsection{base}
+Some base types are useful throughout the program. These are detailed in this
+section.
+
+\subsubsection{Point3}
+\lstinline{Point3} are points in 3D space. They are described by $(x, y, z)$
+coordinates.
+
+\subsubsection{DirCos3}
+\lstinline{DirCos3} are direction cosine vectors. They must always remain
+normalized.
+
+\textcolor{red}{Give some formulae.}
+
 \subsection{ray}
 
 \textcolor{red}{xyzlmn description, short rationale on the fact rays hold
@@ -79,14 +96,19 @@ Error codes for each ray?}
 
 \textcolor{red}{
 \begin{itemize}
-\item ray/plane intersection
-\item ray/sphere intersection
-\item ray reflection on a plane mirror
-\item ray reflection on spherical mirror
 \item transfer operation
+\item reflection off mirrors
 \end{itemize}
 Explain rationale to have the most specialized operations possible here.
 And why operations are dissociated from lpart.}
+
+\subsection{shape}
+
+\textcolor{red}{\begin{itemize}
+\item ray/plane intersection
+\item ray/sphere intersection
+\item sphere normal vector
+\end{itemize}}
 
 \subsection{lpart}
 
