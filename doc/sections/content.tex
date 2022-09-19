@@ -16,6 +16,9 @@ layer which uses the states of rays to build performance criteria.
       program.
 \end{itemize}
 
+Many concepts about raytracing have been explored in depth in a previous
+work \cite{Houllier-thesis}.
+
 \textcolor{red}{Whether ray-aiming and higher functions will be included
 in the current repository or another is not yet decided.}
 
@@ -80,9 +83,10 @@ section.
 \lstinline{Point3} are points in 3D space. They are described by $(x, y, z)$
 coordinates.
 
-\subsubsection{DirCos3}
-\lstinline{DirCos3} are direction cosine vectors. They must always remain
-normalized.
+\subsubsection{UVec3}
+\lstinline{UVec3} are unit vectors in the direction of the propagation
+of light. These may also be refined to as \emph{direction cosines},
+as their components are $(l, m, n)$.
 
 \textcolor{red}{Give some formulae.}
 
