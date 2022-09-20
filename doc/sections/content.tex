@@ -91,10 +91,19 @@ as their components are $(l, m, n)$.
 \textcolor{red}{Give some formulae.}
 
 \subsection{ray}
+\lstinline{ray} objects are the centerpiece of the simulation. They must be
+lightweight objects.  \lstinline{ray} holds a position and a unit vector in the
+direction and orientation of the propagation of light:
 
-\textcolor{red}{xyzlmn description, short rationale on the fact rays hold
-minimal information and their meaning depends on context.
-Error codes for each ray?}
+\begin{itemize}
+\item \lstinline{Point3 p}: A point.
+\item \lstinline{UVec3 v}: A vector, oriented by light propagation.
+\end{itemize}
+
+The interpretation of the data contained in a \lstinline{ray} is dependent
+on context, as they are expressed in the current surface coordinate system.
+
+\textcolor{red}{Error codes for each ray?}
 
 \subsection{rop}
 
@@ -107,12 +116,29 @@ Explain rationale to have the most specialized operations possible here.
 And why operations are dissociated from lpart.}
 
 \subsection{shape}
+\lstinline{shape} objects specify an intersection operation with rays.
+The intersection operation takes a \lstinline{ray} expressed in the current
+surface coordinate system with point on the local plane. It propagates
+the ray until it hits the first encountered part of the shape. It modifies
+the ray in-place. The modified ray is still expressed in the same current
+coordinate system.
+
+Subtypes are defined.
 
 \textcolor{red}{\begin{itemize}
 \item ray/plane intersection
 \item ray/sphere intersection
 \item sphere normal vector
 \end{itemize}}
+
+\subsubsection{plane}
+A \lstinline{plane} is the local $z=0$ plane in the current coordinate system.
+It is specified implicitely.  The input ray is already on the local plane. We
+do \emph{nothing} and cannot fail.
+
+\subsubsection{sphere}
+The \lstinline{sphere} is specified by \textcolor{red}{curvature?}.
+The intersection between the input ray and the sphere is \textcolor{red}{TODO}.
 
 \subsection{lpart}
 
