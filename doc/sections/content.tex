@@ -137,8 +137,24 @@ It is specified implicitely.  The input ray is already on the local plane. We
 do \emph{nothing} and cannot fail.
 
 \subsubsection{sphere}
-The \lstinline{sphere} is specified by \textcolor{red}{curvature?}.
-The intersection between the input ray and the sphere is \textcolor{red}{TODO}.
+The \lstinline{sphere} is specified by its radius of curvature $R$.
+The intersection between the input ray and the sphere is computed as
+in \cref{eq:ray-sphere-inter1}.
+
+\begin{equation} \label{eq:ray-sphere-inter1}
+\begin{cases}
+b &= 2 (x \cdot l + y \cdot m - n \cdot R) \\
+c &= x^2 + y^2 \\
+\Delta &= b^2 - 4 c
+\end{cases}
+\end{equation}
+
+If $\Delta < 0$, then no intersection exists. This is a ray error case. Else,
+we continue with .
+
+\textcolor{red}{TODO: 1. What about b = 0 case? Document.
+2. Document the proof in another entirely different section with
+   a diagram etc.}
 
 \subsection{lpart}
 
