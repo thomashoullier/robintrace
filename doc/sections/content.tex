@@ -68,6 +68,38 @@ This architecture is summarized informally using a diagram
 \caption{\label{fig:arch-overview} Architecture overview.}
 \end{figure}
 
+\section{Definitions and conventions}
+We must provide the conventions that were used. They are choices
+on our part and may differ from one optical design tool to the next.
+
+\subsection{Local coordinate system}
+Each surface corresponds to an implicit \gls{LCS}.
+This coordinate system may be described as containing (\cref{fig:LCS}):
+
+\begin{itemize}
+\item An apex $A$, which is the origin.
+\item A local $z=0$ plane, which we often refer to as the \emph{local plane}.
+\item A set of axes (implicit).
+\end{itemize}
+
+\begin{figure} \caption{\label{fig:LCS} LCS diagram.}
+\includesvg[width=.7\textwidth]{images/conventions/LCS.svg}
+\end{figure}
+
+We call the \gls{LCS} implicit because the actual meaning of the data
+expressed in it depends on the interplay between surface defition, ray
+transfer equations and ray operation conventions.
+
+\subsection{Rays in local coordinate systems}
+\textcolor{red}{TODO:
+1. Implicit position definition.
+2. Orientation with light propagation.}
+
+\subsection{Ray transfer conventions}
+\textcolor{red}{TODO:
+1. Rays always on the local plane when transfered to the next surface.
+2. Rays can be wherever in the LCS at before being transfered.}
+
 \section{Functional description}
 
 \textcolor{red}{TODO: \begin{itemize}
@@ -139,11 +171,30 @@ do \emph{nothing} and cannot fail.
 \subsubsection{sphere}
 
 \paragraph{Definition}
-The \lstinline{sphere} is specified by its radius of curvature $R$.
+The \lstinline{sphere} is specified by:
+
+\begin{itemize}
+\item $R$: radius of curvature
+\end{itemize}
+
+The sphere is defined in the \gls{LCS} by \cref{eq:sphere-def}.
+
+\begin{equation} \label{eq:sphere-def}
+x^2 + y^2 + (z - R)^2 = R^2
+\end{equation}
+
+$R$ is the signed distance $\overline{AC}$, with $C$ the sphere center
+(\cref{fig:sphere-def-lcs}).
+
+\begin{figure} \caption{\label{fig:sphere-def-lcs} Sphere definition
+in the LCS.}
+\includesvg[width=0.6\textwidth]{images/placeholder.svg}
+\end{figure}
 
 \textcolor{red}{TODO:
-1. Diagram of sphere in local coordinate system. Definition and sign of R.
-2. What happens if we define a sphere with R = 0? and for small R?}
+1. Diagram of sphere in local coordinate system.
+2. What happens if we define a sphere with R = 0? and for small R?
+}
 
 \paragraph{intersect}
 The intersection between the input ray and the sphere is computed as
@@ -209,13 +260,17 @@ Some implementation detail require further justification and explanations.
 \textcolor{red}{TODO:
 1. What about b = 0 case? Document (already solved in notes).
 2. Put a diagram for defining the quantities.
-3. Illustrate the error cases with diagrams.}
+3. Illustrate the error cases with diagrams.
+4. Show orientation of ray has no impact on intersection.}
 
 \section{Tests and benchmarks}
 We document what tests are performed on the components of the software.
 We also detail a representative performance report.
 
 \subsection{Tests}
+\textcolor{red}{TODO:
+* Visualize test cases in jupyter notebooks? For instance, ensure that
+  a sphere intersection lands on the sphere visually.}
 
 \subsection{Performance report}
 A performance report helps both the user and developer understand the strengths
