@@ -137,9 +137,17 @@ It is specified implicitely.  The input ray is already on the local plane. We
 do \emph{nothing} and cannot fail.
 
 \subsubsection{sphere}
+
+\paragraph{Definition}
 The \lstinline{sphere} is specified by its radius of curvature $R$.
+
+\textcolor{red}{TODO:
+1. Diagram of sphere in local coordinate system. Definition and sign of R.
+2. What happens if we define a sphere with R = 0? and for small R?}
+
+\paragraph{intersect}
 The intersection between the input ray and the sphere is computed as
-in \cref{eq:ray-sphere-inter1}.
+follows.
 
 \begin{equation} \label{eq:ray-sphere-inter1}
 \begin{cases}
@@ -150,11 +158,37 @@ c &= x^2 + y^2 \\
 \end{equation}
 
 If $\Delta < 0$, then no intersection exists. This is a ray error case. Else,
-we continue with .
+we continue with \cref{eq:ray-sphere-inter-tsol}.
 
-\textcolor{red}{TODO: 1. What about b = 0 case? Document.
-2. Document the proof in another entirely different section with
-   a diagram etc.}
+\begin{equation} \label{eq:ray-sphere-inter-tsol}
+t_\textrm{sol} = \frac{-b + \textrm{sign}(b) \cdot \sqrt{\Delta}}{2}
+\end{equation}
+
+With:
+
+\begin{equation}
+\textrm{sign}(x) = \begin{cases}
+1 & \text{if } x \geq 0 \\
+-1 & \text{otherwise}
+\end{cases}
+\end{equation}
+
+Let $(x_I, y_I, z_I)$ the intersection point we wish to compute.
+
+\begin{equation}
+z_I = t_\textrm{sol} \cdot n
+\end{equation}
+
+If $z_I \geq \abs{R}$, we have an intersection in the hemisphere furthest from
+the local plane. This is another ray error case. Else, the remainder of the
+solution can be computed.
+
+\begin{equation}
+\begin{aligned}
+x_I &= x + t_\textrm{sol} \cdot l \\
+y_I &= y + t_\textrm{sol} \cdot m
+\end{aligned}
+\end{equation}
 
 \subsection{lpart}
 
@@ -167,6 +201,15 @@ we continue with .
 \item Plane mirror
 \item Spherical mirror
 \end{itemize}}
+
+\section{Proofs and justification}
+Some implementation detail require further justification and explanations.
+
+\subsection{Ray intersection with a sphere}
+\textcolor{red}{TODO:
+1. What about b = 0 case? Document (already solved in notes).
+2. Put a diagram for defining the quantities.
+3. Illustrate the error cases with diagrams.}
 
 \section{Tests and benchmarks}
 We document what tests are performed on the components of the software.
