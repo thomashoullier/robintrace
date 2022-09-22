@@ -91,9 +91,50 @@ expressed in it depends on the interplay between surface defition, ray
 transfer equations and ray operation conventions.
 
 \subsection{Rays in local coordinate systems}
-\textcolor{red}{TODO:
-1. Implicit position definition.
-2. Orientation with light propagation.}
+
+\begin{figure} \caption{\label{fig:ray-in-LCS} Ray definition
+in \gls{LCS}.}
+\includesvg[width=.7\textwidth]{images/conventions/ray_in_LCS.svg}
+\end{figure}
+
+Given a \gls{LCS}, a ray may be defined by (\cref{fig:ray-in-LCS}):
+\begin{itemize}
+\item $P = \begin{bmatrix}x \\ y \\ z \end{bmatrix}$, a point.
+\item $\overrightarrow{V} = \begin{bmatrix} l \\ m \\ n \end{bmatrix}$, a unit
+vector oriented by the light propagation.
+\end{itemize}
+
+The components of $\overrightarrow{V}$ are often called in optics by the name
+\emph{direction cosines} \cite{mathworld:direction-cosine}. Indeed, given the
+basis vectors of our \gls{LCS}: $(\hat{x}, \hat{y}, \hat{z})$, the vector
+$\overrightarrow{V}$ can be described by the angles $(\alpha, \beta, \gamma)$
+between itself and each basis vector respectively. These angles may be defined
+by \cref{eq:direction-cosines}.
+
+\begin{equation} \label{eq:direction-cosines}
+\begin{cases}
+\cos(\alpha) &= \frac{\overrightarrow{V} \cdot \hat{x}}
+                     {\abs{\overrightarrow{V}}} \\
+\cos(\beta) &= \frac{\overrightarrow{V} \cdot \hat{y}}
+                    {\abs{\overrightarrow{V}}} \\
+\cos(\gamma) &= \frac{\overrightarrow{V} \cdot \hat{z}}
+                     {\abs{\overrightarrow{V}}}
+\end{cases}
+\end{equation}
+
+The points $(x_t, y_t, z_t)$ describing the ray trajectory through the use of a parameter $t$
+are described by \cref{eq:ray-trajectory}.
+
+\begin{equation} \label{eq:ray-trajectory}
+\begin{bmatrix}
+x_t \\ y_t \\ z_t
+\end{bmatrix} =
+\begin{bmatrix}
+x + t \cdot l \\
+y + t \cdot m \\
+z + t \cdot n
+\end{bmatrix}
+\end{equation}
 
 \subsection{Ray transfer conventions}
 \textcolor{red}{TODO:
@@ -116,11 +157,7 @@ section.
 coordinates.
 
 \subsubsection{UVec3}
-\lstinline{UVec3} are unit vectors in the direction of the propagation
-of light. These may also be refined to as \emph{direction cosines},
-as their components are $(l, m, n)$.
-
-\textcolor{red}{Give some formulae.}
+\lstinline{UVec3} are unit vectors in 3D space.
 
 \subsection{ray}
 \lstinline{ray} objects are the centerpiece of the simulation. They must be
@@ -275,3 +312,19 @@ We also detail a representative performance report.
 \subsection{Performance report}
 A performance report helps both the user and developer understand the strengths
 and weaknesses of the software computations.
+
+\section{Notations}
+\subsection{Multiplication and dot product}
+The symbol $\cdot$ may refer to:
+\begin{itemize}
+\item Scalar multiplication
+\item Scalar/Vector or Scalar/Matrix multiplication
+\item Vector dot product
+\end{itemize}
+
+\subsection{Absolute value and 2-norm}
+The unary operator notation $\abs{\cdot}$ may refer to:
+\begin{itemize}
+\item Absolute value of a scalar
+\item 2-norm (or \emph{Euclidian} norm) of a vector
+\end{itemize}
