@@ -83,6 +83,42 @@ t_\textrm{sol} = \frac{-b + \textrm{sign}(b) \cdot \sqrt{\Delta}}{2}
 \textcolor{red}{Finish.}
 
 \paragraph{Intersection selection rationale}
+We explain why we select the intersection solution that is closest to
+the local plane. Notably, we do not want necessarily the \emph{first}
+intersection with the hemisphere encountered by the ray in its propagation.
+
+The hemisphere is defined as either \emph{concave} or \emph{convex}
+(\textcolor{red}{TODO: Disambiguate with a diagram, maybe somewhere else.})
+by its radius and by the orientation of rays incoming rays.
+For instance, a \emph{concave} mirror applies a converging optical power
+to incoming rays. Consider the following cases:
+
+\textcolor{red}{TODO: fix the list bullets that look like minus signs.
+Consider making a table instead.}
+
+\begin{itemize}
+\item $R<0$
+\begin{itemize}
+\item $n<0$ (rays propagating in the $-z$ direction): The sphere is defined
+as \emph{convex}.
+\item $n>0$ (rays propagating in the $+z$ direction): The sphere is defined
+as \emph{concave}.
+\end{itemize}
+\item $R>0$
+\begin{itemize}
+\item $n<0$: \emph{concave}
+\item $n>0$: \emph{convex}
+\end{itemize} \end{itemize}
+
+Therefore, the ray must intersect at a point where the sphere is seen
+as the right shape. Looking at the figure (\textcolor{red}{TODO}), we
+convinced ourselves that the wanted intersection is always the one
+closest to the local plane.
+
+\textcolor{red}{TODO: Consider a more formal proof? Maybe with the
+concept of going inside/outside the sphere.
+For one ray direction, we consider we start from inside the sphere,
+for the other we start from outside the sphere.}.
 
 \paragraph{b = 0 case}
 
