@@ -33,7 +33,24 @@ direction and orientation of the propagation of light:
 The interpretation of the data contained in a \lstinline{ray} is dependent
 on context, as they are expressed in the current surface coordinate system.
 
-\textcolor{red}{Error codes for each ray?}
+In addition to their geometric definition, rays also hold a status code.
+This code signals whether raytracing operations were successful, and if
+not, which error case was encountered.
+
+\begin{itemize}
+\item \lstinline{int code}: Status code.
+\end{itemize}
+
+The status codes are defined in \cref{tab:ray-status-codes}.
+
+\begin{table} \caption{\label{tab:ray-status-codes} Ray status codes.}
+\begin{tabular}{| c | l |} \hline
+\textbf{Code} & \textbf{Meaning} \\ \hline
+0 & Success, the ray is valid.\\ \hline
+1 & Sphere intersection: No intersection. \\ \hline
+2 & Sphere intersection: Intersection beyond first hemisphere. \\
+\hline \end{tabular}
+\end{table}
 
 \subsection{rop}
 
