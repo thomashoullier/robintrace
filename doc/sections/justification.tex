@@ -2,9 +2,97 @@
 Some implementation details require further justification and explanations.
 
 \subsection{Ray intersection with a sphere}
+Let us detail the computation of point $I$, the intersection between
+a ray and a sphere. The ray has its point $P$ on the local plane
+($z_P = 0$).
+$I$ is both on the ray trajectory (parametrized by $t$) and on the sphere,
+hence \cref{eq:sphere-intersect-just1}.
+
+\begin{equation} \label{eq:sphere-intersect-just1}
+\begin{cases}
+x^2 + y^2 + (z - R)^2 = R^2 \\
+x = x_P + t \cdot l \\
+y = y_P + t \cdot m \\
+z = t \cdot n
+\end{cases}
+\end{equation}
+
+By substitution, we obtain \cref{eq:sphere-intersect-just2}.
+
+\begin{equation} \label{eq:sphere-intersect-just2}
+\begin{split}
+&{x_P}^2 + 2 x_P \cdot t \cdot l + t^2
+\cdot l^2 \\
++ &{y_P}^2 + 2 y_P \cdot t \cdot m + t^2
+\cdot m^2 \\
++ &t^2 \cdot n^2 - 2 R \cdot t \cdot n + R^2
+= R^2 \\
+\iff &{x_P}^2 + {y_P}^2 \\
++ & 2 t (x_P \cdot l + y_P \cdot m - n \cdot R) \\
++ & t^2 (l^2 + m^2 + n^2) = 0
+\end{split} \end{equation}
+
+Since $\overrightarrow{V}$ is a unit vector, $(l^2 + m^2 + n^2) = 1$.
+Hence we have a quadratic equation in $t$, \cref{eq:sphere-intersect-just3}.
+
+\begin{equation} \label{eq:sphere-intersect-just3} \begin{cases}
+t^2 + b \cdot t + c = 0 \\
+b = 2 (x_P \cdot l + y_P \cdot m - n \cdot R) \\
+c = {x_P}^2 + {y_P}^2
+\end{cases} \end{equation}
+
+The cases in \cref{eq:sphere-intersect-just4} are distinguished.
+
+\begin{equation} \label{eq:sphere-intersect-just4} \begin{cases}
+\Delta = b^2 - 4c & \\
+\Delta < 0 & \text{no intersection} \\
+\Delta = 0 & \text{one intersection (the ray is tangent to the sphere)} \\
+\Delta > 0 & \text{two intersections can be found}
+\end{cases} \end{equation}
+
+We discard the case where no intersection is found. We also discard
+the tangency case for two reasons. First, numerically, it cannot be checked
+rigorously in our framework. Second, we see no application within our scope
+that would exhibit this case nominally.
+
+The two intersections are given by \cref{eq:sphere-intersect-just5}.
+
+\begin{equation} \label{eq:sphere-intersect-just5} \begin{cases}
+t_1 = \frac{-b + \sqrt{\Delta}}{2} \\
+t_2 = \frac{-b - \sqrt{\Delta}}{2}
+\end{cases} \end{equation}
+
+We want the intersection to be the one closest to the local plane
+(see TODO:REF), hence with minimal $\abs{z}$ (\cref{eq:sphere-intersect-just6}).
+
+\begin{equation} \label{eq:sphere-intersect-just6} \begin{cases}
+t_\textrm{sol} = \underset{t}{\mathrm{argmin}} \abs{t \cdot n} 
+               = \underset{t}{\mathrm{argmin}} \abs{t} \\
+t = \{ t_1, t_2 \}
+\end{cases} \end{equation}
+
+Hence, $t_\textrm{sol}$ is the solution with minimal absolute value.
+$\abs{-b \pm \sqrt{\Delta}}$ is minimal iff
+$-b$ and $\pm \sqrt{\Delta}$ are opposite in sign. Thus our
+solution is \cref{eq:sphere-intersect-just7}.
+
+\begin{equation} \label{eq:sphere-intersect-just7}
+t_\textrm{sol} = \frac{-b + \textrm{sign}(b) \cdot \sqrt{\Delta}}{2}
+\end{equation}
+
+\textcolor{red}{Finish.}
+
+\paragraph{Intersection selection rationale}
+
+\paragraph{b = 0 case}
+
 \textcolor{red}{TODO:
 1. What about b = 0 case? Document (already solved in notes).
-2. Put a diagram for defining the quantities.
+1b. Why do we take the ray closest to z=0? This is not the
+    intersection which is encountered first by the ray.
+    Justify in a paragraph that we indeed want the closest to z=0
+    since it is where the sphere is on the "right side".
+2. Put a diagram for defining the quantities (placing I etc.)
 3. Illustrate the error cases with diagrams.
 4. Show orientation of ray has no impact on intersection.}
 
