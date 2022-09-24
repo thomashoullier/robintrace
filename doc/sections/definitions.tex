@@ -1,0 +1,74 @@
+\section{Definitions and conventions}
+We must provide the conventions that were used. They are choices
+on our part and may differ from one optical design tool to the next.
+
+\subsection{Local coordinate system}
+Each surface corresponds to an implicit \gls{LCS}.
+This coordinate system may be described as containing (\cref{fig:LCS}):
+
+\begin{itemize}
+\item An apex $A$, which is the origin.
+\item A local $z=0$ plane, which we often refer to as the \emph{local plane}.
+      \textcolor{red}{TODO: Add "local plane" in a glossary, pointing here.}
+\item A set of axes (implicit).
+\end{itemize}
+
+\begin{figure} \caption{\label{fig:LCS} LCS diagram.}
+\includesvg[width=.7\textwidth]{images/conventions/LCS.svg}
+\end{figure}
+
+We call the \gls{LCS} implicit because the actual meaning of the data
+expressed in it depends on the interplay between surface defition, ray
+transfer equations and ray operation conventions.
+
+\subsection{Rays in local coordinate systems}
+
+\begin{figure} \caption{\label{fig:ray-in-LCS} Ray definition
+in \gls{LCS}.}
+\includesvg[width=.7\textwidth]{images/conventions/ray_in_LCS.svg}
+\end{figure}
+
+Given a \gls{LCS}, a ray may be defined by (\cref{fig:ray-in-LCS}):
+\begin{itemize}
+\item $P = \begin{bmatrix}x \\ y \\ z \end{bmatrix}$, a point.
+\item $\overrightarrow{V} = \begin{bmatrix} l \\ m \\ n \end{bmatrix}$, a unit
+vector oriented by the light propagation.
+\end{itemize}
+
+The components of $\overrightarrow{V}$ are often called in optics by the name
+\emph{direction cosines} \cite{mathworld:direction-cosine}. Indeed, given the
+basis vectors of our \gls{LCS}: $(\hat{x}, \hat{y}, \hat{z})$, the vector
+$\overrightarrow{V}$ can be described by the angles $(\alpha, \beta, \gamma)$
+between itself and each basis vector respectively. These angles may be defined
+by \cref{eq:direction-cosines}.
+
+\begin{equation} \label{eq:direction-cosines}
+\begin{cases}
+\cos(\alpha) &= \frac{\overrightarrow{V} \cdot \hat{x}}
+                     {\abs{\overrightarrow{V}}} \\
+\cos(\beta) &= \frac{\overrightarrow{V} \cdot \hat{y}}
+                    {\abs{\overrightarrow{V}}} \\
+\cos(\gamma) &= \frac{\overrightarrow{V} \cdot \hat{z}}
+                     {\abs{\overrightarrow{V}}}
+\end{cases}
+\end{equation}
+
+The points $(x_t, y_t, z_t)$ describing the ray trajectory through the use of a parameter $t$
+are described by \cref{eq:ray-trajectory}.
+
+\begin{equation} \label{eq:ray-trajectory}
+\begin{bmatrix}
+x_t \\ y_t \\ z_t
+\end{bmatrix} =
+\begin{bmatrix}
+x + t \cdot l \\
+y + t \cdot m \\
+z + t \cdot n
+\end{bmatrix}
+\end{equation}
+
+\subsection{Ray transfer conventions}
+\textcolor{red}{TODO:
+1. Rays always on the local plane when transfered to the next surface.
+2. Rays can be wherever in the LCS at before being transfered.}
+

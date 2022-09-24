@@ -1,0 +1,45 @@
+\section{Architecture}
+The software architecture follows an object-oriented, bottom-up approach.
+From the lowest level of abstraction to highest, we may describe the
+major objects as follows:
+
+\begin{itemize}
+\item \lstinline{ray}: Rays are the most fundamental data object in the
+program.  Each ray is represented by $(x, y, z)$ local coordinates and $(l, m,
+n)$ local direction cosines.
+\item \lstinline{rop} (ray operations): These are low-level operations
+modifying \lstinline{rays}.  They are used by \lstinline{low-level surfaces}.
+They may be common to multiple surface types. A typical example is the
+Snell law.
+\item \lstinline{shape}: These are geometric surface shapes. They are used
+mainly for specifying intersection methods with rays, and respond to queries
+about normal vector and altitude at given $(x, y)$ coordinates.
+\item \lstinline{lpart} (low-level part): These are low-level objects which
+are ordered in succession. These are groupings of \lstinline{rop}
+which correspond to common optical design surface elements. There are two
+fundamental subtypes:
+\begin{itemize}
+\item \lstinline{surf} (surface): This group of operations takes a ray starting
+from the local surface plane and outputs rays also in the local coordinate
+system at the computed positions. May inherit a \lstinline{shape}.
+\item \lstinline{tfr} (transfer): These operations take rays from a starting
+surface coordinate system and propagate them in straight lines to another
+plane. The output rays are expressed in a new local surface plane.
+\end{itemize}
+\item \lstinline{bun} (ray bundles): These are arrays of \lstinline{ray}. They
+include some higher level utilities such as tracking and reporting the state of
+rays.
+\item \lstinline{lsys} (low-level system): This is a succession of
+\lstinline{lpart}.
+\item \lstinline{ltrac} (low-level tracer): This object holds both a
+\lstinline{lsys} and a \lstinline{bun}. It is responsible for applying
+operations and reporting the state of the rays to higher parts of the program.
+\end{itemize}
+
+This architecture is summarized informally using a diagram
+(\cref{fig:arch-overview}).
+
+\begin{figure}
+\includesvg[width=.9\textwidth]{images/arch/overview/overview.svg}
+\caption{\label{fig:arch-overview} Architecture overview.}
+\end{figure}

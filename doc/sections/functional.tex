@@ -1,0 +1,153 @@
+\section{Functional description}
+This section defines the program's objects and their associated
+operations. The style is minimal and close to the computations. For
+the rationale sustaining the computation and complementary information,
+see the justification section (TODO:REF).
+
+\textcolor{red}{TODO: \begin{itemize}
+\item Detail the behavior of a minimal set of components for
+only 3D mirrors.
+\end{itemize}}
+
+\subsection{base}
+Some base types are useful throughout the program. These are detailed in this
+section.
+
+\subsubsection{Point3}
+\lstinline{Point3} are points in 3D space. They are described by $(x, y, z)$
+coordinates.
+
+\subsubsection{UVec3}
+\lstinline{UVec3} are unit vectors in 3D space.
+
+\subsection{ray}
+\lstinline{ray} objects are the centerpiece of the simulation. They must be
+lightweight objects.  \lstinline{ray} holds a position and a unit vector in the
+direction and orientation of the propagation of light:
+
+\begin{itemize}
+\item \lstinline{Point3 p}: A point.
+\item \lstinline{UVec3 v}: A vector, oriented by light propagation.
+\end{itemize}
+
+The interpretation of the data contained in a \lstinline{ray} is dependent
+on context, as they are expressed in the current surface coordinate system.
+
+\textcolor{red}{Error codes for each ray?}
+
+\subsection{rop}
+
+\textcolor{red}{
+\begin{itemize}
+\item transfer operation
+\item reflection off mirrors
+\end{itemize}
+Explain rationale to have the most specialized operations possible here.
+And why operations are dissociated from lpart.}
+
+\subsection{shape}
+\lstinline{shape} objects specify an intersection operation with rays.
+The intersection operation takes a \lstinline{ray} expressed in the current
+surface coordinate system with point on the local plane. It propagates
+the ray until it hits the first encountered part of the shape. It modifies
+the ray in-place. The modified ray is still expressed in the same current
+coordinate system.
+
+Subtypes are defined.
+
+\textcolor{red}{\begin{itemize}
+\item ray/plane intersection
+\item ray/sphere intersection
+\item sphere normal vector
+\end{itemize}}
+
+\subsubsection{plane}
+A \lstinline{plane} is the local $z=0$ plane in the current coordinate system.
+It is specified implicitely.  The input ray is already on the local plane. We
+do \emph{nothing} and cannot fail.
+
+\subsubsection{sphere}
+
+\paragraph{Definition}
+The \lstinline{sphere} is specified by:
+
+\begin{itemize}
+\item $R$: radius of curvature
+\end{itemize}
+
+The sphere is defined in the \gls{LCS} by \cref{eq:sphere-def}.
+
+\begin{equation} \label{eq:sphere-def}
+x^2 + y^2 + (z - R)^2 = R^2
+\end{equation}
+
+$R$ is the signed distance $\overline{AC}$, with $C$ the sphere center
+(\cref{fig:sphere-def-lcs}). Only the hemisphere closest to the local plane
+is considered as part of the \lstinline{sphere} shape.
+
+\begin{figure} \caption{\label{fig:sphere-def-lcs} Sphere definition
+in the LCS. Both signs of $R$ are represented.}
+\includesvg[width=0.7\textwidth]{images/shape/sphere.svg}
+\end{figure}
+
+\textcolor{red}{TODO:
+1. What happens if we define a sphere with R = 0? and for small R?
+}
+
+\paragraph{intersect}
+The intersection between the input ray and the sphere is computed as
+follows.
+
+\begin{equation} \label{eq:ray-sphere-inter1}
+\begin{cases}
+b &= 2 (x \cdot l + y \cdot m - n \cdot R) \\
+c &= x^2 + y^2 \\
+\Delta &= b^2 - 4 c
+\end{cases}
+\end{equation}
+
+If $\Delta < 0$, then no intersection exists. This is a ray error case. Else,
+we continue with \cref{eq:ray-sphere-inter-tsol}.
+
+\begin{equation} \label{eq:ray-sphere-inter-tsol}
+t_\textrm{sol} = \frac{-b + \textrm{sign}(b) \cdot \sqrt{\Delta}}{2}
+\end{equation}
+
+With:
+
+\begin{equation}
+\textrm{sign}(x) = \begin{cases}
+1 & \text{if } x \geq 0 \\
+-1 & \text{otherwise}
+\end{cases}
+\end{equation}
+
+Let $(x_I, y_I, z_I)$ the intersection point we wish to compute.
+
+\begin{equation}
+z_I = t_\textrm{sol} \cdot n
+\end{equation}
+
+If $z_I \geq \abs{R}$, we have an intersection in the hemisphere furthest from
+the local plane. This is another ray error case. Else, the remainder of the
+solution can be computed.
+
+\begin{equation}
+\begin{aligned}
+x_I &= x + t_\textrm{sol} \cdot l \\
+y_I &= y + t_\textrm{sol} \cdot m
+\end{aligned}
+\end{equation}
+
+\subsection{lpart}
+
+\subsubsection{tfr}
+
+\subsubsection{surf}
+\textcolor{red}{
+\begin{itemize}
+\item Plane (which does nothing)
+\item Plane mirror
+\item Spherical mirror
+\end{itemize}}
+
