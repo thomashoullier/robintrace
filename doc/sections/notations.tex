@@ -14,3 +14,22 @@ The unary operator notation $\abs{\cdot}$ may refer to:
 \item 2-norm (or \emph{Euclidian} norm) of a vector
 \end{itemize}
 
+\section{Glossary}
+Some technical terms are recurring. They are specific either to this document
+or to optical design and thus must be defined.
+
+\subsection{Local plane}
+The \emph{local plane} is the $z=0$ plane in a \gls{LCS} (\cref{sec:LCS}).
+
+\subsection{Concave or Convex}
+We must disambiguate what we mean by \emph{convex} and \emph{concave}, as other
+conventions are used in other fields. These adjectives apply to surface
+shapes, often in the context of raytracing as seen by incoming rays.
+It refers to the sign of the curvature of the shape.  The two terms are
+illustrated on \cref{fig:concave-convex}. A surface shape may be described as
+convex/concave either globally or locally at the ray intersection point.
+
+\begin{figure} \caption{\label{fig:concave-convex} Illustration of a
+ray incoming onto a concave surface (left), and on a convex surface (right).}
+\includesvg[width=.6\textwidth]{images/glossary/concave-convex.svg}
+\end{figure}

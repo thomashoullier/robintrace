@@ -63,7 +63,8 @@ t_2 = \frac{-b - \sqrt{\Delta}}{2}
 \end{cases} \end{equation}
 
 We want the intersection to be the one closest to the local plane
-(see TODO:REF), hence with minimal $\abs{z}$ (\cref{eq:sphere-intersect-just6}).
+(see the justification below), hence with minimal $\abs{z}$
+(\cref{eq:sphere-intersect-just6}).
 
 \begin{equation} \label{eq:sphere-intersect-just6} \begin{cases}
 t_\textrm{sol} = \underset{t}{\mathrm{argmin}} \abs{t \cdot n} 
@@ -80,17 +81,41 @@ solution is \cref{eq:sphere-intersect-just7}.
 t_\textrm{sol} = \frac{-b + \textrm{sign}(b) \cdot \sqrt{\Delta}}{2}
 \end{equation}
 
-\textcolor{red}{Finish.}
+We can start applying $t_\textrm{sol}$ to the ray trajectory to find
+the intersection point.
+
+\begin{equation}
+z_I = t_\textrm{sol} \cdot n
+\end{equation}
+
+The intersection could have happened in the hemisphere which we do
+not want to consider. We consider \cref{eq:sphere-intersect-just8}.
+
+\begin{equation} \label{eq:sphere-intersect-just8}
+\begin{cases}
+\abs{z_I} < \abs{R} & \text{Intersection in valid hemisphere} \\
+\abs{z_I} \geq \abs{R} & \text{Intersection in wrong hemisphere}
+\end{cases}
+\end{equation}
+
+We then assign an error case to $\abs{z_I} \geq \abs{R}$. If the intersection
+is in the right hemisphere however, we can continue by computing
+the remaining point coordinates \cref{eq:sphere-intersect-just9}.
+
+\begin{equation} \label{eq:sphere-intersect-just9}
+\begin{cases}
+x_I &= x + t_\textrm{sol} \cdot l \\
+y_I &= y + t_\textrm{sol} \cdot m
+\end{cases} \end{equation}
+
+$\square$
 
 \paragraph{Intersection selection rationale}
+\label{sec:sphere-intersection-selection}
 
 We explain why we select the intersection solution that is closest to
 the local plane. Notably, we do not want necessarily the \emph{first}
 intersection with the hemisphere encountered by the ray in its propagation.
-
-(\textcolor{red}{TODO: Disambiguate the term convex/concave with a diagram,
-maybe somewhere else.})
-% https://www.edmundoptics.com/knowledge-center/application-notes/optics/understanding-optical-lens-geometries
 
 The hemisphere is defined as either \emph{concave} or \emph{convex} by its
 radius and by the orientation of incoming rays. This determines
@@ -134,10 +159,6 @@ review all cases on a diagram and you can convince yourself.}.
 
 \textcolor{red}{TODO:
 1. What about b = 0 case? Document (already solved in notes).
-1b. Why do we take the ray closest to z=0? This is not the
-    intersection which is encountered first by the ray.
-    Justify in a paragraph that we indeed want the closest to z=0
-    since it is where the sphere is on the "right side".
 2. Put a diagram for defining the quantities (placing I etc.)
 3. Illustrate the error cases with diagrams.
 4. Show orientation of ray has no impact on intersection.}
