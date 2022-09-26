@@ -83,42 +83,52 @@ t_\textrm{sol} = \frac{-b + \textrm{sign}(b) \cdot \sqrt{\Delta}}{2}
 \textcolor{red}{Finish.}
 
 \paragraph{Intersection selection rationale}
+
 We explain why we select the intersection solution that is closest to
 the local plane. Notably, we do not want necessarily the \emph{first}
 intersection with the hemisphere encountered by the ray in its propagation.
 
-The hemisphere is defined as either \emph{concave} or \emph{convex}
-(\textcolor{red}{TODO: Disambiguate with a diagram, maybe somewhere else.})
-by its radius and by the orientation of rays incoming rays.
-For instance, a \emph{concave} mirror applies a converging optical power
-to incoming rays. Consider the following cases:
+(\textcolor{red}{TODO: Disambiguate the term convex/concave with a diagram,
+maybe somewhere else.})
+% https://www.edmundoptics.com/knowledge-center/application-notes/optics/understanding-optical-lens-geometries
 
-\textcolor{red}{TODO: fix the list bullets that look like minus signs.
-Consider making a table instead.}
+The hemisphere is defined as either \emph{concave} or \emph{convex} by its
+radius and by the orientation of incoming rays. This determines
+the intended optical interaction of the ray with the surface.  For instance, a
+\emph{concave} mirror applies a converging optical power to incoming rays. All
+the cases are listed in \cref{tab:sphere-definition-cases}.
 
-\begin{itemize}
-\item $R<0$
-\begin{itemize}
-\item $n<0$ (rays propagating in the $-z$ direction): The sphere is defined
-as \emph{convex}.
-\item $n>0$ (rays propagating in the $+z$ direction): The sphere is defined
-as \emph{concave}.
+\begin{table} \caption{\label{tab:sphere-definition-cases} Intended sphere
+shape as seen by incoming rays.}
+\begin{tabular}{| c | c | c |} \hline
+-       & $n < 0$ & $n > 0$ \\ \hline
+$R < 0$ & convex  & concave \\ \hline
+$R > 0$ & concave & convex  \\
+\hline \end{tabular} \end{table}
+
+A ray at one of its two eventual points of intersection with a sphere can be
+said to either \emph{exit} or \emph{enter} the sphere, along its own
+propagation direction. The shape of the sphere as seen by the oriented incoming
+ray is determined by the alternative between \emph{exitting} and
+\emph{entering}.  The rays incoming onto a \emph{concave} sphere must intersect
+the sphere at the point they are \emph{exitting} the sphere.  Conversely, the
+rays incoming onto a \emph{convex} sphere must intersect the sphere at the
+point they are \emph{entering} the sphere.
+
+Consider that: \begin{itemize}
+\item Out of the two eventual intersection points, one is \emph{exitting},
+the other is \emph{entering}.
+\item The ray, along its propagation, must first \emph{enter} the sphere
+      and then \emph{exit}.
+\item For the \emph{convex} (or \emph{entering}) case, the entrance
+happens closest to the local plane.
+\item For the \emph{concave} (or \emph{exitting}) case, the exit
+happens closest to the local plane.
 \end{itemize}
-\item $R>0$
-\begin{itemize}
-\item $n<0$: \emph{concave}
-\item $n>0$: \emph{convex}
-\end{itemize} \end{itemize}
 
-Therefore, the ray must intersect at a point where the sphere is seen
-as the right shape. Looking at the figure (\textcolor{red}{TODO}), we
-convinced ourselves that the wanted intersection is always the one
-closest to the local plane.
-
-\textcolor{red}{TODO: Consider a more formal proof? Maybe with the
-concept of going inside/outside the sphere.
-For one ray direction, we consider we start from inside the sphere,
-for the other we start from outside the sphere.}.
+Hence, the intersection point we need is always the one closest to the
+local plane\footnote{Admittedly, this justification is confuse. Please
+review all cases on a diagram and you can convince yourself.}.
 
 \paragraph{b = 0 case}
 
