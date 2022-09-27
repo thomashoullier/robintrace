@@ -138,28 +138,82 @@ ray is determined by the alternative between \emph{exitting} and
 \emph{entering}.  The rays incoming onto a \emph{concave} sphere must intersect
 the sphere at the point they are \emph{exitting} the sphere.  Conversely, the
 rays incoming onto a \emph{convex} sphere must intersect the sphere at the
-point they are \emph{entering} the sphere.
+point they are \emph{entering} the sphere. \cref{tab:sphere-exit-entrance}
+summarizes the intersection point we need.
+
+\begin{table} \caption{\label{tab:sphere-exit-entrance} Intersection point
+to compute for each case.}
+\begin{tabular}{| c | c | c |} \hline
+-       & $n < 0$   & $n > 0$  \\ \hline
+$R < 0$ & entrance  & exit     \\ \hline
+$R > 0$ & exit      & entrance \\
+\hline \end{tabular} \end{table}
 
 Consider that: \begin{itemize}
 \item Out of the two eventual intersection points, one is \emph{exitting},
 the other is \emph{entering}.
-\item The ray, along its propagation, must first \emph{enter} the sphere
-      and then \emph{exit}.
-\item For the \emph{convex} (or \emph{entering}) case, the entrance
-happens closest to the local plane.
-\item For the \emph{concave} (or \emph{exitting}) case, the exit
-happens closest to the local plane.
+\item The ray, along its propagation (increasing $t$), must first \emph{enter}
+the sphere and then \emph{exit}.
 \end{itemize}
 
-Hence, the intersection point we need is always the one closest to the
-local plane\footnote{Admittedly, this justification is confuse. Please
-review all cases on a diagram and you can convince yourself.}.
+We note $t_\textrm{en}$ the parameter along the ray trajectory at the sphere
+entrance, and $t_\textrm{ex}$ the parameter at the sphere exit. Necessarily,
+we have $t_\textrm{ex} > t_\textrm{en}$. Incidentally, this allows assigning
+either the entrance or exit to the $t_\textrm{sol}$ parameter
+\cref{eq:sphere-intersect-just5}. This is another way of disambiguating the
+solution $t_\textrm{sol}$, but we want to prove the solution is closest to the
+local plane.
+
+\begin{equation}
+\begin{cases}
+t_\textrm{ex} &= \frac{-b + \sqrt{\Delta}}{2} \\
+t_\textrm{en} &= \frac{-b - \sqrt{\Delta}}{2}
+\end{cases}
+\end{equation}
+
+The intersection point happens at $z = t \cdot n$, in each case we can
+determine the order between $z_\textrm{ex} = t_\textrm{ex} \cdot n$ and
+$z_\textrm{en} = t_\textrm{en} \cdot n$.
+
+\begin{itemize}
+\item $n>0$: $z_\textrm{ex} > z_\textrm{en}$
+\item $n<0$: $z_\textrm{ex} < z_\textrm{en}$
+\end{itemize}
+
+By our definition of the sphere, any intersection point $z$ coordinate
+has a sign given by the sign of $R$.
+
+\begin{itemize}
+\item $R>0$: $z>0$
+\item $R<0$: $z<0$
+\end{itemize}
+
+Hence we can deduce an order between $\abs{z_\textrm{ex}}$ and
+$\abs{z_\textrm{en}}$ depending on the case
+(\cref{tab:sphere-intersection-zorder}).
+
+\begin{table} \caption{\label{tab:sphere-intersection-zorder} 
+Order in $\abs{z}$ of intersection points.}
+\begin{tabular}{| c | c | c |} \hline
+-       & $n < 0$   & $n > 0$  \\ \hline
+$R < 0$ & $\abs{z_\textrm{en}} < \abs{z_\textrm{ex}}$ &
+          $\abs{z_\textrm{en}} > \abs{z_\textrm{ex}}$     \\ \hline
+$R > 0$ & $\abs{z_\textrm{en}} > \abs{z_\textrm{ex}}$ &
+          $\abs{z_\textrm{en}} < \abs{z_\textrm{ex}}$ \\
+\hline \end{tabular} \end{table}
+
+Finally, we can conclude by crossing \cref{tab:sphere-exit-entrance}
+and \cref{tab:sphere-intersection-zorder}, that the intersection point
+we need to pick is always the one with minimal $\abs{z}$. Hence the
+solution we need is always closest to the local plane.\footnote{Admittedly,
+this justification is laborious. The reader can convince themselves
+that the solution intersection is the one closest to the local plane just
+by looking at the diagrams.}
 
 \paragraph{b = 0 case}
 
 \textcolor{red}{TODO:
 1. What about b = 0 case? Document (already solved in notes).
 2. Put a diagram for defining the quantities (placing I etc.)
-3. Illustrate the error cases with diagrams.
-4. Show orientation of ray has no impact on intersection.}
+3. Illustrate the error cases with diagrams.}
 
