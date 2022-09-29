@@ -211,9 +211,22 @@ that the solution intersection is the one closest to the local plane just
 by looking at the diagrams.}
 
 \paragraph{b = 0 case}
+Looking at \cref{eq:ray-sphere-inter-tsol}, it may seem numerically
+unstable around $b = 0$ due to the term $\textrm{sign}(b) \cdot \sqrt{\Delta}$.
+
+However, at this stage of the computation, we have
+\cref{eq:sphere-inter-just10}.
+
+\begin{equation} \label{eq:sphere-inter-just10} \begin{cases}
+b^2 &= \Delta + 4 c \\
+\Delta &> 0 \\
+c &\geq 0
+\end{cases} \end{equation}
+
+Hence, $\abs{b}$ can only near zero when both $\Delta$ and $c$ are near zero.
+Thus the term $\textrm{sign}(b) \cdot \sqrt{\Delta}$ may be numerically
+unstable in sign, but is near zero in this region.
 
 \textcolor{red}{TODO:
-1. What about b = 0 case? Document (already solved in notes).
-2. Put a diagram for defining the quantities (placing I etc.)
 3. Illustrate the error cases with diagrams.}
 
