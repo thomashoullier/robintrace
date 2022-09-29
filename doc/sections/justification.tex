@@ -53,7 +53,14 @@ The cases in \cref{eq:sphere-intersect-just4} are distinguished.
 We discard the case where no intersection is found. We also discard
 the tangency case for two reasons. First, numerically, it cannot be checked
 rigorously in our framework. Second, we see no application within our scope
-that would exhibit this case nominally.
+that would exhibit this case nominally. These discarded cases are illustrated
+in \cref{fig:sphere-inter-delta}.
+
+\begin{figure} \caption{\label{fig:sphere-inter-delta} Sphere intersection
+error cases on the sign of $\Delta$.}
+\includesvg[height=.2\textheight]
+           {images/shape/sphere-rayinter-errorcase-delta.svg}
+\end{figure}
 
 The two intersections are given by \cref{eq:sphere-intersect-just5}.
 
@@ -98,15 +105,21 @@ not want to consider. We consider \cref{eq:sphere-intersect-just8}.
 \end{cases}
 \end{equation}
 
-We then assign an error case to $\abs{z_I} \geq \abs{R}$. If the intersection
-is in the right hemisphere however, we can continue by computing
-the remaining point coordinates \cref{eq:sphere-intersect-just9}.
+We then assign an error case to $\abs{z_I} \geq \abs{R}$
+(\cref{fig:sphere-inter-error-zi}).  If the intersection is in the right
+hemisphere however, we can continue by computing the remaining point
+coordinates \cref{eq:sphere-intersect-just9}.
 
 \begin{equation} \label{eq:sphere-intersect-just9}
 \begin{cases}
 x_I &= x + t_\textrm{sol} \cdot l \\
 y_I &= y + t_\textrm{sol} \cdot m
 \end{cases} \end{equation}
+
+\begin{figure} \caption{\label{fig:sphere-inter-error-zi} Sphere intersection
+error case on the hemisphere being intersected.}
+\includesvg[height=.2\textheight]{images/shape/sphere-rayinter-errorcase-zi.svg}
+\end{figure}
 
 $\square$
 
@@ -228,5 +241,7 @@ Thus the term $\textrm{sign}(b) \cdot \sqrt{\Delta}$ may be numerically
 unstable in sign, but is near zero in this region.
 
 \textcolor{red}{TODO:
-3. Illustrate the error cases with diagrams.}
+3. Illustrate the error cases with diagrams.
+4. Set the figure size of all figures to whichever limit comes first between
+   .2 textheight and .9 textwidth.}
 
