@@ -6,6 +6,12 @@ sphere::sphere (double _R) {
   R = _R;
 }
 
+/* Print method */
+std::ostream& operator<< (std::ostream &out, sphere const& s) {
+  out << "sphere(R = " << s.R << ")";
+  return out;
+}
+
 /* intersect */
 void sphere::intersect (ray &r) {
   double b = 2 * (r.p.x * r.v.l + r.p.y * r.v.m - r.v.n * R);

@@ -1,7 +1,20 @@
 #include "ray/ray.h"
 
 ray::ray () {
+  // Constructor
   p = Point3();
   v = UVec3();
   code = 0;
+}
+
+ray::ray (Point3 _p, UVec3 _v) {
+  // Construct + initialize
+  p = _p; v = _v;
+  code = 0;
+}
+
+std::ostream& operator<< (std::ostream &out, ray const& r) {
+  // Printer method
+  out << "ray(" << r.p << ", " << r.v << ", code: " << r.code << ")";
+  return out;
 }
