@@ -5,7 +5,7 @@
 
 class shape {
   public:
-    virtual void intersect (ray r) = 0;
+    virtual void intersect (ray &r) = 0;
 };
 
 #endif //SHAPE_H

@@ -5,7 +5,7 @@
 
 class plane: public shape {
   public:
-    void intersect (ray r) {(void)(r);}; // Do nothing.
+    void intersect (ray &r) {(void)(r);}; // Do nothing.
 };
 
 #endif //PLANE_H

@@ -12,9 +12,4 @@ class ray {
     ray();
 };
 
-ray::ray () {
-  p = Point3();
-  v = UVec3();
-}
-
 #endif // RAY_H
