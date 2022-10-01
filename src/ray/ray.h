@@ -8,6 +8,7 @@ class ray {
   public:
     Point3 p;
     UVec3 v;
+    int code;
     
     ray();
 };

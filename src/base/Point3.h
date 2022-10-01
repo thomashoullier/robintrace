@@ -6,6 +6,8 @@ class Point3 {
     double x;
     double y;
     double z;
+
+  Point3();
 };
 
 #endif // POINT3_H

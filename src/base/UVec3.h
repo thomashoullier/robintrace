@@ -6,6 +6,8 @@ class UVec3 {
     double l;
     double m;
     double n;
+
+  UVec3();
 };
 
 #endif //UVEC3_H
