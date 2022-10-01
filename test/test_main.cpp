@@ -1,5 +1,4 @@
 #define CATCH_CONFIG_MAIN
-#define CATCH_CONFIG_ENABLE_BENCHMARKING
 #include <catch2/catch.hpp>
 
 #include <cmath>
@@ -36,12 +35,7 @@ TEST_CASE("Shape intersections", "[shape]") {
   SECTION("sphere") {
     s.intersect(r);
     REQUIRE(r.code == 0);
-    /* TODO: Value assertions. Catch2 has a REQUIRE for floats. */
+    /* TODO: Value assertions. Catch2 has a REQUIRE for floats.
+             But maybe we need our own ray comparison util. */
   }
-
-  BENCHMARK("sphere/ray intersection") {
-    return s.intersect(r);
-    /* TODO: Generate a vector of rays to apply the benchmark to.
-       https://github.com/catchorg/Catch2/blob/v2.x/docs/benchmarks.md */
-  };
 }

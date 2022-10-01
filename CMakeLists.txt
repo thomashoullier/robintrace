@@ -14,10 +14,14 @@ file(GLOB_RECURSE SOURCES ./src/*.cpp)
 add_library(Source INTERFACE)
 target_include_directories(Source INTERFACE ./src)
 
-add_executable(main ./src/main.cpp ${SOURCES})
+add_executable(main ./main.cpp ${SOURCES})
 target_link_libraries(main PRIVATE Source)
 
 ## Test
 find_package(Catch2 REQUIRED)
 add_executable(test ./test/test_main.cpp ${SOURCES})
 target_link_libraries(test PRIVATE Catch2::Catch2WithMain Source)
+
+## Benchmark
+add_executable(benchmark ./benchmark/benchmark.cpp ${SOURCES})
+target_link_libraries(benchmark PRIVATE Catch2::Catch2WithMain Source)
