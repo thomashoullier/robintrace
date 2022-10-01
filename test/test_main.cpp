@@ -3,10 +3,7 @@
 
 #include <cmath>
 
-#include "base/Point3.h"
-#include "base/UVec3.h"
-#include "ray/ray.h"
-#include "shape/sphere.h"
+#include "poaky.h"
 
 TEST_CASE("Objects instantiation", "[constructors]") {
   SECTION("base") {

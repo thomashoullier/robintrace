@@ -1,9 +1,7 @@
 #include <iostream>
-#include "ray/ray.h"
-#include "shape/plane.h"
-#include "shape/sphere.h"
-#include "base/Point3.h"
-#include "base/UVec3.h"
+#include <cmath>
+
+#include "poaky.h"
 
 int main(){
   ray ray1;
@@ -24,16 +22,12 @@ int main(){
 
   UVec3 v(0.2, 0.1, 0.8);
   std::cout << v << std::endl;
+
+  double n = std::sqrt(1 - 0.01 * 0.01 - 0.005 * 0.005);
+  ray rtest(Point3(0.5, -0.32, 0), UVec3(0.01, 0.005, n));
+  sphere stest(5);
   
-  ray r(Point3(1, -1, 0), UVec3(0, -0.2, 0.9));
-  std::cout << r << std::endl;
-
-  std::cout << "Ray z: " << ray1.p.z << std::endl;
-  std::cout << "Ray code: " << ray1.code << std::endl;
-
-  sphere1.intersect(ray1);
-
-  std::cout << "Ray z after sphere intersect: " << ray1.p.z << std::endl;
-  std::cout << "Ray code: " << ray1.code << std::endl;
-
+  std::cout << "Initial ray: " << rtest << std::endl;
+  stest.intersect(rtest);
+  std::cout << "After sphere intersection: " << rtest << std::endl;
 }
