@@ -9,21 +9,10 @@ set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -O2 -Wextra")
 set(CMAKE_SOURCE_DIR ${CMAKE_BINARY_DIR}/src)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-file(GLOB SOURCES
-     ./src/base/*.cpp
-     ./src/ray/*.cpp
-     ./src/shape/*.cpp)
+file(GLOB_RECURSE SOURCES ./src/*.cpp)
 
 add_library(Source INTERFACE)
 target_include_directories(Source INTERFACE ./src)
-
-#add_executable(main 
-#               ./src/base/Point3.cpp
-#               ./src/base/UVec3.cpp
-#               ./src/ray/ray.cpp
-#               ./src/shape/plane.cpp
-#               ./src/shape/sphere.cpp
-#               ./src/main.cpp )
 
 add_executable(main ./src/main.cpp ${SOURCES})
 target_link_libraries(main PRIVATE Source)
