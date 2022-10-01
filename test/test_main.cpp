@@ -1,8 +1,13 @@
+#define CATCH_CONFIG_MAIN
+#define CATCH_CONFIG_ENABLE_BENCHMARKING
 #include <catch2/catch.hpp>
+
+#include <cmath>
 
 #include "base/Point3.h"
 #include "base/UVec3.h"
 #include "ray/ray.h"
+#include "shape/sphere.h"
 
 TEST_CASE("Objects instantiation", "[constructors]") {
   SECTION("base") {
@@ -15,7 +20,28 @@ TEST_CASE("Objects instantiation", "[constructors]") {
     ray r = ray(); (void)r;
     SUCCEED("'ray' instantiated.");
   }
+}
 
-  /* TODO: Try benchmark */
+TEST_CASE("Shape intersections", "[shape]") {
+  ray r = ray();
+  r.p.x = 0.5;
+  r.p.y = -0.32;
+  r.p.z = 0;
+  r.v.l = 0.01;
+  r.v.m = -0.005;
+  r.v.n = std::sqrt(1 - r.v.l * r.v.l - r.v.m * r.v.m);
+  
+  sphere s = sphere(5.0);
+  
+  SECTION("sphere") {
+    s.intersect(r);
+    REQUIRE(r.code == 0);
+    /* TODO: Value assertions. Catch2 has a REQUIRE for floats. */
+  }
 
+  BENCHMARK("sphere/ray intersection") {
+    return s.intersect(r);
+    /* TODO: Generate a vector of rays to apply the benchmark to.
+       https://github.com/catchorg/Catch2/blob/v2.x/docs/benchmarks.md */
+  };
 }
