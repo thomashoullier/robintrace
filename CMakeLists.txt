@@ -16,4 +16,11 @@ add_executable(main
                ./src/shape/plane.cpp
                ./src/shape/sphere.cpp
                ./src/main.cpp )
+
 target_include_directories(main PRIVATE ./src/ray/ ./src/base/ ./src/shape/)
+
+## Test
+find_package(Catch2 REQUIRED)
+add_executable(test ./test/test_main.cpp ./src/base/Point3.cpp)
+target_link_libraries(test PRIVATE Catch2::Catch2WithMain)
+target_include_directories(test PRIVATE ./src/base/)
