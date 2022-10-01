@@ -1,8 +1,8 @@
 #ifndef RAY_H
 #define RAY_H
 
-#include "Point3.h"
-#include "UVec3.h"
+#include "base/Point3.h"
+#include "base/UVec3.h"
 
 class ray {
   public:

@@ -1,4 +1,4 @@
-#include "sphere.h"
+#include "shape/sphere.h"
 #include <cmath>
 
 /* Constructor */

@@ -1,7 +1,7 @@
 #ifndef SPHERE_H
 #define SPHERE_H
 
-#include "shape.h"
+#include "shape/shape.h"
 
 class sphere: public shape {
   public:

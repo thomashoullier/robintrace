@@ -1,7 +1,7 @@
 #ifndef PLANE_H
 #define PLANE_H
 
-#include "shape.h"
+#include "shape/shape.h"
 
 class plane: public shape {
   public:

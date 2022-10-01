@@ -1,7 +1,7 @@
 #include <iostream>
-#include "ray.h"
-#include "plane.h"
-#include "sphere.h"
+#include "ray/ray.h"
+#include "shape/plane.h"
+#include "shape/sphere.h"
 
 int main(){
   ray ray1;
