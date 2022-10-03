@@ -23,8 +23,10 @@ int main(){
   UVec3 v(0.2, 0.1, 0.8);
   std::cout << v << std::endl;
 
-  double n = std::sqrt(1 - 0.01 * 0.01 - 0.005 * 0.005);
-  ray rtest(Point3(0.5, -0.32, 0), UVec3(0.01, 0.005, n));
+  double l = 0.01;
+  double m = -0.005;
+  double n = std::sqrt(1 - l*l - m*m);
+  ray rtest(Point3(0.5, -0.32, 0), UVec3(l, m, n));
   sphere stest(5);
   
   std::cout << "Initial ray: " << rtest << std::endl;

@@ -4,6 +4,7 @@
 #include <cmath>
 
 #include "poaky.h"
+#include "sphere_intersect_valid.h"
 
 TEST_CASE("Objects instantiation", "[constructors]") {
   SECTION("base") {
@@ -47,3 +48,5 @@ TEST_CASE("Shape intersections", "[shape]") {
              But maybe we need our own ray comparison util. */
   }
 }
+
+int a = foo();

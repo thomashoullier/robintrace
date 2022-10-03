@@ -19,8 +19,12 @@ target_link_libraries(main PRIVATE Source)
 
 ## Test
 find_package(Catch2 REQUIRED)
-add_executable(test ./test/test_main.cpp ${SOURCES})
-target_link_libraries(test PRIVATE Catch2::Catch2WithMain Source)
+find_package(CGAL)
+set(CMAKE_BUILD_TYPE "Release")
+add_executable(test ./test/test_main.cpp ${SOURCES}
+                    ./test/sphere_intersect_valid.cpp)
+target_link_libraries(test PRIVATE Catch2::Catch2WithMain Source
+                                   CGAL::CGAL)
 
 ## Benchmark
 add_executable(benchmark ./benchmark/benchmark.cpp ${SOURCES})
