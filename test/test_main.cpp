@@ -16,9 +16,20 @@ TEST_CASE("Objects instantiation", "[constructors]") {
     ray r = ray(); (void)r;
     SUCCEED("'ray' instantiated.");
   }
+
+  SECTION("shape") {
+    plane pl = plane(); (void)pl;
+    SUCCEED("'plane instantiated.");
+
+    sphere s = sphere(10.0); (void)s;
+    SUCCEED("'sphere' instantiated.");
+  }
 }
 
+/*TODO: Accessors */
+
 TEST_CASE("Shape intersections", "[shape]") {
+  // TODO: Check tracing happened before checking result.
   ray r = ray();
   r.p.x = 0.5;
   r.p.y = -0.32;
