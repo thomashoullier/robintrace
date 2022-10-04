@@ -40,6 +40,8 @@ TEST_CASE("Shape intersections", "[shape]") {
   r.v.n = std::sqrt(1 - r.v.l * r.v.l - r.v.m * r.v.m);
   
   sphere s = sphere(5.0);
+
+  ray r_valid = foo(s, r); (void)(r_valid);
   
   SECTION("sphere") {
     s.intersect(r);
@@ -49,4 +51,3 @@ TEST_CASE("Shape intersections", "[shape]") {
   }
 }
 
-int a = foo();
