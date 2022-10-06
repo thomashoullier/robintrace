@@ -32,39 +32,30 @@ bool is_closer_tolocalplane (Point_3f p1, Point_3f p2) {
 }
 
 ray foo (const sphere s, const ray r) {
-  std::cout << "CGAL sphere intersection:" << std::endl;
-
   Sphere_3 S = sphere_tocgal(s);
   Line_3 L = ray_tocgal(r);
   
   // Intersection
   std::vector <CGAL::Object> intersecs;
   CGAL::intersection(S, L, std::back_inserter(intersecs));
-  std::cout << "Number of intersections: " << intersecs.size() << std::endl;
  
   if (intersecs.size() == 2) {
     Point_3f p1p = intersection_to_point(intersecs[0]);
     Point_3f p2p = intersection_to_point(intersecs[1]);
 
-    std::cout << "Point1: " << p1p << std::endl;
-    std::cout << "Point2: " << p2p << std::endl;
-
     // Select the closest point to z=0.
     std::vector<Point_3f> v {p1p, p2p};
     auto pmin = std::min_element(v.begin(), v.end(), is_closer_tolocalplane);
     Point_3f p = *pmin;
-    std::cout << "Point: " << p << std::endl;
 
-    // Check for intersection beyond hemisphere.
-    // TODO
+    if (std::abs(p.z()) >= std::abs(s.R)) { // Error case beyond hemisphere
+      ray r_error = ray();
+      r_error.code = 2;
+      return r_error;}
 
-    ray r_valid(Point3(p1p.x(), p1p.y(), p1p.z()),
-              UVec3(r.v.l, r.v.m, r.v.n));
-  return r_valid;
-  } else {
-    std::cout << "Error case: No intersection found." << std::endl;
+    ray r_valid(Point3(p.x(), p.y(), p.z()), UVec3(r.v.l, r.v.m, r.v.n));
+    return r_valid;} 
+  else {
     ray r_error = ray();
     r_error.code = 1;
-    return r_error;
-  }
-}
+    return r_error;}}

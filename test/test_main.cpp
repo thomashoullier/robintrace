@@ -4,7 +4,8 @@
 #include <cmath>
 
 #include "poaky.h"
-#include "sphere_intersect_valid.h"
+#include "cgal_sphere_intersect/sphere_intersect_valid.h"
+#include "utils/ray_eq.h"
 
 TEST_CASE("Objects instantiation", "[constructors]") {
   SECTION("base") {
@@ -40,14 +41,11 @@ TEST_CASE("Shape intersections", "[shape]") {
   r.v.n = std::sqrt(1 - r.v.l * r.v.l - r.v.m * r.v.m);
   
   sphere s = sphere(5.0);
-
-  ray r_valid = foo(s, r); (void)(r_valid);
   
   SECTION("sphere") {
     s.intersect(r);
-    REQUIRE(r.code == 0);
-    /* TODO: Value assertions. Catch2 has a REQUIRE for floats.
-             But maybe we need our own ray comparison util. */
+    ray r_valid = foo(s, r);
+    ray_eq(r, r_valid);
   }
 }
 

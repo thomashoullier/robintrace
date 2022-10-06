@@ -10,9 +10,12 @@ set(CMAKE_SOURCE_DIR ${CMAKE_BINARY_DIR}/src)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 file(GLOB_RECURSE SOURCES ./src/*.cpp)
+file(GLOB_RECURSE TEST_SRC ./test/*.cpp)
 
 add_library(Source INTERFACE)
 target_include_directories(Source INTERFACE ./src)
+add_library(Test_src INTERFACE)
+target_include_directories(Test_src INTERFACE ./test)
 
 add_executable(main ./main.cpp ${SOURCES})
 target_link_libraries(main PRIVATE Source)
@@ -21,10 +24,9 @@ target_link_libraries(main PRIVATE Source)
 find_package(Catch2 REQUIRED)
 find_package(CGAL)
 set(CMAKE_BUILD_TYPE "Release")
-add_executable(test ./test/test_main.cpp ${SOURCES}
-                    ./test/sphere_intersect_valid.cpp)
-target_link_libraries(test PRIVATE Catch2::Catch2WithMain Source
-                                   CGAL::CGAL)
+add_executable(test ./test/test_main.cpp ${SOURCES} ${TEST_SRC})
+target_link_libraries(test PRIVATE Catch2::Catch2WithMain CGAL::CGAL
+                                   Source Test_src)
 
 ## Benchmark
 add_executable(benchmark ./benchmark/benchmark.cpp ${SOURCES})
