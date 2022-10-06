@@ -1,32 +1,4 @@
-#define CATCH_CONFIG_MAIN
-#include <catch2/catch.hpp>
-
-#include <cmath>
-
-#include "poaky.h"
-#include "cgal_sphere_intersect/sphere_intersect_valid.h"
-#include "utils/ray_eq.h"
-
-TEST_CASE("Objects instantiation", "[constructors]") {
-  SECTION("base") {
-    Point3 p = Point3(); (void)p;
-    UVec3 v = UVec3(); (void)v;
-    SUCCEED("'base' objects instantiated.");
-  }
-
-  SECTION("ray") {
-    ray r = ray(); (void)r;
-    SUCCEED("'ray' instantiated.");
-  }
-
-  SECTION("shape") {
-    plane pl = plane(); (void)pl;
-    SUCCEED("'plane instantiated.");
-
-    sphere s = sphere(10.0); (void)s;
-    SUCCEED("'sphere' instantiated.");
-  }
-}
+#include "test_main.h"
 
 /*TODO: Accessors */
 
