@@ -44,7 +44,7 @@ TEST_CASE("Shape intersections", "[shape]") {
   
   SECTION("sphere") {
     s.intersect(r);
-    ray r_valid = foo(s, r);
+    ray r_valid = cgal_sphere_intersect(s, r);
     ray_eq(r, r_valid);
   }
 }

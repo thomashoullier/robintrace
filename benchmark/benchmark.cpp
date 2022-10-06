@@ -1,10 +1,4 @@
-#define CATCH_CONFIG_MAIN
-#define CATCH_CONFIG_ENABLE_BENCHMARKING
-#include <catch2/catch.hpp>
-
-#include <cmath>
-
-#include "poaky.h"
+#include "benchmark.h"
 
 TEST_CASE("Shape intersections", "[shape]") {
 
@@ -16,5 +10,9 @@ TEST_CASE("Shape intersections", "[shape]") {
     return s.intersect(r);
     /* TODO: Generate a vector of rays to apply the benchmark to.
        https://github.com/catchorg/Catch2/blob/v2.x/docs/benchmarks.md */
+  };
+
+  BENCHMARK("CGAL sphere/ray intersection") {
+    return cgal_sphere_intersect(s, r);
   };
 }

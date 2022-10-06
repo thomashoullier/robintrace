@@ -31,7 +31,7 @@ bool is_closer_tolocalplane (Point_3f p1, Point_3f p2) {
   return (std::abs(p1.z()) < std::abs(p2.z()));
 }
 
-ray foo (const sphere s, const ray r) {
+ray cgal_sphere_intersect (const sphere s, const ray r) {
   Sphere_3 S = sphere_tocgal(s);
   Line_3 L = ray_tocgal(r);
   

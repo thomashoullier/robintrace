@@ -27,7 +27,8 @@ typedef Kf::Point_3 Point_3f;
 #include <algorithm>
 #include <vector>
 
-ray foo (const sphere s, const ray r);
+ray cgal_sphere_intersect (const sphere s, const ray r);
+
 Point_3f intersection_to_point (CGAL::Object inter);
 Sphere_3 sphere_tocgal (sphere s);
 Line_3 ray_tocgal (ray r);
