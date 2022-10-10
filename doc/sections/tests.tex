@@ -3,9 +3,35 @@ We document what tests are performed on the components of the software.
 We also detail a representative performance report.
 
 \subsection{Tests}
-\textcolor{red}{TODO:
-* Visualize test cases in jupyter notebooks? For instance, ensure that
-  a sphere intersection lands on the sphere visually.}
+Our rationale for the desired degree to which the program is tested is the
+following:
+
+\begin{itemize}
+\item Every function meant to be called by the user must be called at least
+      once.
+\item Every eventual error case and condition must be reached at least once.
+\end{itemize}
+
+As the development and maintenance proceed, we add cases arising from fixed
+bugs in order to prevent regression.
+
+At present the test suite includes:
+
+\begin{itemize}
+\item User objects instantiators.
+\item Intersection functions.
+\end{itemize}
+
+\cref{tab:test-method} lists the validation method for each function.
+
+\begin{table} \caption{\label{tab:test-method} Test method for each function.}
+\begin{tabular}{| c | c | c |} \hline
+Function & Method & Comments \\ \hline
+instantiators & Pass & - \\ \hline
+\textit{sphere::intersect} & Reference & Validation against CGAL \\
+\hline \end{tabular} \end{table}
+
+\textcolor{red}{TODO: * Document test coverage report here.}
 
 \subsection{Performance report}
 A performance report helps both the user and developer understand the strengths
