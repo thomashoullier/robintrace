@@ -17,8 +17,10 @@ TEST_CASE("Objects instantiation", "[constructors]") {
   }
 
   SECTION("ray") {
-    ray r = ray(); (void)r;
+    ray r1 = ray(); (void)r1;
     SUCCEED("'ray' instantiated.");
+    ray r2 = ray(Point3(1, 2, 3), UVec3(0, 0, 1)); (void)r2;
+    SUCCEED("'ray' initialization constructor.");
   }
 
   SECTION("shape") {
