@@ -23,9 +23,9 @@ TEST_CASE("Shape intersections", "[shape]") {
     
     sphere s = sphere(5.0);
   
+    ray r_valid = cgal_sphere_intersect(s, r);
     s.intersect(r);
     SUCCEED("ray/sphere intersection happened.");
-    ray r_valid = cgal_sphere_intersect(s, r);
     ray_eq(r, r_valid);
   }
 
@@ -35,9 +35,10 @@ TEST_CASE("Shape intersections", "[shape]") {
     double n = std::sqrt(1 - l*l - m*m);
     ray r(Point3(4.3, -0.32, 0), UVec3(l, m, n));
     
+    ray r_valid = cgal_sphere_intersect(s, r);
     s.intersect(r);
     SUCCEED("ray/sphere intersection happened.");
-    REQUIRE(r.code == 1);
+    ray_eq(r, r_valid);
   }
 
   SECTION("sphere error: beyond first hemisphere.") {
@@ -46,9 +47,10 @@ TEST_CASE("Shape intersections", "[shape]") {
     double n = std::sqrt(1 - l*l - m*m);
     ray r(Point3(10, -8.32, 0), UVec3(l, m, n));
 
+    ray r_valid = cgal_sphere_intersect(s, r);
     s.intersect(r);
     SUCCEED("ray/sphere intersection happened.");
-    REQUIRE(r.code == 2);
+    ray_eq(r, r_valid);
   }
 }
 
