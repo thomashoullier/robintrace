@@ -9,6 +9,7 @@ set(CMAKE_BUILD_TYPE "Release")
 ## Folders
 set(CMAKE_SOURCE_DIR ${CMAKE_BINARY_DIR}/src)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/Modules)
 
 ## Main
 file(GLOB_RECURSE SOURCES ./src/*.cpp)
@@ -40,3 +41,17 @@ add_executable(benchmark ./benchmark/benchmark.cpp ${SOURCES}
                          ./test/cgal_sphere_intersect/sphere_intersect_valid.cpp)
 target_link_libraries(benchmark PRIVATE Catch2::Catch2WithMain CGAL::CGAL
                                         Source Benchmark CGAL_valid)
+
+## Test coverage
+include(CodeCoverage)
+add_executable(coverage ${SOURCES} ${TEST_SRC})
+target_link_libraries(coverage PRIVATE Catch2::Catch2WithMain CGAL::CGAL
+                                       Source Test_src)
+target_compile_options(coverage PRIVATE 
+                       -O0 -Wall -fprofile-arcs -ftest-coverage)
+setup_target_for_coverage_gcovr_html(
+  NAME coverage_report
+  EXECUTABLE coverage
+  BASE_DIRECTORY "${PROJECT_SOURCE_DIR}"
+  EXCLUDE "test/*")
+

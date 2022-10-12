@@ -14,5 +14,16 @@ cmake ..
 cmake --build .
 ```
 
+## Coverage report
+We use the cmake module
+[CodeCoverage](https://github.com/bilke/cmake-modules/blob/master/CodeCoverage.cmake),
+with the GCOVR tool.
+
+Build the report with
+
+```shell
+make coverage_report
+```
+
 ## Licensing
 The software is licensed under MIT, the documentation under CC-BY.
