@@ -11,5 +11,6 @@
 #include "utils/ray_eq.h"
 
 #include "instantiators.h"
+#include "printers.h"
 
 #endif // TEST_MAIN_H

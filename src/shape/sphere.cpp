@@ -18,7 +18,7 @@ void sphere::intersect (ray &r) {
   double c = r.p.x * r.p.x + r.p.y * r.p.y;
   double delta = b * b - 4 * c;
   
-  if (delta <= 0) {
+  if (delta <= 0) { // Error: no intersection.
     r.code = 1;
     return;
   }
@@ -27,7 +27,7 @@ void sphere::intersect (ray &r) {
   double tsol = (-b + sigb * std::sqrt(delta)) / 2.0;
 
   r.p.z = tsol * r.v.n;
-  if (std::abs(r.p.z) >= std::abs(R)) {
+  if (std::abs(r.p.z) >= std::abs(R)) { // Error: Beyond first hemisphere.
     r.code = 2;
     return;
   }
