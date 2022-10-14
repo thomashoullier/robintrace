@@ -75,9 +75,7 @@ coordinate system.
 Subtypes are defined.
 
 \textcolor{red}{\begin{itemize}
-\item ray/plane intersection
-\item ray/sphere intersection
-\item sphere normal vector
+\item Describe the virtual shape methods.
 \end{itemize}}
 
 \subsubsection{plane}
@@ -88,6 +86,9 @@ It is specified implicitely.
 \paragraph{intersect}
 The input ray is already on the local plane. We do \emph{nothing} and cannot
 fail.
+
+\paragraph{normal}
+\textcolor{red}{TODO}
 
 \subsubsection{sphere}
 
@@ -169,6 +170,14 @@ x_I &= x + t_\textrm{sol} \cdot l \\
 y_I &= y + t_\textrm{sol} \cdot m
 \end{aligned}
 \end{equation}
+
+\paragraph{normal}
+The unit vector $\overrightarrow{N}$ normal to the surface of the sphere at
+the query position $(x_q, y_q)$, and with positive $z$ LCS coordinate, is
+computed as follows.
+
+\textcolor{red}{TODO:
+* Do we always want N pointed towards +Z?}
 
 \subsection{lpart}
 
