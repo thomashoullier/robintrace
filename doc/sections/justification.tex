@@ -242,3 +242,24 @@ c &\geq 0
 Hence, $\abs{b}$ can only near zero when both $\Delta$ and $c$ are near zero.
 Thus the term $\textrm{sign}(b) \cdot \sqrt{\Delta}$ may be numerically
 unstable in sign, but is near zero in this region.
+
+\subsection{General expression for a shape normal vector}
+Given a shape in its \gls{LCS} defined by an equation $z = f(x, y)$,
+we can compute the unit normal vector at point $(x, y)$ using
+\cref{eq:gen-normal} \cite{mathworld:normal-vector}. Additionally
+we orient the normal vector in the opposite half-plane to an incident
+ray with a vector component $n$.
+
+\begin{equation} \label{eq:gen-normal}
+\overrightarrow{N} =
+\frac{\textrm{sign}(n)}
+     {\sqrt{1 + \left(\frac{\partial f}{\partial x}(x, y)\right)^2 +
+                \left(\frac{\partial f}{\partial y}(x, y)\right)^2}}
+\cdot
+\begin{bmatrix}
+\frac{\partial f}{\partial x}(x, y) \\
+\frac{\partial f}{\partial y}(x, y) \\
+-1
+\end{bmatrix}
+\end{equation}
+

@@ -67,13 +67,10 @@ And why operations are dissociated from lpart.}
 \subsection{shape}
 Shapes are an abstract concept specifying two operations:
 
-\textcolor{red}{TODO:
-* Illustrate general concept of intersect and normal.}
-
 \begin{itemize}
 \item \lstinline{intersect}: Intersect a ray with the shape.
-\item \lstinline{normal}: Provide a normal vector for a $(x_q, y_q)$ 
-      position query.
+\item \lstinline{normal}: Provide a normal vector at the current ray
+      position.
 \end{itemize}
 
 \paragraph{intersect}
@@ -81,12 +78,29 @@ The intersection operation takes a \lstinline{ray} expressed in the current
 surface coordinate system with point on the local plane. It propagates
 the ray until it hits the first encountered part of the shape. It modifies
 the ray in-place. The modified ray is still expressed in the same current
-coordinate system.
+coordinate system. This operation is illustrated on
+\cref{fig:abstract-rayinter}.
+
+\begin{figure} \caption{\label{fig:abstract-rayinter} Illustration of the
+abtract intersect operation for a shape on a ray.}
+\includesvg[height=.2\textheight, width=.9\textwidth, keepaspectratio]
+           {images/shape/abstract-rayinter.svg}
+\end{figure}
 
 \paragraph{normal}
-The normal operation provides a unit normal vector for a given position
-$(x_q, y_q)$ on the shape. The normal vector is expressed in the surface
-LCS. The normal vector is a unit vector and has a positive $z$ component.
+The normal operation provides a normal vector at the ray's current
+$(x, y)$ position on the shape. The normal vector is expressed in the surface
+LCS. The normal vector is a unit vector. The normal vector is oriented
+with a $\hat{z}$ component of opposite sign to that of the ray's vector,
+\textit{ie} the normal vector is in the opposite half-plane to the incident
+ray. The normal operation is illustrated on \cref{fig:abstract-normal}. Error
+cases can in theory happen due to numerical issues, they should be very rare.
+
+\begin{figure} \caption{\label{fig:abstract-normal} Illustration of the
+abstract normal operation for a shape and a ray.}
+\includesvg[height=.2\textheight, width=.9\textwidth, keepaspectratio]
+           {images/shape/abstract-normal.svg}
+\end{figure}
 
 \subsubsection{plane}
 \paragraph{Definition}
@@ -98,7 +112,9 @@ The input ray is already on the local plane. We do \emph{nothing} and cannot
 fail.
 
 \paragraph{normal}
-The plane normal vector is constant. It is $\overrightarrow{N} = (0, 0, 1)$.
+The plane normal vector is trivial.
+It is $\overrightarrow{N} = (0, 0, -\textrm{sign}(n))$.
+There are no error cases.
 
 \subsubsection{sphere}
 
@@ -155,15 +171,6 @@ Else, we continue with \cref{eq:ray-sphere-inter-tsol}.
 t_\textrm{sol} = \frac{-b + \textrm{sign}(b) \cdot \sqrt{\Delta}}{2}
 \end{equation}
 
-With:
-
-\begin{equation}
-\textrm{sign}(x) = \begin{cases}
-1 & \text{if } x \geq 0 \\
--1 & \text{otherwise}
-\end{cases}
-\end{equation}
-
 Let $(x_I, y_I, z_I)$ the intersection point we wish to compute.
 
 \begin{equation}
@@ -182,10 +189,6 @@ y_I &= y + t_\textrm{sol} \cdot m
 \end{equation}
 
 \paragraph{normal}
-The unit vector $\overrightarrow{N}$ normal to the surface of the sphere at
-the query position $(x_q, y_q)$, and with positive $z$ \gls{LCS} coordinate, is
-computed as follows.
-
 \textcolor{red}{TODO}
 
 \subsection{lpart}
