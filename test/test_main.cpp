@@ -54,3 +54,13 @@ TEST_CASE("Shape intersections", "[shape]") {
   }
 }
 
+TEST_CASE("Shape normal vector", "[normal]") {
+  SECTION("plane") {
+    ray r;
+    plane pl;
+    UVec3 N_pl = pl.normal(r);
+    REQUIRE(N_pl.n == Approx(- r.v.n));
+    REQUIRE(N_pl.l == Approx(0));
+    REQUIRE(N_pl.m == Approx(0));
+  }
+}

@@ -11,7 +11,7 @@ class sphere: public shape {
     sphere (double _R);
 
     void intersect (ray &r);
-    UVec3 normal (double xq, double yq);
+    UVec3 normal (ray &r);
 };
 
 std::ostream& operator<< (std::ostream &out, sphere const& s);

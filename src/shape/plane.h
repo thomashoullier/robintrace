@@ -4,11 +4,12 @@
 #include "shape/shape.h"
 
 #include <iostream>
+#include <cmath>
 
 class plane: public shape {
   public:
     void intersect (ray &r);
-    UVec3 normal (double xq, double yq);
+    UVec3 normal (ray &r);
 };
 
 std::ostream& operator<< (std::ostream &out, plane const& pl);

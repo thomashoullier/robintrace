@@ -1,5 +1,4 @@
 #include "shape/sphere.h"
-#include <cmath>
 
 /* Constructor */
 sphere::sphere (double _R) {
@@ -37,8 +36,8 @@ void sphere::intersect (ray &r) {
 }
 
 /* normal */
-UVec3 sphere::normal (double xq, double yq) {
+UVec3 sphere::normal (ray &r) {
   // TODO
-  (void)(xq); (void)(yq);
+  (void)(r);
   return UVec3(0, 0, 1);
 }

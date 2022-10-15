@@ -13,7 +13,7 @@ void plane::intersect (ray &r) {
 }
 
 /* Normal */
-UVec3 plane::normal (double xq, double yq) {
-  (void)(xq); (void)(yq);
-  return UVec3(0, 0, 1);
+UVec3 plane::normal (ray &r) {
+  double sig_n = std::copysign(1.0, r.v.n);
+  return UVec3(0, 0, - sig_n);
 }

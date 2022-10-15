@@ -14,6 +14,9 @@ int main(){
   std::cout << sphere1 << std::endl;
 
   plane1.intersect(ray1);
+  UVec3 N_pl = plane1.normal(ray1);
+
+  std::cout << "Plane normal: " << N_pl << std::endl;
 
   Point3 p(1.0, 2.0, 3.0);
   Point3 p2(p);
