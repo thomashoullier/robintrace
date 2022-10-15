@@ -8,6 +8,7 @@
 class plane: public shape {
   public:
     void intersect (ray &r);
+    UVec3 normal (double xq, double yq);
 };
 
 std::ostream& operator<< (std::ostream &out, plane const& pl);

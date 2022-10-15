@@ -65,18 +65,28 @@ Explain rationale to have the most specialized operations possible here.
 And why operations are dissociated from lpart.}
 
 \subsection{shape}
-\lstinline{shape} objects specify an intersection operation with rays.
+Shapes are an abstract concept specifying two operations:
+
+\textcolor{red}{TODO:
+* Illustrate general concept of intersect and normal.}
+
+\begin{itemize}
+\item \lstinline{intersect}: Intersect a ray with the shape.
+\item \lstinline{normal}: Provide a normal vector for a $(x_q, y_q)$ 
+      position query.
+\end{itemize}
+
+\paragraph{intersect}
 The intersection operation takes a \lstinline{ray} expressed in the current
 surface coordinate system with point on the local plane. It propagates
 the ray until it hits the first encountered part of the shape. It modifies
 the ray in-place. The modified ray is still expressed in the same current
 coordinate system.
 
-Subtypes are defined.
-
-\textcolor{red}{\begin{itemize}
-\item Describe the virtual shape methods.
-\end{itemize}}
+\paragraph{normal}
+The normal operation provides a unit normal vector for a given position
+$(x_q, y_q)$ on the shape. The normal vector is expressed in the surface
+LCS. The normal vector is a unit vector and has a positive $z$ component.
 
 \subsubsection{plane}
 \paragraph{Definition}
@@ -88,7 +98,7 @@ The input ray is already on the local plane. We do \emph{nothing} and cannot
 fail.
 
 \paragraph{normal}
-\textcolor{red}{TODO}
+The plane normal vector is constant. It is $\overrightarrow{N} = (0, 0, 1)$.
 
 \subsubsection{sphere}
 
@@ -173,11 +183,10 @@ y_I &= y + t_\textrm{sol} \cdot m
 
 \paragraph{normal}
 The unit vector $\overrightarrow{N}$ normal to the surface of the sphere at
-the query position $(x_q, y_q)$, and with positive $z$ LCS coordinate, is
+the query position $(x_q, y_q)$, and with positive $z$ \gls{LCS} coordinate, is
 computed as follows.
 
-\textcolor{red}{TODO:
-* Do we always want N pointed towards +Z?}
+\textcolor{red}{TODO}
 
 \subsection{lpart}
 

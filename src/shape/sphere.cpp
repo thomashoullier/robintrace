@@ -36,3 +36,9 @@ void sphere::intersect (ray &r) {
   r.p.y = r.p.y + tsol * r.v.m;
 }
 
+/* normal */
+UVec3 sphere::normal (double xq, double yq) {
+  // TODO
+  (void)(xq); (void)(yq);
+  return UVec3(0, 0, 1);
+}
