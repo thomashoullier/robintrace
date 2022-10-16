@@ -339,12 +339,64 @@ formulae are in \cref{eq:sphere-derivatives}.
 
 \subsection{Sphere normal vector}
 We derive an efficient expression for the normal vector of a sphere at
-an intersection point. We arrive at the result from two (slightly) different
+an intersection point. Keep in mind that we already know the intersection
+point on the shape. We arrive at the result from two (slightly) different
 starting points.
 
 \subsubsection{Analytic formulation}
+We plug the partial derivatives \cref{eq:sphere-derivatives} into the general
+normal vector formula \cref{eq:gen-normal}.
 
-\textcolor{red}{TODO}
+\begin{equation} \begin{split}
+\overrightarrow{N} & = \frac{\textrm{sign}(n)}
+{\sqrt{1 + \frac{x^2}{R^2 - x^2 - y^2} + \frac{y^2}{R^2 - x^2 - y^2}}} \cdot
+\begin{bmatrix}
+\textrm{sign}(R) \cdot x \mathbin{/} \sqrt{R^2 - x^2 - y^2} \\
+\textrm{sign}(R) \cdot y \mathbin{/} \sqrt{R^2 - x^2 - y^2} \\
+-1
+\end{bmatrix} \\
+& = \frac{\textrm{sign}(n) \cdot \textrm{sign}(R) \cdot
+          \sqrt{R^2 - x^2 - y^2}}
+         {\sqrt{R^2 - x^2 - y^2 + x^2 + y^2}} \cdot
+\begin{bmatrix}
+x \mathbin{/} \sqrt{R^2 - x^2 - y^2} \\
+y \mathbin{/} \sqrt{R^2 - x^2 - y^2} \\
+-\textrm{sign}(R)
+\end{bmatrix} \\
+& = \frac{\textrm{sign}(R)}{\abs{R}} \cdot \textrm{sign}(n) \cdot
+\begin{bmatrix}
+x \\ y \\
+- \textrm{sign}(R) \sqrt{R^2 - x^2 - y^2}
+\end{bmatrix} \\
+& = \frac{\textrm{sign}(n)}{R} \cdot
+\begin{bmatrix}
+x \\ y \\
+- \textrm{sign}(R) \sqrt{R^2 - x^2 - y^2}
+\end{bmatrix}
+\end{split} \end{equation}
+
+With,
+
+\begin{equation} \begin{cases}
+\abs{z-R} = R - z & R \geq 0 \\
+\abs{z-R} = z - R & R < 0
+\end{cases} \end{equation}
+
+Hence,
+
+\begin{equation}
+\abs{z-R} \cdot \textrm{sign}(R) = R - z
+\end{equation}
+
+Which leads us to the efficient expression for the sphere normal vector
+\cref{eq:sphere-normal-anaformula}.
+
+\begin{equation} \label{eq:sphere-normal-anaformula}
+\overrightarrow{N} = \frac{\textrm{sign}(n)}{R} \cdot
+\begin{bmatrix}
+x \\ y \\ z - R
+\end{bmatrix}
+\end{equation}
 
 \subsubsection{Geometric formulation}
 
