@@ -8,8 +8,13 @@ TEST_CASE("Shape intersections", "[shape]") {
   sphere s(5.0);
   BENCHMARK("sphere/ray intersection") {
     return s.intersect(r);
-    /* TODO: Generate a vector of rays to apply the benchmark to.
-       https://github.com/catchorg/Catch2/blob/v2.x/docs/benchmarks.md */
+  };
+
+  ray r_fornormal(Point3(0.5, -0.32, 0), UVec3(0, 0.01, n));
+  s.intersect(r_fornormal);
+
+  BENCHMARK("sphere normal") {
+    return s.normal(r_fornormal);
   };
 
   BENCHMARK("CGAL sphere/ray intersection") {
