@@ -35,4 +35,6 @@ int main(){
   std::cout << "Initial ray: " << rtest << std::endl;
   stest.intersect(rtest);
   std::cout << "After sphere intersection: " << rtest << std::endl;
+  UVec3 N_s = stest.normal(rtest);
+  std::cout << "Sphere normal: " << N_s << std::endl;
 }
