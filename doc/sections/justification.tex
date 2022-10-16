@@ -399,5 +399,55 @@ x \\ y \\ z - R
 \end{equation}
 
 \subsubsection{Geometric formulation}
+The center of the sphere is $C = (0, 0, R)$. We know the intersection point
+$I = (x, y, z)$.
 
-\textcolor{red}{TODO}
+The normal vector to the sphere is colinear to $\overrightarrow{CI}$.
+
+\begin{equation}
+\overrightarrow{CI} = \begin{bmatrix} x \\ y \\ z - R \end{bmatrix}
+\end{equation}
+
+Now we obtain a vector $\overrightarrow{N_i}$ by flipping $\overrightarrow{CI}$
+opposite to the incident ray in the $\hat{z}$ direction.
+
+Remember that,
+
+\begin{equation} \begin{cases}
+z - R \leq 0 & R \geq 0 \\
+z - R > 0 & R < 0
+\end{cases} \end{equation}
+
+so we have,
+
+\begin{equation} \begin{cases}
+\overrightarrow{N_i} = \textrm{sign}(n) \cdot
+\begin{bmatrix} x \\ y \\ z - R \end{bmatrix} & R \geq 0 \\
+\overrightarrow{N_i} = - \textrm{sign}(n) \cdot
+\begin{bmatrix} x \\ y \\ z - R \end{bmatrix} & R < 0 \\
+\end{cases} \end{equation}
+
+Which can be summarized as,
+
+\begin{equation}
+\overrightarrow{N_i} = \textrm{sign}(n) \cdot \textrm{sign}(R) \cdot
+\begin{bmatrix} x \\ y \\ z - R \end{bmatrix}
+\end{equation}
+
+Now, we simply normalize the vector in order to obtain $\overrightarrow{N}$.
+
+\begin{equation} \begin{split}
+\overrightarrow{N} &= \frac{\textrm{sign}(n) \cdot \textrm{sign}(R)}
+{\sqrt{x^2 + y^2 + (z-R)^2}} \cdot
+\begin{bmatrix} x \\ y \\ z - R\end{bmatrix} \\
+&= \frac{\textrm{sign}(n) \cdot \textrm{sign}(R)}{\abs{R}} \cdot
+\begin{bmatrix} x \\ y \\ z - R\end{bmatrix}
+\end{split} \end{equation}
+
+The efficient expression for $\overrightarrow{N}$ is given by
+\cref{eq:sphere-normal-geoformula}.
+
+\begin{equation} \label{eq:sphere-normal-geoformula}
+\overrightarrow{N} = \frac{\textrm{sign}(n)}{R} \cdot
+\begin{bmatrix} x \\ y \\ z - R\end{bmatrix}
+\end{equation}
