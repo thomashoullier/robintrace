@@ -55,11 +55,25 @@ The status codes are defined in \cref{tab:ray-status-codes}.
 \end{table}
 
 \subsection{rop}
+\lstinline{rop} are ray operations.
+
+\subsubsection{reflect}
+\lstinline{reflect} is a ray operation which applies the law of specular
+reflection \cite{wiki:specular-reflection}. The ray direction is modified in
+place.  The normal vector $\overrightarrow{N}$ is already computed.
+
+\begin{equation}
+\begin{bmatrix} l_r \\ m_r \\ n_r \end{bmatrix} =
+\begin{bmatrix} l \\ m \\ n \end{bmatrix} - 2 \cdot
+\overrightarrow{N} \cdot \left( \overrightarrow{N} \cdot
+\begin{bmatrix} l \\ m \\ n \end{bmatrix} \right)
+\end{equation}
+
+\subsubsection{refract}
 
 \textcolor{red}{
 \begin{itemize}
 \item transfer operation
-\item reflection off mirrors
 \end{itemize}
 Explain rationale to have the most specialized operations possible here.
 And why operations are dissociated from lpart.}
