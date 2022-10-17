@@ -63,4 +63,25 @@ TEST_CASE("Shape normal vector", "[normal]") {
     REQUIRE(N_pl.l == Approx(0));
     REQUIRE(N_pl.m == Approx(0));
   }
+
+  SECTION("sphere") {
+    ray r = ray();
+    r.p.x = 0.5;
+    r.p.y = -0.32;
+    r.p.z = 0;
+    r.v.l = 0.01;
+    r.v.m = -0.005;
+    r.v.n = std::sqrt(1 - r.v.l * r.v.l - r.v.m * r.v.m);
+    
+    sphere s = sphere(5.0);
+  
+    s.intersect(r);
+
+    UVec3 N_valid = cgal_sphere_normal(s, r);
+    UVec3 N_test = s.normal(r);
+    SUCCEED("sphere normal happened");
+    REQUIRE(N_test.l == Approx(N_valid.l));
+    REQUIRE(N_test.m == Approx(N_valid.m));
+    REQUIRE(N_test.n == Approx(N_valid.n));
+  }
 }

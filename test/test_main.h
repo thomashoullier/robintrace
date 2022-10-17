@@ -7,7 +7,8 @@
 #include <cmath>
 
 #include "poaky.h"
-#include "cgal_sphere_intersect/sphere_intersect_valid.h"
+#include "cgal/sphere_intersect_valid.h"
+#include "cgal/cgal_sphere_normal.h"
 #include "utils/ray_eq.h"
 
 #include "instantiators.h"
