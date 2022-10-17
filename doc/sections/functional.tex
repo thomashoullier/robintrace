@@ -89,7 +89,7 @@ abtract intersect operation for a shape on a ray.}
 
 \paragraph{normal}
 The normal operation provides a normal vector at the ray's current
-$(x, y)$ position on the shape. The normal vector is expressed in the surface
+position on the shape. The normal vector is expressed in the surface
 LCS. The normal vector is a unit vector. The normal vector is oriented
 with a $\hat{z}$ component of opposite sign to that of the ray's vector,
 \textit{ie} the normal vector is in the opposite half-plane to the incident
@@ -181,15 +181,20 @@ If $\abs{z_I} \geq \abs{R}$, we have an intersection in the hemisphere furthest
 from the local plane. This is another ray error case. Else, the remainder of
 the solution can be computed.
 
-\begin{equation}
-\begin{aligned}
+\begin{equation} \begin{aligned}
 x_I &= x + t_\textrm{sol} \cdot l \\
 y_I &= y + t_\textrm{sol} \cdot m
-\end{aligned}
-\end{equation}
+\end{aligned} \end{equation}
 
 \paragraph{normal}
-\textcolor{red}{TODO}
+The sphere normal vector is computed as follows. The ray rests on the previously
+computed intersection point.
+
+\begin{equation}
+\overrightarrow{N} =
+\frac{\textrm{sign}(n)}{R} \cdot
+\begin{bmatrix} x \\ y \\ z - R \end{bmatrix}
+\end{equation}
 
 \subsection{lpart}
 
