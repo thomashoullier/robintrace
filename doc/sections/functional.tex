@@ -4,13 +4,6 @@ operations. The style is minimal and close to the computations. For
 the rationale sustaining the computation and complementary information,
 see the justification section (\cref{sec:justification}).
 
-\textcolor{red}{TODO: \begin{itemize}
-\item Detail the behavior of a minimal set of components for
-      only 3D mirrors.
-\item In a separate section, detail only the abstract methods that
-      are defined?
-\end{itemize}}
-
 \subsection{base}
 Some base types are useful throughout the program. These are detailed in this
 section.
@@ -60,7 +53,8 @@ The status codes are defined in \cref{tab:ray-status-codes}.
 \subsubsection{reflect}
 \lstinline{reflect} is a ray operation which applies the law of specular
 reflection \cite{wiki:specular-reflection}. The ray direction is modified in
-place.  The normal vector $\overrightarrow{N}$ is already computed.
+place. The normal vector $\overrightarrow{N}$ is already computed. There are
+no error cases.
 
 \begin{equation}
 \begin{bmatrix} l_r \\ m_r \\ n_r \end{bmatrix} =
