@@ -37,8 +37,7 @@ void sphere::intersect (ray &r) {
 
 /* normal */
 UVec3 sphere::normal (ray &r) {
-  double sig_n = std::copysign(1.0, r.v.n);
-  double Rn = R * sig_n;
+  double Rn = std::copysign(R, r.v.n);
   double nl = r.p.x / Rn;
   double nm = r.p.y / Rn;
   double nn = (r.p.z - R) / Rn;
