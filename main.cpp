@@ -37,4 +37,6 @@ int main(){
   std::cout << "After sphere intersection: " << rtest << std::endl;
   UVec3 N_s = stest.normal(rtest);
   std::cout << "Sphere normal: " << N_s << std::endl;
+  reflect(rtest, N_s);
+  std::cout << "Mirror reflection: " << rtest << std::endl;
 }
