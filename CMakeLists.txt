@@ -35,13 +35,9 @@ target_link_libraries(test PRIVATE Catch2::Catch2WithMain CGAL::CGAL
 ## Benchmark
 add_library(Benchmark INTERFACE)
 target_include_directories(Benchmark INTERFACE ./benchmark)
-add_library(CGAL_valid INTERFACE)
-target_include_directories(CGAL_valid INTERFACE
-                           ./test/cgal/)
-add_executable(benchmark ./benchmark/benchmark.cpp ${SOURCES}
-                         ./test/cgal/sphere_intersect_valid.cpp)
-target_link_libraries(benchmark PRIVATE Catch2::Catch2WithMain CGAL::CGAL
-                                        Source Benchmark CGAL_valid)
+add_executable(benchmark ./benchmark/benchmark.cpp ${SOURCES})
+target_link_libraries(benchmark PRIVATE Catch2::Catch2WithMain
+                                        Source Benchmark)
 
 ## Test coverage
 include(CodeCoverage)

@@ -8,7 +8,5 @@
 #include <cmath>
 #include "poaky.h"
 
-#include "sphere_intersect_valid.h"
-
 #endif //BENCHMARK_H
 
