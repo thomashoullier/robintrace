@@ -85,3 +85,26 @@ TEST_CASE("Shape normal vector", "[normal]") {
     REQUIRE(N_test.n == Approx(N_valid.n));
   }
 }
+
+TEST_CASE("Ray operations", "[rop]") {
+  SECTION("reflect") {
+    ray r = ray();
+    r.p.x = 0.5;
+    r.p.y = -0.32;
+    r.p.z = 0;
+    r.v.l = 0.01;
+    r.v.m = -0.005;
+    r.v.n = std::sqrt(1 - r.v.l * r.v.l - r.v.m * r.v.m);
+
+    sphere s = sphere(5.0);
+
+    s.intersect(r);
+    UVec3 N = s.normal(r);
+    UVec3 v_valid = cgal_reflect(r, N);
+    reflect(r, N);
+    SUCCEED("reflect happened");
+    REQUIRE(r.v.l == Approx(v_valid.l));
+    REQUIRE(r.v.m == Approx(v_valid.m));
+    REQUIRE(r.v.n == Approx(v_valid.n));
+  }
+}

@@ -9,6 +9,7 @@
 #include "poaky.h"
 #include "cgal/sphere_intersect_valid.h"
 #include "cgal/cgal_sphere_normal.h"
+#include "cgal/cgal_reflect.h"
 #include "utils/ray_eq.h"
 
 #include "instantiators.h"
