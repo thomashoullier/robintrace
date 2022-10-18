@@ -24,3 +24,15 @@ TEST_CASE("Shape normals", "[normal]") {
     };
   }
 }
+
+TEST_CASE("Ray operations", "[rop]") {
+  sphere s(5.0);
+  double n = std::sqrt(1 - 0.01*0.01 - 0.005*0.005);
+  ray r(Point3(0.5, -0.32, 0), UVec3(0, 0.01, n));
+  s.intersect(r);
+  UVec3 N = s.normal(r);
+  
+  BENCHMARK("reflect") {
+    return reflect(r, N);
+  };
+}
