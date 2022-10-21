@@ -54,7 +54,7 @@ The status codes are defined in \cref{tab:ray-status-codes}.
 \lstinline{reflect} is a ray operation which applies the law of specular
 reflection \cite{wiki:specular-reflection}. The ray direction is modified in
 place. The normal vector $\overrightarrow{N}$ is already computed. There are
-no error cases.
+no error cases. The operation is illustrated on \cref{fig:reflect}.
 
 \begin{equation}
 \begin{bmatrix} l_r \\ m_r \\ n_r \end{bmatrix} =
@@ -62,6 +62,11 @@ no error cases.
 \overrightarrow{N} \cdot \left( \overrightarrow{N} \cdot
 \begin{bmatrix} l \\ m \\ n \end{bmatrix} \right)
 \end{equation}
+
+\begin{figure} \caption{\label{fig:reflect} reflect operation quantities.}
+\includesvg[height=.2\textheight, width=.9\textwidth, keepaspectratio]
+           {images/shape/abstract-reflect.svg}
+\end{figure}
 
 \subsubsection{refract}
 

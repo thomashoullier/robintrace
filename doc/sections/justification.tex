@@ -447,3 +447,32 @@ The efficient expression for $\overrightarrow{N}$ is given by
 \overrightarrow{N} = \frac{\textrm{sign}(n)}{R} \cdot
 \begin{bmatrix} x \\ y \\ z - R\end{bmatrix}
 \end{equation}
+
+\subsection{Reflection formula derivation}
+We derive the reflection formula. See the illustration \cref{fig:reflect}.
+Let: \begin{itemize}
+\item The surface normal $\overrightarrow{N}$ at the ray intersection.
+\item The incident ray unit vector $\overrightarrow{i}$.
+\item The reflected ray unit vector $\overrightarrow{r}$.
+\item $\theta_i$ the (unsigned) angle between $\overrightarrow{N}$ and
+      $\overrightarrow{i}$.
+\item $\theta_r$ the (unsigned) angle between $\overrightarrow{N}$ and
+      $\overrightarrow{r}$.
+\end{itemize}
+
+We want to compute $\overrightarrow{r}$ as a function of $\overrightarrow{i}$
+and $\overrightarrow{N}$.
+We assume the laws of reflection, which essentially state that light
+behaves as a billiard ball in its geometrical interaction with the surface:
+\begin{itemize}
+\item The reflected ray is in the plane spanned by $\overrightarrow{i}$ and
+      $\overrightarrow{N}$ (\emph{plane of incidence}), and opposite to
+      $\overrightarrow{i}$ with respect to $\overrightarrow{N}$.
+\item $\theta_i = \theta_r$
+\end{itemize}
+
+\subsubsection{Algebraic derivation}
+We produce a derivation similar to that of \cite{Glassner:1989} (p.131).
+
+\textcolor{red}{TODO: derivation. Pay attention to the "opposite" condition
+on angles.}
