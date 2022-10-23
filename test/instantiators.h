@@ -14,6 +14,8 @@ TEST_CASE("Objects instantiation", "[constructors]") {
     SUCCEED("UVec3 void constructor.");
     UVec3 v2 = UVec3(0.0, 0.0, 1.0); (void)v2;
     SUCCEED("UVec3 initialization constructor.");
+    UVec3 v3 = UVec3_lm(0.01, -0.02, true); (void)v3;
+    SUCCEED("UVec3 automatic n component.");
   }
 
   SECTION("ray") {
