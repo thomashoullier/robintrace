@@ -43,7 +43,8 @@ The status codes are defined in \cref{tab:ray-status-codes}.
 \textbf{Code} & \textbf{Meaning} \\ \hline
 0 & Success, the ray is valid.\\ \hline
 1 & Sphere intersection: No intersection. \\ \hline
-2 & Sphere intersection: Intersection beyond first hemisphere. \\
+2 & Sphere intersection: Intersection beyond first hemisphere. \\ \hline
+3 & refract: \gls{TIR} \\
 \hline \end{tabular}
 \end{table}
 
@@ -69,13 +70,48 @@ no error cases. The operation is illustrated on \cref{fig:reflect}.
 \end{figure}
 
 \subsubsection{refract}
+\lstinline{refract} is a ray operation applying the Snell law of refraction
+\cite{wiki:snell-refraction}. The ray direction is modified in place.  We use
+Xavier Bec's formula (\cite{Marrs:2021} p.105, \cite{Bec:1997}) for efficiency.
+The operation is illustrated on \cref{fig:refract}.
 
-\textcolor{red}{
+\begin{figure} \caption{\label{fig:refract} refract operation quantities.}
+\includesvg[height=.2\textheight, width=.9\textwidth, keepaspectratio]
+           {images/shape/abstract-refract.svg}
+\end{figure}
+
+Let,
+
+\begin{itemize}
+\item $n_1$ the incident medium refraction index,
+\item $n_2$ the output medium refraction index,
+\item $n_r = \frac{n_1}{n_2}$,
+\item $\overrightarrow{i}$ the unit incident ray direction,
+\item $\overrightarrow{N}$ the unit surface normal vector,
+\item $\overrightarrow{t}$ the unit refracted ray direction.
+\end{itemize}
+
+\begin{equation}
+\begin{split}
+&c_1 = - \overrightarrow{i} \cdot \overrightarrow{N} \\
+&w = n_r \cdot c_1 \\
+&c_{2m} = (w - n_r) \cdot (w + n_r)
+\end{split} \end{equation}
+
+At this stage, if $c_{2m} < -1$, then we set the \gls{TIR} ray
+error code and the computation stops. Otherwise we proceed with
+the computation of the refracted ray direction.
+with:
+
+\begin{equation}
+\overrightarrow{t} = n_r \cdot \overrightarrow{i} +
+(w - \sqrt{1 + c_{2m}}) \cdot \overrightarrow{N}
+\end{equation}
+
+\textcolor{red}{TODO:
 \begin{itemize}
 \item transfer operation
-\end{itemize}
-Explain rationale to have the most specialized operations possible here.
-And why operations are dissociated from lpart.}
+\end{itemize}}
 
 \subsection{shape}
 Shapes are an abstract concept specifying two operations:
@@ -214,10 +250,3 @@ computed intersection point.
 \subsubsection{tfr}
 
 \subsubsection{surf}
-\textcolor{red}{
-\begin{itemize}
-\item Plane (which does nothing)
-\item Plane mirror
-\item Spherical mirror
-\end{itemize}}
-
