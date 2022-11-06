@@ -601,10 +601,171 @@ This leads us to the expression for $\overrightarrow{r}$.
 
 $\square$
 
-\subsection{Refraction formula derivation}
+\subsection{Refraction}
 \textcolor{red}{TODO:
 \begin{itemize}
 \item A derivation of a general formula.
 \item Bec's formula validity check.
 \end{itemize}}
 
+\subsubsection{Algebraic derivation}
+We work through an algebraic derivation of the vectorial expression for
+the refraction operation. Similar derivations may be found in
+\cite{Glassner:1989} (p.288), originally by Whitted \cite{Whitted:2005}
+and Heckbert \cite{Heckbert:1984}.
+
+The quantities involved in the problem are (illustrated on
+\cref{fig:refract-derivation}):
+
+\begin{itemize}
+\item $n_1$ the incident medium refraction index,
+\item $n_2$ the output medium refraction index,
+\item $\overrightarrow{i}$ the unit incident ray direction,
+\item $\overrightarrow{N}$ the unit surface normal vector,
+\item $\overrightarrow{t}$ the unit refracted ray direction,
+\item $\theta_i$ the acute angle between $-\overrightarrow{i}$
+and $\overrightarrow{N}$,
+\item $\theta_t$ the angle between $-\overrightarrow{N}$ and
+$\overrightarrow{t}$.
+\end{itemize}
+
+\cref{fig:refract-derivation}
+\begin{figure} \caption{\label{fig:refract-derivation} Quantities involved
+in the ray refraction operation.}
+\includesvg[height=.2\textheight, width=.9\textwidth, keepaspectratio]
+           {images/shape/refract-derivation.svg}
+\end{figure}
+
+We take for granted a number of assumptions related to the law of refraction
+\cite{wiki:snell-refraction}:
+
+\begin{itemize}
+\item $\overrightarrow{t}$ is in the plane spanned by $\overrightarrow{i}$
+and $\overrightarrow{N}$ (\emph{plane of incidence}),
+\item Defining quadrants in the plane of incidence with respect to
+$\overrightarrow{N}$ and the origin, $\overrightarrow{t}$ is in
+the same quadrant as $\overrightarrow{i}$,
+\item $n_1 \cdot \sin(\theta_i) = n_2 \cdot \sin(\theta_t)$
+\end{itemize}
+
+We remind some relations and define some shorthands used for conciseness.
+
+\begin{equation} \begin{cases}
+- \overrightarrow{N} \cdot \overrightarrow{i} = \cos(\theta_i) = c_i \\
+- \overrightarrow{N} \cdot \overrightarrow{t} = \cos(\theta_t) = c_t \\
+\sin(\theta_i) = s_i \\
+\sin(\theta_t) = s_t \\
+\frac{n_1}{n_2} = n_r
+\end{cases} \end{equation}
+
+Since $\overrightarrow{t}$ is in the incidence plane, it may be written as:
+
+\begin{equation}
+\overrightarrow{t} = \alpha \cdot \overrightarrow{i}
+                     + \beta \cdot \overrightarrow{N}
+\end{equation}
+
+The other hypotheses provide the following constraints, which we will use
+in order to solve for $\alpha$ and $\beta$.
+
+\begin{equation} \begin{cases}
+n_1 \cdot s_i = n_2 \cdot s_t \\
+\abs{\overrightarrow{t}} = 1
+\end{cases} \end{equation}
+
+We may express a relation with the help of $c_t$:
+
+\begin{equation} \begin{split}
+c_t &= - \overrightarrow{N} \cdot \overrightarrow{t} \\
+&= - \overrightarrow{N} \cdot
+   (\alpha \cdot \overrightarrow{i} + \beta \cdot \overrightarrow{N}) \\
+&= - \alpha \cdot \overrightarrow{N} \cdot \overrightarrow{i} - \beta \\
+&= \alpha \cdot c_i - \beta
+\end{split} \end{equation}
+
+Thus,
+
+\begin{equation}
+\beta = \alpha \cdot c_i - c_t
+\end{equation}
+
+The $\overrightarrow{t}$ normalization constraint gives us another expression:
+
+\begin{equation} \begin{split}
+\abs{\overrightarrow{t}} &= \abs{\alpha \cdot \overrightarrow{i}
+                                 + \beta \cdot \overrightarrow{N}} \\
+&= (\alpha \cdot i_x + \beta \cdot N_x)^2 +
+   (\alpha \cdot i_y + \beta \cdot N_y)^2 +
+   (\alpha \cdot i_z + \beta \cdot N_z)^2 \\
+&= \alpha^2 \cdot ({i_x}^2 + {i_y}^2 + {i_z}^2) +
+   \beta^2 \cdot ({N_x}^2 + {N_y}^2 + {N_z}^2) + \\
+   & 2 \cdot \alpha \cdot \beta \cdot
+     (i_x \cdot N_x + i_y \cdot N_y + i_z \cdot N_z) \\
+&= \alpha^2 + \beta^2 + 2 \cdot \alpha \cdot \beta \cdot \overrightarrow{i}
+   \cdot \overrightarrow{N} \\
+&= \alpha^2 + \beta^2 - 2 \cdot \alpha \cdot \beta \cdot c_i
+\end{split} \end{equation}
+
+Now we plug in the expression for $\beta$.
+
+\begin{equation} \begin{split}
+\abs{\overrightarrow{t}} &=
+\alpha^2 + (\alpha \cdot c_i - c_t)^2 - 2 \cdot \alpha \cdot c_i \cdot
+(\alpha \cdot c_i - c_t) \\
+&= \alpha^2 + \alpha^2 \cdot {c_i}^2 + {c_t}^2
+- 2 \cdot \alpha \cdot c_i \cdot c_t - 2 \cdot \alpha^2 \cdot {c_i}^2
++ 2 \cdot \alpha \cdot c_i \cdot c_t \\
+&= \alpha^2 - \alpha^2 \cdot {c_i}^2 + {c_t}^2 \\
+&= 1
+\end{split} \end{equation}
+
+Thus, and making use of the Snell formula,
+
+\begin{equation} \begin{split}
+& \alpha^2 = \frac{1 - {c_t}^2}{1 - {c_i}^2} = \frac{{s_t}^2}{{s_i}^2} =
+  {n_r}^2 \\
+& \iff \alpha = \pm n_r
+\end{split} \end{equation}
+
+By the $\overrightarrow{t}$ quadrant hypothesis, the component along
+$\overrightarrow{i}$ must be positive, hence $\alpha > 0 \implies \alpha = +
+n_r$.
+
+We have now solved for the scalar magnitudes of $\overrightarrow{t}$.
+
+\begin{equation} \begin{cases}
+\alpha = n_r \\
+\beta = n_r \cdot c_i - c_t
+\end{cases} \end{equation}
+
+And $\overrightarrow{t}$ may be expressed as:
+
+\begin{equation}
+\overrightarrow{t} = n_r \cdot \overrightarrow{i}
+ + (n_r \cdot c_i - c_t) \cdot \overrightarrow{N}
+\end{equation}
+
+All that is left is to express $c_t$ with respect to input problem quantities.
+The case of \gls{TIR} appears when ${n_r}^2 \cdot {s_i}^2 > 1$ and is excluded
+from the remainder of the derivation.
+
+\begin{equation} \begin{split}
+c_t &= \sqrt{1 - {s_t}^2} \\
+&= \sqrt{1 - {n_r}^2 \cdot {s_i}^2} \\
+&= \sqrt{1 - {n_r}^2 \cdot (1 - {c_i}^2)}
+\end{split} \end{equation}
+
+Thus the expression for $\overrightarrow{t}$ with respect to the problem's input
+quantities is:
+
+\begin{equation}
+\overrightarrow{t} = n_r \cdot \overrightarrow{i} -
+\left(n_r \cdot \overrightarrow{N} \cdot \overrightarrow{i}
++ \sqrt{1 - {n_r}^2 \cdot \left(1 - 
+             {\overrightarrow{N} \cdot \overrightarrow{i}}^2\right)}\right)
+\cdot \overrightarrow{N}
+\end{equation}
+
+$\square$
+
+\subsubsection{Bec's formula validation}
