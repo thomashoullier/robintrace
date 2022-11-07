@@ -2,6 +2,18 @@
 
 /*TODO: Accessors */
 
+TEST_CASE("Base operations", "[base-ops]") {
+  SECTION("UVec3") {
+    UVec3 v1 (0, 0, 1);
+    UVec3 v2 (1, 0, 0);
+
+    double v1dotv1 = dot(v1, v1);
+    REQUIRE(v1dotv1 == Approx(1.0));
+    double v1dotv2 = dot(v1, v2);
+    REQUIRE(v1dotv2 == Approx(0.0));
+  }
+}
+
 TEST_CASE("Shape intersections", "[shape]") {
   SECTION("plane") {
     ray r = ray(Point3(0.2, 0.3, 0.0), UVec3(0, 0, 1));

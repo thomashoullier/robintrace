@@ -15,6 +15,7 @@ class UVec3 {
 };
 
 UVec3 UVec3_lm (double _l, double _m, bool nsign);
+double dot (UVec3 v1, UVec3 v2);
 
 std::ostream& operator<< (std::ostream &out, UVec3 const& v);
 
