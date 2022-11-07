@@ -15,6 +15,7 @@ class Vec3 {
 };
 
 double dot (Vec3 v1, Vec3 v2);
+Vec3 operator* (const double scal, const Vec3 vec);
 
 std::string coords_as_str (const Vec3 v);
 std::ostream& operator<< (std::ostream &out, Vec3 const& v);

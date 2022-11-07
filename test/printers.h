@@ -15,6 +15,10 @@ TEST_CASE("Objects printing", "[printers]") {
     Point3 p = Point3();
     nullOstream << p;
     SUCCEED("Point3");
+    
+    Vec3 v1;
+    nullOstream << v1;   
+    SUCCEED("Vec3");
 
     UVec3 v = UVec3();
     nullOstream << v;

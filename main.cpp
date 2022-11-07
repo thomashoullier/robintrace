@@ -39,4 +39,8 @@ int main(){
   std::cout << "Sphere normal: " << N_s << std::endl;
   reflect(rtest, N_s);
   std::cout << "Mirror reflection: " << rtest << std::endl;
+
+  // TODO: solve this
+  //Vec3 v1(0.5, 0, 0);
+  //UVec3 v2 = 2 * v1;
 }

@@ -3,14 +3,21 @@
 /*TODO: Accessors */
 
 TEST_CASE("Base operations", "[base-ops]") {
-  SECTION("UVec3") {
-    UVec3 v1 (0, 0, 1);
-    UVec3 v2 (1, 0, 0);
-
+  SECTION("Vec3") {
+    Vec3 v1 (0, 0, 1);
+    Vec3 v2 (1, 0, 0);
+    Vec3 v3 = 4 * v1;
+    
+    // Dot product
     double v1dotv1 = dot(v1, v1);
     REQUIRE(v1dotv1 == Approx(1.0));
     double v1dotv2 = dot(v1, v2);
     REQUIRE(v1dotv2 == Approx(0.0));
+    
+    // Scalar multiplication
+    REQUIRE(v3.l == Approx(0.0));
+    REQUIRE(v3.m == Approx(0.0));
+    REQUIRE(v3.n == Approx(4.0));
   }
 }
 

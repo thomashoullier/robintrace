@@ -18,6 +18,12 @@ double dot (Vec3 v1, Vec3 v2) {
   return dot_product;
 }
 
+Vec3 operator* (const double scal, const Vec3 vec) {
+  // Scalar-vector multiplication.
+  Vec3 vecmul(scal * vec.l, scal * vec.m, scal * vec.n);
+  return vecmul;
+}
+
 std::string coords_as_str (const Vec3 v) {
   // Return the vector coordinates as a printable string.
   std::string coords_str =
