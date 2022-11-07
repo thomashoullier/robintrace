@@ -3,20 +3,13 @@
 
 #include <iostream>
 #include <cmath>
+#include "base/Vec3.h"
 
-class UVec3 {
-  public:
-    double l;
-    double m;
-    double n;
-
-  UVec3 ();
-  UVec3 (double _l, double _m, double _n);
+class UVec3 : public Vec3 {
+  using Vec3::Vec3;
 };
 
 UVec3 UVec3_lm (double _l, double _m, bool nsign);
-double dot (UVec3 v1, UVec3 v2);
-
 std::ostream& operator<< (std::ostream &out, UVec3 const& v);
 
 #endif //UVEC3_H

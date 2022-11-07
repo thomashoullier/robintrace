@@ -1,17 +1,5 @@
 #include "base/UVec3.h"
 
-UVec3::UVec3 () {
-  // Constructor
-  l = 0;
-  m = 0;
-  n = 1;
-}
-
-UVec3::UVec3 (double _l, double _m, double _n) {
-  // Construct + initialize
-  l = _l; m = _m; n = _n;
-}
-
 UVec3 UVec3_lm (double _l, double _m, bool nsign) {
   // Construct and initialize a UVec3. The component n
   // is built automatically from l, m and its specified sign.
@@ -21,14 +9,8 @@ UVec3 UVec3_lm (double _l, double _m, bool nsign) {
   return UVec3(_l, _m, n);
 }
 
-double dot (UVec3 v1, UVec3 v2) {
-  // Dot product operation.
-  double dot_product = v1.l * v2.l + v1.m * v2.m + v1.n * v2.n;
-  return dot_product;
-}
-
 std::ostream& operator<< (std::ostream &out, UVec3 const& v) {
   // Printer method.
-  out << "UVec3(" << v.l << ", " << v.m << ", " << v.n << ")";
+  out << "UVec3" << coords_as_str(v);
   return out;
 }
