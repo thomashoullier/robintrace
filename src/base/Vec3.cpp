@@ -24,31 +24,31 @@ Vec3::Vec3 (double _l, double _m, bool nsign) {
 }
 
 /*** Operations ***/
-double dot (Vec3 v1, Vec3 v2) {
+double dot (const Vec3 &v1, const Vec3 &v2) {
   // Dot product operation.
   double dot_product = v1.l * v2.l + v1.m * v2.m + v1.n * v2.n;
   return dot_product;
 }
 
-Vec3 operator* (const double scal, const Vec3 vec) {
+Vec3 operator* (const double scal, const Vec3 &vec) {
   // Scalar-vector multiplication.
   Vec3 vecmul(scal * vec.l, scal * vec.m, scal * vec.n);
   return vecmul;
 }
 
-Vec3 operator+ (const Vec3 v1, const Vec3 v2) {
+Vec3 operator+ (const Vec3 &v1, const Vec3 &v2) {
   // Vector addition.
   Vec3 vecadd(v1.l + v2.l, v1.m + v2.m, v1.n + v2.n);
   return vecadd;
 }
 
-Vec3 operator- (const Vec3 v) {
+Vec3 operator- (const Vec3 &v) {
   // Vector negate unary operator.
   Vec3 vecneg(-v.l, -v.m, -v.n);
   return vecneg;
 }
 
-Vec3 operator- (const Vec3 v1, const Vec3 v2) {
+Vec3 operator- (const Vec3 &v1, const Vec3 &v2) {
   // Vector subtraction. v1 - v2.
   return v1 + (- v2);
 }
