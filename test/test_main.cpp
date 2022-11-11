@@ -7,6 +7,7 @@ TEST_CASE("Base operations", "[base-ops]") {
     Vec3 v1 (0, 0, 1.0);
     Vec3 v2 (1, 0, 0.0);
     Vec3 v3 = 4 * v1;
+    Vec3 v4 = v1 + v2 + v3;
     
     // Dot product
     double v1dotv1 = dot(v1, v1);
@@ -18,6 +19,11 @@ TEST_CASE("Base operations", "[base-ops]") {
     REQUIRE(v3.l == Approx(0.0));
     REQUIRE(v3.m == Approx(0.0));
     REQUIRE(v3.n == Approx(4.0));
+
+   // Vector addition
+    REQUIRE(v4.l == Approx(1.0));
+    REQUIRE(v4.m == Approx(0.0));
+    REQUIRE(v4.n == Approx(5.0));
   }
 }
 

@@ -36,6 +36,12 @@ Vec3 operator* (const double scal, const Vec3 vec) {
   return vecmul;
 }
 
+Vec3 operator+ (const Vec3 v1, const Vec3 v2) {
+  // Vector addition.
+  Vec3 vecadd(v1.l + v2.l, v1.m + v2.m, v1.n + v2.n);
+  return vecadd;
+}
+
 /*** Printers ***/
 std::string coords_as_str (const Vec3 v) {
   // Return the vector coordinates as a printable string.
