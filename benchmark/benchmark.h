@@ -6,6 +6,7 @@
 
 #include <catch2/catch.hpp>
 #include <cmath>
+#include <vector>
 #include "poaky.h"
 
 #endif //BENCHMARK_H
