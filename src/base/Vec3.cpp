@@ -42,6 +42,17 @@ Vec3 operator+ (const Vec3 v1, const Vec3 v2) {
   return vecadd;
 }
 
+Vec3 operator- (const Vec3 v) {
+  // Vector negate unary operator.
+  Vec3 vecneg(-v.l, -v.m, -v.n);
+  return vecneg;
+}
+
+Vec3 operator- (const Vec3 v1, const Vec3 v2) {
+  // Vector subtraction. v1 - v2.
+  return v1 + (- v2);
+}
+
 /*** Printers ***/
 std::string coords_as_str (const Vec3 v) {
   // Return the vector coordinates as a printable string.
