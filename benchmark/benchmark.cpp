@@ -39,4 +39,14 @@ TEST_CASE("Ray operations", "[rop]") {
       meter.measure([&init_rays, &N](int i) {
         return reflect(init_rays[i], N);});
     };
+
+  BENCHMARK_ADVANCED("refract")(Catch::Benchmark::Chronometer meter) {
+      ray r(Point3(0.5, -0.32, 0), Vec3(0.01, 0.0, false));
+      Vec3 N(0.0, 0.01, true);
+      double nr = 1.3;
+      std::vector<ray> init_rays (meter.runs());
+      std::fill(init_rays.begin(), init_rays.end(), r);
+      meter.measure([&init_rays, &N, &nr](int i) {
+        return refract(init_rays[i], N, nr);});
+    };
 }
