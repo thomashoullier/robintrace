@@ -602,11 +602,9 @@ This leads us to the expression for $\overrightarrow{r}$.
 $\square$
 
 \subsection{Refraction}
-\textcolor{red}{TODO:
-\begin{itemize}
-\item A derivation of a general formula.
-\item Bec's formula validity check.
-\end{itemize}}
+We derive the refraction formula vectorial form from the laws of refraction.
+Then we check the equivalence of Bec's formula with the derived refraction
+formula.
 
 \subsubsection{Algebraic derivation}
 We work through an algebraic derivation of the vectorial expression for
@@ -646,6 +644,8 @@ and $\overrightarrow{N}$ (\emph{plane of incidence}),
 $\overrightarrow{N}$ and the origin, $\overrightarrow{t}$ is in
 the same quadrant as $\overrightarrow{i}$,
 \item $n_1 \cdot \sin(\theta_i) = n_2 \cdot \sin(\theta_t)$
+\item In the particular case where $-\overrightarrow{i} = \overrightarrow{N}$,
+      the refracted ray is $\overrightarrow{t} = - \overrightarrow{N}$.
 \end{itemize}
 
 We remind some relations and define some shorthands used for conciseness.
@@ -719,7 +719,8 @@ Now we plug in the expression for $\beta$.
 &= 1
 \end{split} \end{equation}
 
-Thus, and making use of the Snell formula,
+Thus, making use of the Snell formula, and excluding the $c_i = 1$ case
+for which the refracted ray is just $- \overrightarrow{N}$,
 
 \begin{equation} \begin{split}
 & \alpha^2 = \frac{1 - {c_t}^2}{1 - {c_i}^2} = \frac{{s_t}^2}{{s_i}^2} =
@@ -758,14 +759,65 @@ c_t &= \sqrt{1 - {s_t}^2} \\
 Thus the expression for $\overrightarrow{t}$ with respect to the problem's input
 quantities is:
 
-\begin{equation}
+\begin{equation} \label{eq:refraction-derived}
 \overrightarrow{t} = n_r \cdot \overrightarrow{i} -
 \left(n_r \cdot \overrightarrow{N} \cdot \overrightarrow{i}
 + \sqrt{1 - {n_r}^2 \cdot \left(1 - 
-             {\overrightarrow{N} \cdot \overrightarrow{i}}^2\right)}\right)
+             \left(\overrightarrow{N} \cdot \overrightarrow{i}\right)^2\right)}
+\right)
 \cdot \overrightarrow{N}
 \end{equation}
 
 $\square$
 
 \subsubsection{Bec's formula validation}
+We perform a check of Bec's formula's \cref{eq:bec-formula} validity with
+respect to the derived refraction formula \cref{eq:refraction-derived}. Bec's
+formula is expressed as:
+
+\begin{equation}
+\overrightarrow{t} = n_r \cdot \overrightarrow{i} +
+(w - \sqrt{1 + c_{2m}}) \cdot \overrightarrow{N} 
+\end{equation}
+
+With:
+
+\begin{equation} \begin{cases}
+w &= - n_r \cdot \overrightarrow{i} \cdot \overrightarrow{N} \\
+c_{2m} &= (w - n_r) \cdot (w + n_r)
+\end{cases} \end{equation}
+
+While the formula from our derivation is expressed as:
+
+\begin{equation}
+\overrightarrow{t} = n_r \cdot \overrightarrow{i} -
+\left(n_r \cdot \overrightarrow{N} \cdot \overrightarrow{i}
++ \sqrt{1 - {n_r}^2 \cdot \left(1 - 
+             \left(\overrightarrow{N} \cdot \overrightarrow{i}\right)^2\right)}
+\right)
+\cdot \overrightarrow{N}
+\end{equation}
+
+We may re-express it as:
+
+\begin{equation}
+\overrightarrow{t} = n_r \cdot \overrightarrow{i} +
+\left(- n_r \cdot \overrightarrow{N} \cdot \overrightarrow{i}
+- \sqrt{1 + \gamma} \right) \cdot \overrightarrow{N}
+\end{equation}
+
+We may check Bec's formula by proving that $\gamma = c_{2m}$.
+
+\begin{equation} \begin{split}
+c_{2m} &= (w - n_r) \cdot (w + n_r) = w^2 - {n_r}^2 \\
+       &= {n_r}^2 \cdot
+          \left( \overrightarrow{i} \cdot \overrightarrow{N} \right)^2
+          - {n_r}^2 \\
+       &= -{n_r}^2 \cdot
+           \left(1 - \left(\overrightarrow{i} \cdot
+                     \overrightarrow{N}\right)^2\right) \\
+       &= \gamma
+\end{split} \end{equation}
+
+Thus we find Bec's formula to be mathematically equivalent to the refraction
+formula we derived.
