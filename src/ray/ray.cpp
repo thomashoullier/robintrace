@@ -3,11 +3,11 @@
 ray::ray () {
   // Constructor
   p = Point3();
-  v = UVec3();
+  v = Vec3();
   code = 0;
 }
 
-ray::ray (Point3 _p, UVec3 _v) {
+ray::ray (Point3 _p, Vec3 _v) {
   // Construct + initialize
   p = _p; v = _v;
   code = 0;

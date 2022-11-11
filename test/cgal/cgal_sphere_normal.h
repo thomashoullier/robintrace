@@ -6,6 +6,6 @@
 #include <cmath>
 
 
-UVec3 cgal_sphere_normal (const sphere s, const ray r);
+Vec3 cgal_sphere_normal (const sphere s, const ray r);
 
 #endif // CGAL_SPHERE_NORMAL_H

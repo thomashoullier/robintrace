@@ -53,7 +53,7 @@ ray cgal_sphere_intersect (const sphere s, const ray r) {
       r_error.code = 2;
       return r_error;}
 
-    ray r_valid(Point3(p.x(), p.y(), p.z()), UVec3(r.v.l, r.v.m, r.v.n));
+    ray r_valid(Point3(p.x(), p.y(), p.z()), Vec3(r.v.l, r.v.m, r.v.n));
     return r_valid;} 
   else {
     ray r_error = ray();

@@ -19,10 +19,6 @@ TEST_CASE("Objects printing", "[printers]") {
     Vec3 v1;
     nullOstream << v1;   
     SUCCEED("Vec3");
-
-    UVec3 v = UVec3();
-    nullOstream << v;
-    SUCCEED("UVec3");
   }
 
   SECTION("ray") {

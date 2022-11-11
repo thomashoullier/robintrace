@@ -4,8 +4,8 @@
 
 TEST_CASE("Base operations", "[base-ops]") {
   SECTION("Vec3") {
-    Vec3 v1 (0, 0, 1);
-    Vec3 v2 (1, 0, 0);
+    Vec3 v1 (0, 0, 1.0);
+    Vec3 v2 (1, 0, 0.0);
     Vec3 v3 = 4 * v1;
     
     // Dot product
@@ -23,7 +23,7 @@ TEST_CASE("Base operations", "[base-ops]") {
 
 TEST_CASE("Shape intersections", "[shape]") {
   SECTION("plane") {
-    ray r = ray(Point3(0.2, 0.3, 0.0), UVec3(0, 0, 1));
+    ray r = ray(Point3(0.2, 0.3, 0.0), Vec3(0, 0, 1.0));
     ray r_valid(r); // Validation ray is the input ray.
     plane pl = plane();
     pl.intersect(r);
@@ -52,7 +52,7 @@ TEST_CASE("Shape intersections", "[shape]") {
     sphere s = sphere(5.0);
     double l = 0.2; double m = -0.005;
     double n = std::sqrt(1 - l*l - m*m);
-    ray r(Point3(4.3, -0.32, 0), UVec3(l, m, n));
+    ray r(Point3(4.3, -0.32, 0), Vec3(l, m, n));
     
     ray r_valid = cgal_sphere_intersect(s, r);
     s.intersect(r);
@@ -64,7 +64,7 @@ TEST_CASE("Shape intersections", "[shape]") {
     sphere s = sphere(5.0);
     double l = -0.55; double m = 0.55;
     double n = std::sqrt(1 - l*l - m*m);
-    ray r(Point3(10, -8.32, 0), UVec3(l, m, n));
+    ray r(Point3(10, -8.32, 0), Vec3(l, m, n));
 
     ray r_valid = cgal_sphere_intersect(s, r);
     s.intersect(r);
@@ -77,7 +77,7 @@ TEST_CASE("Shape normal vector", "[normal]") {
   SECTION("plane") {
     ray r;
     plane pl;
-    UVec3 N_pl = pl.normal(r);
+    Vec3 N_pl = pl.normal(r);
     REQUIRE(N_pl.n == Approx(- r.v.n));
     REQUIRE(N_pl.l == Approx(0));
     REQUIRE(N_pl.m == Approx(0));
@@ -96,8 +96,8 @@ TEST_CASE("Shape normal vector", "[normal]") {
   
     s.intersect(r);
 
-    UVec3 N_valid = cgal_sphere_normal(s, r);
-    UVec3 N_test = s.normal(r);
+    Vec3 N_valid = cgal_sphere_normal(s, r);
+    Vec3 N_test = s.normal(r);
     SUCCEED("sphere normal happened");
     REQUIRE(N_test.l == Approx(N_valid.l));
     REQUIRE(N_test.m == Approx(N_valid.m));
@@ -118,8 +118,8 @@ TEST_CASE("Ray operations", "[rop]") {
     sphere s = sphere(5.0);
 
     s.intersect(r);
-    UVec3 N = s.normal(r);
-    UVec3 v_valid = cgal_reflect(r, N);
+    Vec3 N = s.normal(r);
+    Vec3 v_valid = cgal_reflect(r, N);
     reflect(r, N);
     SUCCEED("reflect happened");
     REQUIRE(r.v.l == Approx(v_valid.l));

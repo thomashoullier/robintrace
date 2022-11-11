@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 class Vec3 {
   public:
@@ -12,6 +13,7 @@ class Vec3 {
 
   Vec3 ();
   Vec3 (double _l, double _m, double _n);
+  Vec3 (double _l, double _m, bool nsign);
 };
 
 double dot (Vec3 v1, Vec3 v2);

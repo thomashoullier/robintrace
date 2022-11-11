@@ -1,6 +1,6 @@
 #include "cgal_sphere_normal.h"
 
-UVec3 cgal_sphere_normal (const sphere s, const ray r) {
+Vec3 cgal_sphere_normal (const sphere s, const ray r) {
   /*Compute the sphere normal at the intersection point indicated by r.*/
   Point_3f C(0, 0, s.R);
   Point_3f I(r.p.x, r.p.y, r.p.z);
@@ -9,6 +9,6 @@ UVec3 cgal_sphere_normal (const sphere s, const ray r) {
   if (r.v.n * CI.z() > 0) {CI = - CI;}
   // Return the normalized vector.
   CI = CI / std::sqrt(CI.squared_length());
-  UVec3 N(CI.x(), CI.y(), CI.z());
+  Vec3 N(CI.x(), CI.y(), CI.z());
   return N;
 }
