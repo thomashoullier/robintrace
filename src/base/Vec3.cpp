@@ -54,7 +54,7 @@ Vec3 operator- (const Vec3 v1, const Vec3 v2) {
 }
 
 /*** Printers ***/
-std::string coords_as_str (const Vec3 v) {
+std::string coords_as_str (const Vec3 &v) {
   // Return the vector coordinates as a printable string.
   std::string coords_str =
     "(" + std::to_string(v.l) + ", " + std::to_string(v.m) + ", "
@@ -62,7 +62,7 @@ std::string coords_as_str (const Vec3 v) {
   return coords_str;
 }
 
-std::ostream& operator<< (std::ostream &out, Vec3 const& v) {
+std::ostream& operator<< (std::ostream &out, const Vec3 &v) {
   // Printer method.
   out << "Vec3" << coords_as_str(v);
   return out;

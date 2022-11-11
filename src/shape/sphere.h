@@ -14,6 +14,6 @@ class sphere: public shape {
     Vec3 normal (ray &r);
 };
 
-std::ostream& operator<< (std::ostream &out, sphere const& s);
+std::ostream& operator<< (std::ostream &out, const sphere &s);
 
 #endif //SPHERE_H

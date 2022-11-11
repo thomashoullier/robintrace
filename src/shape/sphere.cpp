@@ -6,7 +6,7 @@ sphere::sphere (double _R) {
 }
 
 /* Print method */
-std::ostream& operator<< (std::ostream &out, sphere const& s) {
+std::ostream& operator<< (std::ostream &out, const sphere &s) {
   out << "sphere(R = " << s.R << ")";
   return out;
 }

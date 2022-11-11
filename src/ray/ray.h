@@ -16,6 +16,6 @@ class ray {
     ray (Point3 _p, Vec3 _v);
 };
 
-std::ostream& operator<< (std::ostream &out, ray const& r);
+std::ostream& operator<< (std::ostream &out, const ray &r);
 
 #endif // RAY_H

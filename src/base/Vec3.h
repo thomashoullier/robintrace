@@ -22,7 +22,7 @@ Vec3 operator+ (const Vec3 v1, const Vec3 v2);
 Vec3 operator- (const Vec3 v);
 Vec3 operator- (const Vec3 v1, const Vec3 v2);
 
-std::string coords_as_str (const Vec3 v);
-std::ostream& operator<< (std::ostream &out, Vec3 const& v);
+std::string coords_as_str (const Vec3 &v);
+std::ostream& operator<< (std::ostream &out, const Vec3 &v);
 
 #endif //VEC3_H

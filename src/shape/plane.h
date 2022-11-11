@@ -12,6 +12,6 @@ class plane: public shape {
     Vec3 normal (ray &r);
 };
 
-std::ostream& operator<< (std::ostream &out, plane const& pl);
+std::ostream& operator<< (std::ostream &out, const plane &pl);
 
 #endif //PLANE_H

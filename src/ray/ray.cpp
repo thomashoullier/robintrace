@@ -13,7 +13,7 @@ ray::ray (Point3 _p, Vec3 _v) {
   code = 0;
 }
 
-std::ostream& operator<< (std::ostream &out, ray const& r) {
+std::ostream& operator<< (std::ostream &out, const ray &r) {
   // Printer method
   out << "ray(" << r.p << ", " << r.v << ", code: " << r.code << ")";
   return out;

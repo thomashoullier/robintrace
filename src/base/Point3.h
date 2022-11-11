@@ -13,6 +13,6 @@ class Point3 {
   Point3 (double _x, double _y, double _z);
 };
 
-std::ostream& operator<< (std::ostream &out, Point3 const& p);
+std::ostream& operator<< (std::ostream &out, const Point3 &p);
 
 #endif // POINT3_H
