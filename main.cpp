@@ -44,4 +44,13 @@ int main(){
   std::cout << "v1 = " << v1 << std::endl;
   Vec3 v2 = 2 * v1;
   std::cout << "v2 = 2*v1 = " << v2 << std::endl;
+
+  std::cout << "Refraction example" << std::endl;
+  double nr = 1.3;
+  ray r_refract(Point3(0.5, -0.32, 0), Vec3(0.01, 0.0, false));
+  std::cout << "Ray before refraction: " << r_refract << std::endl;
+  Vec3 N_refract(0.0, 0.01, true);
+  std::cout << "Normal vector: " << N_refract << std::endl;
+  refract(r_refract, N_refract, nr);
+  std::cout << "Ray after refraction: " << r_refract << std::endl;
 }

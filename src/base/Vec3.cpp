@@ -19,8 +19,8 @@ Vec3::Vec3 (double _l, double _m, bool nsign) {
   // zsign is true for +1, false for -1.
   l = _l;
   m = _m;
-  double n = std::sqrt(1 - l*l - m*m);
-  n = (nsign) ? n : - n;
+  double _n = std::sqrt(1 - l*l - m*m);
+  n = (nsign) ? _n : - _n;
 }
 
 /*** Operations ***/
