@@ -22,14 +22,13 @@ target_link_libraries(main PRIVATE Source)
 ## Test
 find_package(Catch2 REQUIRED)
 find_package(Eigen3 REQUIRED NO_MODULE)
-find_package(CGAL)
 
 file(GLOB_RECURSE TEST_SRC ./test/*.cpp)
 add_library(Test_src INTERFACE)
 target_include_directories(Test_src INTERFACE ./test)
 
 add_executable(test ./test/test_main.cpp ${SOURCES} ${TEST_SRC})
-target_link_libraries(test PRIVATE Catch2::Catch2WithMain CGAL::CGAL
+target_link_libraries(test PRIVATE Catch2::Catch2WithMain
                                    Source Test_src Eigen3::Eigen)
 
 ## Benchmark
@@ -42,7 +41,7 @@ target_link_libraries(benchmark PRIVATE Catch2::Catch2WithMain
 ## Test coverage
 include(CodeCoverage)
 add_executable(coverage ${SOURCES} ${TEST_SRC})
-target_link_libraries(coverage PRIVATE Catch2::Catch2WithMain CGAL::CGAL
+target_link_libraries(coverage PRIVATE Catch2::Catch2WithMain
                                        Source Test_src Eigen3::Eigen)
 target_compile_options(coverage PRIVATE 
                        -O0 -Wall -fprofile-arcs -ftest-coverage)

@@ -8,7 +8,6 @@
 
 #include "poaky.h"
 #include "shape/sphere_ref.h"
-#include "cgal/cgal_sphere_normal.h"
 #include "rop/reflect_ref.h"
 #include "utils/ray_eq.h"
 

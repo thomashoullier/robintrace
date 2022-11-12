@@ -27,3 +27,16 @@ ray sphere_intersect_ref (const sphere &s, const ray &r) {
   r_ref.p.y = r_ref.p.y + tsol * r_ref.v.m;
   return r_ref;
 }
+
+Vec3 sphere_normal_ref (const sphere &s, const ray &r) {
+  // Sphere normal vector reference implementation
+  Eigen::Vector3d C(0, 0, s.R);
+  Eigen::Vector3d I(r.p.x, r.p.y, r.p.z);
+  Eigen::Vector3d CI = I - C;
+  // Flip the vector opposite to the incident ray in the z direction.
+  if (r.v.n * CI(2) > 0) {CI = - CI;}
+  // Return the normalized vector.
+  CI.normalize();
+  Vec3 N(CI(0), CI(1), CI(2));
+  return N;
+}

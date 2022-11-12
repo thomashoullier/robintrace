@@ -108,7 +108,7 @@ TEST_CASE("Shape normal vector", "[normal]") {
   
     s.intersect(r);
 
-    Vec3 N_valid = cgal_sphere_normal(s, r);
+    Vec3 N_valid = sphere_normal_ref(s, r);
     Vec3 N_test = s.normal(r);
     SUCCEED("sphere normal happened");
     REQUIRE(N_test.l == Approx(N_valid.l));
