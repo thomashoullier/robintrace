@@ -19,9 +19,9 @@ target_include_directories(Source INTERFACE ./src)
 add_executable(main ./main.cpp ${SOURCES})
 target_link_libraries(main PRIVATE Source)
 
-
 ## Test
 find_package(Catch2 REQUIRED)
+find_package(Eigen3 REQUIRED NO_MODULE)
 find_package(CGAL)
 
 file(GLOB_RECURSE TEST_SRC ./test/*.cpp)
@@ -30,7 +30,7 @@ target_include_directories(Test_src INTERFACE ./test)
 
 add_executable(test ./test/test_main.cpp ${SOURCES} ${TEST_SRC})
 target_link_libraries(test PRIVATE Catch2::Catch2WithMain CGAL::CGAL
-                                   Source Test_src)
+                                   Source Test_src Eigen3::Eigen)
 
 ## Benchmark
 add_library(Benchmark INTERFACE)
@@ -43,7 +43,7 @@ target_link_libraries(benchmark PRIVATE Catch2::Catch2WithMain
 include(CodeCoverage)
 add_executable(coverage ${SOURCES} ${TEST_SRC})
 target_link_libraries(coverage PRIVATE Catch2::Catch2WithMain CGAL::CGAL
-                                       Source Test_src)
+                                       Source Test_src Eigen3::Eigen)
 target_compile_options(coverage PRIVATE 
                        -O0 -Wall -fprofile-arcs -ftest-coverage)
 setup_target_for_coverage_gcovr_html(

@@ -131,7 +131,7 @@ TEST_CASE("Ray operations", "[rop]") {
 
     s.intersect(r);
     Vec3 N = s.normal(r);
-    Vec3 v_valid = cgal_reflect(r, N);
+    Vec3 v_valid = reflect_ref(r, N);
     reflect(r, N);
     SUCCEED("reflect happened");
     REQUIRE(r.v.l == Approx(v_valid.l));
