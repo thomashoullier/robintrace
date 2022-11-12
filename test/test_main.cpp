@@ -54,7 +54,7 @@ TEST_CASE("Shape intersections", "[shape]") {
     
     sphere s = sphere(5.0);
   
-    ray r_valid = cgal_sphere_intersect(s, r);
+    ray r_valid = sphere_intersect_ref(s, r);
     s.intersect(r);
     SUCCEED("ray/sphere intersection happened.");
     ray_eq(r, r_valid);
@@ -66,7 +66,7 @@ TEST_CASE("Shape intersections", "[shape]") {
     double n = std::sqrt(1 - l*l - m*m);
     ray r(Point3(4.3, -0.32, 0), Vec3(l, m, n));
     
-    ray r_valid = cgal_sphere_intersect(s, r);
+    ray r_valid = sphere_intersect_ref(s, r);
     s.intersect(r);
     SUCCEED("ray/sphere intersection happened.");
     ray_eq(r, r_valid);
@@ -78,7 +78,7 @@ TEST_CASE("Shape intersections", "[shape]") {
     double n = std::sqrt(1 - l*l - m*m);
     ray r(Point3(10, -8.32, 0), Vec3(l, m, n));
 
-    ray r_valid = cgal_sphere_intersect(s, r);
+    ray r_valid = sphere_intersect_ref(s, r);
     s.intersect(r);
     SUCCEED("ray/sphere intersection happened.");
     ray_eq(r, r_valid);
