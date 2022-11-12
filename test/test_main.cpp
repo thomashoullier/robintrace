@@ -138,4 +138,17 @@ TEST_CASE("Ray operations", "[rop]") {
     REQUIRE(r.v.m == Approx(v_valid.m));
     REQUIRE(r.v.n == Approx(v_valid.n));
   }
+
+  SECTION("refract") {
+    ray r(Point3(0.5, -0.32, 0.0), Vec3(0.01, -0.005, false));
+    Vec3 N(0.02, 0.01, true);
+    double nr = 1.3;
+    
+    ray r_valid = refract_ref(r, N, nr);
+    refract(r, N, nr);
+    SUCCEED("refract happened");
+    REQUIRE(r.v.l == Approx(r_valid.v.l));
+    REQUIRE(r.v.m == Approx(r_valid.v.m));
+    REQUIRE(r.v.n == Approx(r_valid.v.n));
+  }
 }

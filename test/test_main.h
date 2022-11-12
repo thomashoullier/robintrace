@@ -9,6 +9,7 @@
 #include "poaky.h"
 #include "shape/sphere_ref.h"
 #include "rop/reflect_ref.h"
+#include "rop/refract_ref.h"
 #include "utils/ray_eq.h"
 
 #include "instantiators.h"
