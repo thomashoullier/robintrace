@@ -2,7 +2,6 @@
 #define REFRACT_REF_H
 
 #include "poaky.h"
-#include <Eigen/Dense>
 #include <cmath>
 
 ray refract_ref (const ray &r, const Vec3 &N, double nr);

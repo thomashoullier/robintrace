@@ -14,6 +14,6 @@ void plane::intersect (ray &r) {
 
 /* Normal */
 Vec3 plane::normal (ray &r) {
-  double sig_n = std::copysign(1.0, r.v.n);
+  double sig_n = std::copysign(1.0, r.v(2));
   return Vec3(0, 0, - sig_n);
 }

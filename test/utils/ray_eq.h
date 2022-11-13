@@ -4,6 +4,6 @@
 #include "poaky.h"
 #include "catch2/catch.hpp"
 
-void ray_eq (const ray r_totest, const ray r_ref);
+void ray_eq (const ray &r_totest, const ray &r_ref);
 
 #endif // RAY_EQ_H

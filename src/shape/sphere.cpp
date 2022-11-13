@@ -13,8 +13,8 @@ std::ostream& operator<< (std::ostream &out, const sphere &s) {
 
 /* intersect */
 void sphere::intersect (ray &r) {
-  double b = 2 * (r.p.x * r.v.l + r.p.y * r.v.m - r.v.n * R);
-  double c = r.p.x * r.p.x + r.p.y * r.p.y;
+  double b = 2 * (r.p(0) * r.v(0) + r.p(1) * r.v(1) - r.v(2) * R);
+  double c = r.p(0) * r.p(0) + r.p(1) * r.p(1);
   double delta = b * b - 4 * c;
   
   if (delta <= 0) { // Error: no intersection.
@@ -25,21 +25,21 @@ void sphere::intersect (ray &r) {
   double sigb = std::copysign(1.0, b);
   double tsol = (-b + sigb * std::sqrt(delta)) / 2.0;
 
-  r.p.z = tsol * r.v.n;
-  if (std::abs(r.p.z) >= std::abs(R)) { // Error: Beyond first hemisphere.
+  r.p(2) = tsol * r.v(2);
+  if (std::abs(r.p(2)) >= std::abs(R)) { // Error: Beyond first hemisphere.
     r.code = 2;
     return;
   }
 
-  r.p.x = r.p.x + tsol * r.v.l;
-  r.p.y = r.p.y + tsol * r.v.m;
+  r.p(0) = r.p(0) + tsol * r.v(0);
+  r.p(1) = r.p(1) + tsol * r.v(1);
 }
 
 /* normal */
 Vec3 sphere::normal (ray &r) {
-  double Rn = std::copysign(R, r.v.n);
-  double nl = r.p.x / Rn;
-  double nm = r.p.y / Rn;
-  double nn = (r.p.z - R) / Rn;
+  double Rn = std::copysign(R, r.v(2));
+  double nl = r.p(0) / Rn;
+  double nm = r.p(1) / Rn;
+  double nn = (r.p(2) - R) / Rn;
   return Vec3(nl, nm, nn);
 }

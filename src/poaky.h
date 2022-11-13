@@ -3,14 +3,10 @@
 
 // Headers with functions that are meant to be part of the API.
 
-#include "base/Point3.h"
 #include "base/Vec3.h"
 #include "ray/ray.h"
 #include "rop/rop.h"
 #include "shape/plane.h"
 #include "shape/sphere.h"
-
-// Dev
-#include "ray/ray_eig.h"
 
 #endif // POAKY_H

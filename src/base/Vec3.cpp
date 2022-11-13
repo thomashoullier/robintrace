@@ -1,69 +1,12 @@
 #include "base/Vec3.h"
 
-/*** Constructors ***/
-Vec3::Vec3 () {
-  // Constructor
-  l = 0;
-  m = 0;
-  n = 1;
-}
-
-Vec3::Vec3 (double _l, double _m, double _n) {
-  // Construct + initialize
-  l = _l; m = _m; n = _n;
-}
-
-Vec3::Vec3 (double _l, double _m, bool nsign) {
+Vec3 Vec3_lm (double l, double m, bool nsign) {
   // Construct and initialize a unit Vec3. The component n
   // is built automatically from l, m and its specified sign.
   // zsign is true for +1, false for -1.
-  l = _l;
-  m = _m;
-  double _n = std::sqrt(1 - l*l - m*m);
-  n = (nsign) ? _n : - _n;
+  double n = std::sqrt(1 - l*l - m*m);
+  n = (nsign) ? n : - n;
+  Vec3 v (l, m, n);
+  return v;
 }
 
-/*** Operations ***/
-double dot (const Vec3 &v1, const Vec3 &v2) {
-  // Dot product operation.
-  double dot_product = v1.l * v2.l + v1.m * v2.m + v1.n * v2.n;
-  return dot_product;
-}
-
-Vec3 operator* (const double scal, const Vec3 &vec) {
-  // Scalar-vector multiplication.
-  Vec3 vecmul(scal * vec.l, scal * vec.m, scal * vec.n);
-  return vecmul;
-}
-
-Vec3 operator+ (const Vec3 &v1, const Vec3 &v2) {
-  // Vector addition.
-  Vec3 vecadd(v1.l + v2.l, v1.m + v2.m, v1.n + v2.n);
-  return vecadd;
-}
-
-Vec3 operator- (const Vec3 &v) {
-  // Vector negate unary operator.
-  Vec3 vecneg(-v.l, -v.m, -v.n);
-  return vecneg;
-}
-
-Vec3 operator- (const Vec3 &v1, const Vec3 &v2) {
-  // Vector subtraction. v1 - v2.
-  return v1 + (- v2);
-}
-
-/*** Printers ***/
-std::string coords_as_str (const Vec3 &v) {
-  // Return the vector coordinates as a printable string.
-  std::string coords_str =
-    "(" + std::to_string(v.l) + ", " + std::to_string(v.m) + ", "
-        + std::to_string(v.n) + ")";
-  return coords_str;
-}
-
-std::ostream& operator<< (std::ostream &out, const Vec3 &v) {
-  // Printer method.
-  out << "Vec3" << coords_as_str(v);
-  return out;
-}

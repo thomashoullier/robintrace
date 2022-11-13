@@ -1,28 +1,11 @@
 #ifndef VEC3_H
 #define VEC3_H
 
-#include <iostream>
-#include <string>
 #include <cmath>
+#include <Eigen/Dense>
 
-class Vec3 {
-  public:
-    double l;
-    double m;
-    double n;
+typedef Eigen::Vector3d Vec3;
 
-  Vec3 ();
-  Vec3 (double _l, double _m, double _n);
-  Vec3 (double _l, double _m, bool nsign);
-};
-
-double dot (const Vec3 &v1, const Vec3 &v2);
-Vec3 operator* (const double scal, const Vec3 &vec);
-Vec3 operator+ (const Vec3 &v1, const Vec3 &v2);
-Vec3 operator- (const Vec3 &v);
-Vec3 operator- (const Vec3 &v1, const Vec3 &v2);
-
-std::string coords_as_str (const Vec3 &v);
-std::ostream& operator<< (std::ostream &out, const Vec3 &v);
+Vec3 Vec3_lm (double l, double m, bool nsign);
 
 #endif //VEC3_H
