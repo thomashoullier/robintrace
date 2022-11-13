@@ -8,6 +8,10 @@ void reflect (ray &r, const Vec3 &N) {
   r.v.n = r.v.n - N.n * Ndotv2;
 }
 
+void reflect_eig (ray_eig &r, const Eigen::Vector3d &N) {
+  r.v = r.v - N * 2 * N.dot(r.v);
+}
+
 void refract (ray &r, const Vec3 &N, double nr) {
   /* Refraction operation. The ray r contains the incident ray direction.
      N is the surface normal.

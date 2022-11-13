@@ -40,6 +40,19 @@ TEST_CASE("Ray operations", "[rop]") {
         return reflect(init_rays[i], N);});
     };
 
+  BENCHMARK_ADVANCED("reflect_eig")(Catch::Benchmark::Chronometer meter) {
+      double n = std::sqrt(1 - 0.01*0.01 - 0.04*0.04);
+      Eigen::Vector3d p(0, 0, 0);
+      Eigen::Vector3d v(0.04, 0.01, n);
+      ray_eig r(p, v);
+      double Nn = std::sqrt(1 - 0.01*0.01 - 0.08*0.08);
+      Eigen::Vector3d N(0.08, -0.01, - Nn);    
+      std::vector<ray_eig> init_rays (meter.runs());
+      std::fill(init_rays.begin(), init_rays.end(), r);
+      meter.measure([&init_rays, &N](int i) {
+        return reflect_eig(init_rays[i], N);});
+    };
+  
   BENCHMARK_ADVANCED("refract")(Catch::Benchmark::Chronometer meter) {
       ray r(Point3(0.5, -0.32, 0), Vec3(0.01, 0.0, false));
       Vec3 N(0.0, 0.01, true);

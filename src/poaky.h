@@ -10,4 +10,7 @@
 #include "shape/plane.h"
 #include "shape/sphere.h"
 
+// Dev
+#include "ray/ray_eig.h"
+
 #endif // POAKY_H

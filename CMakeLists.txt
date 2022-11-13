@@ -12,16 +12,16 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/Modules)
 
 ## Main
+find_package(Eigen3 REQUIRED NO_MODULE)
 file(GLOB_RECURSE SOURCES ./src/*.cpp)
 add_library(Source INTERFACE)
 target_include_directories(Source INTERFACE ./src)
 
 add_executable(main ./main.cpp ${SOURCES})
-target_link_libraries(main PRIVATE Source)
+target_link_libraries(main PRIVATE Source Eigen3::Eigen)
 
 ## Test
 find_package(Catch2 REQUIRED)
-find_package(Eigen3 REQUIRED NO_MODULE)
 
 file(GLOB_RECURSE TEST_SRC ./test/*.cpp)
 add_library(Test_src INTERFACE)
@@ -36,7 +36,7 @@ add_library(Benchmark INTERFACE)
 target_include_directories(Benchmark INTERFACE ./benchmark)
 add_executable(benchmark ./benchmark/benchmark.cpp ${SOURCES})
 target_link_libraries(benchmark PRIVATE Catch2::Catch2WithMain
-                                        Source Benchmark)
+                                        Source Benchmark Eigen3::Eigen)
 
 ## Test coverage
 include(CodeCoverage)
