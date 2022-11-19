@@ -30,7 +30,8 @@ on context, as they are expressed in the current surface coordinate system.
 
 In addition to their geometric definition, rays also hold a status code.
 This code signals whether raytracing operations were successful, and if
-not, which error case was encountered.
+not, which error case was encountered. There is no guarantee on the value
+of the ray point and vector when the status code signals an error.
 
 \begin{itemize}
 \item \lstinline{int code}: Status code.
@@ -44,7 +45,8 @@ The status codes are defined in \cref{tab:ray-status-codes}.
 0 & Success, the ray is valid.\\ \hline
 1 & Sphere intersection: No intersection. \\ \hline
 2 & Sphere intersection: Intersection beyond first hemisphere. \\ \hline
-3 & refract: \gls{TIR} \\
+3 & refract: \gls{TIR} \\ \hline
+4 & transfer: ray is parallel to the new local plane. \\
 \hline \end{tabular}
 \end{table}
 
@@ -109,8 +111,9 @@ with:
 \end{equation}
 
 \subsubsection{transfer}
-The transfer operation operates a change of basis and an intersection with
-the newly defined local plane.
+A transfer defines a new \gls{LCS} to propagate the ray to.  The transfer
+operation operates a change of basis and an intersection with the newly defined
+local plane.
 
 \paragraph{Definition}
 Let,
@@ -151,12 +154,44 @@ Definition of the transfer between LCS1 and LCS2.}
 \end{figure}
 
 \paragraph{Operation}
+The \lstinline{transfer} operation can be decomposed as two successive
+operations on the ray:
 
-\textcolor{red}{TODO:
 \begin{itemize}
-\item transfer operation
-\item transfer operation illustration (with a ray)
-\end{itemize}}
+\item A change of basis from LCS1 to LCS2.
+\item A ray intersection with the local plane of LCS2.
+\end{itemize}
+
+Let a ray expressed in LCS1 with starting point and direction
+$(P_1, \overrightarrow{V_1})$. We first operate a change of basis from LCS1
+to LCS2, which gives the coordinates $(P_2, \overrightarrow{V_2})$.
+
+\begin{equation} \begin{cases}
+P_2 = \begin{bmatrix} x_2 \\ y_2 \\ z_2 \end{bmatrix}
+    = B^{-1} \cdot P_1 - \overrightarrow{D} \\
+\overrightarrow{V_2} = \begin{bmatrix} l_2 \\ m_2 \\ n_2 \end{bmatrix}
+  = B^{-1} \cdot \overrightarrow{V_1}
+\end{cases} \end{equation}
+
+We signal an error in the case $n_2 = 0$. This case corresponds to the
+ray being parallel to the local plane of LCS2. We operate the intersection
+of the ray with the LCS2 local plane next. The result ray is
+$(P_3, \overrightarrow{V_3})$. The operation is illustrated by
+\cref{fig:transfer-operation}.
+
+\begin{equation} \begin{cases}
+\overrightarrow{V_3} = \overrightarrow{V_2} \\
+t = - \frac{z_2}{n_2} \\
+P_3 = \begin{bmatrix} x_2 + t \cdot l_2 \\
+                      y_2 + t \cdot m_2 \\
+                      0 \end{bmatrix}
+\end{cases} \end{equation}
+
+\begin{figure} \caption{\label{fig:transfer-operation}
+Illustration of the transfer operation on a ray.}
+\includesvg[height=.2\textheight, width=.9\textwidth, keepaspectratio]
+           {images/shape/transfer-operation.svg}
+\end{figure}
 
 \subsection{shape}
 Shapes are an abstract concept specifying two operations:
