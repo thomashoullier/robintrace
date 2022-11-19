@@ -108,9 +108,54 @@ with:
 (w - \sqrt{1 + c_{2m}}) \cdot \overrightarrow{N}
 \end{equation}
 
+\subsubsection{transfer}
+The transfer operation operates a change of basis and an intersection with
+the newly defined local plane.
+
+\paragraph{Definition}
+Let,
+\begin{itemize}
+\item LCS1 the starting \gls{LCS} defined by its origin and basis vectors
+$(A_1, \hat{x_1}, \hat{y_1}, \hat{z_1})$,
+\item LCS2 the \gls{LCS} defined by the transfer operation, 
+$(A_2, \hat{x_2}, \hat{y_2}, \hat{z_2})$.
+\end{itemize}
+
+The transfer operation is characterized by
+\begin{itemize}
+\item $B \in \mathbb{R}^{3 \times 3}$: A rotation matrix between the basis
+vectors of LCS1 and LCS2,
+\item $\overrightarrow{D} \in \mathbb{R}^3$: A translation vector between
+LCS1 and LCS2.
+\end{itemize}
+
+The coordinates of the origin and basis vectors of LCS2 are expressed in
+the original LCS1 coordinates by the following relations.
+
+\begin{equation} \begin{cases}
+A_2 = B \cdot \overrightarrow{D} \\
+\hat{x_2} = B \cdot \hat{x_1} \\
+\hat{y_2} = B \cdot \hat{y_1} \\
+\hat{z_2} = B \cdot \hat{z_1}
+\end{cases} \end{equation}
+
+Which is to say, LCS2 is obtained from LCS1 by first applying the rotation $B$
+and then translating the origin by $\overrightarrow{D}$, with
+$\overrightarrow{D}$ expressed in the rotated coordinates. The change of basis
+is illustrated on \cref{fig:transfer-definition}.
+
+\begin{figure} \caption{\label{fig:transfer-definition}
+Definition of the transfer between LCS1 and LCS2.}
+\includesvg[height=.2\textheight, width=.9\textwidth, keepaspectratio]
+           {images/shape/transfer-definition.svg}
+\end{figure}
+
+\paragraph{Operation}
+
 \textcolor{red}{TODO:
 \begin{itemize}
 \item transfer operation
+\item transfer operation illustration (with a ray)
 \end{itemize}}
 
 \subsection{shape}
