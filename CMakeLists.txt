@@ -21,7 +21,13 @@ add_executable(main ./main.cpp ${SOURCES})
 target_link_libraries(main PRIVATE Source Eigen3::Eigen)
 
 ## Test
-find_package(Catch2 REQUIRED)
+Include(FetchContent)
+FetchContent_Declare(
+  Catch2
+  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+  GIT_TAG        v3.2.0
+)
+FetchContent_MakeAvailable(Catch2)
 
 file(GLOB_RECURSE TEST_SRC ./test/*.cpp)
 add_library(Test_src INTERFACE)
