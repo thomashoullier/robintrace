@@ -821,3 +821,107 @@ c_{2m} &= (w - n_r) \cdot (w + n_r) = w^2 - {n_r}^2 \\
 
 Thus we find Bec's formula to be mathematically equivalent to the refraction
 formula we derived.
+
+\subsection{transfer operation}
+We work through the formula for applying the transfer operation to a ray.
+We reuse the notations in the definition (\cref{sec:transfer}). The transfer
+operation is the composition of a change of basis and an intersection with
+the new local plane.
+
+\paragraph{Change of basis}
+The initial ray $(P_1, \overrightarrow{V_1})$ is expressed in LCS1 coordinates.
+We express it in LCS2 with $(P_2, \overrightarrow{V_2})$. The LCS2 basis vectors
+are obtained by a rotation of the LCS1 basis vectors. We express everything
+in LCS1 coordinates up to the computation of $(P_2, \overrightarrow{V_2})$.
+
+\begin{equation} \begin{cases}
+\hat{x_2} = B \cdot \hat{x_1} \\
+\hat{y_2} = B \cdot \hat{y_1} \\
+\hat{z_2} = B \cdot \hat{z_1}
+\end{cases} \end{equation}
+
+The origin $A_2$ of LCS2 is obtained by a translation of $A_1$ along
+the new, rotated, coordinates.
+
+\begin{equation}
+D = \begin{bmatrix} D_x \\ D_y \\ D_z \end{bmatrix}
+\end{equation}
+
+\begin{equation} \begin{split}
+A_2 &= A_1 + D_x \cdot \hat{x_2} + D_y \cdot \hat{y_2} + D_z \cdot \hat{z_2} \\
+    &= D_x \cdot \hat{x_2} + D_y \cdot \hat{y_2} + D_z \cdot \hat{z_2} \\
+\end{split} \end{equation}
+
+Let us remember the columns of $B$ are the basis vectors of LCS2 expressed
+in LCS1.
+
+\begin{equation}
+B = \left[ \hat{x_2}, \hat{y_2}, \hat{z_2} \right]
+\end{equation}
+
+Thus, we can simplify the expression of $A_2$.
+
+\begin{equation}
+A_2 = B \cdot D
+\end{equation}
+
+The coordinates of $P_2$ are expressed thanks to a dot product with the basis
+vectors of LCS2.
+
+\begin{equation} \begin{cases}
+x_2 = (P - A_2) \cdot \hat{x_2} \\
+y_2 = (P - A_2) \cdot \hat{y_2} \\
+z_2 = (P - A_2) \cdot \hat{z_2}
+\end{cases} \end{equation}
+
+Again, this can be viewed as the following matrix-vector multiplication.
+
+\begin{equation} \begin{split}
+P_2 &= B^\top \cdot (P - A_2) \\
+    &= B^\top \cdot (P - B \cdot D) \\
+    &= B^\top \cdot P - D
+\end{split} \end{equation}
+
+Similarly, $\overrightarrow{V_2}$ may be expressed in LCS2.
+
+\begin{equation} \begin{cases}
+l_2 = \overrightarrow{V_1} \cdot \hat{x_2} \\
+m_2 = \overrightarrow{V_1} \cdot \hat{y_2} \\
+n_2 = \overrightarrow{V_1} \cdot \hat{z_2}
+\end{cases} \end{equation}
+
+Which can be simplified as the following relation.
+
+\begin{equation}
+\overrightarrow{V_2} = B^\top \cdot \overrightarrow{V_1}
+\end{equation}
+
+\paragraph{Intersection with the new local plane}
+The ray characterized by $(P_2, \overrightarrow{V_2}$ is intersected
+with the LCS2 $z = 0$ plane. Every operation happens in LCS2 coordinates.
+The intersection condition between the ray parametrized by $t$ and the
+plane is expressed as follows.
+
+\begin{equation}
+z_2 + t \cdot n_2 = 0
+\end{equation}
+
+We treat the case $n_2 = 0$ as an error case. It corresponds to the ray
+being parallel to the plane.
+
+\begin{equation}
+t = - \frac{z_2}{n_2}
+\end{equation}
+
+We simply propagate point $P_2$ up to the intersection $P_3$.
+
+\begin{equation}
+P_3 = \begin{bmatrix}
+x_2 + t \cdot l_2 \\
+y_2 + t \cdot m_2 \\
+0
+\end{bmatrix}
+\end{equation}
+
+The ray vector $\overrightarrow{V_2}$ does not undergo any operation, hence
+$\overrightarrow{V_3} = \overrightarrow{V_2}$.

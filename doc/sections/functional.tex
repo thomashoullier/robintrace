@@ -110,7 +110,7 @@ with:
 (w - \sqrt{1 + c_{2m}}) \cdot \overrightarrow{N}
 \end{equation}
 
-\subsubsection{transfer}
+\subsubsection{transfer} \label{sec:transfer}
 A transfer defines a new \gls{LCS} to propagate the ray to.  The transfer
 operation operates a change of basis and an intersection with the newly defined
 local plane.
@@ -127,7 +127,8 @@ $(A_2, \hat{x_2}, \hat{y_2}, \hat{z_2})$.
 The transfer operation is characterized by
 \begin{itemize}
 \item $B \in \mathbb{R}^{3 \times 3}$: A rotation matrix between the basis
-vectors of LCS1 and LCS2,
+vectors of LCS1 and LCS2. $B$ is orthogonal by definition,
+hence $B^{-1} = B^\top$ \cite{wiki:rotation-matrix}.
 \item $\overrightarrow{D} \in \mathbb{R}^3$: A translation vector between
 LCS1 and LCS2.
 \end{itemize}
