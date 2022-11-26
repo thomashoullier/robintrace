@@ -3,10 +3,12 @@
 
 int main(){
   std::cout << "# Main #" << std::endl;
-  ray r = ray();
-  std::cout << r << std::endl;
-  ray r2 = ray(Vec3(1, 2, 3), Vec3_lm(0.01, -0.002, true));
-  std::cout << r2 << std::endl;
-  bool reqr2 = (r.v == r2.v);
-  std::cout << reqr2 << (r.v == r.v) << std::endl;
+
+  ray r (Vec3(0.2, 0.3, 0.0), Vec3(0, 0, 1.0));
+  Mat3 m; m << 1, 0, 0, 0, std::sqrt(3)/2, 0.5, 0, -0.5, std::sqrt(3)/2;
+  transfer trf (m.transpose(), Vec3(0.2, 0.4, -10));
+  std::cout << trf << std::endl;
+  std::cout << "Initial ray: " << r << std::endl;
+  trf.apply(r);
+  std::cout << "ray after transfer: " << r << std::endl;
 }
