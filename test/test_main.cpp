@@ -96,3 +96,28 @@ TEST_CASE("Ray operations", "[rop]") {
     REQUIRE(r.v(2) == Approx(r_valid.v(2)));
   }
 }
+
+TEST_CASE("Transfer", "[transfer]") {
+  SECTION("transfer") {
+    ray r (Vec3(0.2, 0.3, 0.0), Vec3(0, 0, 1.0));
+    Mat3 m (Eigen::AngleAxisd(0.01, Vec3(0,1,0)));
+    transfer trf (m.transpose(), Vec3(0.2, 0.4, -10));
+
+    ray r_valid = transfer_ref(r, trf);
+    trf.apply(r);
+    SUCCEED("transfer happened");
+    ray_eq(r, r_valid);
+  }
+
+  SECTION("transfer error: ray is parallel to new local plane.") {
+    ray r (Vec3(0, 0, 0), Vec3(0, 0, 0));
+    // We trigger the error with a zero vector.
+    // The matrix itself works but maybe should not.
+    Mat3 m (Eigen::AngleAxisd(M_PI_2, Vec3(1, 0, 0)));
+    transfer trf(m.transpose(), Vec3(0, 0, 0));
+    
+    ray r_valid = transfer_ref(r, trf);
+    trf.apply(r);
+    ray_eq(r, r_valid);
+  }
+}

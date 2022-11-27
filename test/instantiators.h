@@ -27,6 +27,14 @@ TEST_CASE("Objects instantiation", "[constructors]") {
 
     sphere s = sphere(10.0); (void)s;
     SUCCEED("'sphere' instantiated.");
-  }}
+  }
+
+  SECTION("transfer") {
+    transfer trf_only_translate (Vec3(0, 0, -1.0));
+    SUCCEED("transfer constructor: translation only.");
+    transfer trf_full (Mat3::Identity(), Vec3(0, 0, -1.0));
+    SUCCEED("transfer constructor: rotation and translation.");
+  }
+}
 
 #endif // INSTANTIATORS_H

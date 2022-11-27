@@ -24,6 +24,13 @@ TEST_CASE("Objects printing", "[printers]") {
 
     sphere s = sphere(5.0);
     nullOstream << s;
+    SUCCEED("sphere");
+  }
+
+  SECTION("transfer") {
+    transfer trf(Vec3(0, 0, -1));
+    nullOstream << trf;
+    SUCCEED("transfer");
   }
 }
 
