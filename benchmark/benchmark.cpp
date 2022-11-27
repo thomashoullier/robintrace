@@ -49,3 +49,16 @@ TEST_CASE("Ray operations", "[rop]") {
       return refract(init_rays[i], N, nr);});
   };
 }
+
+TEST_CASE("Transfer", "[transfer]") {
+  BENCHMARK_ADVANCED("transfer")(Catch::Benchmark::Chronometer meter) {
+    ray r(Vec3(0.5, -0.32, 0), Vec3_lm(0.01, 0.0, false));
+    Mat3 m (Eigen::AngleAxisd(0.01, Vec3(0,1,0)));
+    transfer trf (m.transpose(), Vec3(0.2, 0.4, -10));
+
+    std::vector<ray> init_rays (meter.runs());
+    std::fill(init_rays.begin(), init_rays.end(), r);
+    meter.measure([&init_rays, &trf](int i) {
+      return trf.apply(init_rays[i]);});
+  };
+}

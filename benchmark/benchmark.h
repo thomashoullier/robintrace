@@ -7,6 +7,8 @@
 #include <catch2/catch.hpp>
 #include <cmath>
 #include <vector>
+#include <Eigen/Geometry>
+
 #include "poaky.h"
 
 #endif //BENCHMARK_H
