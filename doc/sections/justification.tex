@@ -298,14 +298,14 @@ For the $R < 0$ case, we have:
 
 \begin{equation} \begin{split}
 & z - R = \sqrt{R^2 -x^2 -y^2} \\
-\iff & z = R \left( 1 + \sqrt{1 - \frac{x^2 + y^2}{R^2}} \right)
+\iff & z = R \left( 1 - \sqrt{1 - \frac{x^2 + y^2}{R^2}} \right)
 \end{split} \end{equation}
 
 The two cases can be reunited in the following formula, which is the
 analytic expression of the sphere shape in our program \cref{eq:sphere-alt}.
 
 \begin{equation} \label{eq:sphere-alt}
-z = R \left( 1 - \textrm{sign}(R) \sqrt{1 - \frac{x^2 + y^2}{R^2}} \right)
+z = R \left( 1 - \sqrt{1 - \frac{x^2 + y^2}{R^2}} \right)
 \end{equation}
 
 \paragraph{derivatives}
@@ -314,12 +314,12 @@ We compute the partial derivative with respect to $x$ of \cref{eq:sphere-alt}.
 \begin{equation} \begin{split}
 \frac{\partial z}{\partial x} & = 
 \frac{\partial}{\partial x}
-\left( -R \cdot \textrm{sign}(R) \sqrt{1 - \frac{x^2 + y^2}{R^2}} \right) \\
-& = - \abs{R} \frac{\partial}{\partial x}
+\left( -R \cdot \sqrt{1 - \frac{x^2 + y^2}{R^2}} \right) \\
+& = - R \cdot \frac{\partial}{\partial x}
 \left( \sqrt{1 - \frac{x^2 + y^2}{R^2}} \right) \\
-& = \abs{R} \cdot \frac{1}{\sqrt{1 - \frac{x^2 + y^2}{R^2}}} \cdot
+& = R \cdot \frac{1}{\sqrt{1 - \frac{x^2 + y^2}{R^2}}} \cdot
 \frac{x}{R^2} \\
-& = \frac{R \cdot \textrm{sign}(R) \cdot x}{R \sqrt{R^2 - x^2 -y^2}} \\
+& = \frac{x}{R \cdot \sqrt{1 - \frac{x^2 + y^2}{R^2}}} \\
 & = \frac{\textrm{sign}(R) \cdot x}{\sqrt{R^2 - x^2 -y^2}}
 \end{split} \end{equation}
 
