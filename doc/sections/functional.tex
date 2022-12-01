@@ -339,7 +339,18 @@ The surface shape \lstinline{standard} is defined using:
 \item $k$: a scalar parameter which changes the type of the quadric
 \end{itemize}
 
-The altitude
+The altitude is defined as follows. We use the same expression as in
+commercial software.
+
+\begin{equation} \label{eq:standard-z}
+z = \frac{c \cdot r^2}{1 + \sqrt{1 - (k + 1) \cdot c^2 \cdot r^2}}
+\end{equation}
+
+With,
+\begin{itemize}
+\item $c = \frac{1}{R}$ the curvature,
+\item $r^2 = x^2 + y^2$.
+\end{itemize}
 
 \paragraph{intersect}
 

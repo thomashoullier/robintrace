@@ -925,3 +925,60 @@ y_2 + t \cdot m_2 \\
 
 The ray vector $\overrightarrow{V_2}$ does not undergo any operation, hence
 $\overrightarrow{V_3} = \overrightarrow{V_2}$.
+
+\subsection{standard shape}
+The \lstinline{standard} shape is defined with the formula in
+\cref{eq:standard-z}. We explore its link with quadrics and try
+to provide a rationale for how it was defined from quadrics. Additionally,
+we check the formula consistency with respect to \lstinline{sphere}.
+
+Note we freely convert between $R$ and $c$, and $r$ and $(x, y)$ in
+the derivations.
+
+\textcolor{red}{TODO: Where does this formula come from originally?}
+
+\subsubsection{Link with general quadrics}
+An expression for general quadrics can be written as \cite{wiki:quadric}.
+
+\begin{equation}
+A x^2 + B y^2 + C z^2 + D x y + E y z + F x z + G x + H y + I z + J = 0
+\end{equation}
+
+With,
+\begin{itemize}
+\item $A, B, C, D, E, F, G, H, I, J$ all in $\mathbb{R}$,
+\item At least one of $A$, $B$ or $C$ is non-zero.
+\end{itemize}
+
+We can easily see to which family of quadrics the points defined by the
+\lstinline{standard} altitude formula \emph{belong to}. We start with
+the altitude expression and re-express it in the general quadrics form.
+
+\begin{equation} \begin{split}
+&z = \frac{c \cdot r^2}{1 + \sqrt{1 - (k + 1) \cdot c^2 \cdot r^2}} \\
+\implies & z + z \cdot \sqrt{1 - (k+1) \cdot c^2 \cdot r^2} = c \cdot r^2 \\
+\implies & z - c \cdot r^2 = - z \cdot \sqrt{1 - (k + 1) \cdot c^2 \cdot r^2} \\
+\implies & \frac{c \cdot r^2}{z} - 1 = \sqrt{1 - (k + 1) \cdot c^2 \cdot r^2} \\
+\implies & \frac{c^2 \cdot r^4}{z^2} + 1 - \frac{2 \cdot c \cdot r^2}{z} =
+           1 - (k + 1) \cdot c^2 \cdot r^2 \\
+\implies & \frac{c \cdot r^2}{z^2} - \frac{2}{z} = - (k + 1) \cdot c \\
+\implies & (k + 1) \cdot z^2 - \frac{2}{c} \cdot z + r^2 = 0 \\
+\implies & x^2 + y^2 + (k + 1) \cdot z^2 - 2 R \cdot z = 0
+\end{split} \end{equation}
+
+We readily see this quadric can be defined from the general quadric expression
+by setting:
+
+\begin{equation} \begin{cases}
+A = B = 1 \\
+C = k + 1 \\
+I = -2 R \\
+D = E = F = G = H = J = 0
+\end{cases} \end{equation}
+
+\textcolor{red}{TODO: operate the coordinate change to obtain the normal form.
+See if there is a table in the wiki references.}.
+
+\subsubsection{Rationale for defining the shape from quadrics}
+
+\subsubsection{Formula consistency: sphere case}
