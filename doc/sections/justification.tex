@@ -937,7 +937,28 @@ the derivations.
 
 \textcolor{red}{TODO: Where does this formula come from originally?}
 
-\subsubsection{Link with general quadrics}
+\subsubsection{Range of definition}
+The range in $r$ for which the \lstinline{standard} shape is defined
+depends on $k$. The shape is defined when,
+
+\begin{equation} \begin{split}
+& 1 - (k+1) \cdot c^2 \cdot r^2 \geq 0 \\
+\iff & (k+1) \cdot c^2 \cdot r^2 \leq 1
+\end{split} \end{equation}
+
+For $k \leq -1$, the validity condition is met for $r \in \mathbb{R}$.
+For $k > -1$, the condition is met when,
+
+\begin{equation} \begin{split}
+& r^2 \leq \frac{1}{c^2 \cdot (k+1)} \\
+\iff & r \leq \frac{\abs{R}}{\sqrt{k+1}}
+\end{split} \end{equation}
+
+\subsubsection{Link with quadrics}
+We exhibit the link between the \lstinline{standard} surface and the
+more general quadrics expressions.
+
+\paragraph{General quadrics form}
 An expression for general quadrics can be written as \cite{wiki:quadric}.
 
 \begin{equation}
@@ -976,8 +997,74 @@ I = -2 R \\
 D = E = F = G = H = J = 0
 \end{cases} \end{equation}
 
-\textcolor{red}{TODO: operate the coordinate change to obtain the normal form.
-See if there is a table in the wiki references.}.
+\paragraph{Normal form}
+We operate the suitable change of coordinates in order to reduce the quadric
+expression to a so-called \emph{normal form} (\cite{wiki:quadric},
+\cite{Venit:2008} p.384) and better identify the types of quadrics we are
+working with.
+
+First, we treat the case $k=-1$.
+The quadric takes the following form.
+
+\begin{equation} \begin{split}
+&x^2 + y^2 - 2 R \cdot z = 0 \\
+\iff &z = \frac{c}{2} \cdot x^2 + \frac{c}{2} \cdot y^2
+\end{split} \end{equation}
+
+This form is a \emph{circular paraboloid}.
+
+Then, we treat the case $k \neq -1$. Let $k' = k + 1$.
+
+\begin{equation} \begin{split}
+& x^2 + y^2 + k' \cdot z^2 - 2 R \cdot z = 0 \\
+\iff & x^2 + y^2 + k' \cdot \left( z^2 - \frac{2R}{k'} \cdot z\right) = 0 \\
+\iff & x^2 + y^2 + k' \cdot \left( z - \frac{R}{k'} \right)^2 - \frac{R^2}{k'}
+       = 0
+\end{split} \end{equation}
+
+We operate the change of coordinate $z' = z - \frac{R}{k'}$.
+
+\begin{equation} \begin{split}
+& x^2 + y^2 + k' \cdot z'^2 - \frac{R^2}{k'} = 0 \\
+\iff & x^2 \cdot \frac{k'}{R^2} + y^2 \cdot \frac{k'}{R^2} +
+       z'^2 \cdot \frac{k'^2}{R^2} - 1 = 0 \\
+\iff & x^2 \cdot \frac{\textrm{sign}(k') \cdot \abs{k'}}{R^2} +
+       y^2 \cdot \frac{\textrm{sign}(k') \cdot \abs{k'}}{R^2} +
+       z'^2 \cdot \frac{k'^2}{R^2} - 1 = 0 \\
+\iff & x^2 \cdot \frac{\abs{k'}}{R^2} + y^2 \cdot \frac{\abs{k'}}{R^2} +
+       z'^2 \cdot \textrm{sign}(k') \cdot \frac{k'^2}{R^2} - \textrm{sign}(k')
+       = 0
+\end{split} \end{equation}
+
+Let,
+\begin{equation} \begin{cases}
+a^2 = \frac{R^2}{\abs{k'}} \\
+b^2 = \frac{R^2}{k'^2} \\
+\epsilon = \textrm{sign}(k')
+\end{cases} \end{equation}
+
+A readable \emph{normal form} is:
+
+\begin{equation}
+\frac{x^2}{a^2} + \frac{y^2}{a^2} + \epsilon \cdot \frac{z'^2}{b^2} - \epsilon
+  = 0
+\end{equation}
+
+The case $k < -1$ gives the form,
+
+\begin{equation}
+\frac{x^2}{a^2} + \frac{y^2}{a^2} - \frac{z'^2}{b^2} = -1
+\end{equation}
+
+which is a \emph{hyperboloid of revolution of two sheets}.
+
+The case $k > -1$ gives the form,
+
+\begin{equation}
+\frac{x^2}{a^2} + \frac{y^2}{a^2} + \frac{z'^2}{b^2} = 1
+\end{equation}
+
+which is a \emph{spheroid}.
 
 \subsubsection{Rationale for defining the shape from quadrics}
 
