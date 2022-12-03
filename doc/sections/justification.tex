@@ -929,8 +929,7 @@ $\overrightarrow{V_3} = \overrightarrow{V_2}$.
 \subsection{standard shape}
 The \lstinline{standard} shape is defined with the formula in
 \cref{eq:standard-z}. We explore its link with quadrics and try
-to provide a rationale for how it was defined from quadrics. Additionally,
-we check the formula consistency with respect to \lstinline{sphere}.
+to provide a rationale for how it was defined from quadrics.
 
 Note we freely convert between $R$ and $c$, and $r$ and $(x, y)$ in
 the derivations.
@@ -1067,5 +1066,67 @@ The case $k > -1$ gives the form,
 which is a \emph{spheroid}.
 
 \subsubsection{Rationale for defining the shape from quadrics}
+We explore the rationale which leads from the general quadric (with potentially
+two sheets) to the \lstinline{standard} altitude definition.
 
-\subsubsection{Formula consistency: sphere case}
+The general quadric is defined as,
+
+\begin{equation}
+x^2 + y^2 + (k+1) \cdot z^2 - 2 R \cdot z = 0
+\end{equation}
+
+We solve for $z$.
+
+In the $k=-1$ case, the quadric is a circular paraboloid and has a single
+sheet, thus the solution is unambiguous.
+
+\begin{equation}
+z = \frac{c \cdot r^2}{2}
+\end{equation}
+
+In the $k\neq-1$ cases, the solution is given by solving the quadratic equation.
+
+\begin{equation} \begin{cases}
+\Delta = 4 R^2 - 4 (k+1) \cdot r^2 \\
+z = \frac{2R \pm \sqrt{\Delta}}{2(k+1)}
+\end{cases} \end{equation}
+
+We have two solutions given by,
+
+\begin{equation}
+z = \frac{R \pm \sqrt{R^2 - (k+1) \cdot r^2}}{k + 1}
+\end{equation}
+
+These define the two sheets of the spheroid or the hyperboloid of revolution of
+two sheets. We need to define only a single sheet for the purpose of optical
+design raytracing. We choose to have $z(r=0) = 0$.
+
+\begin{equation} \begin{split}
+& z(r=0) = 0 \\
+\iff & \frac{R \pm \sqrt{R^2}}{k+1} = 0 \\
+\iff & R \pm \abs{R} = 0
+\end{split} \end{equation}
+
+We have to distinguish cases based on the sign of $R$.
+\begin{itemize}
+\item $R \geq 0$: we choose the solution with minus sign in order to constrain
+                  $z(r=0)=0$,
+\item $R < 0$: we choose the solution with plus sign.
+\end{itemize}
+
+Therefore, we build our solution as:
+\begin{equation} \begin{split}
+& z = \frac{R - \textrm{sign}(R) \cdot \sqrt{R^2 - (k+1) \cdot r^2}}{k+1} \\
+\iff & (k+1) \cdot z = R - \textrm{sign}(R) \cdot \sqrt{R^2 - (k+1) \cdot r^2}\\
+\iff & (k+1) \cdot z \cdot \left( R + \textrm{sign}(R) \cdot
+       \sqrt{R^2 - (k+1) \cdot r^2} \right) = R^2 - (R^2 - (k+1) \cdot r^2) \\
+\iff & z \cdot \left( R + \textrm{sign}(R) \cdot
+       \sqrt{R^2 - (k+1) \cdot r^2} \right) = r^2 \\
+\iff & z = \frac{r^2}{R + \textrm{sign}(R) \cdot \sqrt{R^2 - (k+1) \cdot r^2}}\\
+\iff & z = \frac{r^2}{R + \textrm{sign}(R) \cdot \abs{R} \cdot
+                      \sqrt{1 - (k+1) \cdot r^2 \cdot c^2}} \\
+\iff & z = \frac{c \cdot r^2}{1 + \sqrt{1 - (k+1) \cdot r^2 \cdot c^2}}
+\end{split} \end{equation}
+
+Which is the \lstinline{standard} altitude formula in use. We see the $k=-1$
+case is still compatible with this formula.
