@@ -244,11 +244,16 @@ Thus the term $\textrm{sign}(b) \cdot \sqrt{\Delta}$ may be numerically
 unstable in sign, but is near zero in this region.
 
 \subsection{General expression for a shape normal vector}
-Given a shape in its \gls{LCS} defined by an equation $z = f(x, y)$,
-we can compute the unit normal vector at point $(x, y)$ using
-\cref{eq:gen-normal} \cite{mathworld:normal-vector}. Additionally
+Given either an explicit formula ($z = f(x, y)$), or an implicit
+formula ($F(x, y, z) = 0$) representing a surface, we show how
+to compute the unit normal vector at a given point. Additionally
 we orient the normal vector in the opposite half-plane to an incident
 ray with a vector component $n$.
+
+\subsubsection{From an explicit formula}
+Given a shape in its \gls{LCS} defined by an equation $z = f(x, y)$,
+we can compute the unit normal vector at point $(x, y)$ using
+\cref{eq:gen-normal} \cite{mathworld:normal-vector}. 
 
 \begin{equation} \label{eq:gen-normal}
 \overrightarrow{N} =
@@ -263,7 +268,29 @@ ray with a vector component $n$.
 \end{bmatrix}
 \end{equation}
 
-\textcolor{red}{TODO: Document the case of an implicit expression F(x, y, z)=0}
+\subsubsection{From an implicit formula}
+A normal vector may also be defined using an implicit surface definition of
+the form $F(x, y, z) = 0$ (\cite{wiki:normal}, \cite{Welford:1986} section 4.6).
+A normal vector at a point on the surface is simply given by the gradient
+$\nabla F$ evaluated at this point.
+
+\begin{equation}
+\nabla F =
+\begin{bmatrix}
+\frac{\partial F}{\partial x} \\
+\frac{\partial F}{\partial y} \\
+\frac{\partial F}{\partial z}
+\end{bmatrix}
+\end{equation}
+
+Thus the unit normal vector oriented opposite to $n$ is given by:
+
+\begin{equation}
+\overrightarrow{N} = - \frac{\nabla F (x, y, z)}
+                          {\abs{\nabla F(x, y, z)}} \cdot
+  \textrm{sign}(n) \cdot
+  \textrm{sign}\left(\frac{\partial F}{\partial z}(x, y, z)\right)
+\end{equation}
 
 \subsection{Sphere altitude formulation and first derivatives}
 We formulate the sphere altitude in the $z = f(x, y)$ form. This form
@@ -1181,3 +1208,60 @@ I = P + t \cdot V
 Note there is no possibility with this expression of finding an intersection
 beyond the first hemisphere in the case of spheroids. The hand validation being
 laborious, we validated the intersection formula with a symbolic math tool.
+
+\subsubsection{Normal vector}
+The normal vector at some point on the surface is found by computing the
+gradient of the implicit quadric expression, this is the method followed by
+Welford \cite{Welford:1986}.
+
+Let $\varepsilon = k+1$, the implicit quadric expression is:
+
+\begin{equation}
+F(x,y,z) = \frac{c}{2} \cdot (x^2 + y^2 + \varepsilon \cdot z^2) - z = 0
+\end{equation}
+
+We compute the gradient:
+
+\begin{equation} \begin{cases}
+\frac{\partial F}{\partial x} = c \cdot x\\
+\frac{\partial F}{\partial y} = c \cdot y\\
+\frac{\partial F}{\partial z} = c \cdot \varepsilon \cdot z - 1\\
+\end{cases} \end{equation}
+
+The norm of the unit vector is then,
+
+\begin{equation}
+\abs{\overrightarrow{N}} =
+\sqrt{c^2 \cdot (x^2 + y^2) + c^2 \cdot \varepsilon^2
+  \cdot z^2 + 1 - 2 c \cdot \varepsilon \cdot z} \\
+\end{equation}
+
+We know from the quadric expression that,
+
+\begin{equation}
+x^2 + y^2 = \frac{2}{c} \cdot z - \varepsilon \cdot z^2
+\end{equation}
+
+Hence,
+
+\begin{equation} \begin{split}
+\abs{\overrightarrow{N}} &=
+\sqrt{c^2 \cdot \left( \frac{2}{c} \cdot z - \varepsilon \cdot z^2 \right)
+  + c^2 \cdot \varepsilon^2 \cdot z^2 + 1 - 2 c \cdot \varepsilon \cdot z} \\
+&= \sqrt{1 - 2 c \cdot (\varepsilon - 1) \cdot z + c^2 \cdot \varepsilon \cdot
+         (\varepsilon - 1) \cdot z^2}
+\end{split} \end{equation}
+
+The unit vector with correct orientation is then:
+
+\begin{equation}
+\overrightarrow{N} = -
+\begin{bmatrix}
+c \cdot x \\ c \cdot y \\ c \cdot \varepsilon \cdot z - 1
+\end{bmatrix} \cdot
+\frac{\textrm{sign}(n) \cdot \textrm{sign}(c \cdot \varepsilon \cdot z - 1)}
+{\abs{\overrightarrow{N}}}
+\end{equation}
+
+\textcolor{red}{TODO: simplify the sign of df/dz, I think it is always the same
+due to the validity range of the surface.}
