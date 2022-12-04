@@ -928,13 +928,14 @@ $\overrightarrow{V_3} = \overrightarrow{V_2}$.
 
 \subsection{standard shape}
 The \lstinline{standard} shape is defined with the formula in
-\cref{eq:standard-z}. We explore its link with quadrics and try
-to provide a rationale for how it was defined from quadrics.
+\cref{eq:standard-z}. This formula may be found in \cite{Welford:1986}
+(section 4.7) and in \cite{Greynolds:2002} \footnote{Note the use of this kind
+of surface in optics dates back to at least Kepler in this present form and all
+the way back to the Greeks for the general idea.}.  We explore its link with
+quadrics and try to provide a rationale for how it was defined from quadrics.
 
 Note we freely convert between $R$ and $c$, and $r$ and $(x, y)$ in
 the derivations.
-
-\textcolor{red}{TODO: Where does this formula come from originally?}
 
 \subsubsection{Range of definition}
 The range in $r$ for which the \lstinline{standard} shape is defined
@@ -1130,3 +1131,51 @@ Therefore, we build our solution as:
 
 Which is the \lstinline{standard} altitude formula in use. We see the $k=-1$
 case is still compatible with this formula.
+
+\subsubsection{Intersection formula}
+The intersection of a ray with a \lstinline{standard} shape may be expressed
+in closed-form. Finding it involves substituting the usual ray equation in
+the \lstinline{standard} surface expression.
+
+The ray equation being, as usual,
+
+\begin{equation}
+\begin{bmatrix} x \\ y \\ z \end{bmatrix} =
+\begin{bmatrix} x_P \\ y_P \\ 0 \end{bmatrix} + t \cdot
+\begin{bmatrix} l \\ m \\ n \end{bmatrix}
+\end{equation}
+
+and we can use either \lstinline{standard} surface expressions, both giving
+rise to a quadratic equation during the solving process.
+
+\begin{equation} \begin{cases}
+z = \frac{c \cdot r^2}{1 + \sqrt{1 - (k+1) \cdot c^2 \cdot r^2}} \\
+x^2 + y^2 + (k+1) \cdot z^2 - 2R \cdot z = 0
+\end{cases} \end{equation}
+
+Finding the expression for solutions is easy, but finding an expression which
+is numerically well behaved is more involved. Thankfully, Welford found such
+an expression \cite{Welford:1986}, which we use with a slight modification.
+
+\begin{equation} \begin{cases}
+f = c \cdot ({x_P}^2 + {y_P}^2) \\
+g = n - c \cdot (l \cdot x_P + m \cdot y_P) \\
+t = \frac{f}{g + \textrm{sign}(n) \cdot
+             \sqrt{g^2 - c \cdot f \cdot (1 + k \cdot n^2)}}
+\end{cases} \end{equation}
+
+Our minor modification is the addition of $\textrm{sign}(n)$ which allows
+choosing the right root regardless of ray orientation.
+
+The case where $g^2 - c \cdot f \cdot (1 + k \cdot n^2) \leq 0$ corresponds
+to an error case of absence of intersection or ray tangency.
+
+In non-error cases, the intersection point is given as usual with:
+
+\begin{equation}
+I = P + t \cdot V
+\end{equation}
+
+Note there is no possibility with this expression of finding an intersection
+beyond the first hemisphere in the case of spheroids. The hand validation being
+laborious, we validated the intersection formula with a symbolic math tool.
