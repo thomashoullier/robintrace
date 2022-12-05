@@ -1263,5 +1263,55 @@ c \cdot x \\ c \cdot y \\ c \cdot \varepsilon \cdot z - 1
 {\abs{\overrightarrow{N}}}
 \end{equation}
 
-\textcolor{red}{TODO: simplify the sign of df/dz, I think it is always the same
-due to the validity range of the surface.}
+Let $D = \varepsilon \cdot c \cdot z - 1$, we can simplify the expression
+of $\overrightarrow{N}$ if we know this sign. Let's determine it.
+
+Looking at the implicit altitude formula \cref{eq:standard-z}, we see
+$z$ and $c$ are of the same sign, so we can write,
+
+\begin{equation}
+D = \varepsilon \cdot \abs{c} \cdot \abs{z} - 1
+\end{equation}
+
+We can express the range of validity of $\varepsilon$ in the definition
+of the \lstinline{standard} shape.
+
+\begin{equation} \begin{split}
+& 1 - (k+1) \cdot c^2 \cdot r^2 \geq 0 \\
+\iff & 1 - \varepsilon \cdot c^2 \cdot r^2 \geq 0 \\
+\iff & \varepsilon \leq \frac{1}{c^2 \cdot r^2}
+\end{split} \end{equation}
+
+Plugging this limitation into the expression of $D$, we get,
+
+\begin{equation} \begin{split}
+D &\leq \frac{1}{c^2 \cdot r^2} \cdot \abs{c} \cdot \abs{z} - 1 \\
+  &\leq \frac{1}{\abs{c}} \cdot \frac{\abs{z}}{r^2} - 1
+\end{split} \end{equation}
+
+By the surface definition \cref{eq:standard-z}, we have,
+
+\begin{equation}
+\abs{z} \leq \abs{c} \cdot r^2
+\end{equation}
+
+Thus,
+
+\begin{equation} \begin{split}
+D &\leq \frac{\abs{c} \cdot r^2}{\abs{c} \cdot r^2} -1 \\
+  &\leq 0
+\end{split} \end{equation}
+
+The simplified expression for the unit normal vector opposite to the incoming
+ray is then,
+
+\begin{equation}
+\overrightarrow{N} =
+\begin{bmatrix}
+c \cdot x \\ c \cdot y \\ c \cdot \varepsilon \cdot z - 1
+\end{bmatrix} \cdot
+\frac{\textrm{sign}(n)}{
+\sqrt{1 - 2 c \cdot (\varepsilon - 1) \cdot z + c^2 \cdot \varepsilon \cdot
+         (\varepsilon - 1) \cdot z^2}}
+\end{equation}
+
