@@ -48,9 +48,9 @@ The status codes are defined in \cref{tab:ray-status-codes}.
 1 & Sphere intersection: No intersection. \\ \hline
 2 & Sphere intersection: Intersection beyond first hemisphere. \\ \hline
 3 & refract: \gls{TIR} \\ \hline
-4 & transfer: ray is parallel to the new local plane. \\
-\hline \end{tabular}
-\end{table}
+4 & transfer: ray is parallel to the new local plane. \\ \hline
+5 & standard intersection: No intersection. \\ \hline
+\end{tabular} \end{table}
 
 \subsection{rop}
 \lstinline{rop} are ray operations.
@@ -329,8 +329,8 @@ computed intersection point.
 \end{equation}
 
 \subsubsection{standard}
-The so-called \lstinline{standard} is a popular shape which comprises spheres
-and some quadrics of revolution around axis z.
+The so-called \lstinline{standard} shape comprises spheres and some quadrics of
+revolution around axis z.
 
 \paragraph{Definition}
 The surface shape \lstinline{standard} is defined using:
@@ -339,8 +339,7 @@ The surface shape \lstinline{standard} is defined using:
 \item $k$: a scalar parameter which changes the type of the quadric
 \end{itemize}
 
-The altitude is defined as follows. We use the same expression as in
-commercial software.
+The altitude is defined as follows.
 
 \begin{equation} \label{eq:standard-z}
 z = \frac{c \cdot r^2}{1 + \sqrt{1 - (k + 1) \cdot c^2 \cdot r^2}}
@@ -352,13 +351,47 @@ With,
 \item $r^2 = x^2 + y^2$.
 \end{itemize}
 
+The mathematical classification of the surface depends on the value of
+$k$,
+
+\begin{itemize}
+\item $k < -1$: One of the sheets of a hyperboloid of revolution of two sheets.
+\item $k = -1$: Circular paraboloid.
+\item $k > -1$: Spheroid, with the case $k=0$ being a sphere.
+\end{itemize}
+
+Note that the case $c=0$ describes a plane.
+
 \paragraph{intersect}
+The intersection point $I$ is found with the following operations sequence.
+
+\begin{equation} \begin{cases}
+f = c \cdot ({x_P}^2 + {y_P}^2) \\
+g = n - c \cdot (l \cdot x_P + m \cdot y_P) \\
+h = g^2 - c \cdot f \cdot (1 + k \cdot n^2)
+\end{cases} \end{equation}
+
+In the case $h \leq 0$, we signal a ray error of absence of intersection.
+Else we continue,
+
+\begin{equation}
+t = \frac{f}{g + \textrm{sign}(n) \cdot \sqrt{h}}
+\end{equation}
+
+\begin{equation}
+I = \begin{bmatrix} x_P \\ y_P \\ 0 \end{bmatrix} + t \cdot
+    \begin{bmatrix} l \\ m \\ n \end{bmatrix}
+\end{equation}
 
 \paragraph{normal}
+The normal vector at the current point is given by,
 
+\begin{equation}
+\overrightarrow{N} =
+\begin{bmatrix}
+c \cdot x \\ c \cdot y \\ c \cdot (k+1) \cdot z - 1
+\end{bmatrix} \cdot
+\frac{\textrm{sign}(n)}{
+\sqrt{1 - 2 c \cdot k \cdot z + c^2 \cdot (k+1) \cdot k \cdot z^2}}
+\end{equation}
 
-\subsection{lpart}
-
-\subsubsection{tfr}
-
-\subsubsection{surf}
