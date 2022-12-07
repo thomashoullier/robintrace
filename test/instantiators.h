@@ -27,6 +27,9 @@ TEST_CASE("Objects instantiation", "[constructors]") {
 
     sphere s = sphere(10.0); (void)s;
     SUCCEED("'sphere' instantiated.");
+
+    standard sd = standard(5.0, -2.0); (void)sd;
+    SUCCEED("'standard' instantiated.");
   }
 
   SECTION("transfer") {

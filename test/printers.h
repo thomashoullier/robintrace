@@ -25,6 +25,10 @@ TEST_CASE("Objects printing", "[printers]") {
     sphere s = sphere(5.0);
     nullOstream << s;
     SUCCEED("sphere");
+   
+    standard sd = standard(5.0, -3.0);
+    nullOstream << sd;
+    SUCCEED("standard");
   }
 
   SECTION("transfer") {
