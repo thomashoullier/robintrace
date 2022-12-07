@@ -109,6 +109,19 @@ TEST_CASE("Shape normal vector", "[normal]") {
     REQUIRE(N_test(1) == Approx(N_valid(1)));
     REQUIRE(N_test(2) == Approx(N_valid(2)));
   }
+
+  SECTION("standard") {
+    ray r(Vec3(4.1, 0.5, 0), Vec3_lm(-0.01, 0.02, true));
+    Vec3 N_valid(-0.2197903934822415, -0.026295440194246535,
+                 -0.9751926644299127);
+    standard sd(-1.0/20, 3);
+    sd.intersect(r);
+    Vec3 N_test = sd.normal(r);
+    SUCCEED("standard normal happened.");
+    REQUIRE(N_test(0) == Approx(N_valid(0)));
+    REQUIRE(N_test(1) == Approx(N_valid(1)));
+    REQUIRE(N_test(2) == Approx(N_valid(2)));
+  }
 }
 
 TEST_CASE("Ray operations", "[rop]") {
