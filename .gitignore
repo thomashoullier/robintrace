@@ -1,6 +1,7 @@
 # Files being edited by Emacs or Vim
 *#
 *~
+*.swp
 
 # Python notebooks
 .ipynb_checkpoints/

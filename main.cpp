@@ -5,10 +5,11 @@ int main(){
   std::cout << "# Main #" << std::endl;
 
   ray r (Vec3(0.2, 0.3, 0.0), Vec3(0, 0, 1.0));
-  Mat3 m (Eigen::AngleAxisd(0.01, Vec3(0,1,0)));
-  transfer trf (m.transpose(), Vec3(0.2, 0.4, -10));
-  std::cout << trf << std::endl;
-  std::cout << "Initial ray: " << r << std::endl;
-  trf.apply(r);
-  std::cout << "ray after transfer: " << r << std::endl;
+  standard sd (1.0/20, -2);
+  std::cout << sd << std::endl;
+  std::cout << "ray before intersection: " << r << std::endl;
+  sd.intersect(r);
+  std::cout << "ray after intersection: " << r << std::endl;
+  Vec3 N = sd.normal(r);
+  std::cout << "normal vector: " << N << std::endl;
 }

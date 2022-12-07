@@ -10,5 +10,6 @@
 #include "rop/rop.h"
 #include "shape/plane.h"
 #include "shape/sphere.h"
+#include "shape/standard.h"
 
 #endif // POAKY_H
