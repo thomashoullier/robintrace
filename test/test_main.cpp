@@ -41,6 +41,49 @@ TEST_CASE("Shape intersections", "[shape]") {
     SUCCEED("ray/sphere intersection happened.");
     ray_eq(r, r_valid);
   }
+
+  SECTION("standard: match with plane") {
+    ray r_plane = ray(Vec3(0.2, 0.3, 0.0), Vec3(0, 0, 1.0));
+    ray r_sd(r_plane);
+    plane pl = plane();
+    pl.intersect(r_plane);
+    standard sd(0, 0);
+    sd.intersect(r_sd);
+    SUCCEED("ray/sd intersection happened.");
+    ray_eq(r_sd, r_plane);
+  }
+
+  SECTION("standard: match with sphere") {
+    double rad = 5.0;
+    ray r_s(Vec3(0.5, -0.32, 0), Vec3_lm(0.01, -0.005, true));
+    ray r_sd(r_s);
+    sphere s = sphere(rad);
+    standard sd(1.0/rad, 0);
+    s.intersect(r_s);
+    sd.intersect(r_sd);
+    SUCCEED("ray/sd intersection happened.");
+    ray_eq(r_sd, r_s);
+  }
+  
+  SECTION("standard: nominal case") {
+    ray r(Vec3(4.1, 0.5, 0), Vec3_lm(-0.01, 0.02, true));
+    ray r_valid(Vec3(4.104473059201623, 0.4910538815967531,
+                     -0.44719407970049674),
+                Vec3_lm(-0.01, 0.02, true));
+    standard sd(-1.0/20, 3);
+    sd.intersect(r);
+    SUCCEED("ray/sd intersection happened.");
+    ray_eq(r, r_valid);
+  }
+
+  SECTION("standard: no intersection") {
+    ray r(Vec3(4.1, 0.5, 0), Vec3_lm(-0.01, 0.02, true));
+    ray r_valid(r); r_valid.code = 5;
+    standard sd(-1.0/20, 25);
+    sd.intersect(r);
+    SUCCEED("ray/sd intersection happened.");
+    ray_eq(r, r_valid);
+  }
 }
 
 TEST_CASE("Shape normal vector", "[normal]") {
