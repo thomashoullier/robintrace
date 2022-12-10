@@ -248,6 +248,69 @@ The plane normal vector is trivial.
 It is $\overrightarrow{N} = (0, 0, -\textrm{sign}(n))$.
 There are no error cases.
 
+\subsubsection{standard}
+The so-called \lstinline{standard} shape comprises spheres and some quadrics of
+revolution around axis z.
+
+\paragraph{Definition}
+The surface shape \lstinline{standard} is defined using:
+\begin{itemize}
+\item $c$: the radius of curvature reciprocal, $c = \frac{1}{R}$.
+\item $k$: a scalar parameter which changes the type of the quadric.
+\end{itemize}
+
+The altitude is defined as follows.
+
+\begin{equation} \label{eq:standard-z}
+z = \frac{c \cdot r^2}{1 + \sqrt{1 - (k + 1) \cdot c^2 \cdot r^2}}
+\end{equation}
+
+With $r^2 = x^2 + y^2$.
+
+The mathematical classification of the surface depends on the value of
+$k$,
+
+\begin{itemize}
+\item $k < -1$: One of the sheets of a hyperboloid of revolution of two sheets.
+\item $k = -1$: Circular paraboloid.
+\item $k > -1$: Spheroid, with the case $k=0$ being a sphere.
+\end{itemize}
+
+Note that the case $c=0$ describes a plane.
+
+\paragraph{intersect}
+The intersection point $I$ is found with the following operations sequence.
+
+\begin{equation} \begin{cases}
+f = c \cdot ({x_P}^2 + {y_P}^2) \\
+g = n - c \cdot (l \cdot x_P + m \cdot y_P) \\
+h = g^2 - c \cdot f \cdot (1 + k \cdot n^2)
+\end{cases} \end{equation}
+
+In the case $h \leq 0$, we signal a ray error of absence of intersection.
+Else we continue,
+
+\begin{equation}
+t = \frac{f}{g + \textrm{sign}(n) \cdot \sqrt{h}}
+\end{equation}
+
+\begin{equation}
+I = \begin{bmatrix} x_P \\ y_P \\ 0 \end{bmatrix} + t \cdot
+    \begin{bmatrix} l \\ m \\ n \end{bmatrix}
+\end{equation}
+
+\paragraph{normal}
+The normal vector at the current point is given by,
+
+\begin{equation}
+\overrightarrow{N} =
+\begin{bmatrix}
+c \cdot x \\ c \cdot y \\ c \cdot (k+1) \cdot z - 1
+\end{bmatrix} \cdot
+\frac{\textrm{sign}(n)}{
+\sqrt{1 - 2 c \cdot k \cdot z + c^2 \cdot (k+1) \cdot k \cdot z^2}}
+\end{equation}
+
 \subsubsection{sphere}
 
 \paragraph{Definition}
@@ -278,6 +341,9 @@ in the LCS. Both signs of $R$ are represented.}
 }
 
 \paragraph{intersect}
+\textcolor{red}{TODO: specialize the standard surface rather, it is clearer
+and faster in computations.}
+
 The intersection between the input ray and the sphere is computed as
 follows. The quantities involved are illustrated on \cref{fig:sphere-inter}.
 
@@ -328,70 +394,4 @@ computed intersection point.
 \begin{bmatrix} x \\ y \\ z - R \end{bmatrix}
 \end{equation}
 
-\subsubsection{standard}
-The so-called \lstinline{standard} shape comprises spheres and some quadrics of
-revolution around axis z.
-
-\paragraph{Definition}
-The surface shape \lstinline{standard} is defined using:
-\begin{itemize}
-\item $R$: the radius of curvature
-\item $k$: a scalar parameter which changes the type of the quadric
-\end{itemize}
-
-The altitude is defined as follows.
-
-\begin{equation} \label{eq:standard-z}
-z = \frac{c \cdot r^2}{1 + \sqrt{1 - (k + 1) \cdot c^2 \cdot r^2}}
-\end{equation}
-
-With,
-\begin{itemize}
-\item $c = \frac{1}{R}$ the curvature,
-\item $r^2 = x^2 + y^2$.
-\end{itemize}
-
-The mathematical classification of the surface depends on the value of
-$k$,
-
-\begin{itemize}
-\item $k < -1$: One of the sheets of a hyperboloid of revolution of two sheets.
-\item $k = -1$: Circular paraboloid.
-\item $k > -1$: Spheroid, with the case $k=0$ being a sphere.
-\end{itemize}
-
-Note that the case $c=0$ describes a plane.
-
-\paragraph{intersect}
-The intersection point $I$ is found with the following operations sequence.
-
-\begin{equation} \begin{cases}
-f = c \cdot ({x_P}^2 + {y_P}^2) \\
-g = n - c \cdot (l \cdot x_P + m \cdot y_P) \\
-h = g^2 - c \cdot f \cdot (1 + k \cdot n^2)
-\end{cases} \end{equation}
-
-In the case $h \leq 0$, we signal a ray error of absence of intersection.
-Else we continue,
-
-\begin{equation}
-t = \frac{f}{g + \textrm{sign}(n) \cdot \sqrt{h}}
-\end{equation}
-
-\begin{equation}
-I = \begin{bmatrix} x_P \\ y_P \\ 0 \end{bmatrix} + t \cdot
-    \begin{bmatrix} l \\ m \\ n \end{bmatrix}
-\end{equation}
-
-\paragraph{normal}
-The normal vector at the current point is given by,
-
-\begin{equation}
-\overrightarrow{N} =
-\begin{bmatrix}
-c \cdot x \\ c \cdot y \\ c \cdot (k+1) \cdot z - 1
-\end{bmatrix} \cdot
-\frac{\textrm{sign}(n)}{
-\sqrt{1 - 2 c \cdot k \cdot z + c^2 \cdot (k+1) \cdot k \cdot z^2}}
-\end{equation}
 
