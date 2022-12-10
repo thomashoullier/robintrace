@@ -21,7 +21,32 @@ As the development proceeds, we add cases arising from fixed bugs in order to
 prevent regression.
 
 \subsection{Performance report}
-\textcolor{red}
-{TODO: * Table with speeds from benchmark for each function.
-       * How the benchmark is performed.
-       * Why do we benchmark.}
+We provide benchmark results for the operations we wrote. The goal is
+to indicate what order of magnitude of performance can be expected.
+
+\subsubsection{Hypotheses and limitations}
+We run each function on sizeable arrays of rays, one ray at a time.
+The functions are evaluated independently. This may be unrepresentative of
+a real raytracing computation flow where complex operations may be chained
+on only a few rays. The operations are run on CPU on a single thread.
+
+\subsubsection{Hardware}
+We ran the benchmark on a Void Linux desktop computer, with kernel version
+6.0.11\_1. We took no particular steps to configure the OS. The computer
+has a AMD Athlon 3000G CPU and DDR4 RAM clocked at 2667 MT/s. We compiled
+the benchmark with gcc 10.2.1 with the flags \lstinline{-march=native -O2}.
+
+\subsubsection{Results}
+The benchmark results are listed in \cref{tab:benchmark}.
+
+\begin{table} \caption{\label{tab:benchmark} Benchmark results}
+\begin{tabular} {| c | c | c |} \hline
+\textbf{Operation} & \textbf{Mean timing per op (ns)} &
+  \textbf{Standard deviation (ns)} \\ \hline
+reflect & 2.2 & 0.3 \\ \hline
+refract & 5.6 & 0.6 \\ \hline
+transfer & 5.6 & 0.9 \\ \hline
+standard.intersect & 5.6 & 0.6 \\ \hline
+standard.normal & 5.9 & 0.9 \\ \hline
+\end{tabular}\end{table}
+
