@@ -3,7 +3,536 @@
 
 Some implementation details require further justification and explanations.
 
-\subsection{Ray intersection with a sphere}
+\subsection{Ray operations (rop)}
+\subsubsection{Reflection formula derivation}
+We derive the reflection formula. See the illustration \cref{fig:reflect}.
+Let: \begin{itemize}
+\item The surface normal $\overrightarrow{N}$ at the ray intersection.
+\item The incident ray unit vector $\overrightarrow{i}$.
+\item The reflected ray unit vector $\overrightarrow{r}$.
+\item $\theta_i$ the (unsigned) angle between $\overrightarrow{N}$ and
+      $\overrightarrow{i}$.
+\item $\theta_r$ the (unsigned) angle between $\overrightarrow{N}$ and
+      $\overrightarrow{r}$.
+\end{itemize}
+
+We want to compute $\overrightarrow{r}$ as a function of $\overrightarrow{i}$
+and $\overrightarrow{N}$.  We assume the laws of reflection, which essentially
+state that light behaves as a billiard ball in its geometrical interaction with
+the surface.  We present several ways of looking at the problem. In our
+opinion, these are not so much derivations as different restatements of the
+laws of reflection.
+
+\paragraph{Bounce derivation}
+The effect of the light bouncing off the surface can be stated in the following
+fashion. The component of $\overrightarrow{i}$ colinear to $\overrightarrow{N}$
+is inverted by the reflection. The other components of $\overrightarrow{i}$ stay
+the same. This immediately gives the tractable relation.
+
+\begin{equation}
+\overrightarrow{r} = \overrightarrow{i} - 2 \cdot (\overrightarrow{N} \cdot
+\overrightarrow{i}) \cdot \overrightarrow{N}
+\end{equation}
+
+\paragraph{Geometric construction}
+The ray reflection may be viewed as a geometric construction based on the
+laws of reflection (see \cite{Glassner:1989} p.291 \cite{Comninos:2010}
+p.335). We draw the geometric view of the problem on
+\cref{fig:reflect-geometry}.
+
+\begin{figure} \caption{\label{fig:reflect-geometry} Illustration for the
+geometric construction of the reflect operation.}
+\includesvg[height=.2\textheight, width=.9\textwidth, keepaspectratio]
+           {images/shape/reflect-geometry.svg}
+\end{figure}
+
+\paragraph{Algebraic derivation}
+We produce a derivation similar to the one included in \cite{Glassner:1989}
+(p.131).
+
+\begin{itemize}
+\item The reflected ray is in the plane spanned by $\overrightarrow{i}$ and
+      $\overrightarrow{N}$ (\emph{plane of incidence}).
+\item $\theta_i = \theta_r$
+\item Except in the degenerate case $\overrightarrow{i} = - \overrightarrow{N}$,
+$\overrightarrow{r} \neq - \overrightarrow{i}$. Ie the reflected ray does not
+retrace on the incident ray.
+\end{itemize}
+
+Translated algebraically, these statements suffice to determine a formula for
+$\overrightarrow{r}$. Let $(\alpha, \beta)$ both in $\mathbb{R}$. The reflected
+ray in the incidence plane must be expressed as:
+
+\begin{equation}
+\overrightarrow{r} = \alpha \cdot \overrightarrow{i} +
+                     \beta \cdot \overrightarrow{N}
+\end{equation}
+
+We now add the remaining constraints on $\overrightarrow{r}$ in order to narrow
+down expressions for $\alpha$ and $\beta$.
+
+\begin{equation} \begin{split}
+& \theta_i = \theta_r \\
+\implies & \cos(\theta_i) = \cos(\theta_r) \\
+\implies & - \overrightarrow{i} \cdot \overrightarrow{N} =
+       \overrightarrow{N} \cdot \overrightarrow{r}
+\end{split} \end{equation}
+
+\begin{equation} \begin{split}
+- \overrightarrow{i} \cdot \overrightarrow{N} &=
+\overrightarrow{N} \cdot
+(\alpha \cdot \overrightarrow{i} + \beta \cdot \overrightarrow{N}) \\
+&= \alpha \cdot \overrightarrow{i} \cdot \overrightarrow{N} +
+   \beta \cdot \overrightarrow{N} \cdot \overrightarrow{N} \\
+&= \alpha \cdot \overrightarrow{N} \cdot \overrightarrow{i} + \beta
+\end{split} \end{equation}
+
+Hence the following expression for $\beta$.
+
+\begin{equation} \label{eq:reflect-beta-expr}
+\beta = - (\alpha + 1) \cdot \overrightarrow{N} \cdot \overrightarrow{i}
+\end{equation}
+
+Another constraint we exploit is that $\overrightarrow{r}$ is a unit vector.
+
+\begin{equation} \begin{split}
+& \abs{\overrightarrow{r}} = 1 \\
+\implies& \abs{\alpha \cdot \overrightarrow{i} +
+                \beta \cdot \overrightarrow{N}} = 1 \\
+\implies& (\alpha \cdot i_x + \beta \cdot N_x)^2 +
+          (\alpha \cdot i_y + \beta \cdot N_y)^2 +
+          (\alpha \cdot i_z + \beta \cdot N_z)^2 = 1 \\
+\implies& \alpha^2 ({i_x}^2 + {i_y}^2 + {i_z}^2) +
+          \beta^2 ({N_x}^2 + {N_y}^2 + {N_z}^2) + \\
+          &2 \cdot \alpha \cdot \beta 
+          (i_x \cdot N_x + i_y \cdot N_y + i_z \cdot N_z) = 1 \\
+\implies& \alpha^2 + \beta^2 + 2 \cdot \alpha \cdot \beta \cdot
+          \overrightarrow{N} \cdot \overrightarrow{i} = 1
+\end{split} \end{equation}
+
+Now we plug the expression for $\beta$ \cref{eq:reflect-beta-expr}.
+
+\begin{equation} \begin{split}
+\implies& \alpha^2 + (\alpha + 1)^2
+(\overrightarrow{N} \cdot \overrightarrow{i})^2
+- 2 \cdot \alpha (\alpha + 1) \cdot
+(\overrightarrow{N} \cdot \overrightarrow{i})^2 = 1 \\
+\implies& \alpha^2 (1 - 2 (\overrightarrow{N} \cdot \overrightarrow{i})^2
++ (\overrightarrow{N} \cdot \overrightarrow{i})^2) + \\
+& \alpha (-2\cdot (\overrightarrow{N} \cdot \overrightarrow{i})^2
+        +2 \cdot (\overrightarrow{N} \cdot \overrightarrow{i})^2) +
+(\overrightarrow{N} \cdot \overrightarrow{i})^2 = 1 \\
+\implies& \alpha^2 \cdot (1 - (\overrightarrow{N} \cdot \overrightarrow{i})^2)
++ (\overrightarrow{N} \cdot \overrightarrow{i})^2 = 1 \\
+\implies& \alpha^2 = \frac{1 - (\overrightarrow{N} \cdot \overrightarrow{i})^2}
+                          {1 - (\overrightarrow{N} \cdot \overrightarrow{i})^2}
+\end{split} \end{equation}
+
+The degenerate case $\overrightarrow{i} = - \overrightarrow{N}$, which
+leads to $1 - (\overrightarrow{N} \cdot \overrightarrow{i})^2 = 0$, is excluded.
+The answer in the degenerate case is $\overrightarrow{r} = -
+\overrightarrow{i}$. We continue the main derivation path with:
+
+\begin{equation}
+\alpha = \pm 1
+\end{equation}
+
+The case $\alpha = -1$ leads to $\beta = 0$ and $\overrightarrow{r} = -
+\overrightarrow{i}$. We excluded this case by hypothesis.  The remaining answer
+is $\alpha = + 1$.
+
+Summarizing:
+
+\begin{equation} \begin{cases}
+\alpha = 1 \\
+\beta = -2 \cdot \overrightarrow{N} \cdot \overrightarrow{i}
+\end{cases} \end{equation}
+
+This leads us to the expression for $\overrightarrow{r}$.
+
+\begin{equation}
+\overrightarrow{r} = \overrightarrow{i} - 2 \cdot (\overrightarrow{N} \cdot
+\overrightarrow{i}) \cdot \overrightarrow{N}
+\end{equation}
+
+$\square$
+
+\subsubsection{Refraction}
+We derive the refraction formula vectorial form from the laws of refraction.
+Then we check the equivalence of Bec's formula with the derived refraction
+formula.
+
+\paragraph{Algebraic derivation}
+We work through an algebraic derivation of the vectorial expression for
+the refraction operation. Similar derivations may be found in
+\cite{Glassner:1989} (p.288), originally by Whitted \cite{Whitted:2005}
+and Heckbert \cite{Heckbert:1984}.
+
+The quantities involved in the problem are (illustrated on
+\cref{fig:refract-derivation}):
+
+\begin{itemize}
+\item $n_1$ the incident medium refraction index,
+\item $n_2$ the output medium refraction index,
+\item $\overrightarrow{i}$ the unit incident ray direction,
+\item $\overrightarrow{N}$ the unit surface normal vector,
+\item $\overrightarrow{t}$ the unit refracted ray direction,
+\item $\theta_i$ the acute angle between $-\overrightarrow{i}$
+and $\overrightarrow{N}$,
+\item $\theta_t$ the angle between $-\overrightarrow{N}$ and
+$\overrightarrow{t}$.
+\end{itemize}
+
+\cref{fig:refract-derivation}
+\begin{figure} \caption{\label{fig:refract-derivation} Quantities involved
+in the ray refraction operation.}
+\includesvg[height=.2\textheight, width=.9\textwidth, keepaspectratio]
+           {images/shape/refract-derivation.svg}
+\end{figure}
+
+We take for granted a number of assumptions related to the law of refraction
+\cite{wiki:snell-refraction}:
+
+\begin{itemize}
+\item $\overrightarrow{t}$ is in the plane spanned by $\overrightarrow{i}$
+and $\overrightarrow{N}$ (\emph{plane of incidence}),
+\item Defining quadrants in the plane of incidence with respect to
+$\overrightarrow{N}$ and the origin, $\overrightarrow{t}$ is in
+the same quadrant as $\overrightarrow{i}$,
+\item $n_1 \cdot \sin(\theta_i) = n_2 \cdot \sin(\theta_t)$
+\item In the particular case where $-\overrightarrow{i} = \overrightarrow{N}$,
+      the refracted ray is $\overrightarrow{t} = - \overrightarrow{N}$.
+\end{itemize}
+
+We remind some relations and define some shorthands used for conciseness.
+
+\begin{equation} \begin{cases}
+- \overrightarrow{N} \cdot \overrightarrow{i} = \cos(\theta_i) = c_i \\
+- \overrightarrow{N} \cdot \overrightarrow{t} = \cos(\theta_t) = c_t \\
+\sin(\theta_i) = s_i \\
+\sin(\theta_t) = s_t \\
+\frac{n_1}{n_2} = n_r
+\end{cases} \end{equation}
+
+Since $\overrightarrow{t}$ is in the incidence plane, it may be written as:
+
+\begin{equation}
+\overrightarrow{t} = \alpha \cdot \overrightarrow{i}
+                     + \beta \cdot \overrightarrow{N}
+\end{equation}
+
+The other hypotheses provide the following constraints, which we will use
+in order to solve for $\alpha$ and $\beta$.
+
+\begin{equation} \begin{cases}
+n_1 \cdot s_i = n_2 \cdot s_t \\
+\abs{\overrightarrow{t}} = 1
+\end{cases} \end{equation}
+
+We may express a relation with the help of $c_t$:
+
+\begin{equation} \begin{split}
+c_t &= - \overrightarrow{N} \cdot \overrightarrow{t} \\
+&= - \overrightarrow{N} \cdot
+   (\alpha \cdot \overrightarrow{i} + \beta \cdot \overrightarrow{N}) \\
+&= - \alpha \cdot \overrightarrow{N} \cdot \overrightarrow{i} - \beta \\
+&= \alpha \cdot c_i - \beta
+\end{split} \end{equation}
+
+Thus,
+
+\begin{equation}
+\beta = \alpha \cdot c_i - c_t
+\end{equation}
+
+The $\overrightarrow{t}$ normalization constraint gives us another expression:
+
+\begin{equation} \begin{split}
+\abs{\overrightarrow{t}} &= \abs{\alpha \cdot \overrightarrow{i}
+                                 + \beta \cdot \overrightarrow{N}} \\
+&= (\alpha \cdot i_x + \beta \cdot N_x)^2 +
+   (\alpha \cdot i_y + \beta \cdot N_y)^2 +
+   (\alpha \cdot i_z + \beta \cdot N_z)^2 \\
+&= \alpha^2 \cdot ({i_x}^2 + {i_y}^2 + {i_z}^2) +
+   \beta^2 \cdot ({N_x}^2 + {N_y}^2 + {N_z}^2) + \\
+   & 2 \cdot \alpha \cdot \beta \cdot
+     (i_x \cdot N_x + i_y \cdot N_y + i_z \cdot N_z) \\
+&= \alpha^2 + \beta^2 + 2 \cdot \alpha \cdot \beta \cdot \overrightarrow{i}
+   \cdot \overrightarrow{N} \\
+&= \alpha^2 + \beta^2 - 2 \cdot \alpha \cdot \beta \cdot c_i
+\end{split} \end{equation}
+
+Now we plug in the expression for $\beta$.
+
+\begin{equation} \begin{split}
+\abs{\overrightarrow{t}} &=
+\alpha^2 + (\alpha \cdot c_i - c_t)^2 - 2 \cdot \alpha \cdot c_i \cdot
+(\alpha \cdot c_i - c_t) \\
+&= \alpha^2 + \alpha^2 \cdot {c_i}^2 + {c_t}^2
+- 2 \cdot \alpha \cdot c_i \cdot c_t - 2 \cdot \alpha^2 \cdot {c_i}^2
++ 2 \cdot \alpha \cdot c_i \cdot c_t \\
+&= \alpha^2 - \alpha^2 \cdot {c_i}^2 + {c_t}^2 \\
+&= 1
+\end{split} \end{equation}
+
+Thus, making use of the Snell formula, and excluding the $c_i = 1$ case
+for which the refracted ray is just $- \overrightarrow{N}$,
+
+\begin{equation} \begin{split}
+& \alpha^2 = \frac{1 - {c_t}^2}{1 - {c_i}^2} = \frac{{s_t}^2}{{s_i}^2} =
+  {n_r}^2 \\
+& \iff \alpha = \pm n_r
+\end{split} \end{equation}
+
+By the $\overrightarrow{t}$ quadrant hypothesis, the component along
+$\overrightarrow{i}$ must be positive, hence $\alpha > 0 \implies \alpha = +
+n_r$.
+
+We have now solved for the scalar magnitudes of $\overrightarrow{t}$.
+
+\begin{equation} \begin{cases}
+\alpha = n_r \\
+\beta = n_r \cdot c_i - c_t
+\end{cases} \end{equation}
+
+And $\overrightarrow{t}$ may be expressed as:
+
+\begin{equation}
+\overrightarrow{t} = n_r \cdot \overrightarrow{i}
+ + (n_r \cdot c_i - c_t) \cdot \overrightarrow{N}
+\end{equation}
+
+All that is left is to express $c_t$ with respect to input problem quantities.
+The case of \gls{TIR} appears when ${n_r}^2 \cdot {s_i}^2 > 1$ and is excluded
+from the remainder of the derivation.
+
+\begin{equation} \begin{split}
+c_t &= \sqrt{1 - {s_t}^2} \\
+&= \sqrt{1 - {n_r}^2 \cdot {s_i}^2} \\
+&= \sqrt{1 - {n_r}^2 \cdot (1 - {c_i}^2)}
+\end{split} \end{equation}
+
+Thus the expression for $\overrightarrow{t}$ with respect to the problem's input
+quantities is:
+
+\begin{equation} \label{eq:refraction-derived}
+\overrightarrow{t} = n_r \cdot \overrightarrow{i} -
+\left(n_r \cdot \overrightarrow{N} \cdot \overrightarrow{i}
++ \sqrt{1 - {n_r}^2 \cdot \left(1 - 
+             \left(\overrightarrow{N} \cdot \overrightarrow{i}\right)^2\right)}
+\right)
+\cdot \overrightarrow{N}
+\end{equation}
+
+$\square$
+
+\paragraph{Bec's formula validation}
+We perform a check of Bec's formula's \cref{eq:bec-formula} validity with
+respect to the derived refraction formula \cref{eq:refraction-derived}. Bec's
+formula is expressed as:
+
+\begin{equation}
+\overrightarrow{t} = n_r \cdot \overrightarrow{i} +
+(w - \sqrt{1 + c_{2m}}) \cdot \overrightarrow{N} 
+\end{equation}
+
+With:
+
+\begin{equation} \begin{cases}
+w &= - n_r \cdot \overrightarrow{i} \cdot \overrightarrow{N} \\
+c_{2m} &= (w - n_r) \cdot (w + n_r)
+\end{cases} \end{equation}
+
+While the formula from our derivation is expressed as:
+
+\begin{equation}
+\overrightarrow{t} = n_r \cdot \overrightarrow{i} -
+\left(n_r \cdot \overrightarrow{N} \cdot \overrightarrow{i}
++ \sqrt{1 - {n_r}^2 \cdot \left(1 - 
+             \left(\overrightarrow{N} \cdot \overrightarrow{i}\right)^2\right)}
+\right)
+\cdot \overrightarrow{N}
+\end{equation}
+
+We may re-express it as:
+
+\begin{equation}
+\overrightarrow{t} = n_r \cdot \overrightarrow{i} +
+\left(- n_r \cdot \overrightarrow{N} \cdot \overrightarrow{i}
+- \sqrt{1 + \gamma} \right) \cdot \overrightarrow{N}
+\end{equation}
+
+We may check Bec's formula by proving that $\gamma = c_{2m}$.
+
+\begin{equation} \begin{split}
+c_{2m} &= (w - n_r) \cdot (w + n_r) = w^2 - {n_r}^2 \\
+       &= {n_r}^2 \cdot
+          \left( \overrightarrow{i} \cdot \overrightarrow{N} \right)^2
+          - {n_r}^2 \\
+       &= -{n_r}^2 \cdot
+           \left(1 - \left(\overrightarrow{i} \cdot
+                     \overrightarrow{N}\right)^2\right) \\
+       &= \gamma
+\end{split} \end{equation}
+
+Thus we find Bec's formula to be mathematically equivalent to the refraction
+formula we derived.
+
+\subsubsection{transfer operation}
+We work through the formula for applying the transfer operation to a ray.
+We reuse the notations in the definition (\cref{sec:transfer}). The transfer
+operation is the composition of a change of basis and an intersection with
+the new local plane.
+
+\paragraph{Change of basis}
+The initial ray $(P_1, \overrightarrow{V_1})$ is expressed in LCS1 coordinates.
+We express it in LCS2 with $(P_2, \overrightarrow{V_2})$. The LCS2 basis vectors
+are obtained by a rotation of the LCS1 basis vectors. We express everything
+in LCS1 coordinates up to the computation of $(P_2, \overrightarrow{V_2})$.
+
+\begin{equation} \begin{cases}
+\hat{x_2} = B \cdot \hat{x_1} \\
+\hat{y_2} = B \cdot \hat{y_1} \\
+\hat{z_2} = B \cdot \hat{z_1}
+\end{cases} \end{equation}
+
+The origin $A_2$ of LCS2 is obtained by a translation of $A_1$ along
+the new, rotated, coordinates.
+
+\begin{equation}
+D = \begin{bmatrix} D_x \\ D_y \\ D_z \end{bmatrix}
+\end{equation}
+
+\begin{equation} \begin{split}
+A_2 &= A_1 + D_x \cdot \hat{x_2} + D_y \cdot \hat{y_2} + D_z \cdot \hat{z_2} \\
+    &= D_x \cdot \hat{x_2} + D_y \cdot \hat{y_2} + D_z \cdot \hat{z_2} \\
+\end{split} \end{equation}
+
+Let us remember the columns of $B$ are the basis vectors of LCS2 expressed
+in LCS1.
+
+\begin{equation}
+B = \left[ \hat{x_2}, \hat{y_2}, \hat{z_2} \right]
+\end{equation}
+
+Thus, we can simplify the expression of $A_2$.
+
+\begin{equation}
+A_2 = B \cdot D
+\end{equation}
+
+The coordinates of $P_2$ are expressed thanks to a dot product with the basis
+vectors of LCS2.
+
+\begin{equation} \begin{cases}
+x_2 = (P - A_2) \cdot \hat{x_2} \\
+y_2 = (P - A_2) \cdot \hat{y_2} \\
+z_2 = (P - A_2) \cdot \hat{z_2}
+\end{cases} \end{equation}
+
+Again, this can be viewed as the following matrix-vector multiplication.
+
+\begin{equation} \begin{split}
+P_2 &= B^\top \cdot (P - A_2) \\
+    &= B^\top \cdot (P - B \cdot D) \\
+    &= B^\top \cdot P - D
+\end{split} \end{equation}
+
+Similarly, $\overrightarrow{V_2}$ may be expressed in LCS2.
+
+\begin{equation} \begin{cases}
+l_2 = \overrightarrow{V_1} \cdot \hat{x_2} \\
+m_2 = \overrightarrow{V_1} \cdot \hat{y_2} \\
+n_2 = \overrightarrow{V_1} \cdot \hat{z_2}
+\end{cases} \end{equation}
+
+Which can be simplified as the following relation.
+
+\begin{equation}
+\overrightarrow{V_2} = B^\top \cdot \overrightarrow{V_1}
+\end{equation}
+
+\paragraph{Intersection with the new local plane}
+The ray characterized by $(P_2, \overrightarrow{V_2}$ is intersected
+with the LCS2 $z = 0$ plane. Every operation happens in LCS2 coordinates.
+The intersection condition between the ray parametrized by $t$ and the
+plane is expressed as follows.
+
+\begin{equation}
+z_2 + t \cdot n_2 = 0
+\end{equation}
+
+We treat the case $n_2 = 0$ as an error case. It corresponds to the ray
+being parallel to the plane.
+
+\begin{equation}
+t = - \frac{z_2}{n_2}
+\end{equation}
+
+We simply propagate point $P_2$ up to the intersection $P_3$.
+
+\begin{equation}
+P_3 = \begin{bmatrix}
+x_2 + t \cdot l_2 \\
+y_2 + t \cdot m_2 \\
+0
+\end{bmatrix}
+\end{equation}
+
+The ray vector $\overrightarrow{V_2}$ does not undergo any operation, hence
+$\overrightarrow{V_3} = \overrightarrow{V_2}$.
+
+\subsection{General expression for a shape normal vector}
+Given either an explicit formula ($z = f(x, y)$), or an implicit
+formula ($F(x, y, z) = 0$) representing a surface, we show how
+to compute the unit normal vector at a given point. Additionally
+we orient the normal vector in the opposite half-plane to an incident
+ray with a vector component $n$.
+
+\paragraph{From an explicit formula}
+Given a shape in its \gls{LCS} defined by an equation $z = f(x, y)$,
+we can compute the unit normal vector at point $(x, y)$ using
+\cref{eq:gen-normal} \cite{mathworld:normal-vector}. 
+
+\begin{equation} \label{eq:gen-normal}
+\overrightarrow{N} =
+\frac{\textrm{sign}(n)}
+     {\sqrt{1 + \left(\frac{\partial f}{\partial x}(x, y)\right)^2 +
+                \left(\frac{\partial f}{\partial y}(x, y)\right)^2}}
+\cdot
+\begin{bmatrix}
+\frac{\partial f}{\partial x}(x, y) \\
+\frac{\partial f}{\partial y}(x, y) \\
+-1
+\end{bmatrix}
+\end{equation}
+
+\paragraph{From an implicit formula}
+A normal vector may also be defined using an implicit surface definition of
+the form $F(x, y, z) = 0$ (\cite{wiki:normal}, \cite{Welford:1986} section 4.6).
+A normal vector at a point on the surface is simply given by the gradient
+$\nabla F$ evaluated at this point.
+
+\begin{equation}
+\nabla F =
+\begin{bmatrix}
+\frac{\partial F}{\partial x} \\
+\frac{\partial F}{\partial y} \\
+\frac{\partial F}{\partial z}
+\end{bmatrix}
+\end{equation}
+
+Thus the unit normal vector oriented opposite to $n$ is given by:
+
+\begin{equation}
+\overrightarrow{N} = - \frac{\nabla F (x, y, z)}
+                          {\abs{\nabla F(x, y, z)}} \cdot
+  \textrm{sign}(n) \cdot
+  \textrm{sign}\left(\frac{\partial F}{\partial z}(x, y, z)\right)
+\end{equation}
+
+\subsection{shape: sphere}
+\subsubsection{Ray intersection}
 Let us detail the computation of point $I$, the intersection between
 a ray and a sphere. The ray has its point $P$ on the local plane
 ($z_P = 0$).
@@ -243,56 +772,7 @@ Hence, $\abs{b}$ can only near zero when both $\Delta$ and $c$ are near zero.
 Thus the term $\textrm{sign}(b) \cdot \sqrt{\Delta}$ may be numerically
 unstable in sign, but is near zero in this region.
 
-\subsection{General expression for a shape normal vector}
-Given either an explicit formula ($z = f(x, y)$), or an implicit
-formula ($F(x, y, z) = 0$) representing a surface, we show how
-to compute the unit normal vector at a given point. Additionally
-we orient the normal vector in the opposite half-plane to an incident
-ray with a vector component $n$.
-
-\subsubsection{From an explicit formula}
-Given a shape in its \gls{LCS} defined by an equation $z = f(x, y)$,
-we can compute the unit normal vector at point $(x, y)$ using
-\cref{eq:gen-normal} \cite{mathworld:normal-vector}. 
-
-\begin{equation} \label{eq:gen-normal}
-\overrightarrow{N} =
-\frac{\textrm{sign}(n)}
-     {\sqrt{1 + \left(\frac{\partial f}{\partial x}(x, y)\right)^2 +
-                \left(\frac{\partial f}{\partial y}(x, y)\right)^2}}
-\cdot
-\begin{bmatrix}
-\frac{\partial f}{\partial x}(x, y) \\
-\frac{\partial f}{\partial y}(x, y) \\
--1
-\end{bmatrix}
-\end{equation}
-
-\subsubsection{From an implicit formula}
-A normal vector may also be defined using an implicit surface definition of
-the form $F(x, y, z) = 0$ (\cite{wiki:normal}, \cite{Welford:1986} section 4.6).
-A normal vector at a point on the surface is simply given by the gradient
-$\nabla F$ evaluated at this point.
-
-\begin{equation}
-\nabla F =
-\begin{bmatrix}
-\frac{\partial F}{\partial x} \\
-\frac{\partial F}{\partial y} \\
-\frac{\partial F}{\partial z}
-\end{bmatrix}
-\end{equation}
-
-Thus the unit normal vector oriented opposite to $n$ is given by:
-
-\begin{equation}
-\overrightarrow{N} = - \frac{\nabla F (x, y, z)}
-                          {\abs{\nabla F(x, y, z)}} \cdot
-  \textrm{sign}(n) \cdot
-  \textrm{sign}\left(\frac{\partial F}{\partial z}(x, y, z)\right)
-\end{equation}
-
-\subsection{Sphere altitude formulation and first derivatives}
+\subsubsection{Altitude formulation and first derivatives}
 We formulate the sphere altitude in the $z = f(x, y)$ form. This form
 is useful for hand calculations, plots, etc. We follow by deriving the
 first derivatives in $x$ and $y$.
@@ -362,13 +842,13 @@ formulae are in \cref{eq:sphere-derivatives}.
 \frac{\textrm{sign}(R) \cdot y}{\sqrt{R^2 - x^2 -y^2}} \\
 \end{cases} \end{equation}
 
-\subsection{Sphere normal vector}
+\subsubsection{Normal vector}
 We derive an efficient expression for the normal vector of a sphere at
 an intersection point. Keep in mind that we already know the intersection
 point on the shape. We arrive at the result from two (slightly) different
 starting points.
 
-\subsubsection{Analytic formulation}
+\paragraph{Analytic formulation}
 We plug the partial derivatives \cref{eq:sphere-derivatives} into the general
 normal vector formula \cref{eq:gen-normal}.
 
@@ -423,7 +903,7 @@ x \\ y \\ z - R
 \end{bmatrix}
 \end{equation}
 
-\subsubsection{Geometric formulation}
+\paragraph{Geometric formulation}
 The center of the sphere is $C = (0, 0, R)$. We know the intersection point
 $I = (x, y, z)$.
 
@@ -477,485 +957,7 @@ The efficient expression for $\overrightarrow{N}$ is given by
 \begin{bmatrix} x \\ y \\ z - R\end{bmatrix}
 \end{equation}
 
-\subsection{Reflection formula derivation}
-We derive the reflection formula. See the illustration \cref{fig:reflect}.
-Let: \begin{itemize}
-\item The surface normal $\overrightarrow{N}$ at the ray intersection.
-\item The incident ray unit vector $\overrightarrow{i}$.
-\item The reflected ray unit vector $\overrightarrow{r}$.
-\item $\theta_i$ the (unsigned) angle between $\overrightarrow{N}$ and
-      $\overrightarrow{i}$.
-\item $\theta_r$ the (unsigned) angle between $\overrightarrow{N}$ and
-      $\overrightarrow{r}$.
-\end{itemize}
-
-We want to compute $\overrightarrow{r}$ as a function of $\overrightarrow{i}$
-and $\overrightarrow{N}$.  We assume the laws of reflection, which essentially
-state that light behaves as a billiard ball in its geometrical interaction with
-the surface.  We present several ways of looking at the problem. In our
-opinion, these are not so much derivations as different restatements of the
-laws of reflection.
-
-\subsubsection{Bounce derivation}
-The effect of the light bouncing off the surface can be stated in the following
-fashion. The component of $\overrightarrow{i}$ colinear to $\overrightarrow{N}$
-is inverted by the reflection. The other components of $\overrightarrow{i}$ stay
-the same. This immediately gives the tractable relation.
-
-\begin{equation}
-\overrightarrow{r} = \overrightarrow{i} - 2 \cdot (\overrightarrow{N} \cdot
-\overrightarrow{i}) \cdot \overrightarrow{N}
-\end{equation}
-
-\subsubsection{Geometric construction}
-The ray reflection may be viewed as a geometric construction based on the
-laws of reflection (see \cite{Glassner:1989} p.291 \cite{Comninos:2010}
-p.335). We draw the geometric view of the problem on
-\cref{fig:reflect-geometry}.
-
-\begin{figure} \caption{\label{fig:reflect-geometry} Illustration for the
-geometric construction of the reflect operation.}
-\includesvg[height=.2\textheight, width=.9\textwidth, keepaspectratio]
-           {images/shape/reflect-geometry.svg}
-\end{figure}
-
-\subsubsection{Algebraic derivation}
-We produce a derivation similar to the one included in \cite{Glassner:1989}
-(p.131).
-
-\begin{itemize}
-\item The reflected ray is in the plane spanned by $\overrightarrow{i}$ and
-      $\overrightarrow{N}$ (\emph{plane of incidence}).
-\item $\theta_i = \theta_r$
-\item Except in the degenerate case $\overrightarrow{i} = - \overrightarrow{N}$,
-$\overrightarrow{r} \neq - \overrightarrow{i}$. Ie the reflected ray does not
-retrace on the incident ray.
-\end{itemize}
-
-Translated algebraically, these statements suffice to determine a formula for
-$\overrightarrow{r}$. Let $(\alpha, \beta)$ both in $\mathbb{R}$. The reflected
-ray in the incidence plane must be expressed as:
-
-\begin{equation}
-\overrightarrow{r} = \alpha \cdot \overrightarrow{i} +
-                     \beta \cdot \overrightarrow{N}
-\end{equation}
-
-We now add the remaining constraints on $\overrightarrow{r}$ in order to narrow
-down expressions for $\alpha$ and $\beta$.
-
-\begin{equation} \begin{split}
-& \theta_i = \theta_r \\
-\implies & \cos(\theta_i) = \cos(\theta_r) \\
-\implies & - \overrightarrow{i} \cdot \overrightarrow{N} =
-       \overrightarrow{N} \cdot \overrightarrow{r}
-\end{split} \end{equation}
-
-\begin{equation} \begin{split}
-- \overrightarrow{i} \cdot \overrightarrow{N} &=
-\overrightarrow{N} \cdot
-(\alpha \cdot \overrightarrow{i} + \beta \cdot \overrightarrow{N}) \\
-&= \alpha \cdot \overrightarrow{i} \cdot \overrightarrow{N} +
-   \beta \cdot \overrightarrow{N} \cdot \overrightarrow{N} \\
-&= \alpha \cdot \overrightarrow{N} \cdot \overrightarrow{i} + \beta
-\end{split} \end{equation}
-
-Hence the following expression for $\beta$.
-
-\begin{equation} \label{eq:reflect-beta-expr}
-\beta = - (\alpha + 1) \cdot \overrightarrow{N} \cdot \overrightarrow{i}
-\end{equation}
-
-Another constraint we exploit is that $\overrightarrow{r}$ is a unit vector.
-
-\begin{equation} \begin{split}
-& \abs{\overrightarrow{r}} = 1 \\
-\implies& \abs{\alpha \cdot \overrightarrow{i} +
-                \beta \cdot \overrightarrow{N}} = 1 \\
-\implies& (\alpha \cdot i_x + \beta \cdot N_x)^2 +
-          (\alpha \cdot i_y + \beta \cdot N_y)^2 +
-          (\alpha \cdot i_z + \beta \cdot N_z)^2 = 1 \\
-\implies& \alpha^2 ({i_x}^2 + {i_y}^2 + {i_z}^2) +
-          \beta^2 ({N_x}^2 + {N_y}^2 + {N_z}^2) + \\
-          &2 \cdot \alpha \cdot \beta 
-          (i_x \cdot N_x + i_y \cdot N_y + i_z \cdot N_z) = 1 \\
-\implies& \alpha^2 + \beta^2 + 2 \cdot \alpha \cdot \beta \cdot
-          \overrightarrow{N} \cdot \overrightarrow{i} = 1
-\end{split} \end{equation}
-
-Now we plug the expression for $\beta$ \cref{eq:reflect-beta-expr}.
-
-\begin{equation} \begin{split}
-\implies& \alpha^2 + (\alpha + 1)^2
-(\overrightarrow{N} \cdot \overrightarrow{i})^2
-- 2 \cdot \alpha (\alpha + 1) \cdot
-(\overrightarrow{N} \cdot \overrightarrow{i})^2 = 1 \\
-\implies& \alpha^2 (1 - 2 (\overrightarrow{N} \cdot \overrightarrow{i})^2
-+ (\overrightarrow{N} \cdot \overrightarrow{i})^2) + \\
-& \alpha (-2\cdot (\overrightarrow{N} \cdot \overrightarrow{i})^2
-        +2 \cdot (\overrightarrow{N} \cdot \overrightarrow{i})^2) +
-(\overrightarrow{N} \cdot \overrightarrow{i})^2 = 1 \\
-\implies& \alpha^2 \cdot (1 - (\overrightarrow{N} \cdot \overrightarrow{i})^2)
-+ (\overrightarrow{N} \cdot \overrightarrow{i})^2 = 1 \\
-\implies& \alpha^2 = \frac{1 - (\overrightarrow{N} \cdot \overrightarrow{i})^2}
-                          {1 - (\overrightarrow{N} \cdot \overrightarrow{i})^2}
-\end{split} \end{equation}
-
-The degenerate case $\overrightarrow{i} = - \overrightarrow{N}$, which
-leads to $1 - (\overrightarrow{N} \cdot \overrightarrow{i})^2 = 0$, is excluded.
-The answer in the degenerate case is $\overrightarrow{r} = -
-\overrightarrow{i}$. We continue the main derivation path with:
-
-\begin{equation}
-\alpha = \pm 1
-\end{equation}
-
-The case $\alpha = -1$ leads to $\beta = 0$ and $\overrightarrow{r} = -
-\overrightarrow{i}$. We excluded this case by hypothesis.  The remaining answer
-is $\alpha = + 1$.
-
-Summarizing:
-
-\begin{equation} \begin{cases}
-\alpha = 1 \\
-\beta = -2 \cdot \overrightarrow{N} \cdot \overrightarrow{i}
-\end{cases} \end{equation}
-
-This leads us to the expression for $\overrightarrow{r}$.
-
-\begin{equation}
-\overrightarrow{r} = \overrightarrow{i} - 2 \cdot (\overrightarrow{N} \cdot
-\overrightarrow{i}) \cdot \overrightarrow{N}
-\end{equation}
-
-$\square$
-
-\subsection{Refraction}
-We derive the refraction formula vectorial form from the laws of refraction.
-Then we check the equivalence of Bec's formula with the derived refraction
-formula.
-
-\subsubsection{Algebraic derivation}
-We work through an algebraic derivation of the vectorial expression for
-the refraction operation. Similar derivations may be found in
-\cite{Glassner:1989} (p.288), originally by Whitted \cite{Whitted:2005}
-and Heckbert \cite{Heckbert:1984}.
-
-The quantities involved in the problem are (illustrated on
-\cref{fig:refract-derivation}):
-
-\begin{itemize}
-\item $n_1$ the incident medium refraction index,
-\item $n_2$ the output medium refraction index,
-\item $\overrightarrow{i}$ the unit incident ray direction,
-\item $\overrightarrow{N}$ the unit surface normal vector,
-\item $\overrightarrow{t}$ the unit refracted ray direction,
-\item $\theta_i$ the acute angle between $-\overrightarrow{i}$
-and $\overrightarrow{N}$,
-\item $\theta_t$ the angle between $-\overrightarrow{N}$ and
-$\overrightarrow{t}$.
-\end{itemize}
-
-\cref{fig:refract-derivation}
-\begin{figure} \caption{\label{fig:refract-derivation} Quantities involved
-in the ray refraction operation.}
-\includesvg[height=.2\textheight, width=.9\textwidth, keepaspectratio]
-           {images/shape/refract-derivation.svg}
-\end{figure}
-
-We take for granted a number of assumptions related to the law of refraction
-\cite{wiki:snell-refraction}:
-
-\begin{itemize}
-\item $\overrightarrow{t}$ is in the plane spanned by $\overrightarrow{i}$
-and $\overrightarrow{N}$ (\emph{plane of incidence}),
-\item Defining quadrants in the plane of incidence with respect to
-$\overrightarrow{N}$ and the origin, $\overrightarrow{t}$ is in
-the same quadrant as $\overrightarrow{i}$,
-\item $n_1 \cdot \sin(\theta_i) = n_2 \cdot \sin(\theta_t)$
-\item In the particular case where $-\overrightarrow{i} = \overrightarrow{N}$,
-      the refracted ray is $\overrightarrow{t} = - \overrightarrow{N}$.
-\end{itemize}
-
-We remind some relations and define some shorthands used for conciseness.
-
-\begin{equation} \begin{cases}
-- \overrightarrow{N} \cdot \overrightarrow{i} = \cos(\theta_i) = c_i \\
-- \overrightarrow{N} \cdot \overrightarrow{t} = \cos(\theta_t) = c_t \\
-\sin(\theta_i) = s_i \\
-\sin(\theta_t) = s_t \\
-\frac{n_1}{n_2} = n_r
-\end{cases} \end{equation}
-
-Since $\overrightarrow{t}$ is in the incidence plane, it may be written as:
-
-\begin{equation}
-\overrightarrow{t} = \alpha \cdot \overrightarrow{i}
-                     + \beta \cdot \overrightarrow{N}
-\end{equation}
-
-The other hypotheses provide the following constraints, which we will use
-in order to solve for $\alpha$ and $\beta$.
-
-\begin{equation} \begin{cases}
-n_1 \cdot s_i = n_2 \cdot s_t \\
-\abs{\overrightarrow{t}} = 1
-\end{cases} \end{equation}
-
-We may express a relation with the help of $c_t$:
-
-\begin{equation} \begin{split}
-c_t &= - \overrightarrow{N} \cdot \overrightarrow{t} \\
-&= - \overrightarrow{N} \cdot
-   (\alpha \cdot \overrightarrow{i} + \beta \cdot \overrightarrow{N}) \\
-&= - \alpha \cdot \overrightarrow{N} \cdot \overrightarrow{i} - \beta \\
-&= \alpha \cdot c_i - \beta
-\end{split} \end{equation}
-
-Thus,
-
-\begin{equation}
-\beta = \alpha \cdot c_i - c_t
-\end{equation}
-
-The $\overrightarrow{t}$ normalization constraint gives us another expression:
-
-\begin{equation} \begin{split}
-\abs{\overrightarrow{t}} &= \abs{\alpha \cdot \overrightarrow{i}
-                                 + \beta \cdot \overrightarrow{N}} \\
-&= (\alpha \cdot i_x + \beta \cdot N_x)^2 +
-   (\alpha \cdot i_y + \beta \cdot N_y)^2 +
-   (\alpha \cdot i_z + \beta \cdot N_z)^2 \\
-&= \alpha^2 \cdot ({i_x}^2 + {i_y}^2 + {i_z}^2) +
-   \beta^2 \cdot ({N_x}^2 + {N_y}^2 + {N_z}^2) + \\
-   & 2 \cdot \alpha \cdot \beta \cdot
-     (i_x \cdot N_x + i_y \cdot N_y + i_z \cdot N_z) \\
-&= \alpha^2 + \beta^2 + 2 \cdot \alpha \cdot \beta \cdot \overrightarrow{i}
-   \cdot \overrightarrow{N} \\
-&= \alpha^2 + \beta^2 - 2 \cdot \alpha \cdot \beta \cdot c_i
-\end{split} \end{equation}
-
-Now we plug in the expression for $\beta$.
-
-\begin{equation} \begin{split}
-\abs{\overrightarrow{t}} &=
-\alpha^2 + (\alpha \cdot c_i - c_t)^2 - 2 \cdot \alpha \cdot c_i \cdot
-(\alpha \cdot c_i - c_t) \\
-&= \alpha^2 + \alpha^2 \cdot {c_i}^2 + {c_t}^2
-- 2 \cdot \alpha \cdot c_i \cdot c_t - 2 \cdot \alpha^2 \cdot {c_i}^2
-+ 2 \cdot \alpha \cdot c_i \cdot c_t \\
-&= \alpha^2 - \alpha^2 \cdot {c_i}^2 + {c_t}^2 \\
-&= 1
-\end{split} \end{equation}
-
-Thus, making use of the Snell formula, and excluding the $c_i = 1$ case
-for which the refracted ray is just $- \overrightarrow{N}$,
-
-\begin{equation} \begin{split}
-& \alpha^2 = \frac{1 - {c_t}^2}{1 - {c_i}^2} = \frac{{s_t}^2}{{s_i}^2} =
-  {n_r}^2 \\
-& \iff \alpha = \pm n_r
-\end{split} \end{equation}
-
-By the $\overrightarrow{t}$ quadrant hypothesis, the component along
-$\overrightarrow{i}$ must be positive, hence $\alpha > 0 \implies \alpha = +
-n_r$.
-
-We have now solved for the scalar magnitudes of $\overrightarrow{t}$.
-
-\begin{equation} \begin{cases}
-\alpha = n_r \\
-\beta = n_r \cdot c_i - c_t
-\end{cases} \end{equation}
-
-And $\overrightarrow{t}$ may be expressed as:
-
-\begin{equation}
-\overrightarrow{t} = n_r \cdot \overrightarrow{i}
- + (n_r \cdot c_i - c_t) \cdot \overrightarrow{N}
-\end{equation}
-
-All that is left is to express $c_t$ with respect to input problem quantities.
-The case of \gls{TIR} appears when ${n_r}^2 \cdot {s_i}^2 > 1$ and is excluded
-from the remainder of the derivation.
-
-\begin{equation} \begin{split}
-c_t &= \sqrt{1 - {s_t}^2} \\
-&= \sqrt{1 - {n_r}^2 \cdot {s_i}^2} \\
-&= \sqrt{1 - {n_r}^2 \cdot (1 - {c_i}^2)}
-\end{split} \end{equation}
-
-Thus the expression for $\overrightarrow{t}$ with respect to the problem's input
-quantities is:
-
-\begin{equation} \label{eq:refraction-derived}
-\overrightarrow{t} = n_r \cdot \overrightarrow{i} -
-\left(n_r \cdot \overrightarrow{N} \cdot \overrightarrow{i}
-+ \sqrt{1 - {n_r}^2 \cdot \left(1 - 
-             \left(\overrightarrow{N} \cdot \overrightarrow{i}\right)^2\right)}
-\right)
-\cdot \overrightarrow{N}
-\end{equation}
-
-$\square$
-
-\subsubsection{Bec's formula validation}
-We perform a check of Bec's formula's \cref{eq:bec-formula} validity with
-respect to the derived refraction formula \cref{eq:refraction-derived}. Bec's
-formula is expressed as:
-
-\begin{equation}
-\overrightarrow{t} = n_r \cdot \overrightarrow{i} +
-(w - \sqrt{1 + c_{2m}}) \cdot \overrightarrow{N} 
-\end{equation}
-
-With:
-
-\begin{equation} \begin{cases}
-w &= - n_r \cdot \overrightarrow{i} \cdot \overrightarrow{N} \\
-c_{2m} &= (w - n_r) \cdot (w + n_r)
-\end{cases} \end{equation}
-
-While the formula from our derivation is expressed as:
-
-\begin{equation}
-\overrightarrow{t} = n_r \cdot \overrightarrow{i} -
-\left(n_r \cdot \overrightarrow{N} \cdot \overrightarrow{i}
-+ \sqrt{1 - {n_r}^2 \cdot \left(1 - 
-             \left(\overrightarrow{N} \cdot \overrightarrow{i}\right)^2\right)}
-\right)
-\cdot \overrightarrow{N}
-\end{equation}
-
-We may re-express it as:
-
-\begin{equation}
-\overrightarrow{t} = n_r \cdot \overrightarrow{i} +
-\left(- n_r \cdot \overrightarrow{N} \cdot \overrightarrow{i}
-- \sqrt{1 + \gamma} \right) \cdot \overrightarrow{N}
-\end{equation}
-
-We may check Bec's formula by proving that $\gamma = c_{2m}$.
-
-\begin{equation} \begin{split}
-c_{2m} &= (w - n_r) \cdot (w + n_r) = w^2 - {n_r}^2 \\
-       &= {n_r}^2 \cdot
-          \left( \overrightarrow{i} \cdot \overrightarrow{N} \right)^2
-          - {n_r}^2 \\
-       &= -{n_r}^2 \cdot
-           \left(1 - \left(\overrightarrow{i} \cdot
-                     \overrightarrow{N}\right)^2\right) \\
-       &= \gamma
-\end{split} \end{equation}
-
-Thus we find Bec's formula to be mathematically equivalent to the refraction
-formula we derived.
-
-\subsection{transfer operation}
-We work through the formula for applying the transfer operation to a ray.
-We reuse the notations in the definition (\cref{sec:transfer}). The transfer
-operation is the composition of a change of basis and an intersection with
-the new local plane.
-
-\paragraph{Change of basis}
-The initial ray $(P_1, \overrightarrow{V_1})$ is expressed in LCS1 coordinates.
-We express it in LCS2 with $(P_2, \overrightarrow{V_2})$. The LCS2 basis vectors
-are obtained by a rotation of the LCS1 basis vectors. We express everything
-in LCS1 coordinates up to the computation of $(P_2, \overrightarrow{V_2})$.
-
-\begin{equation} \begin{cases}
-\hat{x_2} = B \cdot \hat{x_1} \\
-\hat{y_2} = B \cdot \hat{y_1} \\
-\hat{z_2} = B \cdot \hat{z_1}
-\end{cases} \end{equation}
-
-The origin $A_2$ of LCS2 is obtained by a translation of $A_1$ along
-the new, rotated, coordinates.
-
-\begin{equation}
-D = \begin{bmatrix} D_x \\ D_y \\ D_z \end{bmatrix}
-\end{equation}
-
-\begin{equation} \begin{split}
-A_2 &= A_1 + D_x \cdot \hat{x_2} + D_y \cdot \hat{y_2} + D_z \cdot \hat{z_2} \\
-    &= D_x \cdot \hat{x_2} + D_y \cdot \hat{y_2} + D_z \cdot \hat{z_2} \\
-\end{split} \end{equation}
-
-Let us remember the columns of $B$ are the basis vectors of LCS2 expressed
-in LCS1.
-
-\begin{equation}
-B = \left[ \hat{x_2}, \hat{y_2}, \hat{z_2} \right]
-\end{equation}
-
-Thus, we can simplify the expression of $A_2$.
-
-\begin{equation}
-A_2 = B \cdot D
-\end{equation}
-
-The coordinates of $P_2$ are expressed thanks to a dot product with the basis
-vectors of LCS2.
-
-\begin{equation} \begin{cases}
-x_2 = (P - A_2) \cdot \hat{x_2} \\
-y_2 = (P - A_2) \cdot \hat{y_2} \\
-z_2 = (P - A_2) \cdot \hat{z_2}
-\end{cases} \end{equation}
-
-Again, this can be viewed as the following matrix-vector multiplication.
-
-\begin{equation} \begin{split}
-P_2 &= B^\top \cdot (P - A_2) \\
-    &= B^\top \cdot (P - B \cdot D) \\
-    &= B^\top \cdot P - D
-\end{split} \end{equation}
-
-Similarly, $\overrightarrow{V_2}$ may be expressed in LCS2.
-
-\begin{equation} \begin{cases}
-l_2 = \overrightarrow{V_1} \cdot \hat{x_2} \\
-m_2 = \overrightarrow{V_1} \cdot \hat{y_2} \\
-n_2 = \overrightarrow{V_1} \cdot \hat{z_2}
-\end{cases} \end{equation}
-
-Which can be simplified as the following relation.
-
-\begin{equation}
-\overrightarrow{V_2} = B^\top \cdot \overrightarrow{V_1}
-\end{equation}
-
-\paragraph{Intersection with the new local plane}
-The ray characterized by $(P_2, \overrightarrow{V_2}$ is intersected
-with the LCS2 $z = 0$ plane. Every operation happens in LCS2 coordinates.
-The intersection condition between the ray parametrized by $t$ and the
-plane is expressed as follows.
-
-\begin{equation}
-z_2 + t \cdot n_2 = 0
-\end{equation}
-
-We treat the case $n_2 = 0$ as an error case. It corresponds to the ray
-being parallel to the plane.
-
-\begin{equation}
-t = - \frac{z_2}{n_2}
-\end{equation}
-
-We simply propagate point $P_2$ up to the intersection $P_3$.
-
-\begin{equation}
-P_3 = \begin{bmatrix}
-x_2 + t \cdot l_2 \\
-y_2 + t \cdot m_2 \\
-0
-\end{bmatrix}
-\end{equation}
-
-The ray vector $\overrightarrow{V_2}$ does not undergo any operation, hence
-$\overrightarrow{V_3} = \overrightarrow{V_2}$.
-
-\subsection{standard shape}
+\subsection{shape: standard}
 The \lstinline{standard} shape is defined with the formula in
 \cref{eq:standard-z}. This formula may be found in \cite{Welford:1986}
 (section 4.7) and in \cite{Greynolds:2002} \footnote{Note the use of this kind
