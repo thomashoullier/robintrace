@@ -1,17 +1,6 @@
 #include "benchmark.h"
 
 TEST_CASE("Shape intersections", "[shape]") {
-  BENCHMARK_ADVANCED("sphere")
-                    (Catch::Benchmark::Chronometer meter) {
-    ray r(Vec3(0.5, -0.32, 0), Vec3_lm(0.005, 0.01, true));
-    sphere s(5.0);
-
-    std::vector<ray> init_rays (meter.runs());
-    std::fill(init_rays.begin(), init_rays.end(), r);
-    meter.measure([&init_rays, &s](int i) {
-      return s.intersect(init_rays[i]);});
-  };
-
   BENCHMARK_ADVANCED("standard")
                     (Catch::Benchmark::Chronometer meter) {
     ray r(Vec3(0.5, -0.32, 0), Vec3_lm(0.005, 0.01, true));
@@ -25,19 +14,7 @@ TEST_CASE("Shape intersections", "[shape]") {
 }
 
 TEST_CASE("Shape normals", "[normal]") {
-  BENCHMARK_ADVANCED("sphere")
-                    (Catch::Benchmark::Chronometer meter) {
-    ray r(Vec3(0.5, -0.32, 0), Vec3_lm(0.005, 0.01, true));
-    sphere s(5.0);
-    s.intersect(r);
-
-    std::vector<ray> init_rays (meter.runs());
-    std::fill(init_rays.begin(), init_rays.end(), r);
-    meter.measure([&init_rays, &s](int i) {
-      return s.normal(init_rays[i]);});
-  };
-
-  BENCHMARK_ADVANCED("normal")
+  BENCHMARK_ADVANCED("standard")
                     (Catch::Benchmark::Chronometer meter) {
     ray r(Vec3(0.5, -0.32, 0), Vec3_lm(0.005, 0.01, true));
     standard sd(1.0/5.0, -1.1);

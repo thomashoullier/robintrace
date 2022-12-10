@@ -1,7 +1,5 @@
 #include "test_main.h"
 
-/*TODO: Accessors */
-
 TEST_CASE("Shape intersections", "[shape]") {
   SECTION("plane") {
     ray r = ray(Vec3(0.2, 0.3, 0.0), Vec3(0, 0, 1.0));
@@ -12,32 +10,34 @@ TEST_CASE("Shape intersections", "[shape]") {
     ray_eq(r, r_valid);
   }
 
-  SECTION("sphere nominal") {
+  SECTION("standard sphere nominal") {
     ray r(Vec3(0.5, -0.32, 0), Vec3_lm(0.01, -0.005, true));
-    sphere s = sphere(5.0);
-  
-    ray r_valid = sphere_intersect_ref(s, r);
-    s.intersect(r);
+    standard sd(1/5.0, 0);
+    ray r_valid(
+      Vec3(0.5003541437826592, -0.3201770718913296, 0.0354121647981072),
+      r.v);
+    sd.intersect(r);
     SUCCEED("ray/sphere intersection happened.");
     ray_eq(r, r_valid);
   }
 
-  SECTION("sphere error: no intersection") {
-    sphere s = sphere(5.0);
+  SECTION("standard sphere error: no intersection") {
+    standard sd(1/5.0, 0);
     ray r(Vec3(4.3, -0.32, 0), Vec3_lm(0.2, -0.005, true));
     
-    ray r_valid = sphere_intersect_ref(s, r);
-    s.intersect(r);
+    ray r_valid(r); r_valid.code = 5;
+    sd.intersect(r);
     SUCCEED("ray/sphere intersection happened.");
     ray_eq(r, r_valid);
   }
 
-  SECTION("sphere error: beyond first hemisphere.") {
-    sphere s = sphere(5.0);
+  SECTION("standard sphere beyond first hemisphere.") {
+    standard sd(1/5.0, 0);
     ray r(Vec3(10, -8.32, 0), Vec3_lm(-0.55, 0.55, true));
-
-    ray r_valid = sphere_intersect_ref(s, r);
-    s.intersect(r);
+    ray r_valid(
+      Vec3(4.020308637104494, -2.340308637104494, 6.833050448164786),
+      r.v);
+    sd.intersect(r);
     SUCCEED("ray/sphere intersection happened.");
     ray_eq(r, r_valid);
   }
@@ -53,18 +53,6 @@ TEST_CASE("Shape intersections", "[shape]") {
     ray_eq(r_sd, r_plane);
   }
 
-  SECTION("standard: match with sphere") {
-    double rad = 5.0;
-    ray r_s(Vec3(0.5, -0.32, 0), Vec3_lm(0.01, -0.005, true));
-    ray r_sd(r_s);
-    sphere s = sphere(rad);
-    standard sd(1.0/rad, 0);
-    s.intersect(r_s);
-    sd.intersect(r_sd);
-    SUCCEED("ray/sd intersection happened.");
-    ray_eq(r_sd, r_s);
-  }
-  
   SECTION("standard: nominal case") {
     ray r(Vec3(4.1, 0.5, 0), Vec3_lm(-0.01, 0.02, true));
     ray r_valid(Vec3(4.104473059201623, 0.4910538815967531,
@@ -78,7 +66,8 @@ TEST_CASE("Shape intersections", "[shape]") {
 
   SECTION("standard: no intersection") {
     ray r(Vec3(4.1, 0.5, 0), Vec3_lm(-0.01, 0.02, true));
-    ray r_valid(r); r_valid.code = 5;
+    ray r_valid(r);
+    r_valid.code = 5;
     standard sd(-1.0/20, 25);
     sd.intersect(r);
     SUCCEED("ray/sd intersection happened.");
@@ -96,14 +85,14 @@ TEST_CASE("Shape normal vector", "[normal]") {
     REQUIRE(N_pl(1) == Approx(0));
   }
 
-  SECTION("sphere") {
+  SECTION("standard sphere") {
     ray r(Vec3(0.5, -0.32, 0), Vec3_lm(0.01, -0.005, true));
-    sphere s = sphere(5.0);
-  
-    s.intersect(r);
+    standard sd(1/5.0, 0);
+    sd.intersect(r);
 
-    Vec3 N_valid = sphere_normal_ref(s, r);
-    Vec3 N_test = s.normal(r);
+    Vec3 N_valid(0.10007082875653184, -0.06403541437826592,
+                 -0.9929175670403786);
+    Vec3 N_test = sd.normal(r);
     SUCCEED("sphere normal happened");
     REQUIRE(N_test(0) == Approx(N_valid(0)));
     REQUIRE(N_test(1) == Approx(N_valid(1)));
@@ -127,10 +116,9 @@ TEST_CASE("Shape normal vector", "[normal]") {
 TEST_CASE("Ray operations", "[rop]") {
   SECTION("reflect") {
     ray r(Vec3(0.5, -0.32, 0), Vec3_lm(0.01, -0.005, true));
-    sphere s = sphere(5.0);
-
-    s.intersect(r);
-    Vec3 N = s.normal(r);
+    standard sd(1/5.0, 0);
+    sd.intersect(r);
+    Vec3 N = sd.normal(r);
     Vec3 v_valid = reflect_ref(r, N);
     reflect(r, N);
     SUCCEED("reflect happened");
