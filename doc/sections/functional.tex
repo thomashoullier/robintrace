@@ -45,8 +45,6 @@ The status codes are defined in \cref{tab:ray-status-codes}.
 \begin{tabular}{| c | l |} \hline
 \textbf{Code} & \textbf{Meaning} \\ \hline
 0 & Success, the ray is valid.\\ \hline
-1 & Sphere intersection: No intersection. \\ \hline
-2 & Sphere intersection: Intersection beyond first hemisphere. \\ \hline
 3 & refract: \gls{TIR} \\ \hline
 4 & transfer: ray is parallel to the new local plane. \\ \hline
 5 & standard intersection: No intersection. \\ \hline
@@ -249,8 +247,8 @@ It is $\overrightarrow{N} = (0, 0, -\textrm{sign}(n))$.
 There are no error cases.
 
 \subsubsection{standard}
-The so-called \lstinline{standard} shape comprises spheres and some quadrics of
-revolution around axis z.
+The so-called \lstinline{standard} shape describes surfaces which
+belong to quadrics of revolution with axis $z$.
 
 \paragraph{Definition}
 The surface shape \lstinline{standard} is defined using:
@@ -258,14 +256,6 @@ The surface shape \lstinline{standard} is defined using:
 \item $c$: the radius of curvature reciprocal, $c = \frac{1}{R}$.
 \item $k$: a scalar parameter which changes the type of the quadric.
 \end{itemize}
-
-The altitude is defined as follows.
-
-\begin{equation} \label{eq:standard-z}
-z = \frac{c \cdot r^2}{1 + \sqrt{1 - (k + 1) \cdot c^2 \cdot r^2}}
-\end{equation}
-
-With $r^2 = x^2 + y^2$.
 
 The mathematical classification of the surface depends on the value of
 $k$,
@@ -277,6 +267,18 @@ $k$,
 \end{itemize}
 
 Note that the case $c=0$ describes a plane.
+
+An explicit altitude formula may be given for part of the surface (in the case
+of spheroids, only the hemisphere containing the apex is described by this
+formula). Let $r^2 = x^2 + y^2$.
+
+\begin{equation} \label{eq:standard-z}
+z = \frac{c \cdot r^2}{1 + \sqrt{1 - (k + 1) \cdot c^2 \cdot r^2}}
+\end{equation}
+
+The effective surface definition is given by the \lstinline{intersect}
+operation.  Please note that in the case of spheroids, intersections
+beyond the hemisphere closest to the apex are valid.
 
 \paragraph{intersect}
 The intersection point $I$ is found with the following operations sequence.

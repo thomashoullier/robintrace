@@ -619,6 +619,7 @@ The quadric takes the following form.
 This form is a \emph{circular paraboloid}.
 
 Then, we treat the case $k \neq -1$. Let $k' = k + 1$.
+\textcolor{red}{TODO:replace k' with varepsilon.}
 
 \begin{equation} \begin{split}
 & x^2 + y^2 + k' \cdot z^2 - 2 R \cdot z = 0 \\
@@ -670,7 +671,7 @@ The case $k > -1$ gives the form,
 \end{equation}
 
 which is a \emph{spheroid}. We note that for $k=0$, we have
-$k'=0$ and thus $a=b$, which describes a \emph{sphere}.
+$k'=1$ and thus $a=b$, which describes a \emph{sphere}.
 
 \subsubsection{Rationale for defining the shape from quadrics}
 We explore the rationale which leads from the general quadric (with potentially
@@ -751,13 +752,11 @@ The ray equation being, as usual,
 \begin{bmatrix} l \\ m \\ n \end{bmatrix}
 \end{equation}
 
-and we can use either \lstinline{standard} surface expressions, both giving
-rise to a quadratic equation during the solving process.
+and the quadric implicit equation,
 
-\begin{equation} \begin{cases}
-z = \frac{c \cdot r^2}{1 + \sqrt{1 - (k+1) \cdot c^2 \cdot r^2}} \\
+\begin{equation}
 x^2 + y^2 + (k+1) \cdot z^2 - 2R \cdot z = 0
-\end{cases} \end{equation}
+\end{equation}
 
 Finding the expression for solutions is easy, but finding an expression which
 is numerically well behaved is more involved. Thankfully, Welford found such
@@ -782,9 +781,8 @@ In non-error cases, the intersection point is given as usual with:
 I = P + t \cdot V
 \end{equation}
 
-Note there is no possibility with this expression of finding an intersection
-beyond the first hemisphere in the case of spheroids. The hand validation being
-laborious, we validated the intersection formula with a symbolic math tool.
+The hand validation being laborious, we validated the intersection formula with
+a symbolic math tool.
 
 \subsubsection{Normal vector}
 The normal vector at some point on the surface is found by computing the
