@@ -1,1 +1,17 @@
 \section{Introduction}
+We document Poaky, which is a software component of RobinTrace. Poaky deals
+with basic ray-wise and element-wise sequential raytracing operations. Its
+goal is to provide a reference implementation and document clearly the
+forward simulation pass of sequential raytracing. The simulation is carried
+out within the context of geometrical optics.
+
+We carried out similar endeavours in a previous work \cite{Houllier-thesis}.
+The present software is a rewrite of this work after putting more thought and
+research into the problem. Much of the present work is ultimately a rehash of
+the work of Welford \cite{Welford:1986}, who was foundational in computerized
+optical design raytracing.
+
+In its present version, only a handful of operations are implemented. The
+current development goal is to reach a minimal working example in RobinTrace.
+Whether Poaky will serve as the base layer for RobinTrace in its current state
+or merely as a reference is not yet decided.

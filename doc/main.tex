@@ -1,4 +1,3 @@
-%% Document-wide settings.
 \documentclass[letterpaper]{article}
 \title{Poaky documentation}
 \author{Thomas HOULLIER} 
@@ -12,7 +11,6 @@
 
 \input{preamble}
 
-% Document
 \begin{document}
 \frenchspacing
 \date{v1.0 -- \today}
@@ -20,11 +18,13 @@
 \thispagestyle{FirstPage}
 
 \begin{abstract}
-We document the development of Poaky, a piece of software for raytracing
-through optical systems. Poaky is implemented in C++.
+Poaky is a low-level software API layer for RobinTrace. Poaky is a
+reference implementation for ray-wise and element-wise operations in
+the forward simulation of sequential raytracing. The software is
+written in C++.
 \end{abstract}
 
-\keywords{Optical design, Raytracing, C++}
+\keywords{Optical design, Sequential raytracing, C++}
 
 \begin{versionhistory}
 \vhEntry{1.0}{\today}{TH}{creation}
@@ -32,7 +32,6 @@ through optical systems. Poaky is implemented in C++.
 \setcounter{table}{0} % Reset the table counter.
 
 \tableofcontents
-\printglossary[type=\acronymtype,style=index]
 \pagestyle{plain}
 
 \input{sections/introduction.tex}
@@ -42,10 +41,9 @@ through optical systems. Poaky is implemented in C++.
 \input{sections/tests.tex}
 \input{sections/notations.tex}
 
+\printglossary[type=\acronymtype,style=index]
 \appendix
 \cleardoublepage
-
-%% \include{appendices}
 
 \apptocmd{\thebibliography}{\raggedright}{}{}
 \begingroup
