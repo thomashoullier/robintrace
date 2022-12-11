@@ -2,7 +2,7 @@
 Poaky is low-level sequential raytracing API for optical design.
 It is part of the RobinTrace project. It is implemented in C++.
 
-![RobinTrace logo](doc/images/robintrace-logo.png)
+<img src="doc/images/robintrace-logo.png" alt="RobinTrace logo" width="256"/>
 
 ## Documentation
 The main value of Poaky is the documentation. The report can
