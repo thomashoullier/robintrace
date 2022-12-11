@@ -1,18 +1,17 @@
 \section{Definitions and conventions}
-We provide the conventions that were used. They are choices
-on our part. Some details may differ from the choices made in
-other tools.
+We outline the conventions we use. Some details may differ from the choices
+made in other tools.
 
 \subsection{Raytracing sequence}
-Poaky deals with optical systems represented as a sequence of optical
-objects which operate on rays of light. The objects are of two main types,
-optical surfaces and geometric propagators through some medium in between
-surfaces (which we call \emph{transfer}). The sequence in which rays of light
-interact with either surfaces or transfers is known a priori. The simulation of
-the propagation of rays through such a sequence of objects is known as
-\emph{sequential raytracing}. This discipline is linked with the more well
-known raytracing for rendering, though they seem to have developed more
-or less autonomously.
+Poaky deals with the elementary operations in optical systems represented as a
+sequence of objects operating on rays of light. The objects are of
+two main types, optical surfaces and geometric propagators through some medium
+in between surfaces (which we call \emph{transfer}). The sequence in which rays
+of light interact with either surfaces or transfers is known a priori. The
+simulation of the propagation of rays through such a sequence of objects is
+known as \emph{sequential raytracing}. This discipline is linked with the more
+well known raytracing for rendering, though they seem to have developed more or
+less autonomously.
 
 \subsection{Local coordinate system} \label{sec:LCS}
 Each surface corresponds to an implicit \gls{LCS}.
@@ -79,12 +78,3 @@ y + t \cdot m \\
 z + t \cdot n
 \end{bmatrix}
 \end{equation}
-
-\subsection{Ray transfer conventions}
-The \lstinline{transfer} objects take rays defined by a point located
-anywhere and propagate them to rays resting on the local plane of the
-next surface's \gls{LCS}. Surfaces operate under the assumption that
-the input rays have a $z=0$ coordinate, and may leave the output rays
-with any position. These assumptions are put in place for the management
-of complex ray/surface intersections (which are not implemented in the
-present version).

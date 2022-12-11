@@ -28,7 +28,7 @@ direction and orientation of the propagation of light:
 \end{itemize}
 
 The interpretation of the data contained in a \lstinline{ray} is dependent
-on context, as they are expressed in the current surface coordinate system.
+on the context, as they are expressed in a given \gls{LCS}.
 
 In addition to their geometric definition, rays also hold a status code.
 This code signals whether raytracing operations were successful, and if
@@ -55,9 +55,9 @@ The status codes are defined in \cref{tab:ray-status-codes}.
 
 \subsubsection{reflect}
 \lstinline{reflect} is a ray operation which applies the law of specular
-reflection \cite{wiki:specular-reflection}. The ray direction is modified in
-place. The normal vector $\overrightarrow{N}$ is already computed. There are
-no error cases. The operation is illustrated on \cref{fig:reflect}.
+reflection \cite{wiki:specular-reflection}. The normal vector
+$\overrightarrow{N}$ is an input to the operation. There are no error cases. The
+operation is illustrated on \cref{fig:reflect}.
 
 \begin{equation}
 \begin{bmatrix} l_r \\ m_r \\ n_r \end{bmatrix} =
@@ -73,9 +73,9 @@ no error cases. The operation is illustrated on \cref{fig:reflect}.
 
 \subsubsection{refract}
 \lstinline{refract} is a ray operation applying the Snell law of refraction
-\cite{wiki:snell-refraction}. The ray direction is modified in place.  We use
-Xavier Bec's formula (\cite{Marrs:2021} p.105, \cite{Bec:1997}) for efficiency.
-The operation is illustrated on \cref{fig:refract}.
+\cite{wiki:snell-refraction}. We use Xavier Bec's formula (\cite{Marrs:2021}
+p.105, \cite{Bec:1997}) for efficiency.  The operation is illustrated on
+\cref{fig:refract}.
 
 \begin{figure} \caption{\label{fig:refract} refract operation quantities.}
 \includesvg[height=.2\textheight, width=.9\textwidth, keepaspectratio]
@@ -103,7 +103,6 @@ Let,
 At this stage, if $c_{2m} < -1$, then we set the \gls{TIR} ray
 error code and the computation stops. Otherwise we proceed with
 the computation of the refracted ray direction.
-with:
 
 \begin{equation} \label{eq:bec-formula}
 \overrightarrow{t} = n_r \cdot \overrightarrow{i} +
@@ -112,7 +111,7 @@ with:
 
 \subsection{transfer} \label{sec:transfer}
 A transfer defines a new \gls{LCS} to propagate the ray to.  The transfer
-operation operates a change of basis and an intersection with the newly defined
+operation a change of basis and an intersection with the newly defined
 local plane.
 
 \paragraph{Definition}
@@ -126,10 +125,10 @@ $(A_2, \hat{x_2}, \hat{y_2}, \hat{z_2})$.
 
 The transfer operation is characterized by
 \begin{itemize}
-\item $B \in \mathbb{R}^{3 \times 3}$: A rotation matrix between the basis
-vectors of LCS1 and LCS2. $B$ is orthogonal by definition,
-hence $B^{-1} = B^\top$ \cite{wiki:rotation-matrix}.
-\item $\overrightarrow{D} \in \mathbb{R}^3$: A translation vector between
+\item \lstinline{Mat3} $B$: A rotation matrix between the basis vectors of LCS1
+and LCS2. $B$ is orthogonal by definition, hence $B^{-1} = B^\top$
+\cite{wiki:rotation-matrix}.
+\item \lstinline{Vec3} $\overrightarrow{D}$: A translation vector between
 LCS1 and LCS2.
 \end{itemize}
 
@@ -199,17 +198,15 @@ Shape is an abstract concept specifying two operations:
 
 \begin{itemize}
 \item \lstinline{intersect}: Intersect a ray with the shape.
-\item \lstinline{normal}: Provide a normal vector at the current ray
-      position.
+\item \lstinline{normal}: Provide a vector normal to the shape at the current
+      ray position.
 \end{itemize}
 
 \paragraph{intersect}
 The intersection operation takes a \lstinline{ray} expressed in the current
-surface coordinate system with point on the local plane. It propagates
-the ray until it hits the first encountered part of the shape. It modifies
-the ray in-place. The modified ray is still expressed in the same current
-coordinate system. This operation is illustrated on
-\cref{fig:abstract-rayinter}.
+surface coordinate system with point on the local plane. It computes the
+intended intersection point between the ray and the shape.  This operation is
+illustrated on \cref{fig:abstract-rayinter}.
 
 \begin{figure} \caption{\label{fig:abstract-rayinter} Illustration of the
 abtract intersect operation for a shape on a ray.}
@@ -223,8 +220,7 @@ position on the shape. The normal vector is expressed in the surface
 LCS. The normal vector is a unit vector. The normal vector is oriented
 with a $\hat{z}$ component of opposite sign to that of the ray's vector,
 \textit{ie} the normal vector is in the opposite half-plane to the incident
-ray. The normal operation is illustrated on \cref{fig:abstract-normal}. Error
-cases can in theory happen due to numerical issues, they should be very rare.
+ray. The normal operation is illustrated on \cref{fig:abstract-normal}.
 
 \begin{figure} \caption{\label{fig:abstract-normal} Illustration of the
 abstract normal operation for a shape and a ray.}

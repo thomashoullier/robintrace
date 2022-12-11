@@ -2,8 +2,12 @@
 \label{sec:justification}
 
 Some implementation details require further justification and explanations.
+The mathematical derivations are written with sufficient details so that
+they may be followed without pen and paper.
 
 \subsection{Ray operations (rop)}
+Various formulae derivations and checks are presented.
+
 \subsubsection{Reflection formula derivation}
 We derive the reflection formula. See the illustration \cref{fig:reflect}.
 Let: \begin{itemize}
@@ -378,7 +382,11 @@ c_{2m} &= (w - n_r) \cdot (w + n_r) = w^2 - {n_r}^2 \\
 Thus we find Bec's formula to be mathematically equivalent to the refraction
 formula we derived.
 
-\subsection{transfer operation}
+\subsection{transfer}
+We derive the transfer operation formulae, and explain the assumptions
+around this operation.
+
+\subsubsection{transfer operation}
 We work through the formula for applying the transfer operation to a ray.
 We reuse the notations in the definition (\cref{sec:transfer}). The transfer
 operation is the composition of a change of basis and an intersection with
@@ -453,7 +461,7 @@ Which can be simplified as the following relation.
 \end{equation}
 
 \paragraph{Intersection with the new local plane}
-The ray characterized by $(P_2, \overrightarrow{V_2}$ is intersected
+The ray characterized by $(P_2, \overrightarrow{V_2})$ is intersected
 with the LCS2 $z = 0$ plane. Every operation happens in LCS2 coordinates.
 The intersection condition between the ray parametrized by $t$ and the
 plane is expressed as follows.
@@ -481,6 +489,15 @@ y_2 + t \cdot m_2 \\
 
 The ray vector $\overrightarrow{V_2}$ does not undergo any operation, hence
 $\overrightarrow{V_3} = \overrightarrow{V_2}$.
+
+\subsubsection{Ray conventions}
+The transfer objects take rays defined by a point located
+anywhere and propagate them to rays resting on the local plane of the
+next surface's \gls{LCS}. Surfaces operate under the assumption that
+the input rays have a $z=0$ coordinate, and may leave the output rays
+with any position. These assumptions are put in place for the management
+of complex ray/surface intersections (which are not implemented in the
+present Poaky version).
 
 \subsection{General expression for a shape normal vector}
 Given either an explicit formula ($z = f(x, y)$), or an implicit
@@ -532,7 +549,7 @@ Thus the unit normal vector oriented opposite to $n$ is given by:
 \end{equation}
 
 \subsection{shape: standard}
-The \lstinline{standard} shape is defined with the formula in
+The \lstinline{standard} shape is partly defined with the formula in
 \cref{eq:standard-z}. This formula may be found in \cite{Welford:1986}
 (section 4.7) and in \cite{Greynolds:2002} \footnote{Note the use of this kind
 of surface in optics dates back to at least Kepler in this present form and all
