@@ -11,8 +11,19 @@ set(CMAKE_SOURCE_DIR ${CMAKE_BINARY_DIR}/src)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/Modules)
 
+Include(FetchContent)
 ## Main
-find_package(Eigen3 REQUIRED NO_MODULE)
+FetchContent_Declare(
+  Eigen
+  GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
+  GIT_TAG master
+  GIT_SHALLOW TRUE
+  GIT_PROGRESS TRUE)
+set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
+set(EIGEN_BUILD_DOC OFF)
+set(EIGEN_BUILD_PKGCONFIG OFF)
+FetchContent_MakeAvailable(Eigen)
+
 file(GLOB_RECURSE SOURCES ./src/*.cpp)
 add_library(Source INTERFACE)
 target_include_directories(Source INTERFACE ./src)
@@ -21,12 +32,12 @@ add_executable(main ./main.cpp ${SOURCES})
 target_link_libraries(main PRIVATE Source Eigen3::Eigen)
 
 ## Test
-Include(FetchContent)
 FetchContent_Declare(
   Catch2
   GIT_REPOSITORY https://github.com/catchorg/Catch2.git
   GIT_TAG        v3.2.0
-)
+  GIT_SHALLOW TRUE
+  GIT_PROGRESS TRUE)
 FetchContent_MakeAvailable(Catch2)
 
 file(GLOB_RECURSE TEST_SRC ./test/*.cpp)
@@ -55,5 +66,5 @@ setup_target_for_coverage_gcovr_html(
   NAME coverage_report
   EXECUTABLE coverage
   BASE_DIRECTORY "${PROJECT_SOURCE_DIR}"
-  EXCLUDE "test/*")
+  EXCLUDE "test/*" "build/_deps/*")
 
