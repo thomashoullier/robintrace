@@ -8,6 +8,7 @@ class standard: public shape {
   public:
     double c; // Curvature
     double k; // Quadric constant
+
     standard (double _c, double _k);
 
     void intersect (ray &r);
