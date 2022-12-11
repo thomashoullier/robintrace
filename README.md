@@ -7,7 +7,8 @@ It is part of the RobinTrace project. It is implemented in C++.
 ## Documentation
 The main value of Poaky is the documentation. The report can
 be compiled from the LaTeX files in `doc`. A compiled version
-is edited at TODO.
+is edited at
+[Poaky documentation PDF](https://thomashoullier.com/writeups/robintrace-poaky/robintrace-poaky.html).
 
 ## Build
 Switch to a `/build` directory at the root of the project folder. Run:
