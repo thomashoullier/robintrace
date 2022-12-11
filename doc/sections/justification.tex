@@ -378,7 +378,7 @@ c_{2m} &= (w - n_r) \cdot (w + n_r) = w^2 - {n_r}^2 \\
 Thus we find Bec's formula to be mathematically equivalent to the refraction
 formula we derived.
 
-\subsubsection{transfer operation}
+\subsection{transfer operation}
 We work through the formula for applying the transfer operation to a ray.
 We reuse the notations in the definition (\cref{sec:transfer}). The transfer
 operation is the composition of a change of basis and an intersection with
@@ -618,35 +618,34 @@ The quadric takes the following form.
 
 This form is a \emph{circular paraboloid}.
 
-Then, we treat the case $k \neq -1$. Let $k' = k + 1$.
-\textcolor{red}{TODO:replace k' with varepsilon.}
+Then, we treat the case $k \neq -1$. Let $\varepsilon = k + 1$.
 
 \begin{equation} \begin{split}
-& x^2 + y^2 + k' \cdot z^2 - 2 R \cdot z = 0 \\
-\iff & x^2 + y^2 + k' \cdot \left( z^2 - \frac{2R}{k'} \cdot z\right) = 0 \\
-\iff & x^2 + y^2 + k' \cdot \left( z - \frac{R}{k'} \right)^2 - \frac{R^2}{k'}
+& x^2 + y^2 + \varepsilon \cdot z^2 - 2 R \cdot z = 0 \\
+\iff & x^2 + y^2 + \varepsilon \cdot \left( z^2 - \frac{2R}{\varepsilon} \cdot z\right) = 0 \\
+\iff & x^2 + y^2 + \varepsilon \cdot \left( z - \frac{R}{\varepsilon} \right)^2 - \frac{R^2}{\varepsilon}
        = 0
 \end{split} \end{equation}
 
-We operate the change of coordinate $z' = z - \frac{R}{k'}$.
+We operate the change of coordinate $z' = z - \frac{R}{\varepsilon}$.
 
 \begin{equation} \begin{split}
-& x^2 + y^2 + k' \cdot z'^2 - \frac{R^2}{k'} = 0 \\
-\iff & x^2 \cdot \frac{k'}{R^2} + y^2 \cdot \frac{k'}{R^2} +
-       z'^2 \cdot \frac{k'^2}{R^2} - 1 = 0 \\
-\iff & x^2 \cdot \frac{\textrm{sign}(k') \cdot \abs{k'}}{R^2} +
-       y^2 \cdot \frac{\textrm{sign}(k') \cdot \abs{k'}}{R^2} +
-       z'^2 \cdot \frac{k'^2}{R^2} - 1 = 0 \\
-\iff & x^2 \cdot \frac{\abs{k'}}{R^2} + y^2 \cdot \frac{\abs{k'}}{R^2} +
-       z'^2 \cdot \textrm{sign}(k') \cdot \frac{k'^2}{R^2} - \textrm{sign}(k')
+& x^2 + y^2 + \varepsilon \cdot z'^2 - \frac{R^2}{\varepsilon} = 0 \\
+\iff & x^2 \cdot \frac{\varepsilon}{R^2} + y^2 \cdot \frac{\varepsilon}{R^2} +
+       z'^2 \cdot \frac{\varepsilon^2}{R^2} - 1 = 0 \\
+\iff & x^2 \cdot \frac{\textrm{sign}(\varepsilon) \cdot \abs{\varepsilon}}{R^2} +
+       y^2 \cdot \frac{\textrm{sign}(\varepsilon) \cdot \abs{\varepsilon}}{R^2} +
+       z'^2 \cdot \frac{\varepsilon^2}{R^2} - 1 = 0 \\
+\iff & x^2 \cdot \frac{\abs{\varepsilon}}{R^2} + y^2 \cdot \frac{\abs{\varepsilon}}{R^2} +
+       z'^2 \cdot \textrm{sign}(\varepsilon) \cdot \frac{\varepsilon^2}{R^2} - \textrm{sign}(\varepsilon)
        = 0
 \end{split} \end{equation}
 
 Let,
 \begin{equation} \begin{cases}
-a^2 = \frac{R^2}{\abs{k'}} \\
-b^2 = \frac{R^2}{k'^2} \\
-\epsilon = \textrm{sign}(k')
+a^2 = \frac{R^2}{\abs{\varepsilon}} \\
+b^2 = \frac{R^2}{\varepsilon^2} \\
+\epsilon = \textrm{sign}(\varepsilon)
 \end{cases} \end{equation}
 
 A readable \emph{normal form} is:
@@ -671,7 +670,7 @@ The case $k > -1$ gives the form,
 \end{equation}
 
 which is a \emph{spheroid}. We note that for $k=0$, we have
-$k'=1$ and thus $a=b$, which describes a \emph{sphere}.
+$\varepsilon=1$ and thus $a=b$, which describes a \emph{sphere}.
 
 \subsubsection{Rationale for defining the shape from quadrics}
 We explore the rationale which leads from the general quadric (with potentially
@@ -706,8 +705,8 @@ z = \frac{R \pm \sqrt{R^2 - (k+1) \cdot r^2}}{k + 1}
 \end{equation}
 
 These define the two sheets of the spheroid or the hyperboloid of revolution of
-two sheets. We need to define only a single sheet for the purpose of optical
-design raytracing. We choose to have $z(r=0) = 0$.
+two sheets. An explicit altitude formula may only contain a single sheet. We
+choose to have $z(r=0) = 0$.
 
 \begin{equation} \begin{split}
 & z(r=0) = 0 \\

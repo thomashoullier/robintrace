@@ -8,14 +8,14 @@ see the justification section (\cref{sec:justification}).
 Some base types are useful throughout the program. These are detailed in this
 section.
 
-\subsubsection{Point3}
-\lstinline{Point3} are points in 3D space. They are described by $(x, y, z)$
-coordinates.
+\paragraph{Vec3}
+\lstinline{Vec3} $\in \mathbb{R}^3$ are vectors in 3D space. They may
+represent points or directions. Depending on the context, they can be
+implicitely considered to have unit norm.
 
-\subsubsection{UVec3}
-\lstinline{UVec3} are unit vectors in 3D space.
-
-\textcolor{red}{TODO: Mat3}
+\paragraph{Mat3}
+\lstinline{Mat3} $\in \mathbb{R}^{3 \times 3}$ are 3D matrices. They
+are used to represent rotation matrices.
 
 \subsection{ray}
 \lstinline{ray} objects are the centerpiece of the simulation. They must be
@@ -23,8 +23,8 @@ lightweight objects.  \lstinline{ray} holds a position and a unit vector in the
 direction and orientation of the propagation of light:
 
 \begin{itemize}
-\item \lstinline{Point3 p}: A point.
-\item \lstinline{UVec3 v}: A vector, oriented by light propagation.
+\item \lstinline{Vec3 p}: A point.
+\item \lstinline{Vec3 v}: A unit vector, oriented by light propagation.
 \end{itemize}
 
 The interpretation of the data contained in a \lstinline{ray} is dependent
@@ -110,7 +110,7 @@ with:
 (w - \sqrt{1 + c_{2m}}) \cdot \overrightarrow{N}
 \end{equation}
 
-\subsubsection{transfer} \label{sec:transfer}
+\subsection{transfer} \label{sec:transfer}
 A transfer defines a new \gls{LCS} to propagate the ray to.  The transfer
 operation operates a change of basis and an intersection with the newly defined
 local plane.
