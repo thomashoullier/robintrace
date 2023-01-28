@@ -32,7 +32,7 @@ void standard::intersect (ray &r) {
 }
 
 /* normal */
-Vec3 standard::normal (ray &r) {
+Vec3 standard::normal (const ray &r) {
   double sig_n = std::copysign(1.0, r.v(2));
   double in_sqrt = 1 - 2 * c * k * r.p(2) + c * c * (k+1) * k * r.p(2) * r.p(2);
   double coef = sig_n / std::sqrt(in_sqrt);

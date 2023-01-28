@@ -12,7 +12,7 @@ class standard: public shape {
     standard (double _c, double _k);
 
     void intersect (ray &r);
-    Vec3 normal (ray &r);
+    Vec3 normal (const ray &r);
 };
 
 std::ostream& operator<< (std::ostream &out, const standard &sd);

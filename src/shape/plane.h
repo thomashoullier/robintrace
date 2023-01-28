@@ -9,7 +9,7 @@
 class plane: public shape {
   public:
     void intersect (ray &r);
-    Vec3 normal (ray &r);
+    Vec3 normal (const ray &r);
 };
 
 std::ostream& operator<< (std::ostream &out, const plane &pl);
