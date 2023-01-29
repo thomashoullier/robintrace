@@ -57,7 +57,8 @@ endif()
 
 if(build_benchmark)
 ## Benchmark
-add_executable(benchmark ./benchmark/benchmark.cpp)
+file(GLOB_RECURSE BENCH_SRC ./benchmark/*.cpp)
+add_executable(benchmark ./benchmark/benchmark.cpp ${BENCH_SRC})
 target_link_libraries(benchmark PRIVATE poaky Catch2::Catch2WithMain)
 set_target_properties(benchmark PROPERTIES COMPILE_FLAGS
                       "${CMAKE_CXX_FLAGS} -g -Wall -O2 -Wextra -march=native")

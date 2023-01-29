@@ -10,6 +10,7 @@
 #include <Eigen/Geometry>
 
 #include "poaky.h"
+#include "utils/bench_utils.h"
 
 #endif //BENCHMARK_H
 
