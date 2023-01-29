@@ -5,6 +5,7 @@ int main(){
   std::cout << "# Main #" << std::endl;
 
   ray r (Vec3(0.2, 0.3, 0.0), Vec3(0, 0, 1.0));
+  std::cout << "ray is valid? " << r.is_valid() << std::endl;
   standard sd (1.0/20, -2);
   std::cout << sd << std::endl;
   std::cout << "ray before intersection: " << r << std::endl;

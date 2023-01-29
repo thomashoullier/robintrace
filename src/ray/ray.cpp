@@ -13,6 +13,11 @@ ray::ray (Vec3 _p, Vec3 _v) {
   code = 0;
 }
 
+bool ray::is_valid () {
+  // Check whether the ray is valid. (error code = 0)
+  return (code == 0);
+}
+
 std::ostream& operator<< (std::ostream &out, const ray &r) {
   // Printer method
   out << "ray([" << r.p(0) << ", " << r.p(1) << ", " << r.p(2) << "]"

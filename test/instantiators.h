@@ -19,6 +19,9 @@ TEST_CASE("Objects instantiation", "[constructors]") {
     SUCCEED("'ray' instantiated.");
     ray r2 = ray(Vec3(1, 2, 3), Vec3(0, 0, 1.0)); (void)r2;
     SUCCEED("'ray' initialization constructor.");
+    REQUIRE(r2.is_valid());
+    r2.code = 4;
+    REQUIRE(not(r2.is_valid()));
   }
 
   SECTION("shape") {

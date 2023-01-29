@@ -12,6 +12,8 @@ class ray {
     
     ray ();
     ray (Vec3 _p, Vec3 _v);
+
+    bool is_valid();
 };
 
 std::ostream& operator<< (std::ostream &out, const ray &r);
