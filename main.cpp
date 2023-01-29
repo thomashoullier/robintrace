@@ -13,4 +13,7 @@ int main(){
   std::cout << "ray after intersection: " << r << std::endl;
   Vec3 N = sd.normal(r);
   std::cout << "normal vector: " << N << std::endl;
+
+  transfer tfr;
+  std::cout << tfr << std::endl;
 }

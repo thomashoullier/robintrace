@@ -10,6 +10,7 @@ class transfer {
     Mat3 Bt; // Transpose of rotation matrix B.
     Vec3 D; // Translation vector D.
 
+    transfer ();
     transfer (Vec3 _D);
     transfer (Mat3 _Bt, Vec3 _D);
 

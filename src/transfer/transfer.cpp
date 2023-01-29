@@ -1,6 +1,11 @@
 #include "transfer.h"
 
 /* Constructors */
+transfer::transfer () {
+  Bt = Mat3::Identity();
+  D = Vec3::Zero();
+}
+
 transfer::transfer (Vec3 _D) {
 // Identity rotation implied.
   Bt = Mat3::Identity();
