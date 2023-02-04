@@ -27,7 +27,8 @@ TEST_CASE("Objects instantiation", "[constructors]") {
   SECTION("shape") {
     plane pl = plane(); (void)pl;
     SUCCEED("'plane instantiated.");
-
+    standard sd_def = standard(); (void)sd_def;
+    SUCCEED("'standard' default instantiated.");
     standard sd = standard(5.0, -2.0); (void)sd;
     SUCCEED("'standard' instantiated.");
   }

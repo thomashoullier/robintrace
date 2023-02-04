@@ -9,6 +9,7 @@ class standard: public shape {
     double c; // Curvature
     double k; // Quadric constant
 
+    standard ();
     standard (double _c, double _k);
 
     void intersect (ray &r);

@@ -1,6 +1,11 @@
 #include "shape/standard.h"
 
 /* Constructor */
+standard::standard () {
+  c = 0;
+  k = 0;
+}
+
 standard::standard (double _c, double _k) {
   c = _c;
   k = _k;
