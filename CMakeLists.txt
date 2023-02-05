@@ -26,20 +26,20 @@ target_include_directories(poaky PUBLIC
                            "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src>")
 target_link_libraries(poaky PUBLIC Eigen3::Eigen)
 
-option(build_main "Build poaky main" OFF)
-if(build_main)
+option(poaky_build_main "Build poaky main" OFF)
+if(poaky_build_main)
 add_executable(poaky_main ./main.cpp)
 target_link_libraries(poaky_main PRIVATE poaky)
 set_target_properties(poaky_main PROPERTIES COMPILE_FLAGS
                       "${CMAKE_CXX_FLAGS} -g -Wall -O2 -Wextra -march=native")
 endif()
 
-option(build_tests "Build poaky tests" OFF)
-option(build_benchmark "Build poaky benchmarks" OFF)
-option(build_coverage "Build poaky code coverage" OFF)
+option(poaky_build_tests "Build poaky tests" OFF)
+option(poaky_build_benchmark "Build poaky benchmarks" OFF)
+option(poaky_build_coverage "Build poaky code coverage" OFF)
 
 # Managing shared Catch2 dependency
-if(build_tests OR build_benchmark OR build_coverage)
+if(poaky_build_tests OR poaky_build_benchmark OR poaky_build_coverage)
 file(GLOB_RECURSE TEST_SRC ./test/*.cpp)
 FetchContent_Declare(
   Catch2
@@ -50,12 +50,12 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 endif()
 
-if(build_tests)
+if(poaky_build_tests)
 add_executable(poaky_test ./test/test_main.cpp ${TEST_SRC})
 target_link_libraries(poaky_test PRIVATE poaky Catch2::Catch2WithMain)
 endif()
 
-if(build_benchmark)
+if(poaky_build_benchmark)
 ## Benchmark
 file(GLOB_RECURSE BENCH_SRC ./benchmark/*.cpp)
 add_executable(poaky_benchmark ./benchmark/benchmark.cpp ${BENCH_SRC})
@@ -64,7 +64,7 @@ set_target_properties(poaky_benchmark PROPERTIES COMPILE_FLAGS
                       "${CMAKE_CXX_FLAGS} -g -Wall -O2 -Wextra -march=native")
 endif()
 
-if(build_coverage)
+if(poaky_build_coverage)
 include(CodeCoverage)
 add_executable(poaky_coverage ${POAKY_SOURCES} ${TEST_SRC})
 target_link_libraries(poaky_coverage PRIVATE poaky Catch2::Catch2WithMain)

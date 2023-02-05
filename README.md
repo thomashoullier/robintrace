@@ -16,10 +16,10 @@ You can enable executable targets by setting the corresponding options.
 Switch to a `/build` directory at the root of the project folder. Run:
 
 ```shell
-cmake -Dbuild_main=ON
-      -Dbuild_tests=ON
-      -Dbuild_benchmark=ON
-      -Dbuild_coverage=ON ..
+cmake -Dpoaky_build_main=ON
+      -Dpoaky_build_tests=ON
+      -Dpoaky_build_benchmark=ON
+      -Dpoaky_build_coverage=ON ..
 ```
 
 This will download the dependencies and prepare the build targets.
