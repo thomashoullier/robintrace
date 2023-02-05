@@ -1,4 +1,10 @@
 # Poaky
+
+![status](https://raw.githubusercontent.com/thomashoullier/badges/master/status-maintained.svg)
+![stage](https://raw.githubusercontent.com/thomashoullier/badges/master/stage-alpha.svg)
+
+[![Build Status](https://drone.git-or-miss.com/api/badges/thomashoullier/poaky/status.svg)](https://drone.git-or-miss.com/thomashoullier/poaky)
+
 Poaky is low-level sequential raytracing API for optical design.
 It is part of the RobinTrace project. It is implemented in C++.
 

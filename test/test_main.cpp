@@ -8,7 +8,6 @@ TEST_CASE("Shape intersections", "[shape]") {
     pl.intersect(r);
     SUCCEED("ray/plane intersection happened.");
     ray_eq(r, r_valid);
-    REQUIRE(1 == 0); // CI test
   }
 
   SECTION("standard sphere nominal") {
