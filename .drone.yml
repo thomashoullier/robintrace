@@ -17,7 +17,7 @@ steps:
   commands:
   - mkdir build
   - cd build
-  - cmake -Dpoaky_build_tests=ON -Dpoaky_build_coverage ..
+  - cmake -Dpoaky_build_tests=ON -Dpoaky_build_coverage=ON ..
   - make poaky_test
   - ./bin/poaky_test
   - make poaky_coverage_report
