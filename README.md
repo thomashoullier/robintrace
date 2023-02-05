@@ -34,10 +34,13 @@ The build targets are the following:
 ## Dependencies
 We use the following libraries:
 * `Eigen3`.
-* `Catch2` for tests and benchmark.
 
 They are downloaded automatically (from online repositories)
 through CMake when configuring.
+
+In addition, only for tests:
+* `Catch2`
+* `Boost`
 
 ## Licensing
 The software is licensed under MIT, the documentation under CC-BY.
