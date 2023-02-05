@@ -3,17 +3,16 @@ type: docker
 name: default
 
 steps:
-- name: build
+- name: build_docker
   image: docker
   volumes:
   - name: dockersock
     path: /var/run/docker.sock
   commands:
-  - docker build -t poaky .
+  - docker build -t cppbuild .
 
-steps:
 - name: test
-  image: poaky
+  image: cppbuild
   pull: if-not-exists
   commands:
   - mkdir build
