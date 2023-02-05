@@ -70,9 +70,9 @@ add_executable(poaky_coverage ${POAKY_SOURCES} ${TEST_SRC})
 target_link_libraries(poaky_coverage PRIVATE poaky Catch2::Catch2WithMain)
 set_target_properties(poaky_coverage PROPERTIES COMPILE_FLAGS
                   "${CMAKE_CXX_FLAGS} -O0 -Wall -fprofile-arcs -ftest-coverage")
-setup_target_for_coverage_gcovr_html(
+setup_target_for_coverage_lcov(
   NAME poaky_coverage_report
   EXECUTABLE poaky_coverage
   BASE_DIRECTORY "${PROJECT_SOURCE_DIR}"
-  EXCLUDE "test/*" "build/_deps/*")
+  EXCLUDE "test/*" "build/_deps/*" "/usr/*")
 endif()

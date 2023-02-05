@@ -17,9 +17,17 @@ steps:
   commands:
   - mkdir build
   - cd build
-  - cmake -Dpoaky_build_tests=ON ..
+  - cmake -Dpoaky_build_tests=ON -Dpoaky_build_coverage ..
   - make poaky_test
   - ./bin/poaky_test
+  - make poaky_coverage_report
+  - cd ..
+  - chmod +x codecov.sh
+  - ./codecov.sh -t ${CODECOV_TOKEN} -f build/poaky_coverage_report.info ||
+    echo "Codecov did not collect coverage reports."
+  environment:
+    CODECOV_TOKEN:
+      from_secret: codecov_token
 
 volumes:
 - name: dockersock
