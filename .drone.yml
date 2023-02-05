@@ -33,3 +33,7 @@ steps:
     CODECOV_TOKEN:
       from_secret: codecov_token
 
+volumes:
+- name: dockersock
+  host:
+    path: /var/run/docker.sock
