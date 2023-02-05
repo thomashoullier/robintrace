@@ -3,7 +3,7 @@ type: docker
 name: default
 
 steps:
-- name: build_docker
+- name: build
   image: docker
   volumes:
   - name: dockersock
@@ -12,7 +12,7 @@ steps:
   - docker build -t poaky .
 
 steps:
-- name: build
+- name: test
   image: poaky
   pull: if-not-exists
   commands:
