@@ -1,0 +1,28 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: build_docker
+  image: docker
+  volumes:
+  - name: dockersock
+    path: /var/run/docker.sock
+  commands:
+  - docker build -t cppbuild .
+
+steps:
+- name: build
+  image: cppbuild
+  pull: if-not-exists
+  commands:
+  - mkdir build
+  - cd build
+  - cmake -Dpoaky_build_tests=ON ..
+  - make poaky_test
+  - ./bin/poaky_test
+
+volumes:
+- name: dockersock
+  host:
+    path: /var/run/docker.sock
