@@ -9,11 +9,11 @@ steps:
   - name: dockersock
     path: /var/run/docker.sock
   commands:
-  - docker build -t cppbuild .
+  - docker build -t poaky .
 
 steps:
 - name: build
-  image: cppbuild
+  image: poaky
   pull: if-not-exists
   commands:
   - mkdir build
