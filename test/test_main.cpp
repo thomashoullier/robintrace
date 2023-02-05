@@ -80,9 +80,9 @@ TEST_CASE("Shape normal vector", "[normal]") {
     ray r(Vec3(0, 0, 0), Vec3(0, 0, 1));
     plane pl;
     Vec3 N_pl = pl.normal(r);
-    REQUIRE(N_pl(2) == Approx(- r.v(2)));
-    REQUIRE(N_pl(0) == Approx(0));
-    REQUIRE(N_pl(1) == Approx(0));
+    REQUIRE(N_pl(2) == Catch::Approx(- r.v(2)));
+    REQUIRE(N_pl(0) == Catch::Approx(0));
+    REQUIRE(N_pl(1) == Catch::Approx(0));
   }
 
   SECTION("standard sphere") {
@@ -94,9 +94,9 @@ TEST_CASE("Shape normal vector", "[normal]") {
                  -0.9929175670403786);
     Vec3 N_test = sd.normal(r);
     SUCCEED("sphere normal happened");
-    REQUIRE(N_test(0) == Approx(N_valid(0)));
-    REQUIRE(N_test(1) == Approx(N_valid(1)));
-    REQUIRE(N_test(2) == Approx(N_valid(2)));
+    REQUIRE(N_test(0) == Catch::Approx(N_valid(0)));
+    REQUIRE(N_test(1) == Catch::Approx(N_valid(1)));
+    REQUIRE(N_test(2) == Catch::Approx(N_valid(2)));
   }
 
   SECTION("standard") {
@@ -107,9 +107,9 @@ TEST_CASE("Shape normal vector", "[normal]") {
     sd.intersect(r);
     Vec3 N_test = sd.normal(r);
     SUCCEED("standard normal happened.");
-    REQUIRE(N_test(0) == Approx(N_valid(0)));
-    REQUIRE(N_test(1) == Approx(N_valid(1)));
-    REQUIRE(N_test(2) == Approx(N_valid(2)));
+    REQUIRE(N_test(0) == Catch::Approx(N_valid(0)));
+    REQUIRE(N_test(1) == Catch::Approx(N_valid(1)));
+    REQUIRE(N_test(2) == Catch::Approx(N_valid(2)));
   }
 }
 
@@ -122,9 +122,9 @@ TEST_CASE("Ray operations", "[rop]") {
     Vec3 v_valid = reflect_ref(r, N);
     reflect(r, N);
     SUCCEED("reflect happened");
-    REQUIRE(r.v(0) == Approx(v_valid(0)));
-    REQUIRE(r.v(1) == Approx(v_valid(1)));
-    REQUIRE(r.v(2) == Approx(v_valid(2)));
+    REQUIRE(r.v(0) == Catch::Approx(v_valid(0)));
+    REQUIRE(r.v(1) == Catch::Approx(v_valid(1)));
+    REQUIRE(r.v(2) == Catch::Approx(v_valid(2)));
   }
 
   SECTION("refract") {
@@ -135,9 +135,9 @@ TEST_CASE("Ray operations", "[rop]") {
     ray r_valid = refract_ref(r, N, nr);
     refract(r, N, nr);
     SUCCEED("refract happened");
-    REQUIRE(r.v(0) == Approx(r_valid.v(0)));
-    REQUIRE(r.v(1) == Approx(r_valid.v(1)));
-    REQUIRE(r.v(2) == Approx(r_valid.v(2)));
+    REQUIRE(r.v(0) == Catch::Approx(r_valid.v(0)));
+    REQUIRE(r.v(1) == Catch::Approx(r_valid.v(1)));
+    REQUIRE(r.v(2) == Catch::Approx(r_valid.v(2)));
   }
 }
 

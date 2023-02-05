@@ -1,7 +1,7 @@
 #ifndef PRINTERS_H
 #define PRINTERS_H
 
-#include <catch2/catch.hpp>
+#include <catch2/catch_test_macros.hpp>
 #include "poaky.h"
 #include <iostream>
 #include <boost/iostreams/stream.hpp>

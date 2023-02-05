@@ -1,7 +1,7 @@
 #ifndef INSTANTIATORS_H
 #define INSTANTIATORS_H
 
-#include <catch2/catch.hpp>
+#include <catch2/catch_test_macros.hpp>
 #include "poaky.h"
 
 TEST_CASE("Objects instantiation", "[constructors]") {

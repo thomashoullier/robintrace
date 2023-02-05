@@ -2,7 +2,8 @@
 #define TEST_MAIN_H
 
 #define CATCH_CONFIG_MAIN
-#include <catch2/catch.hpp>
+#include <catch2/catch_test_macros.hpp>
+#include <catch2/catch_approx.hpp>
 
 #include <cmath>
 #define _USE_MATH_DEFINES
