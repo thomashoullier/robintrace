@@ -28,9 +28,9 @@ target_link_libraries(poaky PUBLIC Eigen3::Eigen)
 
 option(build_main "Build poaky main" OFF)
 if(build_main)
-add_executable(main ./main.cpp)
-target_link_libraries(main PRIVATE poaky)
-set_target_properties(main PROPERTIES COMPILE_FLAGS
+add_executable(poaky_main ./main.cpp)
+target_link_libraries(poaky_main PRIVATE poaky)
+set_target_properties(poaky_main PROPERTIES COMPILE_FLAGS
                       "${CMAKE_CXX_FLAGS} -g -Wall -O2 -Wextra -march=native")
 endif()
 
@@ -51,28 +51,28 @@ FetchContent_MakeAvailable(Catch2)
 endif()
 
 if(build_tests)
-add_executable(test ./test/test_main.cpp ${TEST_SRC})
-target_link_libraries(test PRIVATE poaky Catch2::Catch2WithMain)
+add_executable(poaky_test ./test/test_main.cpp ${TEST_SRC})
+target_link_libraries(poaky_test PRIVATE poaky Catch2::Catch2WithMain)
 endif()
 
 if(build_benchmark)
 ## Benchmark
 file(GLOB_RECURSE BENCH_SRC ./benchmark/*.cpp)
-add_executable(benchmark ./benchmark/benchmark.cpp ${BENCH_SRC})
-target_link_libraries(benchmark PRIVATE poaky Catch2::Catch2WithMain)
-set_target_properties(benchmark PROPERTIES COMPILE_FLAGS
+add_executable(poaky_benchmark ./benchmark/benchmark.cpp ${BENCH_SRC})
+target_link_libraries(poaky_benchmark PRIVATE poaky Catch2::Catch2WithMain)
+set_target_properties(poaky_benchmark PROPERTIES COMPILE_FLAGS
                       "${CMAKE_CXX_FLAGS} -g -Wall -O2 -Wextra -march=native")
 endif()
 
 if(build_coverage)
 include(CodeCoverage)
-add_executable(coverage ${POAKY_SOURCES} ${TEST_SRC})
-target_link_libraries(coverage PRIVATE poaky Catch2::Catch2WithMain)
-set_target_properties(coverage PROPERTIES COMPILE_FLAGS
+add_executable(poaky_coverage ${POAKY_SOURCES} ${TEST_SRC})
+target_link_libraries(poaky_coverage PRIVATE poaky Catch2::Catch2WithMain)
+set_target_properties(poaky_coverage PROPERTIES COMPILE_FLAGS
                   "${CMAKE_CXX_FLAGS} -O0 -Wall -fprofile-arcs -ftest-coverage")
 setup_target_for_coverage_gcovr_html(
-  NAME coverage_report
-  EXECUTABLE coverage
+  NAME poaky_coverage_report
+  EXECUTABLE poaky_coverage
   BASE_DIRECTORY "${PROJECT_SOURCE_DIR}"
   EXCLUDE "test/*" "build/_deps/*")
 endif()

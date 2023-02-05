@@ -25,10 +25,10 @@ cmake -Dbuild_main=ON
 This will download the dependencies and prepare the build targets.
 The build targets are the following:
 
-* `main`: Manual example file for trying out code.
-* `test`: Test suite.
-* `benchmark`: Benchmark suite.
-* `coverage_report`: Code coverage report of the test suite. The report
+* `poaky_main`: Manual example file for trying out code.
+* `poaky_test`: Test suite.
+* `poaky_benchmark`: Benchmark suite.
+* `poaky_coverage_report`: Code coverage report of the test suite. The report
   may be consulted at `build/coverage_report/index.html`.
 
 ## Dependencies
