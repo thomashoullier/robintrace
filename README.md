@@ -29,7 +29,7 @@ The build targets are the following:
 * `poaky_test`: Test suite.
 * `poaky_benchmark`: Benchmark suite.
 * `poaky_coverage_report`: Code coverage report of the test suite. The report
-  may be consulted at `build/coverage_report/index.html`.
+  may be consulted at `build/poaky_coverage_report/index.html`.
 
 ## Dependencies
 We use the following libraries:
@@ -37,7 +37,7 @@ We use the following libraries:
 * `Catch2` for tests and benchmark.
 
 They are downloaded automatically (from online repositories)
-through CMake when building.
+through CMake when configuring.
 
 ## Licensing
 The software is licensed under MIT, the documentation under CC-BY.
