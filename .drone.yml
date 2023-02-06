@@ -15,11 +15,14 @@ steps:
   image: cppbuild
   pull: if-not-exists
   commands:
+  # Build
   - mkdir build
   - cd build
   - cmake -Dpoaky_build_tests=ON -Dpoaky_build_coverage=ON ..
   - make poaky_test
+  # Tests
   - ./bin/poaky_test
+  # Coverage report
   - make poaky_coverage_report
   - curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import # One-time step
   - curl -Os https://uploader.codecov.io/latest/alpine/codecov
@@ -29,9 +32,14 @@ steps:
   - shasum -a 256 -c codecov.SHA256SUM
   - chmod +x codecov
   - ./codecov -t ${CODECOV_TOKEN} -f poaky_coverage_report.info
+  # FOSSA license scan
+  - curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install-latest.sh | bash
+  - fossa analyze
   environment:
     CODECOV_TOKEN:
       from_secret: codecov_token
+    FOSSA_API_KEY:
+      from_secret: fossa_token
 
 volumes:
 - name: dockersock
