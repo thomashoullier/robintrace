@@ -33,6 +33,7 @@ steps:
   - chmod +x codecov
   - ./codecov -t ${CODECOV_TOKEN} -f poaky_coverage_report.info
   # FOSSA license scan
+  - cd ..
   - "curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install-latest.sh | bash"
   - fossa analyze
   environment:
