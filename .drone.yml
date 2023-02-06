@@ -35,7 +35,7 @@ steps:
   # FOSSA license scan
   - cd ..
   - "curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install-latest.sh | bash"
-  - fossa analyze --detect-vendored
+  - fossa analyze --detect-dynamic build/bin/poaky_test --experimental-link-project-binary build/bin/
   environment:
     CODECOV_TOKEN:
       from_secret: codecov_token
