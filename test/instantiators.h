@@ -34,6 +34,8 @@ TEST_CASE("Objects instantiation", "[constructors]") {
   }
 
   SECTION("transfer") {
+    transfer trf_def;
+    SUCCEED("transfer default constructor.");
     transfer trf_only_translate (Vec3(0, 0, -1.0));
     SUCCEED("transfer constructor: translation only.");
     transfer trf_full (Mat3::Identity(), Vec3(0, 0, -1.0));
