@@ -1,6 +1,3 @@
-## Dependencies
-#include("${CMAKE_CURRENT_LIST_DIR}/../poaky/CMakeLists.txt")
-
 ## Pinyo library
 set(PINYO_DIR "${CMAKE_CURRENT_LIST_DIR}")
 file(GLOB_RECURSE PINYO_HEADERS "${PINYO_DIR}/src/*.h")

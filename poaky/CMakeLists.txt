@@ -36,11 +36,6 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 endif()
 
-if(poaky_build_tests)
-add_executable(poaky_test "${POAKY_DIR}/test/test_main.cpp" ${TEST_SRC})
-target_link_libraries(poaky_test PRIVATE poaky Catch2::Catch2WithMain)
-endif()
-
 if(poaky_build_benchmark)
 ## Benchmark
 file(GLOB_RECURSE BENCH_SRC "${POAKY_DIR}/benchmark/*.cpp")

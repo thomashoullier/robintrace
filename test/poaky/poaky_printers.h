@@ -1,12 +1,12 @@
-#ifndef PRINTERS_H
-#define PRINTERS_H
+#ifndef POAKY_PRINTERS_H
+#define POAKY_PRINTERS_H
 
 #include <catch2/catch_test_macros.hpp>
 #include "poaky.h"
 #include <iostream>
 #include <boost/iostreams/stream.hpp>
 
-TEST_CASE("Objects printing", "[printers]") {
+TEST_CASE("Objects printing", "[poaky_printers]") {
 
   boost::iostreams::stream<boost::iostreams::null_sink>
     nullOstream((boost::iostreams::null_sink()));
@@ -34,4 +34,4 @@ TEST_CASE("Objects printing", "[printers]") {
   }
 }
 
-#endif // PRINTERS_h
+#endif // POAKY_PRINTERS_h

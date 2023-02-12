@@ -1,10 +1,10 @@
-#ifndef INSTANTIATORS_H
-#define INSTANTIATORS_H
+#ifndef POAKY_INSTANTIATORS_H
+#define POAKY_INSTANTIATORS_H
 
 #include <catch2/catch_test_macros.hpp>
 #include "poaky.h"
 
-TEST_CASE("Objects instantiation", "[constructors]") {
+TEST_CASE("Objects instantiation", "[poaky_constructors]") {
   SECTION("base") {
     Vec3 v1 = Vec3(); (void)v1;
     SUCCEED("Vec3 void constructor.");
@@ -43,4 +43,4 @@ TEST_CASE("Objects instantiation", "[constructors]") {
   }
 }
 
-#endif // INSTANTIATORS_H
+#endif // POAKY_INSTANTIATORS_H

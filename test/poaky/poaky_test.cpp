@@ -1,4 +1,4 @@
-#include "test_main.h"
+#include "poaky_test.h"
 
 TEST_CASE("Shape intersections", "[shape]") {
   SECTION("plane") {
