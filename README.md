@@ -3,8 +3,8 @@
 ![status](https://raw.githubusercontent.com/thomashoullier/badges/master/status-maintained.svg)
 ![stage](https://raw.githubusercontent.com/thomashoullier/badges/master/stage-alpha.svg)
 
-[![Build Status](https://drone.git-or-miss.com/api/badges/thomashoullier/poaky/status.svg)](https://drone.git-or-miss.com/thomashoullier/poaky)
-[![codecov](https://codecov.io/gh/thomashoullier/poaky/branch/master/graph/badge.svg?token=YNL10VWFW2)](https://codecov.io/gh/thomashoullier/poaky)
+[![Build Status](https://drone.git-or-miss.com/api/badges/thomashoullier/robintrace/status.svg)](https://drone.git-or-miss.com/thomashoullier/robintrace)
+[![codecov](https://codecov.io/gh/thomashoullier/robintrace/branch/master/graph/badge.svg?token=YNL10VWFW2)](https://codecov.io/gh/thomashoullier/robintrace)
 
 RobinTrace is a sequential raytracing API for optical design.
 It is implemented in C++.
