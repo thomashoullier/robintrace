@@ -19,12 +19,21 @@ target_link_libraries(robintrace INTERFACE poaky pinyo)
 target_include_directories(robintrace INTERFACE ./include/)
 
 # Example program
+option(robintrace_build_example "Build robintrace example" OFF)
+if(robintrace_build_example)
 add_executable(robintrace_example ./example.cpp)
 target_link_libraries(robintrace_example PRIVATE robintrace)
 set_target_properties(robintrace_example PROPERTIES COMPILE_FLAGS
                       "${CMAKE_CXX_FLAGS} -g -Wall -O2 -Wextra -march=native")
+endif()
 
-# Tests
+option(robintrace_build_tests "Build robintrace tests" OFF)
+option(robintrace_build_coverage "Build robintrace test code coverage" OFF)
+option(robintrace_build_benchmark "Build robintrace benchmarks" OFF)
+
+# Shared Catch2 dependency
+if(robintrace_build_tests OR robintrace_build_coverage
+   OR robintrace_build_benchmark)
 file(GLOB_RECURSE ROBINTRACE_TEST_SRC "${ROBINTRACE_DIR}/test/*.cpp")
 FetchContent_Declare(
   Catch2
@@ -33,11 +42,17 @@ FetchContent_Declare(
   GIT_SHALLOW TRUE
   GIT_PROGRESS TRUE)
 FetchContent_MakeAvailable(Catch2)
+endif()
+
+# Tests
+if(robintrace_build_tests)
 add_executable(robintrace_test "${ROBINTRACE_DIR}/test/test_main.cpp"
                                ${ROBINTRACE_TEST_SRC})
 target_link_libraries(robintrace_test PRIVATE robintrace Catch2::Catch2WithMain)
+endif()
 
 # Test code coverage
+if(robintrace_build_coverage)
 include(CodeCoverage)
 file(GLOB_RECURSE ROBINTRACE_SRC "${ROBINTRACE_DIR}/src/*.cpp")
 add_executable(robintrace_coverage ${ROBINTRACE_SRC} ${ROBINTRACE_TEST_SRC})
@@ -50,8 +65,10 @@ setup_target_for_coverage_lcov(
   EXECUTABLE robintrace_coverage
   BASE_DIRECTORY "${ROBINTRACE_DIR}"
   EXCLUDE "${ROBINTRACE_DIR}/test/*" "build/_deps/*" "/usr/*")
+endif()
 
 # Benchmark
+if(robintrace_build_benchmark)
 file(GLOB_RECURSE ROBINTRACE_BENCH_SRC "${ROBINTRACE_DIR}/benchmark/*.cpp")
 add_executable(robintrace_benchmark
                "${ROBINTRACE_DIR}/benchmark/robintrace_benchmark.cpp"
@@ -60,4 +77,4 @@ target_link_libraries(robintrace_benchmark PRIVATE robintrace
                                                    Catch2::Catch2WithMain)
 set_target_properties(robintrace_benchmark PROPERTIES COMPILE_FLAGS
                       "${CMAKE_CXX_FLAGS} -g -Wall -O2 -Wextra -march=native")
-
+endif()

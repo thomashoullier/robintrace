@@ -26,18 +26,21 @@ You can enable executable targets by setting the corresponding options.
 Switch to a `/build` directory at the root of the project folder. Run:
 
 ```shell
-cmake -Dpoaky_build_tests=ON
-      -Dpoaky_build_benchmark=ON
-      -Dpoaky_build_coverage=ON ..
+cmake -Drobintrace_build_example=ON
+      -Drobintrace_build_tests=ON
+      -Drobintrace_build_coverage=ON
+      -Drobintrace_build_benchmark=ON
+      ..
 ```
 
 This will download the dependencies and prepare the build targets.
 The build targets are the following:
 
-* `poaky_test`: Test suite.
-* `poaky_benchmark`: Benchmark suite.
-* `poaky_coverage_report`: Code coverage report of the test suite. The report
-  may be consulted at `build/poaky_coverage_report/index.html`.
+* `robintrace_example`: Example file for robintrace usage.
+* `robintrace_test`: Test suite.
+* `robintrace_benchmark`: Benchmark suite.
+* `robintrace_coverage_report`: Code coverage report of the test suite. The
+  report may be consulted at `build/robintrace_coverage_report/index.html`.
 
 ## Dependencies
 We use the following libraries:
