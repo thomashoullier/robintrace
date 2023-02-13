@@ -1,4 +1,4 @@
-#include "benchmark.h"
+#include "pinyo_benchmark.h"
 
 const int BUN_SIZE = 1000;
 

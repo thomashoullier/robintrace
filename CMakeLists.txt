@@ -10,8 +10,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(ROBINTRACE_DIR "${CMAKE_CURRENT_LIST_DIR}")
 
 # Robintrace modules
-include(poaky/CMakeLists.txt)
-include(pinyo/CMakeLists.txt)
+include(src/poaky/CMakeLists.txt)
+include(src/pinyo/CMakeLists.txt)
 
 # Robintrace library
 add_library(robintrace INTERFACE)
@@ -36,3 +36,28 @@ FetchContent_MakeAvailable(Catch2)
 add_executable(robintrace_test "${ROBINTRACE_DIR}/test/test_main.cpp"
                                ${ROBINTRACE_TEST_SRC})
 target_link_libraries(robintrace_test PRIVATE robintrace Catch2::Catch2WithMain)
+
+# Test code coverage
+include(CodeCoverage)
+file(GLOB_RECURSE ROBINTRACE_SRC "${ROBINTRACE_DIR}/src/*.cpp")
+add_executable(robintrace_coverage ${ROBINTRACE_SRC} ${ROBINTRACE_TEST_SRC})
+target_link_libraries(robintrace_coverage PRIVATE robintrace
+                                                  Catch2::Catch2WithMain)
+set_target_properties(robintrace_coverage PROPERTIES COMPILE_FLAGS
+                  "${CMAKE_CXX_FLAGS} -O0 -Wall -fprofile-arcs -ftest-coverage")
+setup_target_for_coverage_lcov(
+  NAME robintrace_coverage_report
+  EXECUTABLE robintrace_coverage
+  BASE_DIRECTORY "${ROBINTRACE_DIR}"
+  EXCLUDE "${ROBINTRACE_DIR}/test/*" "build/_deps/*" "/usr/*")
+
+# Benchmark
+file(GLOB_RECURSE ROBINTRACE_BENCH_SRC "${ROBINTRACE_DIR}/benchmark/*.cpp")
+add_executable(robintrace_benchmark
+               "${ROBINTRACE_DIR}/benchmark/robintrace_benchmark.cpp"
+               ${ROBINTRACE_BENCH_SRC})
+target_link_libraries(robintrace_benchmark PRIVATE robintrace
+                                                   Catch2::Catch2WithMain)
+set_target_properties(robintrace_benchmark PROPERTIES COMPILE_FLAGS
+                      "${CMAKE_CXX_FLAGS} -g -Wall -O2 -Wextra -march=native")
+

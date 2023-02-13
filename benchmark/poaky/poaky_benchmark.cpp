@@ -1,4 +1,4 @@
-#include "benchmark.h"
+#include "poaky_benchmark.h"
 
 TEST_CASE("Shape intersections", "[shape]") {
   BENCHMARK_ADVANCED("standard")

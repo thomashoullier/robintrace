@@ -1,5 +1,5 @@
-#ifndef BENCHMARK_H
-#define BENCHMARK_H
+#ifndef ROBINTRACE_BENCHMARK_H
+#define ROBINTRACE_BENCHMARK_H
 
 #define CATCH_CONFIG_MAIN
 #define CATCH_CONFIG_ENABLE_BENCHMARKING
@@ -10,8 +10,9 @@
 #include <vector>
 #include <Eigen/Geometry>
 
-#include "poaky.h"
-#include "utils/bench_utils.h"
+#include "robintrace.h"
 
-#endif //BENCHMARK_H
+#include "poaky/poaky_benchmark.h"
+#include "pinyo/pinyo_benchmark.h"
 
+#endif // ROBINTRACE_BENCHMARK_H
