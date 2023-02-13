@@ -18,12 +18,12 @@ steps:
   # Build
   - mkdir build
   - cd build
-  - cmake -Dpoaky_build_tests=ON -Dpoaky_build_coverage=ON ..
-  - make poaky_test
+  - cmake -Drobintrace_build_tests=ON -Drobintrace_build_coverage=ON ..
+  - make robintrace_test
   # Tests
-  - ./bin/poaky_test
+  - ./bin/robintrace_test
   # Coverage report
-  - make poaky_coverage_report
+  - make robintrace_coverage_report
   - curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import # One-time step
   - curl -Os https://uploader.codecov.io/latest/alpine/codecov
   - curl -Os https://uploader.codecov.io/latest/alpine/codecov.SHA256SUM
@@ -31,7 +31,7 @@ steps:
   - gpgv codecov.SHA256SUM.sig codecov.SHA256SUM
   - shasum -a 256 -c codecov.SHA256SUM
   - chmod +x codecov
-  - ./codecov -t ${CODECOV_TOKEN} -f poaky_coverage_report.info
+  - ./codecov -t ${CODECOV_TOKEN} -f robintrace_coverage_report.info
   environment:
     CODECOV_TOKEN:
       from_secret: codecov_token
