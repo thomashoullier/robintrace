@@ -1,5 +1,8 @@
 #include <iostream>
+#include <vector>
+#include <memory>
 #include "robintrace.h"
+
 
 int main(){
   std::cout << "# Main #" << std::endl;
@@ -37,4 +40,22 @@ int main(){
   shape_reflect_part srp(sd2);
   srp.apply(b);
   std::cout << "After standard reflective part: " << b << std::endl;
+
+  std::cout << "## Pewit ##" << std::endl;
+  std::vector<lpart*> parts;
+  parts.push_back(&trfp);
+  parts.push_back(&srp);
+  bun b2 (b);
+  ray_pack ray_buns; ray_buns.push_back(b); ray_buns.push_back(b2);
+  std::vector<int> states_tosave {0, 1};
+  lseq ls (parts, ray_buns, states_tosave);
+  ls.apply_next();
+  std::cout << "After lseq first surface" << ls.ray_buns.front() << std::endl;
+  ls.apply_next();
+  std::cout << "After lseq second surface" << ls.ray_buns.front() << std::endl;
+  std::cout << "Saved states:" << std::endl << "#1: "
+            << ls.saved_states.front().front() << std::endl << "#2: "
+            << ls.saved_states.at(1).front() << std::endl;
+  std::cout << "Throwing exception:" << std::endl;
+  ls.apply_next();
 }

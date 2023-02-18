@@ -12,10 +12,11 @@ set(ROBINTRACE_DIR "${CMAKE_CURRENT_LIST_DIR}")
 # Robintrace modules
 include(src/poaky/CMakeLists.txt)
 include(src/pinyo/CMakeLists.txt)
+include(src/pewit/CMakeLists.txt)
 
 # Robintrace library
 add_library(robintrace INTERFACE)
-target_link_libraries(robintrace INTERFACE poaky pinyo)
+target_link_libraries(robintrace INTERFACE poaky pinyo pewit)
 target_include_directories(robintrace INTERFACE ./include/)
 
 # Example program

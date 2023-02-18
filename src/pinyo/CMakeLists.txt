@@ -1,4 +1,4 @@
-## Pinyo library
+# Pinyo library
 set(PINYO_DIR "${CMAKE_CURRENT_LIST_DIR}")
 file(GLOB_RECURSE PINYO_HEADERS "${PINYO_DIR}/src/*.h")
 file(GLOB_RECURSE PINYO_SOURCES "${PINYO_DIR}/src/*.cpp")

@@ -1,6 +1,6 @@
 #ifndef PEWIT_H
 #define PEWIT_H
 
-//#include 
+#include "lseq.h"
 
 #endif // PEWIT_H
