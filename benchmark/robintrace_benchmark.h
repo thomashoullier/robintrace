@@ -14,5 +14,6 @@
 
 #include "poaky/poaky_benchmark.h"
 #include "pinyo/pinyo_benchmark.h"
+#include "pewit/pewit_benchmark.h"
 
 #endif // ROBINTRACE_BENCHMARK_H

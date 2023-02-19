@@ -18,6 +18,12 @@ class lseq {
     std::vector<ray_pack> saved_states; // Ray states saved.
     int next_saved;
     
+    lseq () {
+      // Default constructor
+      last_part = -1;
+      next_saved = 0;
+    };
+
     lseq (const lpart_vec &_parts, const ray_pack &_ray_buns,
           const std::vector<int> &_states_tosave) {
       // Initialization constructor
@@ -43,7 +49,8 @@ class lseq {
       // TODO: Have states_tosave as a container where we can read and pop the
       // front element as we go along saving states. It contains the states
       // which remain to be saved.
-      if (last_part == states_tosave.at(next_saved)) {
+      if (not(states_tosave.empty())
+          && (last_part == states_tosave.at(next_saved))) {
         saved_states.push_back(ray_buns);
         next_saved++;
       }
