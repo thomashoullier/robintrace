@@ -24,6 +24,10 @@ class shape_reflect_part: public lpart {
       }
     };
 
+    std::unique_ptr<lpart> clone () const override {
+      return std::make_unique<shape_reflect_part>(*this);
+    };
+
     static_assert(std::is_base_of<shape, T>::value,
                   "T must be derived from shape.");
 };
@@ -48,6 +52,10 @@ class shape_refract_part: public lpart {
         if (not(r.is_valid())) {return;}
         refract(r, N, nr);
       }
+    };
+
+    std::unique_ptr<lpart> clone () const override {
+      return std::make_unique<shape_refract_part>(*this);
     };
 
     static_assert(std::is_base_of<shape, T>::value,

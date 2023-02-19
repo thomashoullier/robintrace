@@ -11,6 +11,9 @@ class transfer_part: public lpart {
     transfer_part ();
     transfer_part (transfer _trf);
     void apply (bun &b);
+    std::unique_ptr<lpart> clone () const override {
+      return std::make_unique<transfer_part>(*this);
+    };
 };
 
 #endif // TRANSFER_PART_H

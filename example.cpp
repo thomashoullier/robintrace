@@ -42,9 +42,9 @@ int main(){
   std::cout << "After standard reflective part: " << b << std::endl;
 
   std::cout << "## Pewit ##" << std::endl;
-  std::vector<lpart*> parts;
-  parts.push_back(&trfp);
-  parts.push_back(&srp);
+  lpart_vec parts;
+  parts.add_lpart(trfp);
+  parts.add_lpart(srp);
   bun b2 (b);
   ray_pack ray_buns; ray_buns.push_back(b); ray_buns.push_back(b2);
   std::vector<int> states_tosave {0, 1};
@@ -53,9 +53,13 @@ int main(){
   std::cout << "After lseq first surface" << ls.ray_buns.front() << std::endl;
   ls.apply_next();
   std::cout << "After lseq second surface" << ls.ray_buns.front() << std::endl;
-  std::cout << "Saved states:" << std::endl << "#1: "
+  std::cout << "Saved states ls:" << std::endl << "#1: "
             << ls.saved_states.front().front() << std::endl << "#2: "
             << ls.saved_states.at(1).front() << std::endl;
-  std::cout << "Throwing exception:" << std::endl;
-  ls.apply_next();
+  // A second time with raytrace all.
+  lseq ls2 (parts, ray_buns, states_tosave);
+  ls2.apply_remaining();
+  std::cout << "Saved states ls2:" << std::endl << "#1: "
+            << ls2.saved_states.front().front() << std::endl << "#2: "
+            << ls2.saved_states.at(1).front() << std::endl;
 }
