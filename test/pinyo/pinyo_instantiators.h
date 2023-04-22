@@ -21,6 +21,8 @@ TEST_CASE("Objects instantiation", "[pinyo_constructors]") {
     SUCCEED("transfer_part default constructor.");
     transfer_part trfp_fromtransfer(transfer(Vec3(3, 0, 0)));
     SUCCEED("transfer_part constructor from transfer.");
+    auto trfp_cpy = trfp_default.clone();
+    SUCCEED("transfer_part cloning.");
   }
 
   SECTION("shape_part") {
@@ -33,6 +35,10 @@ TEST_CASE("Objects instantiation", "[pinyo_constructors]") {
     SUCCEED("shape_reflect_part with standard shape.");
     shape_refract_part sdpf (standard(0,0), 1.2);
     SUCCEED("shape_refract_part with standard shape.");
+    auto plpr_cpy = plpr.clone();
+    SUCCEED("shape_reflect_part cloning.");
+    auto sdpf_cpy = sdpf.clone();
+    SUCCEED("shape_refract_part cloning.");
   }
 }
 
