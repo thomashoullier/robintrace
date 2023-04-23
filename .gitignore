@@ -45,4 +45,5 @@ bin/
 build/
 
 # Doxygen output
-html/
+docs/html
+token.txt
