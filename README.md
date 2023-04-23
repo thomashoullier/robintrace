@@ -12,7 +12,7 @@ It is implemented in C++.
 <img src="doc/images/robintrace-logo.png" alt="RobinTrace logo" width="256"/>
 
 ## Documentation
-Please refer to the Doxygen documentation (TODO).
+Please refer to the [Doxygen documentation](https://thomashoullier.github.io/robintrace/index.html) (in progress).
 
 In addition, the submodule poaky has its own LaTeX documentation.
 The report can be compiled from the LaTeX files in `doc`. A compiled version is
