@@ -69,11 +69,16 @@ $(function() {
 <div class="title">ray Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class for individual rays.  
+ <a href="classray.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ray_8h_source.html">ray.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5c5b00676ae7c16d158b5a7d77b28609"><td class="memItemLeft" align="right" valign="top"><a id="a5c5b00676ae7c16d158b5a7d77b28609"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ray</b> (Vec3 _p, Vec3 _v)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ray</b> (<a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> _p, <a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> _v)</td></tr>
 <tr class="separator:a5c5b00676ae7c16d158b5a7d77b28609"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae10b3bef7b50f4a545273839c33f36f2"><td class="memItemLeft" align="right" valign="top"><a id="ae10b3bef7b50f4a545273839c33f36f2"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_valid</b> ()</td></tr>
@@ -81,16 +86,53 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_valid</b> ()</td><
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a448aa37ec1c96e018cd91cf063a0ad02"><td class="memItemLeft" align="right" valign="top"><a id="a448aa37ec1c96e018cd91cf063a0ad02"></a>
-Vec3&#160;</td><td class="memItemRight" valign="bottom"><b>p</b></td></tr>
+<tr class="memitem:a448aa37ec1c96e018cd91cf063a0ad02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classray.html#a448aa37ec1c96e018cd91cf063a0ad02">p</a></td></tr>
+<tr class="memdesc:a448aa37ec1c96e018cd91cf063a0ad02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Point component.  <a href="classray.html#a448aa37ec1c96e018cd91cf063a0ad02">More...</a><br /></td></tr>
 <tr class="separator:a448aa37ec1c96e018cd91cf063a0ad02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4a8e76e1d625041d21de7fed8463821"><td class="memItemLeft" align="right" valign="top"><a id="ad4a8e76e1d625041d21de7fed8463821"></a>
-Vec3&#160;</td><td class="memItemRight" valign="bottom"><b>v</b></td></tr>
+<tr class="memitem:ad4a8e76e1d625041d21de7fed8463821"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classray.html#ad4a8e76e1d625041d21de7fed8463821">v</a></td></tr>
+<tr class="memdesc:ad4a8e76e1d625041d21de7fed8463821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orientation component.  <a href="classray.html#ad4a8e76e1d625041d21de7fed8463821">More...</a><br /></td></tr>
 <tr class="separator:ad4a8e76e1d625041d21de7fed8463821"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4428c5db165d4638938191ac87e17e2c"><td class="memItemLeft" align="right" valign="top"><a id="a4428c5db165d4638938191ac87e17e2c"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>code</b></td></tr>
 <tr class="separator:a4428c5db165d4638938191ac87e17e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class for individual rays. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a448aa37ec1c96e018cd91cf063a0ad02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a448aa37ec1c96e018cd91cf063a0ad02">&#9670;&nbsp;</a></span>p</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> ray::p</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Point component. </p>
+<p>Holds the three components <img class="formulaInl" alt="$(x,y,z)$" src="form_2.png"/> of the ray. </p>
+
+</div>
+</div>
+<a id="ad4a8e76e1d625041d21de7fed8463821"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4a8e76e1d625041d21de7fed8463821">&#9670;&nbsp;</a></span>v</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> ray::v</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Orientation component. </p>
+<p>Holds the three components <img class="formulaInl" alt="$(l,m,n)$" src="form_3.png"/> of the ray. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/poaky/src/ray/<a class="el" href="ray_8h_source.html">ray.h</a></li>
 <li>src/poaky/src/ray/ray.cpp</li>
