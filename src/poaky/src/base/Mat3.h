@@ -1,6 +1,4 @@
-/**
- * @file Mat3.h
- */
+/** @file */
 
 #ifndef MAT3_H
 #define MAT3_H
