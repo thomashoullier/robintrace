@@ -1,7 +1,9 @@
 #include "ray/ray.h"
 
+/** The ray is initialized with all its components set to 0, and a 'Success'
+ *  status code.
+ *  \todo Replace with a constructor with default arguments set to zero. */
 ray::ray () {
-  // Constructor
   p = Vec3::Zero();
   v = Vec3::Zero();
   code = 0;
