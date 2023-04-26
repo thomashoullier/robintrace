@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['shape_10',['shape',['../classshape.html',1,'']]],
-  ['shape_5freflect_5fpart_11',['shape_reflect_part',['../classshape__reflect__part.html',1,'']]],
-  ['shape_5frefract_5fpart_12',['shape_refract_part',['../classshape__refract__part.html',1,'']]],
-  ['standard_13',['standard',['../classstandard.html',1,'']]]
+  ['ray_9',['ray',['../classray.html',1,'ray'],['../classray.html#a6a81906c090ceff40ac9a288639f4861',1,'ray::ray()']]],
+  ['ray_2eh_10',['ray.h',['../ray_8h.html',1,'']]]
 ];

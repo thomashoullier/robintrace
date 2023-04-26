@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['ray_8',['ray',['../classray.html',1,'']]],
-  ['ray_2eh_9',['ray.h',['../ray_8h.html',1,'']]]
+  ['p_7',['p',['../classray.html#a448aa37ec1c96e018cd91cf063a0ad02',1,'ray']]],
+  ['plane_8',['plane',['../classplane.html',1,'']]]
 ];

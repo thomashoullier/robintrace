@@ -77,6 +77,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a6a81906c090ceff40ac9a288639f4861"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classray.html#a6a81906c090ceff40ac9a288639f4861">ray</a> ()</td></tr>
+<tr class="memdesc:a6a81906c090ceff40ac9a288639f4861"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="classray.html#a6a81906c090ceff40ac9a288639f4861">More...</a><br /></td></tr>
+<tr class="separator:a6a81906c090ceff40ac9a288639f4861"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c5b00676ae7c16d158b5a7d77b28609"><td class="memItemLeft" align="right" valign="top"><a id="a5c5b00676ae7c16d158b5a7d77b28609"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ray</b> (<a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> _p, <a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> _v)</td></tr>
 <tr class="separator:a5c5b00676ae7c16d158b5a7d77b28609"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -92,13 +95,64 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ad4a8e76e1d625041d21de7fed8463821"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classray.html#ad4a8e76e1d625041d21de7fed8463821">v</a></td></tr>
 <tr class="memdesc:ad4a8e76e1d625041d21de7fed8463821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orientation component.  <a href="classray.html#ad4a8e76e1d625041d21de7fed8463821">More...</a><br /></td></tr>
 <tr class="separator:ad4a8e76e1d625041d21de7fed8463821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4428c5db165d4638938191ac87e17e2c"><td class="memItemLeft" align="right" valign="top"><a id="a4428c5db165d4638938191ac87e17e2c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>code</b></td></tr>
+<tr class="memitem:a4428c5db165d4638938191ac87e17e2c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classray.html#a4428c5db165d4638938191ac87e17e2c">code</a></td></tr>
+<tr class="memdesc:a4428c5db165d4638938191ac87e17e2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status code.  <a href="classray.html#a4428c5db165d4638938191ac87e17e2c">More...</a><br /></td></tr>
 <tr class="separator:a4428c5db165d4638938191ac87e17e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for individual rays. </p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a6a81906c090ceff40ac9a288639f4861"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a81906c090ceff40ac9a288639f4861">&#9670;&nbsp;</a></span>ray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ray::ray </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+<p>The ray is initialized with all its components set to 0, and a 'Success' status code. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Replace with a constructor with default arguments set to zero. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4428c5db165d4638938191ac87e17e2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4428c5db165d4638938191ac87e17e2c">&#9670;&nbsp;</a></span>code</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ray::code</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Status code. </p>
+<p>Status code for signaling error cases in raytracing operations. The status codes are tabulated hereafter. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Link to the functions in the error code description.</dd></dl>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Code   </th><th class="markdownTableHeadNone">Meaning    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">0   </td><td class="markdownTableBodyNone">Success    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">3   </td><td class="markdownTableBodyNone">refract: TIR    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">4   </td><td class="markdownTableBodyNone">transfer: ray is parallel to the new local plane.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">5   </td><td class="markdownTableBodyNone">standard intersection: No intersection.   </td></tr>
+</table>
+<p>A status code of 0 means the ray is holding valid values. </p>
+
+</div>
+</div>
 <a id="a448aa37ec1c96e018cd91cf063a0ad02"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a448aa37ec1c96e018cd91cf063a0ad02">&#9670;&nbsp;</a></span>p</h2>
 

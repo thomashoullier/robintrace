@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bun_20',['bun',['../classbun.html',1,'']]]
+  ['bun_22',['bun',['../classbun.html',1,'']]]
 ];
