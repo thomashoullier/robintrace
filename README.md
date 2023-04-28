@@ -15,8 +15,10 @@ It is implemented in C++.
 Please refer to the [Doxygen documentation](https://thomashoullier.github.io/robintrace/index.html) (in progress).
 
 In addition, the submodule poaky has its own LaTeX documentation.
-The report can be compiled from the LaTeX files in `doc`. A compiled version is
-edited at [Poaky documentation
+It documents mainly the mathematical formulation of the operations and the
+corresponding rationale. The API is documented in the doxygen documentation.
+The report can be compiled from the LaTeX files in [latex-poaky](latex-poaky).
+A compiled version is edited at [Poaky documentation
 PDF](https://thomashoullier.com/writeups/robintrace-poaky/robintrace-poaky.html).
 
 ## Build
