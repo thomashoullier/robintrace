@@ -9,7 +9,8 @@
 RobinTrace is a sequential raytracing API for optical design.
 It is implemented in C++.
 
-<img src="doc/images/robintrace-logo.png" alt="RobinTrace logo" width="256"/>
+<img src="latex-poaky/images/robintrace-logo.png"
+     alt="RobinTrace logo" width="256"/>
 
 ## Documentation
 Please refer to the [Doxygen documentation](https://thomashoullier.github.io/robintrace/index.html) (in progress).
