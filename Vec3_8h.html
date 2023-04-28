@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -148,10 +155,10 @@ Functions</h2></td></tr>
 </dl>
 <p>The component n is built automatically from (l, m) and the specified sign so as to obtain a unit vector.</p>
 <p>When <code>nsign</code> is True, </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[ n = \sqrt{1 - l^2 - m^2} \]" src="form_0.png"/>
+\[ n = \sqrt{1 - l^2 - m^2} \]
 </p>
 <p> When <code>nsign</code> is False, </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[ n = - \sqrt{1 - l^2 - m^2} \]" src="form_1.png"/>
+\[ n = - \sqrt{1 - l^2 - m^2} \]
 </p>
  
 </div>
