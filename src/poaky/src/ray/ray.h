@@ -42,7 +42,7 @@ class ray {
     ray (Vec3 _p, Vec3 _v);
     /** @brief Check whether the ray holds valid data. */
     bool is_valid();
-    /** @brief Printer method */
+    /** @brief Printer. */
     friend std::ostream& operator<< (std::ostream &out, const ray &r);
 };
 

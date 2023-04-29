@@ -1,3 +1,4 @@
+/** @file */
 #ifndef TRANSFER_H
 #define TRANSFER_H
 
@@ -5,6 +6,7 @@
 #include "base/Mat3.h"
 #include "ray/ray.h"
 
+/** @brief Transfer operation over a ray. **/
 class transfer {
   public:
     Mat3 Bt; // Transpose of rotation matrix B.
