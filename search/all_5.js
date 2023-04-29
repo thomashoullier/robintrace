@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['ray_9',['ray',['../classray.html',1,'ray'],['../classray.html#a6a81906c090ceff40ac9a288639f4861',1,'ray::ray()']]],
-  ['ray_2eh_10',['ray.h',['../ray_8h.html',1,'']]]
+  ['mat3_9',['Mat3',['../Mat3_8h.html#a86655cf0b707ee359ac74b07f3272aa3',1,'Mat3.h']]],
+  ['mat3_2eh_10',['Mat3.h',['../Mat3_8h.html',1,'']]]
 ];

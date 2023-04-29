@@ -75,27 +75,36 @@ $(function() {
 <div class="title">shape Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Virtual class for shapes.  
+ <a href="classshape.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="shape_8h_source.html">shape.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for shape:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classshape.png" usemap="#shape_map" alt=""/>
   <map id="shape_map" name="shape_map">
-<area href="classplane.html" alt="plane" shape="rect" coords="0,56,61,80"/>
-<area href="classstandard.html" alt="standard" shape="rect" coords="71,56,132,80"/>
+<area href="classplane.html" title="Plane shape specialization." alt="plane" shape="rect" coords="0,56,61,80"/>
+<area href="classstandard.html" title="Standard shape specialization." alt="standard" shape="rect" coords="71,56,132,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aaa21155e79aa229a2c34153737c20d78"><td class="memItemLeft" align="right" valign="top"><a id="aaa21155e79aa229a2c34153737c20d78"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>intersect</b> (<a class="el" href="classray.html">ray</a> &amp;r)=0</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshape.html#aaa21155e79aa229a2c34153737c20d78">intersect</a> (<a class="el" href="classray.html">ray</a> &amp;r)=0</td></tr>
+<tr class="memdesc:aaa21155e79aa229a2c34153737c20d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operate the intersection of ray <code>r</code> with shape. <br /></td></tr>
 <tr class="separator:aaa21155e79aa229a2c34153737c20d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa93301745a42ed383cbd156804cc9d0"><td class="memItemLeft" align="right" valign="top"><a id="aaa93301745a42ed383cbd156804cc9d0"></a>
-virtual <a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>normal</b> (const <a class="el" href="classray.html">ray</a> &amp;r)=0</td></tr>
+virtual <a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshape.html#aaa93301745a42ed383cbd156804cc9d0">normal</a> (const <a class="el" href="classray.html">ray</a> &amp;r)=0</td></tr>
+<tr class="memdesc:aaa93301745a42ed383cbd156804cc9d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the normal of shape at current ray <code>r</code> position. <br /></td></tr>
 <tr class="separator:aaa93301745a42ed383cbd156804cc9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Virtual class for shapes. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/poaky/src/shape/<a class="el" href="shape_8h_source.html">shape.h</a></li>
 </ul>
 </div><!-- contents -->

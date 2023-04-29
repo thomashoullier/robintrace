@@ -76,21 +76,24 @@ $(function() {
 <div class="title">rop.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ROP_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ROP_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Vec3_8h.html">base/Vec3.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ray_8h.html">ray/ray.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keywordtype">void</span> reflect (<a class="code" href="classray.html">ray</a> &amp;r, <span class="keyword">const</span> <a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> &amp;N);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordtype">void</span> refract (<a class="code" href="classray.html">ray</a> &amp;r, <span class="keyword">const</span> <a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> &amp;N, <span class="keywordtype">double</span> nr);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// ROP_H</span></div>
+<a href="rop_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef ROP_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define ROP_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Vec3_8h.html">base/Vec3.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ray_8h.html">ray/ray.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keywordtype">void</span> <a class="code" href="rop_8h.html#a8ca8ddf23bd3b96a2a1309ea724d4d1f">reflect</a> (<a class="code" href="classray.html">ray</a> &amp;r, <span class="keyword">const</span> <a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> &amp;N);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">void</span> <a class="code" href="rop_8h.html#aa74fa847bd4488dbd734a4620aa32bf0">refract</a> (<a class="code" href="classray.html">ray</a> &amp;r, <span class="keyword">const</span> <a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> &amp;N, <span class="keywordtype">double</span> nr);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// ROP_H</span></div>
 <div class="ttc" id="aVec3_8h_html"><div class="ttname"><a href="Vec3_8h.html">Vec3.h</a></div></div>
 <div class="ttc" id="aVec3_8h_html_a8daa2fe909f826a828953371253c9bc0"><div class="ttname"><a href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a></div><div class="ttdeci">Eigen::Vector3d Vec3</div><div class="ttdef"><b>Definition:</b> Vec3.h:10</div></div>
 <div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdoc">Class for individual rays.</div><div class="ttdef"><b>Definition:</b> ray.h:9</div></div>
 <div class="ttc" id="aray_8h_html"><div class="ttname"><a href="ray_8h.html">ray.h</a></div></div>
+<div class="ttc" id="arop_8h_html_a8ca8ddf23bd3b96a2a1309ea724d4d1f"><div class="ttname"><a href="rop_8h.html#a8ca8ddf23bd3b96a2a1309ea724d4d1f">reflect</a></div><div class="ttdeci">void reflect(ray &amp;r, const Vec3 &amp;N)</div><div class="ttdoc">Reflect ray operation.</div><div class="ttdef"><b>Definition:</b> rop.cpp:9</div></div>
+<div class="ttc" id="arop_8h_html_aa74fa847bd4488dbd734a4620aa32bf0"><div class="ttname"><a href="rop_8h.html#aa74fa847bd4488dbd734a4620aa32bf0">refract</a></div><div class="ttdeci">void refract(ray &amp;r, const Vec3 &amp;N, double nr)</div><div class="ttdoc">Refract ray operation.</div><div class="ttdef"><b>Definition:</b> rop.cpp:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

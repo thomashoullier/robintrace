@@ -76,27 +76,32 @@ $(function() {
 <div class="title">plane.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PLANE_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PLANE_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;shape/shape.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classplane.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classplane.html">plane</a>: <span class="keyword">public</span> <a class="code" href="classshape.html">shape</a> {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">void</span> intersect (<a class="code" href="classray.html">ray</a> &amp;r);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> normal (<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;std::ostream&amp; operator&lt;&lt; (std::ostream &amp;out, <span class="keyword">const</span> <a class="code" href="classplane.html">plane</a> &amp;pl);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PLANE_H</span></div>
+<a href="plane_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef PLANE_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define PLANE_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shape_8h.html">shape/shape.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classplane.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classplane.html">plane</a>: <span class="keyword">public</span> <a class="code" href="classshape.html">shape</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classplane.html#af51269acf5cfb5f9da741a40d6e77c6c">intersect</a> (<a class="code" href="classray.html">ray</a> &amp;r);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> <a class="code" href="classplane.html#a25f8998b3d0892c7f92016f5afdb241e">normal</a> (<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="classplane.html#a6d2254a8da4b865afc925c8e15f3e630">operator&lt;&lt; </a>(std::ostream &amp;out, <span class="keyword">const</span> <a class="code" href="classplane.html">plane</a> &amp;pl);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PLANE_H</span></div>
 <div class="ttc" id="aVec3_8h_html_a8daa2fe909f826a828953371253c9bc0"><div class="ttname"><a href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a></div><div class="ttdeci">Eigen::Vector3d Vec3</div><div class="ttdef"><b>Definition:</b> Vec3.h:10</div></div>
-<div class="ttc" id="aclassplane_html"><div class="ttname"><a href="classplane.html">plane</a></div><div class="ttdef"><b>Definition:</b> plane.h:9</div></div>
+<div class="ttc" id="aclassplane_html"><div class="ttname"><a href="classplane.html">plane</a></div><div class="ttdoc">Plane shape specialization.</div><div class="ttdef"><b>Definition:</b> plane.h:11</div></div>
+<div class="ttc" id="aclassplane_html_a25f8998b3d0892c7f92016f5afdb241e"><div class="ttname"><a href="classplane.html#a25f8998b3d0892c7f92016f5afdb241e">plane::normal</a></div><div class="ttdeci">Vec3 normal(const ray &amp;r)</div><div class="ttdoc">Compute the plane normal.</div><div class="ttdef"><b>Definition:</b> plane.cpp:15</div></div>
+<div class="ttc" id="aclassplane_html_a6d2254a8da4b865afc925c8e15f3e630"><div class="ttname"><a href="classplane.html#a6d2254a8da4b865afc925c8e15f3e630">plane::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const plane &amp;pl)</div><div class="ttdoc">Printer.</div><div class="ttdef"><b>Definition:</b> plane.cpp:20</div></div>
+<div class="ttc" id="aclassplane_html_af51269acf5cfb5f9da741a40d6e77c6c"><div class="ttname"><a href="classplane.html#af51269acf5cfb5f9da741a40d6e77c6c">plane::intersect</a></div><div class="ttdeci">void intersect(ray &amp;r)</div><div class="ttdoc">Operate the intersection of ray r with the plane.</div><div class="ttdef"><b>Definition:</b> plane.cpp:7</div></div>
 <div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdoc">Class for individual rays.</div><div class="ttdef"><b>Definition:</b> ray.h:9</div></div>
-<div class="ttc" id="aclassshape_html"><div class="ttname"><a href="classshape.html">shape</a></div><div class="ttdef"><b>Definition:</b> shape.h:8</div></div>
+<div class="ttc" id="aclassshape_html"><div class="ttname"><a href="classshape.html">shape</a></div><div class="ttdoc">Virtual class for shapes.</div><div class="ttdef"><b>Definition:</b> shape.h:10</div></div>
+<div class="ttc" id="ashape_8h_html"><div class="ttname"><a href="shape_8h.html">shape.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

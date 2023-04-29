@@ -1,12 +1,13 @@
 var indexSectionsWithContent =
 {
-  0: "bclmprstv",
+  0: "bciklmnoprstv",
   1: "blprst",
-  2: "mrv",
-  3: "rv",
-  4: "cpv",
+  2: "mprstv",
+  3: "inrsv",
+  4: "ckpv",
   5: "mv",
-  6: "t"
+  6: "o",
+  7: "t"
 };
 
 var indexSectionNames =
@@ -17,7 +18,8 @@ var indexSectionNames =
   3: "functions",
   4: "variables",
   5: "typedefs",
-  6: "pages"
+  6: "related",
+  7: "pages"
 };
 
 var indexSectionLabels =
@@ -28,6 +30,7 @@ var indexSectionLabels =
   3: "Functions",
   4: "Variables",
   5: "Typedefs",
-  6: "Pages"
+  6: "Friends",
+  7: "Pages"
 };
 

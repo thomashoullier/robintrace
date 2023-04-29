@@ -70,30 +70,112 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classplane-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">plane Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Plane shape specialization.  
+ <a href="classplane.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="plane_8h_source.html">plane.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for plane:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classplane.png" usemap="#plane_map" alt=""/>
   <map id="plane_map" name="plane_map">
-<area href="classshape.html" alt="shape" shape="rect" coords="0,0,46,24"/>
+<area href="classshape.html" title="Virtual class for shapes." alt="shape" shape="rect" coords="0,0,46,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af51269acf5cfb5f9da741a40d6e77c6c"><td class="memItemLeft" align="right" valign="top"><a id="af51269acf5cfb5f9da741a40d6e77c6c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>intersect</b> (<a class="el" href="classray.html">ray</a> &amp;r)</td></tr>
+<tr class="memitem:af51269acf5cfb5f9da741a40d6e77c6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplane.html#af51269acf5cfb5f9da741a40d6e77c6c">intersect</a> (<a class="el" href="classray.html">ray</a> &amp;r)</td></tr>
+<tr class="memdesc:af51269acf5cfb5f9da741a40d6e77c6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operate the intersection of ray <code>r</code> with the plane.  <a href="classplane.html#af51269acf5cfb5f9da741a40d6e77c6c">More...</a><br /></td></tr>
 <tr class="separator:af51269acf5cfb5f9da741a40d6e77c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25f8998b3d0892c7f92016f5afdb241e"><td class="memItemLeft" align="right" valign="top"><a id="a25f8998b3d0892c7f92016f5afdb241e"></a>
-<a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>normal</b> (const <a class="el" href="classray.html">ray</a> &amp;r)</td></tr>
+<tr class="memitem:a25f8998b3d0892c7f92016f5afdb241e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplane.html#a25f8998b3d0892c7f92016f5afdb241e">normal</a> (const <a class="el" href="classray.html">ray</a> &amp;r)</td></tr>
+<tr class="memdesc:a25f8998b3d0892c7f92016f5afdb241e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the plane normal.  <a href="classplane.html#a25f8998b3d0892c7f92016f5afdb241e">More...</a><br /></td></tr>
 <tr class="separator:a25f8998b3d0892c7f92016f5afdb241e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a6d2254a8da4b865afc925c8e15f3e630"><td class="memItemLeft" align="right" valign="top"><a id="a6d2254a8da4b865afc925c8e15f3e630"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplane.html#a6d2254a8da4b865afc925c8e15f3e630">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="classplane.html">plane</a> &amp;pl)</td></tr>
+<tr class="memdesc:a6d2254a8da4b865afc925c8e15f3e630"><td class="mdescLeft">&#160;</td><td class="mdescRight">Printer. <br /></td></tr>
+<tr class="separator:a6d2254a8da4b865afc925c8e15f3e630"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Plane shape specialization. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="af51269acf5cfb5f9da741a40d6e77c6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af51269acf5cfb5f9da741a40d6e77c6c">&#9670;&nbsp;</a></span>intersect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void plane::intersect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classray.html">ray</a> &amp;&#160;</td>
+          <td class="paramname"><em>r</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Operate the intersection of ray <code>r</code> with the plane. </p>
+<p>The ray is assumed to rest at the current LCS plane, so intersect does nothing for a plane shape.</p>
+<p>There are no error cases. </p>
+
+<p>Implements <a class="el" href="classshape.html#aaa21155e79aa229a2c34153737c20d78">shape</a>.</p>
+
+</div>
+</div>
+<a id="a25f8998b3d0892c7f92016f5afdb241e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25f8998b3d0892c7f92016f5afdb241e">&#9670;&nbsp;</a></span>normal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> plane::normal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classray.html">ray</a> &amp;&#160;</td>
+          <td class="paramname"><em>r</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the plane normal. </p>
+<p>The plane shape normal is position-invariant. Its value is always </p><p class="formulaDsp">
+\[ \overrightarrow{N} = (0, 0, -\textrm{sign}(n))\]
+</p>
+<p>There are no error cases. </p>
+
+<p>Implements <a class="el" href="classshape.html#aaa93301745a42ed383cbd156804cc9d0">shape</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/poaky/src/shape/<a class="el" href="plane_8h_source.html">plane.h</a></li>
 <li>src/poaky/src/shape/plane.cpp</li>

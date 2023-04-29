@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['v_18',['v',['../classray.html#ad4a8e76e1d625041d21de7fed8463821',1,'ray']]],
-  ['vec3_19',['Vec3',['../Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0',1,'Vec3.h']]],
-  ['vec3_2eh_20',['Vec3.h',['../Vec3_8h.html',1,'']]],
-  ['vec3_5flm_21',['Vec3_lm',['../Vec3_8h.html#ae96d72d40ea3df4d6fd1a03360b15867',1,'Vec3.cpp']]]
+  ['p_13',['p',['../classray.html#a448aa37ec1c96e018cd91cf063a0ad02',1,'ray']]],
+  ['plane_14',['plane',['../classplane.html',1,'']]],
+  ['plane_2eh_15',['plane.h',['../plane_8h.html',1,'']]]
 ];

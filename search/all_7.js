@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['todo_20list_15',['Todo List',['../todo.html',1,'']]],
-  ['transfer_16',['transfer',['../classtransfer.html',1,'']]],
-  ['transfer_5fpart_17',['transfer_part',['../classtransfer__part.html',1,'']]]
+  ['operator_3c_3c_12',['operator&lt;&lt;',['../classray.html#a1310a8c1cf140d34375689673754bba3',1,'ray::operator&lt;&lt;()'],['../classplane.html#a6d2254a8da4b865afc925c8e15f3e630',1,'plane::operator&lt;&lt;()'],['../classstandard.html#ae565e1722d146e97722db328724ea822',1,'standard::operator&lt;&lt;()']]]
 ];

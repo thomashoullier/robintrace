@@ -98,7 +98,7 @@ $(function() {
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">if</span> (not(r.is_valid())) {<span class="keywordflow">return</span>;}</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">auto</span> N = shp.normal(r);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">if</span> (not(r.is_valid())) {<span class="keywordflow">return</span>;}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        reflect(r, N);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="rop_8h.html#a8ca8ddf23bd3b96a2a1309ea724d4d1f">reflect</a>(r, N);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      }</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    };</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
@@ -128,7 +128,7 @@ $(function() {
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">if</span> (not(r.is_valid())) {<span class="keywordflow">return</span>;}</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">auto</span> N = shp.normal(r);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">if</span> (not(r.is_valid())) {<span class="keywordflow">return</span>;}</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        refract(r, N, nr);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="rop_8h.html#aa74fa847bd4488dbd734a4620aa32bf0">refract</a>(r, N, nr);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      }</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    };</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
@@ -145,6 +145,8 @@ $(function() {
 <div class="ttc" id="aclasslpart_html"><div class="ttname"><a href="classlpart.html">lpart</a></div><div class="ttdef"><b>Definition:</b> lpart.h:7</div></div>
 <div class="ttc" id="aclassshape__reflect__part_html"><div class="ttname"><a href="classshape__reflect__part.html">shape_reflect_part</a></div><div class="ttdef"><b>Definition:</b> shape_part.h:8</div></div>
 <div class="ttc" id="aclassshape__refract__part_html"><div class="ttname"><a href="classshape__refract__part.html">shape_refract_part</a></div><div class="ttdef"><b>Definition:</b> shape_part.h:36</div></div>
+<div class="ttc" id="arop_8h_html_a8ca8ddf23bd3b96a2a1309ea724d4d1f"><div class="ttname"><a href="rop_8h.html#a8ca8ddf23bd3b96a2a1309ea724d4d1f">reflect</a></div><div class="ttdeci">void reflect(ray &amp;r, const Vec3 &amp;N)</div><div class="ttdoc">Reflect ray operation.</div><div class="ttdef"><b>Definition:</b> rop.cpp:9</div></div>
+<div class="ttc" id="arop_8h_html_aa74fa847bd4488dbd734a4620aa32bf0"><div class="ttname"><a href="rop_8h.html#aa74fa847bd4488dbd734a4620aa32bf0">refract</a></div><div class="ttdeci">void refract(ray &amp;r, const Vec3 &amp;N, double nr)</div><div class="ttdoc">Refract ray operation.</div><div class="ttdef"><b>Definition:</b> rop.cpp:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
