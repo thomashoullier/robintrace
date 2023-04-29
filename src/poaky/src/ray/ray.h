@@ -10,12 +10,15 @@ class ray {
   public:
     /**@brief Point component.
      *
-     * Holds the three components \f$(x,y,z)\f$ of the ray.*/
+     * Holds the three components \f$(x,y,z)\f$ of the ray.
+     * It describes where the ray is resting in the current LCS.*/
     Vec3 p; 
 
     /**@brief Orientation component.
      *
-     * Holds the three components \f$(l,m,n)\f$ of the ray.*/
+     * Holds the three components \f$(l,m,n)\f$ of the ray.
+     * It orients the ray from its point component in the light propagation
+     * direction. The light propagates along the positive \p v direction.*/
     Vec3 v;
 
     /**@brief Status code.
@@ -26,7 +29,7 @@ class ray {
      *
      * Code | Meaning
        ---- | -------------
-       0    | Success
+       0    | Valid
        3    | refract: TIR
        4    | transfer: ray is parallel to the new local plane.
        5    | standard intersection: No intersection.
@@ -35,11 +38,12 @@ class ray {
     
     /** @brief Default constructor. */
     ray ();
+    /** @brief Initialization constructor. */
     ray (Vec3 _p, Vec3 _v);
-
+    /** @brief Check whether the ray holds valid data. */
     bool is_valid();
+    /** @brief Printer method */
+    friend std::ostream& operator<< (std::ostream &out, const ray &r);
 };
-
-std::ostream& operator<< (std::ostream &out, const ray &r);
 
 #endif // RAY_H

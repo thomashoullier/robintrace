@@ -1,27 +1,29 @@
 #include "ray/ray.h"
 
 /** The ray is initialized with all its components set to 0, and a 'Success'
- *  status code.
- *  \todo Replace with a constructor with default arguments set to zero. */
+ *  status code. */
 ray::ray () {
   p = Vec3::Zero();
   v = Vec3::Zero();
   code = 0;
 }
 
+/** Construct a \p ray with initial point component \p _p and orientation
+ * component \p _v.
+ * @param _p Initial point component of the ray.
+ * @param _v Initial orientation component of the ray.
+ * The status \p code is initialized to 0. */
 ray::ray (Vec3 _p, Vec3 _v) {
-  // Construct + initialize
   p = _p; v = _v;
   code = 0;
 }
 
+/** Status code shorthand for checking ray validity. */
 bool ray::is_valid () {
-  // Check whether the ray is valid. (error code = 0)
   return (code == 0);
 }
 
 std::ostream& operator<< (std::ostream &out, const ray &r) {
-  // Printer method
   out << "ray([" << r.p(0) << ", " << r.p(1) << ", " << r.p(2) << "]"
           << "[" << r.v(0) << ", " << r.v(1) << ", " << r.v(2) << "]"
           << ", code: " << r.code << ")";
