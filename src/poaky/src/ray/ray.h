@@ -25,14 +25,13 @@ class ray {
      *
      * Status code for signaling error cases in raytracing operations.
      * The status codes are tabulated hereafter.
-     * @todo Link to the functions in the error code description.
      *
      * Code | Meaning
        ---- | -------------
        0    | Valid
-       3    | refract: TIR
-       4    | transfer: ray is parallel to the new local plane.
-       5    | standard intersection: No intersection.
+       3    | refract(): TIR
+       4    | transfer.apply(): ray is parallel to the new local plane.
+       5    | standard::intersect(): No intersection.
      * A status code of 0 means the ray is holding valid values.*/
     int code;
     
