@@ -113,7 +113,7 @@ the computation of the refracted ray direction.
 
 \subsection{transfer} \label{sec:transfer}
 A transfer defines a new \gls{LCS} to propagate the ray to.  The transfer
-operation a change of basis and an intersection with the newly defined
+operates a change of basis and an intersection with the newly defined
 local plane.
 
 \paragraph{Definition}
@@ -169,9 +169,9 @@ $(P_1, \overrightarrow{V_1})$. We first operate a change of basis from LCS1
 to LCS2, which gives the coordinates $(P_2, \overrightarrow{V_2})$.
 
 \begin{equation} \begin{cases}
-P_2 = \begin{bmatrix} x_2 \\ y_2 \\ z_2 \end{bmatrix}
+P_2 &= \begin{bmatrix} x_2 \\ y_2 \\ z_2 \end{bmatrix}
     = B^{-1} \cdot P_1 - \overrightarrow{D} \\
-\overrightarrow{V_2} = \begin{bmatrix} l_2 \\ m_2 \\ n_2 \end{bmatrix}
+\overrightarrow{V_2} &= \begin{bmatrix} l_2 \\ m_2 \\ n_2 \end{bmatrix}
   = B^{-1} \cdot \overrightarrow{V_1}
 \end{cases} \end{equation}
 
