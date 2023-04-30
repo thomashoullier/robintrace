@@ -3,7 +3,6 @@
 #include <memory>
 #include "robintrace.h"
 
-
 int main(){
   std::cout << "# Main #" << std::endl;
 

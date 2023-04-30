@@ -1,0 +1,43 @@
+/** @mainpage RobinTrace documentation
+* RobinTrace is a sequential raytracing API for optical design. It is
+* implemented in C++.
+* 
+* \image html robintrace-logo.png width=250px 
+*
+* \section scope Scope
+* RobinTrace aims at a minimal set of features which make it a usable tool
+* for optical design raytracing. Note this is not a standalone optical
+* design program but rather a toolkit for the raytracing involved in
+* optical design. The scope may be summarized as follows.
+* - \b Minimal: RobinTrace deals with sequential raytracing. Matters of
+* assessing optical performance from ray states are higher level and out of the
+* scope.
+* - <b>A toolkit</b>: RobinTrace is an API for raytracing bundles of rays
+* through optical parts sequences and report the ray states along the way. The
+* user is expected to be able to retrieve the data for their own purposes.
+* The user is expected to be familiar with C++ and optical design both.
+* - <b>Efficient</b>: The runtime execution should be fast. We aim at an
+* execution speed comparable to the speed of commercial tools (at least the
+* same order of magnitude in execution speed). A set of benchmarking tests
+* is in place to monitor the performance.
+*
+* \section layers API layers
+* We decomposed the program into three layers.
+* - \b Poaky: Poaky is the lowest layer. It defines individual rays and the
+* operations which can be applied on these rays. It contains many mathematical
+* definitions such as algorithms for ray operations and shapes used in
+* raytracing. As such, it comes with a heavy paper documentation.
+* - \b Pinyo: Pinyo is the layer of abstraction on top of Poaky. It defines ray
+* bundles and low-level optical parts (eg a refractive shape, a transfer part)
+* which operate on ray bundles. The operations of parts on bundles of rays are
+* an opportunity to define fine-grained ray error cases management.
+* - \b Pewit: Pewit is the highest layer in the raytracer. It defines sequences
+* of low-level optical parts and a stateful object lseq holding the raytracing.
+* The lseq object holds the sequence of parts, the ray bundles being raytraced
+* through the sequence and a buffer for saving intermediate ray states.  It
+* manages the application of parts one by one on the ray bundles.
+* 
+* \section example Example
+* Here is an example which shows some of the API in bottom-up fashion.
+* \include example.cpp
+*/
