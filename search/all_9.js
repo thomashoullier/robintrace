@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['ray_16',['ray',['../classray.html',1,'ray'],['../classray.html#a6a81906c090ceff40ac9a288639f4861',1,'ray::ray()'],['../classray.html#a5c5b00676ae7c16d158b5a7d77b28609',1,'ray::ray(Vec3 _p, Vec3 _v)']]],
-  ['ray_2eh_17',['ray.h',['../ray_8h.html',1,'']]],
-  ['reflect_18',['reflect',['../rop_8h.html#a8ca8ddf23bd3b96a2a1309ea724d4d1f',1,'rop.cpp']]],
-  ['refract_19',['refract',['../rop_8h.html#aa74fa847bd4488dbd734a4620aa32bf0',1,'rop.cpp']]],
-  ['rop_2eh_20',['rop.h',['../rop_8h.html',1,'']]]
+  ['operator_3c_3c_15',['operator&lt;&lt;',['../classray.html#a1310a8c1cf140d34375689673754bba3',1,'ray::operator&lt;&lt;()'],['../classplane.html#a6d2254a8da4b865afc925c8e15f3e630',1,'plane::operator&lt;&lt;()'],['../classstandard.html#ae565e1722d146e97722db328724ea822',1,'standard::operator&lt;&lt;()'],['../classtransfer.html#ae3c96faca93e39f04e0c7ea9fedb5aa9',1,'transfer::operator&lt;&lt;()']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vec3_5flm_62',['Vec3_lm',['../Vec3_8h.html#ae96d72d40ea3df4d6fd1a03360b15867',1,'Vec3.cpp']]]
+  ['standard_65',['standard',['../classstandard.html#a98360463d4ea2c2c34040f6bc2c02ee4',1,'standard::standard()'],['../classstandard.html#a0540adb9f0e046c3282605abbf7e4483',1,'standard::standard(double _c, double _k)']]]
 ];

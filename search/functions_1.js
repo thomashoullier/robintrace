@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['normal_57',['normal',['../classplane.html#a25f8998b3d0892c7f92016f5afdb241e',1,'plane::normal()'],['../classshape.html#aaa93301745a42ed383cbd156804cc9d0',1,'shape::normal()'],['../classstandard.html#a4b85050992cadefbdadd439ceb512cd9',1,'standard::normal()']]]
+  ['intersect_59',['intersect',['../classplane.html#af51269acf5cfb5f9da741a40d6e77c6c',1,'plane::intersect()'],['../classshape.html#aaa21155e79aa229a2c34153737c20d78',1,'shape::intersect()'],['../classstandard.html#a981bf0ab6e99a7ab4591cddac5eb0cdc',1,'standard::intersect()']]],
+  ['is_5fvalid_60',['is_valid',['../classray.html#ae10b3bef7b50f4a545273839c33f36f2',1,'ray']]]
 ];

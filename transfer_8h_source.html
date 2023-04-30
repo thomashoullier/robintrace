@@ -84,27 +84,32 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Mat3_8h.html">base/Mat3.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ray_8h.html">ray/ray.h</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classtransfer.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtransfer.html">transfer</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="Mat3_8h.html#a86655cf0b707ee359ac74b07f3272aa3">Mat3</a> Bt; <span class="comment">// Transpose of rotation matrix B.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> D; <span class="comment">// Translation vector D.</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classtransfer.html">transfer</a> ();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classtransfer.html">transfer</a> (<a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> _D);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classtransfer.html">transfer</a> (<a class="code" href="Mat3_8h.html#a86655cf0b707ee359ac74b07f3272aa3">Mat3</a> _Bt, <a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> _D);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> apply (<a class="code" href="classray.html">ray</a> &amp;r);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;std::ostream&amp; operator&lt;&lt; (std::ostream &amp;out, <span class="keyword">const</span> <a class="code" href="classtransfer.html">transfer</a> &amp;trf);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// TRANSFER_H</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classtransfer.html">   40</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtransfer.html">transfer</a> {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classtransfer.html#ad60a58c88f652a51b4e8ee2d3d0921d9">   46</a></span>&#160;    <a class="code" href="Mat3_8h.html#a86655cf0b707ee359ac74b07f3272aa3">Mat3</a> <a class="code" href="classtransfer.html#ad60a58c88f652a51b4e8ee2d3d0921d9">Bt</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classtransfer.html#a5d4ed7cf91e483965c024a7279a378c1">   51</a></span>&#160;    <a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> <a class="code" href="classtransfer.html#a5d4ed7cf91e483965c024a7279a378c1">D</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classtransfer.html#a2a3a13d95b1091e342be98556a010a98">transfer</a> ();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classtransfer.html#a2a3a13d95b1091e342be98556a010a98">transfer</a> (<a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> _D);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="classtransfer.html#a2a3a13d95b1091e342be98556a010a98">transfer</a> (<a class="code" href="Mat3_8h.html#a86655cf0b707ee359ac74b07f3272aa3">Mat3</a> _Bt, <a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> _D);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtransfer.html#ab2b38d96e03f97b6c45070bf78de41fe">apply</a> (<a class="code" href="classray.html">ray</a> &amp;r);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="classtransfer.html#ae3c96faca93e39f04e0c7ea9fedb5aa9">operator&lt;&lt; </a>(std::ostream &amp;out, <span class="keyword">const</span> <a class="code" href="classtransfer.html">transfer</a> &amp;trf);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// TRANSFER_H</span></div>
 <div class="ttc" id="aMat3_8h_html"><div class="ttname"><a href="Mat3_8h.html">Mat3.h</a></div></div>
 <div class="ttc" id="aMat3_8h_html_a86655cf0b707ee359ac74b07f3272aa3"><div class="ttname"><a href="Mat3_8h.html#a86655cf0b707ee359ac74b07f3272aa3">Mat3</a></div><div class="ttdeci">Eigen::Matrix3d Mat3</div><div class="ttdef"><b>Definition:</b> Mat3.h:9</div></div>
 <div class="ttc" id="aVec3_8h_html"><div class="ttname"><a href="Vec3_8h.html">Vec3.h</a></div></div>
 <div class="ttc" id="aVec3_8h_html_a8daa2fe909f826a828953371253c9bc0"><div class="ttname"><a href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a></div><div class="ttdeci">Eigen::Vector3d Vec3</div><div class="ttdef"><b>Definition:</b> Vec3.h:10</div></div>
 <div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdoc">Class for individual rays.</div><div class="ttdef"><b>Definition:</b> ray.h:9</div></div>
-<div class="ttc" id="aclasstransfer_html"><div class="ttname"><a href="classtransfer.html">transfer</a></div><div class="ttdoc">Transfer operation over a ray.</div><div class="ttdef"><b>Definition:</b> transfer.h:10</div></div>
+<div class="ttc" id="aclasstransfer_html"><div class="ttname"><a href="classtransfer.html">transfer</a></div><div class="ttdoc">Transfer operation over a ray.</div><div class="ttdef"><b>Definition:</b> transfer.h:40</div></div>
+<div class="ttc" id="aclasstransfer_html_a2a3a13d95b1091e342be98556a010a98"><div class="ttname"><a href="classtransfer.html#a2a3a13d95b1091e342be98556a010a98">transfer::transfer</a></div><div class="ttdeci">transfer()</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> transfer.cpp:9</div></div>
+<div class="ttc" id="aclasstransfer_html_a5d4ed7cf91e483965c024a7279a378c1"><div class="ttname"><a href="classtransfer.html#a5d4ed7cf91e483965c024a7279a378c1">transfer::D</a></div><div class="ttdeci">Vec3 D</div><div class="ttdoc">Translation vector .</div><div class="ttdef"><b>Definition:</b> transfer.h:51</div></div>
+<div class="ttc" id="aclasstransfer_html_ab2b38d96e03f97b6c45070bf78de41fe"><div class="ttname"><a href="classtransfer.html#ab2b38d96e03f97b6c45070bf78de41fe">transfer::apply</a></div><div class="ttdeci">void apply(ray &amp;r)</div><div class="ttdoc">Apply the transfer to a ray.</div><div class="ttdef"><b>Definition:</b> transfer.cpp:69</div></div>
+<div class="ttc" id="aclasstransfer_html_ad60a58c88f652a51b4e8ee2d3d0921d9"><div class="ttname"><a href="classtransfer.html#ad60a58c88f652a51b4e8ee2d3d0921d9">transfer::Bt</a></div><div class="ttdeci">Mat3 Bt</div><div class="ttdoc">Transpose of the rotation matrix .</div><div class="ttdef"><b>Definition:</b> transfer.h:46</div></div>
+<div class="ttc" id="aclasstransfer_html_ae3c96faca93e39f04e0c7ea9fedb5aa9"><div class="ttname"><a href="classtransfer.html#ae3c96faca93e39f04e0c7ea9fedb5aa9">transfer::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const transfer &amp;trf)</div><div class="ttdoc">Printer.</div><div class="ttdef"><b>Definition:</b> transfer.cpp:32</div></div>
 <div class="ttc" id="aray_8h_html"><div class="ttname"><a href="ray_8h.html">ray.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
