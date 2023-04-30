@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RobinTrace: Main Page</title>
+<title>RobinTrace: RobinTrace documentation</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -67,11 +67,105 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">RobinTrace Documentation</div>  </div>
+<div class="title">RobinTrace documentation </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p>RobinTrace is a sequential raytracing API for optical design. It is implemented in C++.</p>
+<div class="image">
+<img src="robintrace-logo.png" alt="" width="250px"/>
+</div>
+<h1><a class="anchor" id="scope"></a>
+Scope</h1>
+<p>RobinTrace aims at a minimal set of features which make it a usable tool for optical design raytracing. Note this is not a standalone optical design program but rather a toolkit for the raytracing involved in optical design. The scope may be summarized as follows.</p><ul>
+<li><b>Minimal:</b> RobinTrace deals with sequential raytracing. Matters of assessing optical performance from ray states are higher level and out of the scope.</li>
+<li><b>A toolkit</b>: RobinTrace is an API for raytracing bundles of rays through optical parts sequences and report the ray states along the way. The user is expected to be able to retrieve the data for their own purposes. The user is expected to be familiar with C++ and optical design both.</li>
+<li><b>Efficient</b>: The runtime execution should be fast. We aim at an execution speed comparable to the speed of commercial tools (at least the same order of magnitude in execution speed). A set of benchmarking tests is in place to monitor the performance.</li>
+</ul>
+<h1><a class="anchor" id="layers"></a>
+API layers</h1>
+<p>We decomposed the program into three layers.</p><ul>
+<li><b>Poaky:</b> Poaky is the lowest layer. It defines individual rays and the operations which can be applied on these rays. It contains many mathematical definitions such as algorithms for ray operations and shapes used in raytracing. As such, it comes with a heavy paper documentation.</li>
+<li><b>Pinyo:</b> Pinyo is the layer of abstraction on top of Poaky. It defines ray bundles and low-level optical parts (eg a refractive shape, a transfer part) which operate on ray bundles. The operations of parts on bundles of rays are an opportunity to define fine-grained ray error cases management.</li>
+<li><b>Pewit:</b> Pewit is the highest layer in the raytracer. It defines sequences of low-level optical parts and a stateful object lseq holding the raytracing. The lseq object holds the sequence of parts, the ray bundles being raytraced through the sequence and a buffer for saving intermediate ray states. It manages the application of parts one by one on the ray bundles.</li>
+</ul>
+<h1><a class="anchor" id="example"></a>
+Example</h1>
+<p>Here is an example which shows some of the API in bottom-up fashion. </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;robintrace.h&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(){</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;# Main #&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;## Poaky ##&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  <a class="code" href="classray.html">ray</a> r (<a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>(0.2, 0.3, 0.0), <a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>(0, 0, 1.0));</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;ray is valid? &quot;</span> &lt;&lt; r.is_valid() &lt;&lt; std::endl;</div>
+<div class="line">  <a class="code" href="classstandard.html">standard</a> sd (1.0/20, -2);</div>
+<div class="line">  std::cout &lt;&lt; sd &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;ray before intersection: &quot;</span> &lt;&lt; r &lt;&lt; std::endl;</div>
+<div class="line">  sd.intersect(r);</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;ray after intersection: &quot;</span> &lt;&lt; r &lt;&lt; std::endl;</div>
+<div class="line">  <a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> N = sd.normal(r);</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;normal vector: &quot;</span> &lt;&lt; N &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  <a class="code" href="classtransfer.html">transfer</a> tfr;</div>
+<div class="line">  std::cout &lt;&lt; tfr &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;## Pinyo ##&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  <span class="comment">// bun</span></div>
+<div class="line">  std::vector&lt;ray&gt; rays;</div>
+<div class="line">  <a class="code" href="classray.html">ray</a> r1(<a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>(0.2, 0.3 , 0), <a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>(0, 0, 1));</div>
+<div class="line">  <a class="code" href="classray.html">ray</a> r2(<a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>(0.21, 0.31, 0), <a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>(0, 0, 1));</div>
+<div class="line">  rays.push_back(r1); rays.push_back(r2);</div>
+<div class="line">  <a class="code" href="classbun.html">bun</a> b (rays);</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Before transfer: &quot;</span> &lt;&lt; b &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// transfer_part</span></div>
+<div class="line">  <a class="code" href="classtransfer__part.html">transfer_part</a> trfp(<a class="code" href="classtransfer.html">transfer</a>(<a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>(0.01, 0, 0)));</div>
+<div class="line">  trfp.apply(b);</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;After transfer: &quot;</span> &lt;&lt; b &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Standard reflective part</span></div>
+<div class="line">  <a class="code" href="classstandard.html">standard</a> sd2 (1.0/20, -2);</div>
+<div class="line">  <a class="code" href="classshape__reflect__part.html">shape_reflect_part</a> srp(sd2);</div>
+<div class="line">  srp.apply(b);</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;After standard reflective part: &quot;</span> &lt;&lt; b &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;## Pewit ##&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  <a class="code" href="classlpart__vec.html">lpart_vec</a> parts;</div>
+<div class="line">  parts.add_lpart(trfp);</div>
+<div class="line">  parts.add_lpart(srp);</div>
+<div class="line">  <a class="code" href="classbun.html">bun</a> b2 (b);</div>
+<div class="line">  ray_pack ray_buns; ray_buns.push_back(b); ray_buns.push_back(b2);</div>
+<div class="line">  std::vector&lt;int&gt; states_tosave {0, 1};</div>
+<div class="line">  <a class="code" href="classlseq.html">lseq</a> ls (parts, ray_buns, states_tosave);</div>
+<div class="line">  ls.apply_next();</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;After lseq first surface&quot;</span> &lt;&lt; ls.ray_buns.front() &lt;&lt; std::endl;</div>
+<div class="line">  ls.apply_next();</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;After lseq second surface&quot;</span> &lt;&lt; ls.ray_buns.front() &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Saved states ls:&quot;</span> &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;#1: &quot;</span></div>
+<div class="line">            &lt;&lt; ls.saved_states.front().front() &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;#2: &quot;</span></div>
+<div class="line">            &lt;&lt; ls.saved_states.at(1).front() &lt;&lt; std::endl;</div>
+<div class="line">  <span class="comment">// A second time with raytrace all.</span></div>
+<div class="line">  <a class="code" href="classlseq.html">lseq</a> ls2 (parts, ray_buns, states_tosave);</div>
+<div class="line">  ls2.apply_remaining();</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Saved states ls2:&quot;</span> &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;#1: &quot;</span></div>
+<div class="line">            &lt;&lt; ls2.saved_states.front().front() &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;#2: &quot;</span></div>
+<div class="line">            &lt;&lt; ls2.saved_states.at(1).front() &lt;&lt; std::endl;</div>
+<div class="line">}</div>
+<div class="ttc" id="aVec3_8h_html_a8daa2fe909f826a828953371253c9bc0"><div class="ttname"><a href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a></div><div class="ttdeci">Eigen::Vector3d Vec3</div><div class="ttdef"><b>Definition:</b> Vec3.h:10</div></div>
+<div class="ttc" id="aclassbun_html"><div class="ttname"><a href="classbun.html">bun</a></div><div class="ttdef"><b>Definition:</b> bun.h:8</div></div>
+<div class="ttc" id="aclasslpart__vec_html"><div class="ttname"><a href="classlpart__vec.html">lpart_vec</a></div><div class="ttdef"><b>Definition:</b> lpart_vec.h:4</div></div>
+<div class="ttc" id="aclasslseq_html"><div class="ttname"><a href="classlseq.html">lseq</a></div><div class="ttdef"><b>Definition:</b> lseq.h:11</div></div>
+<div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdoc">Class for individual rays.</div><div class="ttdef"><b>Definition:</b> ray.h:9</div></div>
+<div class="ttc" id="aclassshape__reflect__part_html"><div class="ttname"><a href="classshape__reflect__part.html">shape_reflect_part</a></div><div class="ttdef"><b>Definition:</b> shape_part.h:8</div></div>
+<div class="ttc" id="aclassstandard_html"><div class="ttname"><a href="classstandard.html">standard</a></div><div class="ttdoc">Standard shape specialization.</div><div class="ttdef"><b>Definition:</b> standard.h:9</div></div>
+<div class="ttc" id="aclasstransfer__part_html"><div class="ttname"><a href="classtransfer__part.html">transfer_part</a></div><div class="ttdef"><b>Definition:</b> transfer_part.h:7</div></div>
+<div class="ttc" id="aclasstransfer_html"><div class="ttname"><a href="classtransfer.html">transfer</a></div><div class="ttdoc">Transfer operation over a ray.</div><div class="ttdef"><b>Definition:</b> transfer.h:40</div></div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

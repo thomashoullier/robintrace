@@ -209,18 +209,18 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 </div><div class="memdoc">
 
 <p>Status code. </p>
-<p>Status code for signaling error cases in raytracing operations. The status codes are tabulated hereafter. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Link to the functions in the error code description.</dd></dl>
+<p>Status code for signaling error cases in raytracing operations. The status codes are tabulated hereafter.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Code   </th><th class="markdownTableHeadNone">Meaning    </th></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">0   </td><td class="markdownTableBodyNone">Valid    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">3   </td><td class="markdownTableBodyNone">refract: TIR    </td></tr>
+<td class="markdownTableBodyNone">3   </td><td class="markdownTableBodyNone"><a class="el" href="rop_8h.html#aa74fa847bd4488dbd734a4620aa32bf0" title="Refract ray operation.">refract()</a>: TIR    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">4   </td><td class="markdownTableBodyNone">transfer: ray is parallel to the new local plane.    </td></tr>
+<td class="markdownTableBodyNone">4   </td><td class="markdownTableBodyNone"><a class="el" href="classtransfer.html#ab2b38d96e03f97b6c45070bf78de41fe" title="Apply the transfer to a ray.">transfer.apply()</a>: ray is parallel to the new local plane.    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">5   </td><td class="markdownTableBodyNone">standard intersection: No intersection.   </td></tr>
+<td class="markdownTableBodyNone">5   </td><td class="markdownTableBodyNone"><a class="el" href="classstandard.html#a981bf0ab6e99a7ab4591cddac5eb0cdc" title="Operate the intersection of ray r with standard shape.">standard::intersect()</a>: No intersection.   </td></tr>
 </table>
 <p>A status code of 0 means the ray is holding valid values. </p>
 

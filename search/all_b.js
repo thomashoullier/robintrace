@@ -4,5 +4,6 @@ var searchData=
   ['ray_2eh_20',['ray.h',['../ray_8h.html',1,'']]],
   ['reflect_21',['reflect',['../rop_8h.html#a8ca8ddf23bd3b96a2a1309ea724d4d1f',1,'rop.cpp']]],
   ['refract_22',['refract',['../rop_8h.html#aa74fa847bd4488dbd734a4620aa32bf0',1,'rop.cpp']]],
-  ['rop_2eh_23',['rop.h',['../rop_8h.html',1,'']]]
+  ['robintrace_20documentation_23',['RobinTrace documentation',['../index.html',1,'']]],
+  ['rop_2eh_24',['rop.h',['../rop_8h.html',1,'']]]
 ];
