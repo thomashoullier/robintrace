@@ -1,11 +1,12 @@
 #include "lpart/transfer_part.h"
 
+/** The default transfer() is used. */
 transfer_part::transfer_part () {
   trf = transfer();
 }
 
+/** @param _trf Initial \ref transfer operation. */
 transfer_part::transfer_part (transfer _trf) {
-  // Constructor
   trf = _trf;
 }
 

@@ -1,18 +1,36 @@
+/** @file */
 #ifndef SHAPE_PART_H
 #define SHAPE_PART_H
 
 #include "lpart/lpart.h"
 #include "poaky.h"
 
+/** @brief Class template implementing the specialized lparts for
+ * reflective shape parts. */
 template <class T>
 class shape_reflect_part: public lpart {
   public:
+    /** @brief The shape of the part.
+     * 
+     * T is of type \ref shape.*/
     T shp;
 
+    /** @brief Constructor with initialization to the \ref shape \p _shp.
+     * 
+     * @param _shp Initial shape of the part.*/
     shape_reflect_part (T _shp) {
       shp = _shp;
     };
     
+    /** @brief Apply reflective shape lpart operations to the ray bundle \p b.
+     *
+     * @param b Ray bundle to apply the part's operations to.
+     *
+     * The following operations are applied in succession to all rays in the
+     * bundle:
+     * -# shape.intersect()
+     * -# shape.normal()
+     * -# reflect()*/
     void apply(bun &b) {
       for (auto &r : b.rays) {
         if (not(r.is_valid())) {return;}
@@ -32,17 +50,37 @@ class shape_reflect_part: public lpart {
                   "T must be derived from shape.");
 };
 
+/** @brief Class template implementing the specialized lparts for
+ * refractive shape parts. */
 template <class T>
 class shape_refract_part: public lpart {
   public:
+    /** @brief The shape of the part.
+     * 
+     * T is of type \ref shape.*/
     T shp;
+    /** @brief Part's relative refractive index. */
     double nr;
 
+    /** @brief Constructor with initialization to the \ref shape \p _shp
+     * and relative refractive index \p _nr.
+     *
+     * @param _shp Initial shape of the part.
+     * @param _nr Initial relative refractive index of the part. */
     shape_refract_part (T _shp, double _nr) {
       shp = _shp;
       nr = _nr;
     };
-    
+
+    /** @brief Apply refractive shape lpart operations to the ray bundle \p b.
+     *
+     * @param b Ray bundle to apply the part's operations to.
+     *
+     * The following operations are applied in succession to all rays in the
+     * bundle:
+     * -# shape.intersect()
+     * -# shape.normal()
+     * -# refract()*/ 
     void apply(bun &b) {
       for (auto &r : b.rays) {
         if (not(r.is_valid())) {return;}
