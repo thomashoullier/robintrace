@@ -76,37 +76,161 @@ $(function() {
 <div class="title">shape_refract_part&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class template implementing the specialized lparts for refractive shape parts.  
+ <a href="classshape__refract__part.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="shape__part_8h_source.html">shape_part.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for shape_refract_part&lt; T &gt;:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classshape__refract__part.png" usemap="#shape_5Frefract_5Fpart_3C_20T_20_3E_map" alt=""/>
   <map id="shape_5Frefract_5Fpart_3C_20T_20_3E_map" name="shape_5Frefract_5Fpart_3C_20T_20_3E_map">
-<area href="classlpart.html" alt="lpart" shape="rect" coords="0,0,151,24"/>
+<area href="classlpart.html" title="Virtual class for elementary optical parts which can be applied to ray bundles." alt="lpart" shape="rect" coords="0,0,151,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab82928f1aa757abd280a94b6f697cf32"><td class="memItemLeft" align="right" valign="top"><a id="ab82928f1aa757abd280a94b6f697cf32"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>shape_refract_part</b> (T _shp, double _nr)</td></tr>
+<tr class="memitem:ab82928f1aa757abd280a94b6f697cf32"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshape__refract__part.html#ab82928f1aa757abd280a94b6f697cf32">shape_refract_part</a> (T _shp, double _nr)</td></tr>
+<tr class="memdesc:ab82928f1aa757abd280a94b6f697cf32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with initialization to the <a class="el" href="classshape.html">shape</a> <code>_shp</code> and relative refractive index <code>_nr</code>.  <a href="classshape__refract__part.html#ab82928f1aa757abd280a94b6f697cf32">More...</a><br /></td></tr>
 <tr class="separator:ab82928f1aa757abd280a94b6f697cf32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab193068e4c0057d10e96a04aef52dd07"><td class="memItemLeft" align="right" valign="top"><a id="ab193068e4c0057d10e96a04aef52dd07"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>apply</b> (<a class="el" href="classbun.html">bun</a> &amp;b)</td></tr>
+<tr class="memitem:ab193068e4c0057d10e96a04aef52dd07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshape__refract__part.html#ab193068e4c0057d10e96a04aef52dd07">apply</a> (<a class="el" href="classbun.html">bun</a> &amp;b)</td></tr>
+<tr class="memdesc:ab193068e4c0057d10e96a04aef52dd07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply refractive shape lpart operations to the ray bundle <code>b</code>.  <a href="classshape__refract__part.html#ab193068e4c0057d10e96a04aef52dd07">More...</a><br /></td></tr>
 <tr class="separator:ab193068e4c0057d10e96a04aef52dd07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b7713614fbc4c21ea5adc024df7d220"><td class="memItemLeft" align="right" valign="top"><a id="a9b7713614fbc4c21ea5adc024df7d220"></a>
-std::unique_ptr&lt; <a class="el" href="classlpart.html">lpart</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> () const override</td></tr>
+std::unique_ptr&lt; <a class="el" href="classlpart.html">lpart</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshape__refract__part.html#a9b7713614fbc4c21ea5adc024df7d220">clone</a> () const override</td></tr>
+<tr class="memdesc:a9b7713614fbc4c21ea5adc024df7d220"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain a copy of the lpart. <br /></td></tr>
 <tr class="separator:a9b7713614fbc4c21ea5adc024df7d220"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aee05f4a99cbad85cd82d6a5ee57a0c87"><td class="memItemLeft" align="right" valign="top"><a id="aee05f4a99cbad85cd82d6a5ee57a0c87"></a>
-T&#160;</td><td class="memItemRight" valign="bottom"><b>shp</b></td></tr>
+<tr class="memitem:aee05f4a99cbad85cd82d6a5ee57a0c87"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshape__refract__part.html#aee05f4a99cbad85cd82d6a5ee57a0c87">shp</a></td></tr>
+<tr class="memdesc:aee05f4a99cbad85cd82d6a5ee57a0c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">The shape of the part.  <a href="classshape__refract__part.html#aee05f4a99cbad85cd82d6a5ee57a0c87">More...</a><br /></td></tr>
 <tr class="separator:aee05f4a99cbad85cd82d6a5ee57a0c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca8782fc273bd21d20f1858db12237d0"><td class="memItemLeft" align="right" valign="top"><a id="aca8782fc273bd21d20f1858db12237d0"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>nr</b></td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshape__refract__part.html#aca8782fc273bd21d20f1858db12237d0">nr</a></td></tr>
+<tr class="memdesc:aca8782fc273bd21d20f1858db12237d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Part's relative refractive index. <br /></td></tr>
 <tr class="separator:aca8782fc273bd21d20f1858db12237d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class T&gt;<br />
+class shape_refract_part&lt; T &gt;</h3>
+
+<p>Class template implementing the specialized lparts for refractive shape parts. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab82928f1aa757abd280a94b6f697cf32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab82928f1aa757abd280a94b6f697cf32">&#9670;&nbsp;</a></span>shape_refract_part()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classshape__refract__part.html">shape_refract_part</a>&lt; T &gt;::<a class="el" href="classshape__refract__part.html">shape_refract_part</a> </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>_shp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>_nr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor with initialization to the <a class="el" href="classshape.html">shape</a> <code>_shp</code> and relative refractive index <code>_nr</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_shp</td><td>Initial shape of the part. </td></tr>
+    <tr><td class="paramname">_nr</td><td>Initial relative refractive index of the part. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab193068e4c0057d10e96a04aef52dd07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab193068e4c0057d10e96a04aef52dd07">&#9670;&nbsp;</a></span>apply()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classshape__refract__part.html">shape_refract_part</a>&lt; T &gt;::apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbun.html">bun</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Apply refractive shape lpart operations to the ray bundle <code>b</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>Ray bundle to apply the part's operations to.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The following operations are applied in succession to all rays in the bundle:</p><ol type="1">
+<li><a class="el" href="classshape.html#aaa21155e79aa229a2c34153737c20d78" title="Operate the intersection of ray r with shape.">shape.intersect()</a></li>
+<li><a class="el" href="classshape.html#aaa93301745a42ed383cbd156804cc9d0" title="Compute the normal of shape at current ray r position.">shape.normal()</a></li>
+<li><a class="el" href="rop_8h.html#aa74fa847bd4488dbd734a4620aa32bf0" title="Refract ray operation.">refract()</a> </li>
+</ol>
+
+<p>Implements <a class="el" href="classlpart.html#ad6c1868f6d5b812c6cf0e97a1c5ad83f">lpart</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aee05f4a99cbad85cd82d6a5ee57a0c87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee05f4a99cbad85cd82d6a5ee57a0c87">&#9670;&nbsp;</a></span>shp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="classshape__refract__part.html">shape_refract_part</a>&lt; T &gt;::shp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The shape of the part. </p>
+<p>T is of type <a class="el" href="classshape.html">shape</a>. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/pinyo/src/lpart/<a class="el" href="shape__part_8h_source.html">shape_part.h</a></li>
 </ul>

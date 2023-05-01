@@ -76,37 +76,42 @@ $(function() {
 <div class="title">lpart_vec.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="classlpart__vec.html">    4</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlpart__vec.html">lpart_vec</a> {</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    std::vector&lt;std::unique_ptr&lt;lpart&gt;&gt; v;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordtype">void</span> add_lpart(T part) {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;      static_assert(std::is_base_of&lt;lpart, T&gt;::value,</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;                    <span class="stringliteral">&quot;T must be derived from lpart.&quot;</span>);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;      v.push_back(std::make_unique&lt;T&gt;(part));</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    };</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::vector&lt;std::unique_ptr&lt;lpart&gt;&gt; clone_vec ()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;      <span class="comment">// Return a copy of the internal vector.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;      std::vector&lt;std::unique_ptr&lt;lpart&gt;&gt; _v;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;ptr : v) {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        _v.push_back(std::unique_ptr&lt;lpart&gt;(ptr-&gt;clone()));</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;      <span class="keywordflow">return</span> _v;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    };</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classlpart__vec.html">lpart_vec</a> cpy ()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      <span class="comment">// Return a copy of the instance.</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      <a class="code" href="classlpart__vec.html">lpart_vec</a> lv;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      lv.v = clone_vec();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      <span class="keywordflow">return</span> lv;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    };</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
-<div class="ttc" id="aclasslpart__vec_html"><div class="ttname"><a href="classlpart__vec.html">lpart_vec</a></div><div class="ttdef"><b>Definition:</b> lpart_vec.h:4</div></div>
+<a href="lpart__vec_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classlpart__vec.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlpart__vec.html">lpart_vec</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classlpart__vec.html#a7d4c800602bb450df87a9329a72bceac">   11</a></span>&#160;    std::vector&lt;std::unique_ptr&lt;lpart&gt;&gt; <a class="code" href="classlpart__vec.html#a7d4c800602bb450df87a9329a72bceac">v</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classlpart__vec.html#a601d8eb631557df3203d9e2f46b2931a">   17</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classlpart__vec.html#a601d8eb631557df3203d9e2f46b2931a">add_lpart</a>(T part) {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;      static_assert(std::is_base_of&lt;lpart, T&gt;::value,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                    <span class="stringliteral">&quot;T must be derived from lpart.&quot;</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      <a class="code" href="classlpart__vec.html#a7d4c800602bb450df87a9329a72bceac">v</a>.push_back(std::make_unique&lt;T&gt;(part));</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    };</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classlpart__vec.html#a55f2d1dd9f0caaecc09283d981420914">   24</a></span>&#160;    std::vector&lt;std::unique_ptr&lt;lpart&gt;&gt; <a class="code" href="classlpart__vec.html#a55f2d1dd9f0caaecc09283d981420914">clone_vec</a> ()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      <span class="comment">// Return a copy of the internal vector.</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      std::vector&lt;std::unique_ptr&lt;lpart&gt;&gt; _v;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;ptr : <a class="code" href="classlpart__vec.html#a7d4c800602bb450df87a9329a72bceac">v</a>) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        _v.push_back(std::unique_ptr&lt;lpart&gt;(ptr-&gt;clone()));</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      <span class="keywordflow">return</span> _v;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    };</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classlpart__vec.html#af8b4b7bec37ff232dff04649d906a725">   34</a></span>&#160;    <a class="code" href="classlpart__vec.html">lpart_vec</a> <a class="code" href="classlpart__vec.html#af8b4b7bec37ff232dff04649d906a725">cpy</a> ()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="comment">// Return a copy of the instance.</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <a class="code" href="classlpart__vec.html">lpart_vec</a> lv;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      lv.<a class="code" href="classlpart__vec.html#a7d4c800602bb450df87a9329a72bceac">v</a> = <a class="code" href="classlpart__vec.html#a55f2d1dd9f0caaecc09283d981420914">clone_vec</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keywordflow">return</span> lv;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    };</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="ttc" id="aclasslpart__vec_html"><div class="ttname"><a href="classlpart__vec.html">lpart_vec</a></div><div class="ttdoc">Vector of lparts.</div><div class="ttdef"><b>Definition:</b> lpart_vec.h:8</div></div>
+<div class="ttc" id="aclasslpart__vec_html_a55f2d1dd9f0caaecc09283d981420914"><div class="ttname"><a href="classlpart__vec.html#a55f2d1dd9f0caaecc09283d981420914">lpart_vec::clone_vec</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; lpart &gt; &gt; clone_vec() const</div><div class="ttdoc">Return a deep copy of the raw vector of lparts.</div><div class="ttdef"><b>Definition:</b> lpart_vec.h:24</div></div>
+<div class="ttc" id="aclasslpart__vec_html_a601d8eb631557df3203d9e2f46b2931a"><div class="ttname"><a href="classlpart__vec.html#a601d8eb631557df3203d9e2f46b2931a">lpart_vec::add_lpart</a></div><div class="ttdeci">void add_lpart(T part)</div><div class="ttdoc">Add a lpart to the vector.</div><div class="ttdef"><b>Definition:</b> lpart_vec.h:17</div></div>
+<div class="ttc" id="aclasslpart__vec_html_a7d4c800602bb450df87a9329a72bceac"><div class="ttname"><a href="classlpart__vec.html#a7d4c800602bb450df87a9329a72bceac">lpart_vec::v</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; lpart &gt; &gt; v</div><div class="ttdoc">Vector of lpart.</div><div class="ttdef"><b>Definition:</b> lpart_vec.h:11</div></div>
+<div class="ttc" id="aclasslpart__vec_html_af8b4b7bec37ff232dff04649d906a725"><div class="ttname"><a href="classlpart__vec.html#af8b4b7bec37ff232dff04649d906a725">lpart_vec::cpy</a></div><div class="ttdeci">lpart_vec cpy() const</div><div class="ttdoc">Return a deep copy of the instance.</div><div class="ttdef"><b>Definition:</b> lpart_vec.h:34</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

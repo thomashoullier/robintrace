@@ -76,22 +76,25 @@ $(function() {
 <div class="title">lpart.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef LPART_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define LPART_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;bun/bun.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;memory&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classlpart.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlpart.html">lpart</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="comment">// Virtual top class for any part which can be applied to ray bundles.</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> apply (<a class="code" href="classbun.html">bun</a> &amp;b) = 0;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">virtual</span> std::unique_ptr&lt;lpart&gt; clone () <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;};</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LPART_H</span></div>
-<div class="ttc" id="aclassbun_html"><div class="ttname"><a href="classbun.html">bun</a></div><div class="ttdef"><b>Definition:</b> bun.h:8</div></div>
-<div class="ttc" id="aclasslpart_html"><div class="ttname"><a href="classlpart.html">lpart</a></div><div class="ttdef"><b>Definition:</b> lpart.h:7</div></div>
+<a href="lpart_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef LPART_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define LPART_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="bun_8h.html">bun/bun.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;memory&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classlpart.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlpart.html">lpart</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classlpart.html#ad6c1868f6d5b812c6cf0e97a1c5ad83f">   17</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classlpart.html#ad6c1868f6d5b812c6cf0e97a1c5ad83f">apply</a> (<a class="code" href="classbun.html">bun</a> &amp;b) = 0;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classlpart.html#ae8f9cc6d60857831ea83e25ba294f02a">   19</a></span>&#160;    <span class="keyword">virtual</span> std::unique_ptr&lt;lpart&gt; <a class="code" href="classlpart.html#ae8f9cc6d60857831ea83e25ba294f02a">clone</a> () <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LPART_H</span></div>
+<div class="ttc" id="abun_8h_html"><div class="ttname"><a href="bun_8h.html">bun.h</a></div></div>
+<div class="ttc" id="aclassbun_html"><div class="ttname"><a href="classbun.html">bun</a></div><div class="ttdoc">Class for ray bundles.</div><div class="ttdef"><b>Definition:</b> bun.h:13</div></div>
+<div class="ttc" id="aclasslpart_html"><div class="ttname"><a href="classlpart.html">lpart</a></div><div class="ttdoc">Virtual class for elementary optical parts which can be applied to ray bundles.</div><div class="ttdef"><b>Definition:</b> lpart.h:10</div></div>
+<div class="ttc" id="aclasslpart_html_ad6c1868f6d5b812c6cf0e97a1c5ad83f"><div class="ttname"><a href="classlpart.html#ad6c1868f6d5b812c6cf0e97a1c5ad83f">lpart::apply</a></div><div class="ttdeci">virtual void apply(bun &amp;b)=0</div><div class="ttdoc">Apply the lpart's operations to the ray bundle b.</div></div>
+<div class="ttc" id="aclasslpart_html_ae8f9cc6d60857831ea83e25ba294f02a"><div class="ttname"><a href="classlpart.html#ae8f9cc6d60857831ea83e25ba294f02a">lpart::clone</a></div><div class="ttdeci">virtual std::unique_ptr&lt; lpart &gt; clone() const =0</div><div class="ttdoc">Obtain a copy of the lpart.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

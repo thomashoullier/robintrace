@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['ray_62',['ray',['../classray.html#a6a81906c090ceff40ac9a288639f4861',1,'ray::ray()'],['../classray.html#a5c5b00676ae7c16d158b5a7d77b28609',1,'ray::ray(Vec3 _p, Vec3 _v)']]],
-  ['reflect_63',['reflect',['../rop_8h.html#a8ca8ddf23bd3b96a2a1309ea724d4d1f',1,'rop.cpp']]],
-  ['refract_64',['refract',['../rop_8h.html#aa74fa847bd4488dbd734a4620aa32bf0',1,'rop.cpp']]]
+  ['intersect_96',['intersect',['../classplane.html#af51269acf5cfb5f9da741a40d6e77c6c',1,'plane::intersect()'],['../classshape.html#aaa21155e79aa229a2c34153737c20d78',1,'shape::intersect()'],['../classstandard.html#a981bf0ab6e99a7ab4591cddac5eb0cdc',1,'standard::intersect()']]],
+  ['is_5fvalid_97',['is_valid',['../classray.html#ae10b3bef7b50f4a545273839c33f36f2',1,'ray']]]
 ];

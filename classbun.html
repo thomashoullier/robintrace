@@ -71,24 +71,91 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classbun-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">bun Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class for ray bundles.  
+ <a href="classbun.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="bun_8h_source.html">bun.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af05def2b13ecd4c0547aa710eef7f348"><td class="memItemLeft" align="right" valign="top"><a id="af05def2b13ecd4c0547aa710eef7f348"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>bun</b> (const std::vector&lt; <a class="el" href="classray.html">ray</a> &gt; _rays)</td></tr>
+<tr class="memitem:a82c41a8188f7371e7a248d0ac8a71c8b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbun.html#a82c41a8188f7371e7a248d0ac8a71c8b">bun</a> ()</td></tr>
+<tr class="memdesc:a82c41a8188f7371e7a248d0ac8a71c8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="classbun.html#a82c41a8188f7371e7a248d0ac8a71c8b">More...</a><br /></td></tr>
+<tr class="separator:a82c41a8188f7371e7a248d0ac8a71c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af05def2b13ecd4c0547aa710eef7f348"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbun.html#af05def2b13ecd4c0547aa710eef7f348">bun</a> (const std::vector&lt; <a class="el" href="classray.html">ray</a> &gt; _rays)</td></tr>
+<tr class="memdesc:af05def2b13ecd4c0547aa710eef7f348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization constructor.  <a href="classbun.html#af05def2b13ecd4c0547aa710eef7f348">More...</a><br /></td></tr>
 <tr class="separator:af05def2b13ecd4c0547aa710eef7f348"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a7746631f6ba8a333c124b0043765623e"><td class="memItemLeft" align="right" valign="top"><a id="a7746631f6ba8a333c124b0043765623e"></a>
-std::vector&lt; <a class="el" href="classray.html">ray</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>rays</b></td></tr>
+std::vector&lt; <a class="el" href="classray.html">ray</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbun.html#a7746631f6ba8a333c124b0043765623e">rays</a></td></tr>
+<tr class="memdesc:a7746631f6ba8a333c124b0043765623e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of rays. <br /></td></tr>
 <tr class="separator:a7746631f6ba8a333c124b0043765623e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a116b7c621a3c4491578eaa1e85d56fe6"><td class="memItemLeft" align="right" valign="top"><a id="a116b7c621a3c4491578eaa1e85d56fe6"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbun.html#a116b7c621a3c4491578eaa1e85d56fe6">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="classbun.html">bun</a> &amp;b)</td></tr>
+<tr class="memdesc:a116b7c621a3c4491578eaa1e85d56fe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Printer. <br /></td></tr>
+<tr class="separator:a116b7c621a3c4491578eaa1e85d56fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class for ray bundles. </p>
+<p>The bun class is a very thin abstraction around a vector of rays. It is used in order to define operations over groups of rays. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a82c41a8188f7371e7a248d0ac8a71c8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82c41a8188f7371e7a248d0ac8a71c8b">&#9670;&nbsp;</a></span>bun() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bun::bun </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+<p>An empty vector of rays is initialized. </p>
+
+</div>
+</div>
+<a id="af05def2b13ecd4c0547aa710eef7f348"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af05def2b13ecd4c0547aa710eef7f348">&#9670;&nbsp;</a></span>bun() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bun::bun </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classray.html">ray</a> &gt;&#160;</td>
+          <td class="paramname"><em>_rays</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialization constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_rays</td><td>Initial vector of rays. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/pinyo/src/bun/<a class="el" href="bun_8h_source.html">bun.h</a></li>
 <li>src/pinyo/src/bun/bun.cpp</li>

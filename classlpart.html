@@ -75,27 +75,67 @@ $(function() {
 <div class="title">lpart Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Virtual class for elementary optical parts which can be applied to ray bundles.  
+ <a href="classlpart.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="lpart_8h_source.html">lpart.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for lpart:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classlpart.png" usemap="#lpart_map" alt=""/>
   <map id="lpart_map" name="lpart_map">
-<area href="classshape__reflect__part.html" alt="shape_reflect_part&lt; T &gt;" shape="rect" coords="0,56,151,80"/>
-<area href="classshape__refract__part.html" alt="shape_refract_part&lt; T &gt;" shape="rect" coords="161,56,312,80"/>
-<area href="classtransfer__part.html" alt="transfer_part" shape="rect" coords="322,56,473,80"/>
+<area href="classshape__reflect__part.html" title="Class template implementing the specialized lparts for reflective shape parts." alt="shape_reflect_part&lt; T &gt;" shape="rect" coords="0,56,151,80"/>
+<area href="classshape__refract__part.html" title="Class template implementing the specialized lparts for refractive shape parts." alt="shape_refract_part&lt; T &gt;" shape="rect" coords="161,56,312,80"/>
+<area href="classtransfer__part.html" title="Part which applies a transfer operation to rays." alt="transfer_part" shape="rect" coords="322,56,473,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad6c1868f6d5b812c6cf0e97a1c5ad83f"><td class="memItemLeft" align="right" valign="top"><a id="ad6c1868f6d5b812c6cf0e97a1c5ad83f"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>apply</b> (<a class="el" href="classbun.html">bun</a> &amp;b)=0</td></tr>
+<tr class="memitem:ad6c1868f6d5b812c6cf0e97a1c5ad83f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlpart.html#ad6c1868f6d5b812c6cf0e97a1c5ad83f">apply</a> (<a class="el" href="classbun.html">bun</a> &amp;b)=0</td></tr>
+<tr class="memdesc:ad6c1868f6d5b812c6cf0e97a1c5ad83f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the lpart's operations to the ray bundle <code>b</code>.  <a href="classlpart.html#ad6c1868f6d5b812c6cf0e97a1c5ad83f">More...</a><br /></td></tr>
 <tr class="separator:ad6c1868f6d5b812c6cf0e97a1c5ad83f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8f9cc6d60857831ea83e25ba294f02a"><td class="memItemLeft" align="right" valign="top"><a id="ae8f9cc6d60857831ea83e25ba294f02a"></a>
-virtual std::unique_ptr&lt; <a class="el" href="classlpart.html">lpart</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> () const =0</td></tr>
+virtual std::unique_ptr&lt; <a class="el" href="classlpart.html">lpart</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlpart.html#ae8f9cc6d60857831ea83e25ba294f02a">clone</a> () const =0</td></tr>
+<tr class="memdesc:ae8f9cc6d60857831ea83e25ba294f02a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain a copy of the lpart. <br /></td></tr>
 <tr class="separator:ae8f9cc6d60857831ea83e25ba294f02a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Virtual class for elementary optical parts which can be applied to ray bundles. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad6c1868f6d5b812c6cf0e97a1c5ad83f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6c1868f6d5b812c6cf0e97a1c5ad83f">&#9670;&nbsp;</a></span>apply()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void lpart::apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbun.html">bun</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Apply the lpart's operations to the ray bundle <code>b</code>. </p>
+<p>A part typically manages the error cases which occur at the individual ray level. The default behaviour is to leave non-valid rays out of any computations and continue with valid rays. </p>
+
+<p>Implemented in <a class="el" href="classtransfer__part.html#aed28daeaa7f623dd282af5083ac6f6d4">transfer_part</a>, <a class="el" href="classshape__refract__part.html#ab193068e4c0057d10e96a04aef52dd07">shape_refract_part&lt; T &gt;</a>, and <a class="el" href="classshape__reflect__part.html#a93af7d18062ba3f9cd8563e3c447ba3a">shape_reflect_part&lt; T &gt;</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/pinyo/src/lpart/<a class="el" href="lpart_8h_source.html">lpart.h</a></li>
 </ul>

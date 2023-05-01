@@ -76,75 +76,87 @@ $(function() {
 <div class="title">shape_part.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SHAPE_PART_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SHAPE_PART_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;lpart/lpart.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;poaky.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classshape__reflect__part.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classshape__reflect__part.html">shape_reflect_part</a>: <span class="keyword">public</span> <a class="code" href="classlpart.html">lpart</a> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    T shp;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classshape__reflect__part.html">shape_reflect_part</a> (T _shp) {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;      shp = _shp;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    };</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> apply(<a class="code" href="classbun.html">bun</a> &amp;b) {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;r : b.rays) {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">if</span> (not(r.is_valid())) {<span class="keywordflow">return</span>;}</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        shp.intersect(r);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">if</span> (not(r.is_valid())) {<span class="keywordflow">return</span>;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">auto</span> N = shp.normal(r);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">if</span> (not(r.is_valid())) {<span class="keywordflow">return</span>;}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="rop_8h.html#a8ca8ddf23bd3b96a2a1309ea724d4d1f">reflect</a>(r, N);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    };</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::unique_ptr&lt;lpart&gt; clone ()<span class="keyword"> const override </span>{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      <span class="keywordflow">return</span> std::make_unique&lt;shape_reflect_part&gt;(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    };</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    static_assert(std::is_base_of&lt;shape, T&gt;::value,</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                  <span class="stringliteral">&quot;T must be derived from shape.&quot;</span>);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classshape__refract__part.html">   36</a></span>&#160;<span class="keyword">class </span><a class="code" href="classshape__refract__part.html">shape_refract_part</a>: <span class="keyword">public</span> <a class="code" href="classlpart.html">lpart</a> {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    T shp;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">double</span> nr;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classshape__refract__part.html">shape_refract_part</a> (T _shp, <span class="keywordtype">double</span> _nr) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      shp = _shp;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      nr = _nr;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    };</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> apply(<a class="code" href="classbun.html">bun</a> &amp;b) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;r : b.rays) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span> (not(r.is_valid())) {<span class="keywordflow">return</span>;}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        shp.intersect(r);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">if</span> (not(r.is_valid())) {<span class="keywordflow">return</span>;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">auto</span> N = shp.normal(r);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">if</span> (not(r.is_valid())) {<span class="keywordflow">return</span>;}</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="rop_8h.html#aa74fa847bd4488dbd734a4620aa32bf0">refract</a>(r, N, nr);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    };</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    std::unique_ptr&lt;lpart&gt; clone ()<span class="keyword"> const override </span>{</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keywordflow">return</span> std::make_unique&lt;shape_refract_part&gt;(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    };</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    static_assert(std::is_base_of&lt;shape, T&gt;::value,</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                  <span class="stringliteral">&quot;T must be derived from shape.&quot;</span>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<a href="shape__part_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef SHAPE_PART_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define SHAPE_PART_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="lpart_8h.html">lpart/lpart.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;poaky.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classshape__reflect__part.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classshape__reflect__part.html">shape_reflect_part</a>: <span class="keyword">public</span> <a class="code" href="classlpart.html">lpart</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classshape__reflect__part.html#a2b4c0aa6a2c6a10b8e6e761889665660">   16</a></span>&#160;    T <a class="code" href="classshape__reflect__part.html#a2b4c0aa6a2c6a10b8e6e761889665660">shp</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classshape__reflect__part.html#a5d174ee14db57cfcd62b144529015890">   21</a></span>&#160;    <a class="code" href="classshape__reflect__part.html#a5d174ee14db57cfcd62b144529015890">shape_reflect_part</a> (T _shp) {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;      <a class="code" href="classshape__reflect__part.html#a2b4c0aa6a2c6a10b8e6e761889665660">shp</a> = _shp;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    };</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classshape__reflect__part.html#a93af7d18062ba3f9cd8563e3c447ba3a">   34</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classshape__reflect__part.html#a93af7d18062ba3f9cd8563e3c447ba3a">apply</a>(<a class="code" href="classbun.html">bun</a> &amp;b) {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;r : b.<a class="code" href="classbun.html#a7746631f6ba8a333c124b0043765623e">rays</a>) {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span> (not(r.is_valid())) {<span class="keywordflow">return</span>;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="classshape__reflect__part.html#a2b4c0aa6a2c6a10b8e6e761889665660">shp</a>.intersect(r);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span> (not(r.is_valid())) {<span class="keywordflow">return</span>;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">auto</span> N = <a class="code" href="classshape__reflect__part.html#a2b4c0aa6a2c6a10b8e6e761889665660">shp</a>.normal(r);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">if</span> (not(r.is_valid())) {<span class="keywordflow">return</span>;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="rop_8h.html#a8ca8ddf23bd3b96a2a1309ea724d4d1f">reflect</a>(r, N);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    };</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classshape__reflect__part.html#ac15ee88161bfc66ff735d234557ef554">   45</a></span>&#160;    std::unique_ptr&lt;lpart&gt; <a class="code" href="classshape__reflect__part.html#ac15ee88161bfc66ff735d234557ef554">clone</a> ()<span class="keyword"> const override </span>{</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="keywordflow">return</span> std::make_unique&lt;shape_reflect_part&gt;(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    };</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    static_assert(std::is_base_of&lt;shape, T&gt;::value,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                  <span class="stringliteral">&quot;T must be derived from shape.&quot;</span>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classshape__refract__part.html">   56</a></span>&#160;<span class="keyword">class </span><a class="code" href="classshape__refract__part.html">shape_refract_part</a>: <span class="keyword">public</span> <a class="code" href="classlpart.html">lpart</a> {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classshape__refract__part.html#aee05f4a99cbad85cd82d6a5ee57a0c87">   61</a></span>&#160;    T <a class="code" href="classshape__refract__part.html#aee05f4a99cbad85cd82d6a5ee57a0c87">shp</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classshape__refract__part.html#aca8782fc273bd21d20f1858db12237d0">   63</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classshape__refract__part.html#aca8782fc273bd21d20f1858db12237d0">nr</a>;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SHAPE_PART_H</span></div>
-<div class="ttc" id="aclassbun_html"><div class="ttname"><a href="classbun.html">bun</a></div><div class="ttdef"><b>Definition:</b> bun.h:8</div></div>
-<div class="ttc" id="aclasslpart_html"><div class="ttname"><a href="classlpart.html">lpart</a></div><div class="ttdef"><b>Definition:</b> lpart.h:7</div></div>
-<div class="ttc" id="aclassshape__reflect__part_html"><div class="ttname"><a href="classshape__reflect__part.html">shape_reflect_part</a></div><div class="ttdef"><b>Definition:</b> shape_part.h:8</div></div>
-<div class="ttc" id="aclassshape__refract__part_html"><div class="ttname"><a href="classshape__refract__part.html">shape_refract_part</a></div><div class="ttdef"><b>Definition:</b> shape_part.h:36</div></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classshape__refract__part.html#ab82928f1aa757abd280a94b6f697cf32">   70</a></span>&#160;    <a class="code" href="classshape__refract__part.html#ab82928f1aa757abd280a94b6f697cf32">shape_refract_part</a> (T _shp, <span class="keywordtype">double</span> _nr) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <a class="code" href="classshape__refract__part.html#aee05f4a99cbad85cd82d6a5ee57a0c87">shp</a> = _shp;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <a class="code" href="classshape__refract__part.html#aca8782fc273bd21d20f1858db12237d0">nr</a> = _nr;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    };</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classshape__refract__part.html#ab193068e4c0057d10e96a04aef52dd07">   84</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classshape__refract__part.html#ab193068e4c0057d10e96a04aef52dd07">apply</a>(<a class="code" href="classbun.html">bun</a> &amp;b) {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;r : b.<a class="code" href="classbun.html#a7746631f6ba8a333c124b0043765623e">rays</a>) {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">if</span> (not(r.is_valid())) {<span class="keywordflow">return</span>;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="classshape__refract__part.html#aee05f4a99cbad85cd82d6a5ee57a0c87">shp</a>.intersect(r);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">if</span> (not(r.is_valid())) {<span class="keywordflow">return</span>;}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">auto</span> N = <a class="code" href="classshape__refract__part.html#aee05f4a99cbad85cd82d6a5ee57a0c87">shp</a>.normal(r);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">if</span> (not(r.is_valid())) {<span class="keywordflow">return</span>;}</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <a class="code" href="rop_8h.html#aa74fa847bd4488dbd734a4620aa32bf0">refract</a>(r, N, <a class="code" href="classshape__refract__part.html#aca8782fc273bd21d20f1858db12237d0">nr</a>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    };</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classshape__refract__part.html#a9b7713614fbc4c21ea5adc024df7d220">   95</a></span>&#160;    std::unique_ptr&lt;lpart&gt; <a class="code" href="classshape__refract__part.html#a9b7713614fbc4c21ea5adc024df7d220">clone</a> ()<span class="keyword"> const override </span>{</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="keywordflow">return</span> std::make_unique&lt;shape_refract_part&gt;(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    };</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    static_assert(std::is_base_of&lt;shape, T&gt;::value,</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                  <span class="stringliteral">&quot;T must be derived from shape.&quot;</span>);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;};</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SHAPE_PART_H</span></div>
+<div class="ttc" id="aclassbun_html"><div class="ttname"><a href="classbun.html">bun</a></div><div class="ttdoc">Class for ray bundles.</div><div class="ttdef"><b>Definition:</b> bun.h:13</div></div>
+<div class="ttc" id="aclassbun_html_a7746631f6ba8a333c124b0043765623e"><div class="ttname"><a href="classbun.html#a7746631f6ba8a333c124b0043765623e">bun::rays</a></div><div class="ttdeci">std::vector&lt; ray &gt; rays</div><div class="ttdoc">Vector of rays.</div><div class="ttdef"><b>Definition:</b> bun.h:16</div></div>
+<div class="ttc" id="aclasslpart_html"><div class="ttname"><a href="classlpart.html">lpart</a></div><div class="ttdoc">Virtual class for elementary optical parts which can be applied to ray bundles.</div><div class="ttdef"><b>Definition:</b> lpart.h:10</div></div>
+<div class="ttc" id="aclassshape__reflect__part_html"><div class="ttname"><a href="classshape__reflect__part.html">shape_reflect_part</a></div><div class="ttdoc">Class template implementing the specialized lparts for reflective shape parts.</div><div class="ttdef"><b>Definition:</b> shape_part.h:11</div></div>
+<div class="ttc" id="aclassshape__reflect__part_html_a2b4c0aa6a2c6a10b8e6e761889665660"><div class="ttname"><a href="classshape__reflect__part.html#a2b4c0aa6a2c6a10b8e6e761889665660">shape_reflect_part::shp</a></div><div class="ttdeci">T shp</div><div class="ttdoc">The shape of the part.</div><div class="ttdef"><b>Definition:</b> shape_part.h:16</div></div>
+<div class="ttc" id="aclassshape__reflect__part_html_a5d174ee14db57cfcd62b144529015890"><div class="ttname"><a href="classshape__reflect__part.html#a5d174ee14db57cfcd62b144529015890">shape_reflect_part::shape_reflect_part</a></div><div class="ttdeci">shape_reflect_part(T _shp)</div><div class="ttdoc">Constructor with initialization to the shape _shp.</div><div class="ttdef"><b>Definition:</b> shape_part.h:21</div></div>
+<div class="ttc" id="aclassshape__reflect__part_html_a93af7d18062ba3f9cd8563e3c447ba3a"><div class="ttname"><a href="classshape__reflect__part.html#a93af7d18062ba3f9cd8563e3c447ba3a">shape_reflect_part::apply</a></div><div class="ttdeci">void apply(bun &amp;b)</div><div class="ttdoc">Apply reflective shape lpart operations to the ray bundle b.</div><div class="ttdef"><b>Definition:</b> shape_part.h:34</div></div>
+<div class="ttc" id="aclassshape__reflect__part_html_ac15ee88161bfc66ff735d234557ef554"><div class="ttname"><a href="classshape__reflect__part.html#ac15ee88161bfc66ff735d234557ef554">shape_reflect_part::clone</a></div><div class="ttdeci">std::unique_ptr&lt; lpart &gt; clone() const override</div><div class="ttdoc">Obtain a copy of the lpart.</div><div class="ttdef"><b>Definition:</b> shape_part.h:45</div></div>
+<div class="ttc" id="aclassshape__refract__part_html"><div class="ttname"><a href="classshape__refract__part.html">shape_refract_part</a></div><div class="ttdoc">Class template implementing the specialized lparts for refractive shape parts.</div><div class="ttdef"><b>Definition:</b> shape_part.h:56</div></div>
+<div class="ttc" id="aclassshape__refract__part_html_a9b7713614fbc4c21ea5adc024df7d220"><div class="ttname"><a href="classshape__refract__part.html#a9b7713614fbc4c21ea5adc024df7d220">shape_refract_part::clone</a></div><div class="ttdeci">std::unique_ptr&lt; lpart &gt; clone() const override</div><div class="ttdoc">Obtain a copy of the lpart.</div><div class="ttdef"><b>Definition:</b> shape_part.h:95</div></div>
+<div class="ttc" id="aclassshape__refract__part_html_ab193068e4c0057d10e96a04aef52dd07"><div class="ttname"><a href="classshape__refract__part.html#ab193068e4c0057d10e96a04aef52dd07">shape_refract_part::apply</a></div><div class="ttdeci">void apply(bun &amp;b)</div><div class="ttdoc">Apply refractive shape lpart operations to the ray bundle b.</div><div class="ttdef"><b>Definition:</b> shape_part.h:84</div></div>
+<div class="ttc" id="aclassshape__refract__part_html_ab82928f1aa757abd280a94b6f697cf32"><div class="ttname"><a href="classshape__refract__part.html#ab82928f1aa757abd280a94b6f697cf32">shape_refract_part::shape_refract_part</a></div><div class="ttdeci">shape_refract_part(T _shp, double _nr)</div><div class="ttdoc">Constructor with initialization to the shape _shp and relative refractive index _nr.</div><div class="ttdef"><b>Definition:</b> shape_part.h:70</div></div>
+<div class="ttc" id="aclassshape__refract__part_html_aca8782fc273bd21d20f1858db12237d0"><div class="ttname"><a href="classshape__refract__part.html#aca8782fc273bd21d20f1858db12237d0">shape_refract_part::nr</a></div><div class="ttdeci">double nr</div><div class="ttdoc">Part's relative refractive index.</div><div class="ttdef"><b>Definition:</b> shape_part.h:63</div></div>
+<div class="ttc" id="aclassshape__refract__part_html_aee05f4a99cbad85cd82d6a5ee57a0c87"><div class="ttname"><a href="classshape__refract__part.html#aee05f4a99cbad85cd82d6a5ee57a0c87">shape_refract_part::shp</a></div><div class="ttdeci">T shp</div><div class="ttdoc">The shape of the part.</div><div class="ttdef"><b>Definition:</b> shape_part.h:61</div></div>
+<div class="ttc" id="alpart_8h_html"><div class="ttname"><a href="lpart_8h.html">lpart.h</a></div></div>
 <div class="ttc" id="arop_8h_html_a8ca8ddf23bd3b96a2a1309ea724d4d1f"><div class="ttname"><a href="rop_8h.html#a8ca8ddf23bd3b96a2a1309ea724d4d1f">reflect</a></div><div class="ttdeci">void reflect(ray &amp;r, const Vec3 &amp;N)</div><div class="ttdoc">Reflect ray operation.</div><div class="ttdef"><b>Definition:</b> rop.cpp:9</div></div>
 <div class="ttc" id="arop_8h_html_aa74fa847bd4488dbd734a4620aa32bf0"><div class="ttname"><a href="rop_8h.html#aa74fa847bd4488dbd734a4620aa32bf0">refract</a></div><div class="ttdeci">void refract(ray &amp;r, const Vec3 &amp;N, double nr)</div><div class="ttdoc">Refract ray operation.</div><div class="ttdef"><b>Definition:</b> rop.cpp:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
