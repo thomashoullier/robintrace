@@ -22,7 +22,7 @@
 * is in place to monitor the performance.
 *
 * \section layers API layers
-* We decomposed the program into three layers.
+* We decomposed the program into three layers of ascending abstraction.
 * - \b Poaky: Poaky is the lowest layer. It defines individual rays and the
 * operations which can be applied on these rays. It contains many mathematical
 * definitions such as algorithms for ray operations and shapes used in
