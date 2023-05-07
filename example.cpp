@@ -49,9 +49,10 @@ int main(){
   std::vector<int> states_tosave {0, 1};
   lseq ls (parts, ray_buns, states_tosave);
   ls.apply_next();
-  std::cout << "After lseq first surface" << ls.ray_buns.front() << std::endl;
+  std::cout << "After lseq first surface: " << ls.ray_buns.front() << std::endl;
   ls.apply_next();
-  std::cout << "After lseq second surface" << ls.ray_buns.front() << std::endl;
+  std::cout << "After lseq second surface: "
+            << ls.ray_buns.front() << std::endl;
   std::cout << "Saved states ls:" << std::endl << "#1: "
             << ls.saved_states.front().front() << std::endl << "#2: "
             << ls.saved_states.at(1).front() << std::endl;

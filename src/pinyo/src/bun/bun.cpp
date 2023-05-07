@@ -12,9 +12,9 @@ bun::bun (const std::vector<ray> _rays) {
 
 /* Printer */
 std::ostream& operator<< (std::ostream &out, const bun &b) {
-  out << "bun<" << std::endl;
+  out << "bun<";
   for (auto r : b.rays) {
-    out << r << std::endl;
+    out << std::endl << r;
   }
   out << ">";
   return out;
