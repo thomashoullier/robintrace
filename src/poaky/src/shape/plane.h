@@ -8,15 +8,15 @@
 #include <cmath>
 
 /** @brief Plane shape specialization. */
-class plane: public shape {
+class plane : public shape {
   public:
     /** @brief Operate the intersection of ray \p r with the plane */
-    virtual void intersect (ray &r);
+    virtual void intersect (ray &r) override;
     /** @brief Compute the plane normal. */
-    virtual Vec3 normal (const ray &r);
+    virtual Vec3 normal (const ray &r) override;
 
   private:
-    virtual std::string print_str () const;
+    virtual std::string print_str () const override;
 };
 
 #endif //PLANE_H

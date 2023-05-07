@@ -10,13 +10,11 @@
 
 /** @brief Virtual class for shapes */
 class shape {
-  public:
+  private:
     /** @brief Operate the intersection of ray \p r with shape. */
     virtual void intersect (ray &r) = 0;
     /** @brief Compute the normal of shape at current ray \p r position. */
     virtual Vec3 normal (const ray &r) = 0;
-
-  private:
     /** @brief String for printing the object */
     virtual std::string print_str () const = 0;
 
