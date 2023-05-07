@@ -23,4 +23,7 @@
 #include "pinyo/pinyo_instantiators.h"
 #include "pinyo/pinyo_printers.h"
 
+// Pewit tests
+#include "pewit/pewit_test.h"
+
 #endif // TEST_MAIN_H
