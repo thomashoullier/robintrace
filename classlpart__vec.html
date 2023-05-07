@@ -71,6 +71,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classlpart__vec-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lpart_vec Class Reference</div>  </div>
@@ -88,10 +90,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a601d8eb631557df3203d9e2f46b2931a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlpart__vec.html#a601d8eb631557df3203d9e2f46b2931a">add_lpart</a> (T part)</td></tr>
 <tr class="memdesc:a601d8eb631557df3203d9e2f46b2931a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a lpart to the vector.  <a href="classlpart__vec.html#a601d8eb631557df3203d9e2f46b2931a">More...</a><br /></td></tr>
 <tr class="separator:a601d8eb631557df3203d9e2f46b2931a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55f2d1dd9f0caaecc09283d981420914"><td class="memItemLeft" align="right" valign="top"><a id="a55f2d1dd9f0caaecc09283d981420914"></a>
-std::vector&lt; std::unique_ptr&lt; <a class="el" href="classlpart.html">lpart</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlpart__vec.html#a55f2d1dd9f0caaecc09283d981420914">clone_vec</a> () const</td></tr>
-<tr class="memdesc:a55f2d1dd9f0caaecc09283d981420914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a deep copy of the raw vector of lparts. <br /></td></tr>
-<tr class="separator:a55f2d1dd9f0caaecc09283d981420914"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8b4b7bec37ff232dff04649d906a725"><td class="memItemLeft" align="right" valign="top"><a id="af8b4b7bec37ff232dff04649d906a725"></a>
 <a class="el" href="classlpart__vec.html">lpart_vec</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlpart__vec.html#af8b4b7bec37ff232dff04649d906a725">cpy</a> () const</td></tr>
 <tr class="memdesc:af8b4b7bec37ff232dff04649d906a725"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a deep copy of the instance. <br /></td></tr>
@@ -103,6 +101,20 @@ Public Attributes</h2></td></tr>
 std::vector&lt; std::unique_ptr&lt; <a class="el" href="classlpart.html">lpart</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlpart__vec.html#a7d4c800602bb450df87a9329a72bceac">v</a></td></tr>
 <tr class="memdesc:a7d4c800602bb450df87a9329a72bceac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of lpart. <br /></td></tr>
 <tr class="separator:a7d4c800602bb450df87a9329a72bceac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a55f2d1dd9f0caaecc09283d981420914"><td class="memItemLeft" align="right" valign="top"><a id="a55f2d1dd9f0caaecc09283d981420914"></a>
+std::vector&lt; std::unique_ptr&lt; <a class="el" href="classlpart.html">lpart</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlpart__vec.html#a55f2d1dd9f0caaecc09283d981420914">clone_vec</a> () const</td></tr>
+<tr class="memdesc:a55f2d1dd9f0caaecc09283d981420914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a deep copy of the raw vector of lparts. <br /></td></tr>
+<tr class="separator:a55f2d1dd9f0caaecc09283d981420914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a5bb4e2ac84f585815748d0e3a2aaba10"><td class="memItemLeft" align="right" valign="top"><a id="a5bb4e2ac84f585815748d0e3a2aaba10"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlpart__vec.html#a5bb4e2ac84f585815748d0e3a2aaba10">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="classlpart__vec.html">lpart_vec</a> &amp;parts)</td></tr>
+<tr class="memdesc:a5bb4e2ac84f585815748d0e3a2aaba10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Printer. <br /></td></tr>
+<tr class="separator:a5bb4e2ac84f585815748d0e3a2aaba10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Vector of lparts. </p>

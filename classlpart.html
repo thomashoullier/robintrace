@@ -70,6 +70,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classlpart-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lpart Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -94,13 +96,27 @@ Inheritance diagram for lpart:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad6c1868f6d5b812c6cf0e97a1c5ad83f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlpart.html#ad6c1868f6d5b812c6cf0e97a1c5ad83f">apply</a> (<a class="el" href="classbun.html">bun</a> &amp;b)=0</td></tr>
-<tr class="memdesc:ad6c1868f6d5b812c6cf0e97a1c5ad83f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the lpart's operations to the ray bundle <code>b</code>.  <a href="classlpart.html#ad6c1868f6d5b812c6cf0e97a1c5ad83f">More...</a><br /></td></tr>
-<tr class="separator:ad6c1868f6d5b812c6cf0e97a1c5ad83f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8f9cc6d60857831ea83e25ba294f02a"><td class="memItemLeft" align="right" valign="top"><a id="ae8f9cc6d60857831ea83e25ba294f02a"></a>
 virtual std::unique_ptr&lt; <a class="el" href="classlpart.html">lpart</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlpart.html#ae8f9cc6d60857831ea83e25ba294f02a">clone</a> () const =0</td></tr>
 <tr class="memdesc:ae8f9cc6d60857831ea83e25ba294f02a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain a copy of the lpart. <br /></td></tr>
 <tr class="separator:ae8f9cc6d60857831ea83e25ba294f02a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6c1868f6d5b812c6cf0e97a1c5ad83f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlpart.html#ad6c1868f6d5b812c6cf0e97a1c5ad83f">apply</a> (<a class="el" href="classbun.html">bun</a> &amp;b)=0</td></tr>
+<tr class="memdesc:ad6c1868f6d5b812c6cf0e97a1c5ad83f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the lpart's operations to the ray bundle <code>b</code>.  <a href="classlpart.html#ad6c1868f6d5b812c6cf0e97a1c5ad83f">More...</a><br /></td></tr>
+<tr class="separator:ad6c1868f6d5b812c6cf0e97a1c5ad83f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ab3792631b398e5aeddcffa45a5577094"><td class="memItemLeft" align="right" valign="top"><a id="ab3792631b398e5aeddcffa45a5577094"></a>
+virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlpart.html#ab3792631b398e5aeddcffa45a5577094">print_str</a> () const =0</td></tr>
+<tr class="memdesc:ab3792631b398e5aeddcffa45a5577094"><td class="mdescLeft">&#160;</td><td class="mdescRight">String for printing the object. <br /></td></tr>
+<tr class="separator:ab3792631b398e5aeddcffa45a5577094"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a210742590cef4eb567e6395b6ec548c8"><td class="memItemLeft" align="right" valign="top"><a id="a210742590cef4eb567e6395b6ec548c8"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlpart.html#a210742590cef4eb567e6395b6ec548c8">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="classlpart.html">lpart</a> &amp;lp)</td></tr>
+<tr class="memdesc:a210742590cef4eb567e6395b6ec548c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Printer. <br /></td></tr>
+<tr class="separator:a210742590cef4eb567e6395b6ec548c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Virtual class for elementary optical parts which can be applied to ray bundles. </p>
@@ -132,7 +148,7 @@ virtual std::unique_ptr&lt; <a class="el" href="classlpart.html">lpart</a> &gt;&
 <p>Apply the lpart's operations to the ray bundle <code>b</code>. </p>
 <p>A part typically manages the error cases which occur at the individual ray level. The default behaviour is to leave non-valid rays out of any computations and continue with valid rays. </p>
 
-<p>Implemented in <a class="el" href="classtransfer__part.html#aed28daeaa7f623dd282af5083ac6f6d4">transfer_part</a>, <a class="el" href="classshape__refract__part.html#ab193068e4c0057d10e96a04aef52dd07">shape_refract_part&lt; T &gt;</a>, and <a class="el" href="classshape__reflect__part.html#a93af7d18062ba3f9cd8563e3c447ba3a">shape_reflect_part&lt; T &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classtransfer__part.html#a9a4d0dd4659853331af2e9cbb80b1efa">transfer_part</a>, <a class="el" href="classshape__refract__part.html#adfa0da607ed097a33905b2582d5c9bbf">shape_refract_part&lt; T &gt;</a>, and <a class="el" href="classshape__reflect__part.html#a02a2549fd37abc1a6f94f34391298d1d">shape_reflect_part&lt; T &gt;</a>.</p>
 
 </div>
 </div>

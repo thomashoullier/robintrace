@@ -69,7 +69,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classshape-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -92,8 +92,8 @@ Inheritance diagram for shape:</div>
   </map>
 </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
 <tr class="memitem:aaa21155e79aa229a2c34153737c20d78"><td class="memItemLeft" align="right" valign="top"><a id="aaa21155e79aa229a2c34153737c20d78"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshape.html#aaa21155e79aa229a2c34153737c20d78">intersect</a> (<a class="el" href="classray.html">ray</a> &amp;r)=0</td></tr>
 <tr class="memdesc:aaa21155e79aa229a2c34153737c20d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operate the intersection of ray <code>r</code> with shape. <br /></td></tr>
@@ -102,11 +102,16 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 virtual <a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshape.html#aaa93301745a42ed383cbd156804cc9d0">normal</a> (const <a class="el" href="classray.html">ray</a> &amp;r)=0</td></tr>
 <tr class="memdesc:aaa93301745a42ed383cbd156804cc9d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the normal of shape at current ray <code>r</code> position. <br /></td></tr>
 <tr class="separator:aaa93301745a42ed383cbd156804cc9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31c36fd3296328a03ef9790d5b2a996d"><td class="memItemLeft" align="right" valign="top"><a id="a31c36fd3296328a03ef9790d5b2a996d"></a>
+virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshape.html#a31c36fd3296328a03ef9790d5b2a996d">print_str</a> () const =0</td></tr>
+<tr class="memdesc:a31c36fd3296328a03ef9790d5b2a996d"><td class="mdescLeft">&#160;</td><td class="mdescRight">String for printing the object. <br /></td></tr>
+<tr class="separator:a31c36fd3296328a03ef9790d5b2a996d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a044e992715721e8a6cb212081d305c1d"><td class="memItemLeft" align="right" valign="top"><a id="a044e992715721e8a6cb212081d305c1d"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;out, const <a class="el" href="classshape.html">shape</a> &amp;shp)</td></tr>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshape.html#a044e992715721e8a6cb212081d305c1d">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="classshape.html">shape</a> &amp;shp)</td></tr>
+<tr class="memdesc:a044e992715721e8a6cb212081d305c1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Printer. <br /></td></tr>
 <tr class="separator:a044e992715721e8a6cb212081d305c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

@@ -70,6 +70,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classplane-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">plane Class Reference</div>  </div>
@@ -92,18 +93,25 @@ Inheritance diagram for plane:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af51269acf5cfb5f9da741a40d6e77c6c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplane.html#af51269acf5cfb5f9da741a40d6e77c6c">intersect</a> (<a class="el" href="classray.html">ray</a> &amp;r)</td></tr>
-<tr class="memdesc:af51269acf5cfb5f9da741a40d6e77c6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operate the intersection of ray <code>r</code> with the plane.  <a href="classplane.html#af51269acf5cfb5f9da741a40d6e77c6c">More...</a><br /></td></tr>
-<tr class="separator:af51269acf5cfb5f9da741a40d6e77c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25f8998b3d0892c7f92016f5afdb241e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplane.html#a25f8998b3d0892c7f92016f5afdb241e">normal</a> (const <a class="el" href="classray.html">ray</a> &amp;r)</td></tr>
-<tr class="memdesc:a25f8998b3d0892c7f92016f5afdb241e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the plane normal.  <a href="classplane.html#a25f8998b3d0892c7f92016f5afdb241e">More...</a><br /></td></tr>
-<tr class="separator:a25f8998b3d0892c7f92016f5afdb241e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c5a9a2aad7b45d91711c869e6dfb469"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplane.html#a0c5a9a2aad7b45d91711c869e6dfb469">intersect</a> (<a class="el" href="classray.html">ray</a> &amp;r) override</td></tr>
+<tr class="memdesc:a0c5a9a2aad7b45d91711c869e6dfb469"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operate the intersection of ray <code>r</code> with the plane.  <a href="classplane.html#a0c5a9a2aad7b45d91711c869e6dfb469">More...</a><br /></td></tr>
+<tr class="separator:a0c5a9a2aad7b45d91711c869e6dfb469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a620828966fb2f9de87e0b230257f0a5c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplane.html#a620828966fb2f9de87e0b230257f0a5c">normal</a> (const <a class="el" href="classray.html">ray</a> &amp;r) override</td></tr>
+<tr class="memdesc:a620828966fb2f9de87e0b230257f0a5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the plane normal.  <a href="classplane.html#a620828966fb2f9de87e0b230257f0a5c">More...</a><br /></td></tr>
+<tr class="separator:a620828966fb2f9de87e0b230257f0a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a4a21ecc6bf3c2e762d78b1739f970165"><td class="memItemLeft" align="right" valign="top"><a id="a4a21ecc6bf3c2e762d78b1739f970165"></a>
+virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplane.html#a4a21ecc6bf3c2e762d78b1739f970165">print_str</a> () const override</td></tr>
+<tr class="memdesc:a4a21ecc6bf3c2e762d78b1739f970165"><td class="mdescLeft">&#160;</td><td class="mdescRight">String for printing the object. <br /></td></tr>
+<tr class="separator:a4a21ecc6bf3c2e762d78b1739f970165"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Plane shape specialization. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="af51269acf5cfb5f9da741a40d6e77c6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af51269acf5cfb5f9da741a40d6e77c6c">&#9670;&nbsp;</a></span>intersect()</h2>
+<a id="a0c5a9a2aad7b45d91711c869e6dfb469"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c5a9a2aad7b45d91711c869e6dfb469">&#9670;&nbsp;</a></span>intersect()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -121,7 +129,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -134,8 +142,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a25f8998b3d0892c7f92016f5afdb241e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25f8998b3d0892c7f92016f5afdb241e">&#9670;&nbsp;</a></span>normal()</h2>
+<a id="a620828966fb2f9de87e0b230257f0a5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a620828966fb2f9de87e0b230257f0a5c">&#9670;&nbsp;</a></span>normal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,7 +161,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

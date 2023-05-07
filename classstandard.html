@@ -71,6 +71,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classstandard-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">standard Class Reference</div>  </div>
@@ -99,12 +100,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0540adb9f0e046c3282605abbf7e4483"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstandard.html#a0540adb9f0e046c3282605abbf7e4483">standard</a> (double _c, double _k)</td></tr>
 <tr class="memdesc:a0540adb9f0e046c3282605abbf7e4483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization constructor.  <a href="classstandard.html#a0540adb9f0e046c3282605abbf7e4483">More...</a><br /></td></tr>
 <tr class="separator:a0540adb9f0e046c3282605abbf7e4483"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a981bf0ab6e99a7ab4591cddac5eb0cdc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstandard.html#a981bf0ab6e99a7ab4591cddac5eb0cdc">intersect</a> (<a class="el" href="classray.html">ray</a> &amp;r)</td></tr>
-<tr class="memdesc:a981bf0ab6e99a7ab4591cddac5eb0cdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operate the intersection of ray <code>r</code> with standard shape.  <a href="classstandard.html#a981bf0ab6e99a7ab4591cddac5eb0cdc">More...</a><br /></td></tr>
-<tr class="separator:a981bf0ab6e99a7ab4591cddac5eb0cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b85050992cadefbdadd439ceb512cd9"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstandard.html#a4b85050992cadefbdadd439ceb512cd9">normal</a> (const <a class="el" href="classray.html">ray</a> &amp;r)</td></tr>
-<tr class="memdesc:a4b85050992cadefbdadd439ceb512cd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the normal of the standard shape at the current ray <code>r</code> position.  <a href="classstandard.html#a4b85050992cadefbdadd439ceb512cd9">More...</a><br /></td></tr>
-<tr class="separator:a4b85050992cadefbdadd439ceb512cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56b619019d27ce934d09ad2e0cdd27fc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstandard.html#a56b619019d27ce934d09ad2e0cdd27fc">intersect</a> (<a class="el" href="classray.html">ray</a> &amp;r) override</td></tr>
+<tr class="memdesc:a56b619019d27ce934d09ad2e0cdd27fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operate the intersection of ray <code>r</code> with standard shape.  <a href="classstandard.html#a56b619019d27ce934d09ad2e0cdd27fc">More...</a><br /></td></tr>
+<tr class="separator:a56b619019d27ce934d09ad2e0cdd27fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28741271a582fdde81392605dfa499b3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstandard.html#a28741271a582fdde81392605dfa499b3">normal</a> (const <a class="el" href="classray.html">ray</a> &amp;r) override</td></tr>
+<tr class="memdesc:a28741271a582fdde81392605dfa499b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the normal of the standard shape at the current ray <code>r</code> position.  <a href="classstandard.html#a28741271a582fdde81392605dfa499b3">More...</a><br /></td></tr>
+<tr class="separator:a28741271a582fdde81392605dfa499b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -114,6 +115,13 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aaa069ef6193e410eb96b5a4cb6fa4af6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstandard.html#aaa069ef6193e410eb96b5a4cb6fa4af6">k</a></td></tr>
 <tr class="memdesc:aaa069ef6193e410eb96b5a4cb6fa4af6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quadric constant.  <a href="classstandard.html#aaa069ef6193e410eb96b5a4cb6fa4af6">More...</a><br /></td></tr>
 <tr class="separator:aaa069ef6193e410eb96b5a4cb6fa4af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ae68b21c758cf78414483c392e26c0cf2"><td class="memItemLeft" align="right" valign="top"><a id="ae68b21c758cf78414483c392e26c0cf2"></a>
+virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstandard.html#ae68b21c758cf78414483c392e26c0cf2">print_str</a> () const override</td></tr>
+<tr class="memdesc:ae68b21c758cf78414483c392e26c0cf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Printer. <br /></td></tr>
+<tr class="separator:ae68b21c758cf78414483c392e26c0cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Standard shape specialization. </p>
@@ -179,8 +187,8 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a981bf0ab6e99a7ab4591cddac5eb0cdc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a981bf0ab6e99a7ab4591cddac5eb0cdc">&#9670;&nbsp;</a></span>intersect()</h2>
+<a id="a56b619019d27ce934d09ad2e0cdd27fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56b619019d27ce934d09ad2e0cdd27fc">&#9670;&nbsp;</a></span>intersect()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,7 +206,7 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -211,8 +219,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4b85050992cadefbdadd439ceb512cd9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b85050992cadefbdadd439ceb512cd9">&#9670;&nbsp;</a></span>normal()</h2>
+<a id="a28741271a582fdde81392605dfa499b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28741271a582fdde81392605dfa499b3">&#9670;&nbsp;</a></span>normal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -230,7 +238,7 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
