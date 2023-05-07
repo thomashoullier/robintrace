@@ -11,11 +11,12 @@
 class plane: public shape {
   public:
     /** @brief Operate the intersection of ray \p r with the plane */
-    void intersect (ray &r);
+    virtual void intersect (ray &r);
     /** @brief Compute the plane normal. */
-    Vec3 normal (const ray &r);
+    virtual Vec3 normal (const ray &r);
 
-    std::string print_str () const;
+  private:
+    virtual std::string print_str () const;
 };
 
 #endif //PLANE_H

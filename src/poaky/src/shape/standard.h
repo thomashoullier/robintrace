@@ -29,13 +29,14 @@ class standard: public shape {
     standard (double _c, double _k);
 
     /** @brief Operate the intersection of ray \p r with standard shape. */
-    void intersect (ray &r);
+    virtual void intersect (ray &r);
     /** @brief Compute the normal of the standard shape at the current ray
       * \p r position. */
-    Vec3 normal (const ray &r);
+    virtual Vec3 normal (const ray &r);
 
+  private:
     /** @brief Printer. */
-    std::string print_str () const;
+    virtual std::string print_str () const;
 };
 
 
