@@ -83,18 +83,28 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ray_8h.html">ray/ray.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Vec3_8h.html">base/Vec3.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classshape.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classshape.html">shape</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classshape.html#aaa21155e79aa229a2c34153737c20d78">   13</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classshape.html#aaa21155e79aa229a2c34153737c20d78">intersect</a> (<a class="code" href="classray.html">ray</a> &amp;r) = 0;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classshape.html#aaa93301745a42ed383cbd156804cc9d0">   15</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> <a class="code" href="classshape.html#aaa93301745a42ed383cbd156804cc9d0">normal</a> (<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) = 0;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//SHAPE_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classshape.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classshape.html">shape</a> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classshape.html#aaa21155e79aa229a2c34153737c20d78">   15</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classshape.html#aaa21155e79aa229a2c34153737c20d78">intersect</a> (<a class="code" href="classray.html">ray</a> &amp;r) = 0;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classshape.html#aaa93301745a42ed383cbd156804cc9d0">   17</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a> <a class="code" href="classshape.html#aaa93301745a42ed383cbd156804cc9d0">normal</a> (<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) = 0;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">virtual</span> std::string print_str () <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt; (std::ostream &amp;out, <span class="keyword">const</span> <a class="code" href="classshape.html">shape</a> &amp;shp) {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    out &lt;&lt; shp.print_str();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> out;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  };</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//SHAPE_H</span></div>
 <div class="ttc" id="aVec3_8h_html"><div class="ttname"><a href="Vec3_8h.html">Vec3.h</a></div></div>
 <div class="ttc" id="aVec3_8h_html_a8daa2fe909f826a828953371253c9bc0"><div class="ttname"><a href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a></div><div class="ttdeci">Eigen::Vector3d Vec3</div><div class="ttdef"><b>Definition:</b> Vec3.h:10</div></div>
 <div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdoc">Class for individual rays.</div><div class="ttdef"><b>Definition:</b> ray.h:9</div></div>
-<div class="ttc" id="aclassshape_html"><div class="ttname"><a href="classshape.html">shape</a></div><div class="ttdoc">Virtual class for shapes.</div><div class="ttdef"><b>Definition:</b> shape.h:10</div></div>
+<div class="ttc" id="aclassshape_html"><div class="ttname"><a href="classshape.html">shape</a></div><div class="ttdoc">Virtual class for shapes.</div><div class="ttdef"><b>Definition:</b> shape.h:12</div></div>
 <div class="ttc" id="aclassshape_html_aaa21155e79aa229a2c34153737c20d78"><div class="ttname"><a href="classshape.html#aaa21155e79aa229a2c34153737c20d78">shape::intersect</a></div><div class="ttdeci">virtual void intersect(ray &amp;r)=0</div><div class="ttdoc">Operate the intersection of ray r with shape.</div></div>
 <div class="ttc" id="aclassshape_html_aaa93301745a42ed383cbd156804cc9d0"><div class="ttname"><a href="classshape.html#aaa93301745a42ed383cbd156804cc9d0">shape::normal</a></div><div class="ttdeci">virtual Vec3 normal(const ray &amp;r)=0</div><div class="ttdoc">Compute the normal of shape at current ray r position.</div></div>
 <div class="ttc" id="aray_8h_html"><div class="ttname"><a href="ray_8h.html">ray.h</a></div></div>
