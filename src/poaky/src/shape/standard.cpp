@@ -20,7 +20,7 @@ standard::standard (double _c, double _k) {
 /* Printer */
 std::string standard::print_str () const {
   std::stringstream ss;
-  ss << "standard(c = " << c << ", k = " << k << ")";
+  ss << "standard(c: " << c << ", k: " << k << ")";
   return ss.str();
 }
 

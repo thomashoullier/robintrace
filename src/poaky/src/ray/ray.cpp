@@ -24,8 +24,6 @@ bool ray::is_valid () {
 }
 
 std::ostream& operator<< (std::ostream &out, const ray &r) {
-  out << "ray([" << r.p(0) << ", " << r.p(1) << ", " << r.p(2) << "]"
-          << "[" << r.v(0) << ", " << r.v(1) << ", " << r.v(2) << "]"
-          << ", code: " << r.code << ")";
+  out << "ray(p: " << r.p << ", v: " << r.v << ", code: " << r.code << ")";
   return out;
 }

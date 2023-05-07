@@ -18,6 +18,7 @@ class shape {
     /** @brief String for printing the object */
     virtual std::string print_str () const = 0;
 
+  /** @brief Printer */
   friend std::ostream& operator<< (std::ostream &out, const shape &shp) {
     out << shp.print_str();
     return out;

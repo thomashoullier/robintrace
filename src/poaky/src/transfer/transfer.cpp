@@ -30,7 +30,7 @@ transfer::transfer (Mat3 _Bt, Vec3 _D) {
 
 /* Printer */
 std::ostream& operator<< (std::ostream &out, const transfer &trf) {
-  out << "transfer(\nBt =\n" << trf.Bt << "\nD =\n" << trf.D << ")";
+  out << "transfer(Bt:\n" << trf.Bt << "\nD: " << trf.D << ")";
   return out;
 }
 

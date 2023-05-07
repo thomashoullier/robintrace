@@ -21,3 +21,7 @@ Vec3 Vec3_lm (double l, double m, bool nsign) {
   return v;
 }
 
+std::ostream& operator<< (std::ostream &out, const Vec3 &v) {
+  out << "[" << v(0) << ", " << v(1) << ", " << v(2) << "]";
+  return out;
+}
