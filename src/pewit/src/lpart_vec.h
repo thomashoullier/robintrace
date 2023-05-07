@@ -45,8 +45,7 @@ class lpart_vec {
     out << "lpart_vec[";
     int part_index = 0;
     for (auto &part_ptr : parts.v) {
-      auto part_str = part_ptr->print_str();
-      out << std::endl << "#" << part_index << ": " << part_str;
+      out << std::endl << "#" << part_index << ": " << *part_ptr;
       part_index++;
     }
     out << "]";

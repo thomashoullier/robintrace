@@ -23,6 +23,7 @@ class transfer_part: public lpart {
       return std::make_unique<transfer_part>(*this);
     };
 
+  private:
     virtual std::string print_str () const override;
 };
 
