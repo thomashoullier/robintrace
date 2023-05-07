@@ -35,7 +35,7 @@ class standard: public shape {
     Vec3 normal (const ray &r);
 
     /** @brief Printer. */
-    friend std::ostream& operator<< (std::ostream &out, const standard &sd);
+    std::string print_str () const;
 };
 
 

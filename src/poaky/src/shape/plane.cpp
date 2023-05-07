@@ -17,9 +17,7 @@ Vec3 plane::normal (const ray &r) {
   return Vec3(0, 0, - sig_n);
 }
 
-std::ostream& operator<< (std::ostream &out, const plane &pl) {
-  (void)(pl);
-  out << "plane";
-  return out;
-}
+std::string plane::print_str () const {
+  return "plane";
+};
 

@@ -15,8 +15,7 @@ class plane: public shape {
     /** @brief Compute the plane normal. */
     Vec3 normal (const ray &r);
 
-    /** @brief Printer. */
-    friend std::ostream& operator<< (std::ostream &out, const plane &pl);
+    std::string print_str () const;
 };
 
 #endif //PLANE_H

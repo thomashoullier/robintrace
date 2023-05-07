@@ -18,9 +18,10 @@ standard::standard (double _c, double _k) {
 }
 
 /* Printer */
-std::ostream& operator<< (std::ostream &out, const standard &sd) {
-  out << "standard(c = " << sd.c << ", k = " << sd.k << ")";
-  return out;
+std::string standard::print_str () const {
+  std::stringstream ss;
+  ss << "standard(c = " << c << ", k = " << k << ")";
+  return ss.str();
 }
 
 /** Possible error case: no intersection found between ray and shape.
