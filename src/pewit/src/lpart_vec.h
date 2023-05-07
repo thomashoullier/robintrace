@@ -1,6 +1,7 @@
 /** @file */
 #include <vector>
 #include <memory>
+#include <iostream>
 
 /** @brief Vector of lparts.
  *
@@ -20,6 +21,15 @@ class lpart_vec {
       v.push_back(std::make_unique<T>(part));
     };
 
+    /** @brief Return a deep copy of the instance. */
+    lpart_vec cpy () const {
+      // Return a copy of the instance.
+      lpart_vec lv;
+      lv.v = clone_vec();
+      return lv;
+    };
+
+  private:
     /** @brief Return a deep copy of the raw vector of lparts */
     std::vector<std::unique_ptr<lpart>> clone_vec () const {
       // Return a copy of the internal vector.
@@ -30,11 +40,16 @@ class lpart_vec {
       return _v;
     };
 
-    /** @brief Return a deep copy of the instance. */
-    lpart_vec cpy () const {
-      // Return a copy of the instance.
-      lpart_vec lv;
-      lv.v = clone_vec();
-      return lv;
-    };
+  /** @brief Printer. */
+  friend std::ostream& operator<< (std::ostream &out, const lpart_vec &parts) {
+    out << "lpart_vec[";
+    int part_index = 0;
+    for (auto &part_ptr : parts.v) {
+      auto part_str = part_ptr->print_str();
+      out << std::endl << "#" << part_index << ": " << part_str;
+      part_index++;
+    }
+    out << "]";
+    return out;
+  };
 };

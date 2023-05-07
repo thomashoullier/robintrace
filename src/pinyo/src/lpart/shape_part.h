@@ -103,7 +103,6 @@ class shape_refract_part: public lpart {
       return std::make_unique<shape_refract_part>(*this);
     };
 
-  private:
     virtual std::string print_str () const override {
       std::stringstream ss;
       ss << "shape_refract_part<shape: " << shp << "," << std::endl

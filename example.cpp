@@ -46,6 +46,7 @@ int main(){
   lpart_vec parts;
   parts.add_lpart(trfp);
   parts.add_lpart(srp);
+  std::cout << parts << std::endl;
   bun b2 (b);
   ray_pack ray_buns; ray_buns.push_back(b); ray_buns.push_back(b2);
   std::vector<int> states_tosave {0, 1};
