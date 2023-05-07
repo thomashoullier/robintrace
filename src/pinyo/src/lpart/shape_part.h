@@ -31,7 +31,7 @@ class shape_reflect_part: public lpart {
      * -# shape.intersect()
      * -# shape.normal()
      * -# reflect()*/
-    void apply(bun &b) {
+    virtual void apply(bun &b) override {
       for (auto &r : b.rays) {
         if (not(r.is_valid())) {return;}
         shp.intersect(r);
@@ -42,8 +42,15 @@ class shape_reflect_part: public lpart {
       }
     };
 
-    std::unique_ptr<lpart> clone () const override {
+    virtual std::unique_ptr<lpart> clone () const override {
       return std::make_unique<shape_reflect_part>(*this);
+    };
+
+  private:
+    virtual std::string print_str () const override {
+      std::stringstream ss;
+      ss << "shape_reflect_part<shape: " << shp << ">";
+      return ss.str();
     };
 
     static_assert(std::is_base_of<shape, T>::value,
@@ -81,7 +88,7 @@ class shape_refract_part: public lpart {
      * -# shape.intersect()
      * -# shape.normal()
      * -# refract()*/ 
-    void apply(bun &b) {
+    virtual void apply(bun &b) override {
       for (auto &r : b.rays) {
         if (not(r.is_valid())) {return;}
         shp.intersect(r);
@@ -92,8 +99,16 @@ class shape_refract_part: public lpart {
       }
     };
 
-    std::unique_ptr<lpart> clone () const override {
+    virtual std::unique_ptr<lpart> clone () const override {
       return std::make_unique<shape_refract_part>(*this);
+    };
+
+  private:
+    virtual std::string print_str () const override {
+      std::stringstream ss;
+      ss << "shape_refract_part<shape: " << shp << "," << std::endl
+         << "nr: " << nr << ">";
+      return ss.str();
     };
 
     static_assert(std::is_base_of<shape, T>::value,

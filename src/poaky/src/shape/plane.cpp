@@ -19,5 +19,5 @@ Vec3 plane::normal (const ray &r) {
 
 std::string plane::print_str () const {
   return "plane";
-};
+}
 

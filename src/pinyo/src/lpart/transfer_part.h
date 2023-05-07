@@ -17,10 +17,14 @@ class transfer_part: public lpart {
     transfer_part (transfer _trf);
 
     /** @brief Apply the transfer operation to ray bundle \p b. */
-    void apply (bun &b);
-    std::unique_ptr<lpart> clone () const override {
+    virtual void apply (bun &b) override;
+    /** @brief Clone */
+    virtual std::unique_ptr<lpart> clone () const override {
       return std::make_unique<transfer_part>(*this);
     };
+
+  private:
+    virtual std::string print_str () const override;
 };
 
 #endif // TRANSFER_PART_H

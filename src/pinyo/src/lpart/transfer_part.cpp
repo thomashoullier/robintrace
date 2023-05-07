@@ -18,3 +18,8 @@ void transfer_part::apply (bun &b) {
   }
 }
 
+std::string transfer_part::print_str () const {
+  std::stringstream ss;
+  ss << "transfer_part<" << trf << ">";
+  return ss.str();
+}

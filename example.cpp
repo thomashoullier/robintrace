@@ -31,12 +31,14 @@ int main(){
 
   // transfer_part
   transfer_part trfp(transfer(Vec3(0.01, 0, 0)));
+  std::cout << trfp << std::endl;
   trfp.apply(b);
   std::cout << "After transfer: " << b << std::endl;
 
   // Standard reflective part
   standard sd2 (1.0/20, -2);
   shape_reflect_part srp(sd2);
+  std::cout << srp << std::endl;
   srp.apply(b);
   std::cout << "After standard reflective part: " << b << std::endl;
 
