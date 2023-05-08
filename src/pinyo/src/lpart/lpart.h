@@ -21,6 +21,8 @@ class lpart {
     virtual void apply (bun &b) = 0;
     /** @brief Is the part a transfer? */
     virtual bool is_transfer () = 0;
+    /** @brief Is the part renderable? */
+    virtual bool is_renderable () = 0;
 
   private:
     /** @brief String for printing the object. */

@@ -25,6 +25,9 @@ class transfer_part: public lpart {
     virtual bool is_transfer () override {
       return true;
     };
+    virtual bool is_renderable () override {
+      return false;
+    };
 
   private:
     virtual std::string print_str () const override;

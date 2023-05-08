@@ -49,6 +49,9 @@ class shape_reflect_part: public lpart {
     virtual bool is_transfer () override {
       return false;
     };
+    virtual bool is_renderable () override {
+      return true;
+    };
 
   private:
     virtual std::string print_str () const override {
@@ -109,6 +112,9 @@ class shape_refract_part: public lpart {
 
     virtual bool is_transfer () override {
       return false;
+    };
+    virtual bool is_renderable () override {
+      return true;
     };
 
   private:
