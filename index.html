@@ -142,35 +142,35 @@ Example</h1>
 <div class="line">  parts.<a class="code" href="classlpart__vec.html#a601d8eb631557df3203d9e2f46b2931a">add_lpart</a>(srp);</div>
 <div class="line">  std::cout &lt;&lt; parts &lt;&lt; std::endl;</div>
 <div class="line">  <a class="code" href="classbun.html">bun</a> b2 (b);</div>
-<div class="line">  <a class="code" href="lseq_8h.html#a7412d76216e174176f3356696946a268">ray_pack</a> ray_buns; ray_buns.push_back(b); ray_buns.push_back(b2);</div>
+<div class="line">  <a class="code" href="ray__pack_8h.html#a7412d76216e174176f3356696946a268">ray_pack</a> ray_buns; ray_buns.push_back(b); ray_buns.push_back(b2);</div>
 <div class="line">  std::vector&lt;int&gt; states_tosave {0, 1};</div>
 <div class="line">  <a class="code" href="classlseq.html">lseq</a> ls (parts, ray_buns, states_tosave);</div>
 <div class="line">  ls.apply_next();</div>
-<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;After lseq first surface: &quot;</span> &lt;&lt; ls.ray_buns.front() &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;After lseq first surface: &quot;</span> &lt;&lt; ls.ray_buns &lt;&lt; std::endl;</div>
 <div class="line">  ls.apply_next();</div>
 <div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;After lseq second surface: &quot;</span></div>
-<div class="line">            &lt;&lt; ls.ray_buns.front() &lt;&lt; std::endl;</div>
+<div class="line">            &lt;&lt; ls.ray_buns &lt;&lt; std::endl;</div>
 <div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Saved states ls:&quot;</span> &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;#1: &quot;</span></div>
-<div class="line">            &lt;&lt; ls.saved_states.front().front() &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;#2: &quot;</span></div>
-<div class="line">            &lt;&lt; ls.saved_states.at(1).front() &lt;&lt; std::endl;</div>
+<div class="line">            &lt;&lt; ls.saved_states.front() &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;#2: &quot;</span></div>
+<div class="line">            &lt;&lt; ls.saved_states.at(1) &lt;&lt; std::endl;</div>
 <div class="line">  <span class="comment">// A second time with raytrace all.</span></div>
 <div class="line">  <a class="code" href="classlseq.html">lseq</a> ls2 (parts, ray_buns, states_tosave);</div>
 <div class="line">  ls2.apply_remaining();</div>
 <div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Saved states ls2:&quot;</span> &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;#1: &quot;</span></div>
-<div class="line">            &lt;&lt; ls2.saved_states.front().front() &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;#2: &quot;</span></div>
-<div class="line">            &lt;&lt; ls2.saved_states.at(1).front() &lt;&lt; std::endl;</div>
+<div class="line">            &lt;&lt; ls2.saved_states.front() &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;#2: &quot;</span></div>
+<div class="line">            &lt;&lt; ls2.saved_states.at(1) &lt;&lt; std::endl;</div>
 <div class="line">}</div>
 <div class="ttc" id="aVec3_8h_html_a8daa2fe909f826a828953371253c9bc0"><div class="ttname"><a href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a></div><div class="ttdeci">Eigen::Vector3d Vec3</div><div class="ttdef"><b>Definition:</b> Vec3.h:11</div></div>
 <div class="ttc" id="aclassbun_html"><div class="ttname"><a href="classbun.html">bun</a></div><div class="ttdoc">Class for ray bundles.</div><div class="ttdef"><b>Definition:</b> bun.h:13</div></div>
 <div class="ttc" id="aclasslpart__vec_html"><div class="ttname"><a href="classlpart__vec.html">lpart_vec</a></div><div class="ttdoc">Vector of lparts.</div><div class="ttdef"><b>Definition:</b> lpart_vec.h:9</div></div>
 <div class="ttc" id="aclasslpart__vec_html_a601d8eb631557df3203d9e2f46b2931a"><div class="ttname"><a href="classlpart__vec.html#a601d8eb631557df3203d9e2f46b2931a">lpart_vec::add_lpart</a></div><div class="ttdeci">void add_lpart(T part)</div><div class="ttdoc">Add a lpart to the vector.</div><div class="ttdef"><b>Definition:</b> lpart_vec.h:18</div></div>
-<div class="ttc" id="aclasslseq_html"><div class="ttname"><a href="classlseq.html">lseq</a></div><div class="ttdoc">Sequence of optical parts with associated ray pack, raytracing application and ray states saving.</div><div class="ttdef"><b>Definition:</b> lseq.h:21</div></div>
+<div class="ttc" id="aclasslseq_html"><div class="ttname"><a href="classlseq.html">lseq</a></div><div class="ttdoc">Sequence of optical parts with associated ray pack, raytracing application and ray states saving.</div><div class="ttdef"><b>Definition:</b> lseq.h:17</div></div>
 <div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdoc">Class for individual rays.</div><div class="ttdef"><b>Definition:</b> ray.h:9</div></div>
 <div class="ttc" id="aclassshape__reflect__part_html"><div class="ttname"><a href="classshape__reflect__part.html">shape_reflect_part</a></div><div class="ttdoc">Class template implementing the specialized lparts for reflective shape parts.</div><div class="ttdef"><b>Definition:</b> shape_part.h:11</div></div>
 <div class="ttc" id="aclassstandard_html"><div class="ttname"><a href="classstandard.html">standard</a></div><div class="ttdoc">Standard shape specialization.</div><div class="ttdef"><b>Definition:</b> standard.h:9</div></div>
 <div class="ttc" id="aclasstransfer__part_html"><div class="ttname"><a href="classtransfer__part.html">transfer_part</a></div><div class="ttdoc">Part which applies a transfer operation to rays.</div><div class="ttdef"><b>Definition:</b> transfer_part.h:9</div></div>
 <div class="ttc" id="aclasstransfer_html"><div class="ttname"><a href="classtransfer.html">transfer</a></div><div class="ttdoc">Transfer operation over a ray.</div><div class="ttdef"><b>Definition:</b> transfer.h:40</div></div>
-<div class="ttc" id="alseq_8h_html_a7412d76216e174176f3356696946a268"><div class="ttname"><a href="lseq_8h.html#a7412d76216e174176f3356696946a268">ray_pack</a></div><div class="ttdeci">std::vector&lt; bun &gt; ray_pack</div><div class="ttdoc">Vector of ray bundles.</div><div class="ttdef"><b>Definition:</b> lseq.h:13</div></div>
+<div class="ttc" id="aray__pack_8h_html_a7412d76216e174176f3356696946a268"><div class="ttname"><a href="ray__pack_8h.html#a7412d76216e174176f3356696946a268">ray_pack</a></div><div class="ttdeci">std::vector&lt; bun &gt; ray_pack</div><div class="ttdoc">Vector of ray bundles.</div><div class="ttdef"><b>Definition:</b> ray_pack.h:12</div></div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

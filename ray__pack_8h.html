@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RobinTrace: src/pewit/src/lseq.h File Reference</title>
+<title>RobinTrace: src/pewit/src/ray_pack.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,25 +73,48 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">lseq.h File Reference</div>  </div>
+<div class="title">ray_pack.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;pinyo.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="lpart__vec_8h_source.html">lpart_vec.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="ray__pack_8h_source.html">ray_pack.h</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;stdexcept&gt;</code><br />
 </div>
-<p><a href="lseq_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="ray__pack_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html">lseq</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sequence of optical parts with associated ray pack, raytracing application and ray states saving.  <a href="classlseq.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a7412d76216e174176f3356696946a268"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="classbun.html">bun</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ray__pack_8h.html#a7412d76216e174176f3356696946a268">ray_pack</a></td></tr>
+<tr class="memdesc:a7412d76216e174176f3356696946a268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of ray bundles.  <a href="ray__pack_8h.html#a7412d76216e174176f3356696946a268">More...</a><br /></td></tr>
+<tr class="separator:a7412d76216e174176f3356696946a268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a11b54d284d7cc77d248617b3061e5db1"><td class="memItemLeft" align="right" valign="top"><a id="a11b54d284d7cc77d248617b3061e5db1"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;out, const <a class="el" href="ray__pack_8h.html#a7412d76216e174176f3356696946a268">ray_pack</a> &amp;ray_buns)</td></tr>
+<tr class="separator:a11b54d284d7cc77d248617b3061e5db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a7412d76216e174176f3356696946a268"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7412d76216e174176f3356696946a268">&#9670;&nbsp;</a></span>ray_pack</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;<a class="el" href="classbun.html">bun</a>&gt; <a class="el" href="ray__pack_8h.html#a7412d76216e174176f3356696946a268">ray_pack</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vector of ray bundles. </p>
+<p>This is effectively a vector of vectors of rays. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
