@@ -4,13 +4,9 @@
 
 #include "pinyo.h"
 #include "lpart_vec.h"
+#include "ray_pack.h"
 #include <vector>
 #include <stdexcept>
-
-/** @brief Vector of ray bundles.
- *
- * This is effectively a vector of vectors of rays. */
-typedef std::vector<bun> ray_pack;
 
 /** @brief Sequence of optical parts with associated ray pack, raytracing
  * application and ray states saving.

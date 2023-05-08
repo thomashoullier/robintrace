@@ -52,17 +52,17 @@ int main(){
   std::vector<int> states_tosave {0, 1};
   lseq ls (parts, ray_buns, states_tosave);
   ls.apply_next();
-  std::cout << "After lseq first surface: " << ls.ray_buns.front() << std::endl;
+  std::cout << "After lseq first surface: " << ls.ray_buns << std::endl;
   ls.apply_next();
   std::cout << "After lseq second surface: "
-            << ls.ray_buns.front() << std::endl;
+            << ls.ray_buns << std::endl;
   std::cout << "Saved states ls:" << std::endl << "#1: "
-            << ls.saved_states.front().front() << std::endl << "#2: "
-            << ls.saved_states.at(1).front() << std::endl;
+            << ls.saved_states.front() << std::endl << "#2: "
+            << ls.saved_states.at(1) << std::endl;
   // A second time with raytrace all.
   lseq ls2 (parts, ray_buns, states_tosave);
   ls2.apply_remaining();
   std::cout << "Saved states ls2:" << std::endl << "#1: "
-            << ls2.saved_states.front().front() << std::endl << "#2: "
-            << ls2.saved_states.at(1).front() << std::endl;
+            << ls2.saved_states.front() << std::endl << "#2: "
+            << ls2.saved_states.at(1) << std::endl;
 }
