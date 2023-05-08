@@ -46,6 +46,10 @@ class shape_reflect_part: public lpart {
       return std::make_unique<shape_reflect_part>(*this);
     };
 
+    virtual bool is_transfer () override {
+      return false;
+    };
+
   private:
     virtual std::string print_str () const override {
       std::stringstream ss;
@@ -101,6 +105,10 @@ class shape_refract_part: public lpart {
 
     virtual std::unique_ptr<lpart> clone () const override {
       return std::make_unique<shape_refract_part>(*this);
+    };
+
+    virtual bool is_transfer () override {
+      return false;
     };
 
   private:

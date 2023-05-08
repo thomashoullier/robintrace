@@ -22,6 +22,9 @@ class transfer_part: public lpart {
     virtual std::unique_ptr<lpart> clone () const override {
       return std::make_unique<transfer_part>(*this);
     };
+    virtual bool is_transfer () override {
+      return true;
+    };
 
   private:
     virtual std::string print_str () const override;

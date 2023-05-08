@@ -19,6 +19,8 @@ class lpart {
      * ray level. The default behaviour is to leave non-valid rays out of any
      * computations and continue with valid rays. */
     virtual void apply (bun &b) = 0;
+    /** @brief Is the part a transfer? */
+    virtual bool is_transfer () = 0;
 
   private:
     /** @brief String for printing the object. */
