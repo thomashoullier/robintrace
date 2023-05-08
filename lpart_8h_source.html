@@ -89,24 +89,26 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classlpart.html#ae8f9cc6d60857831ea83e25ba294f02a">   15</a></span>&#160;    <span class="keyword">virtual</span> std::unique_ptr&lt;lpart&gt; <a class="code" href="classlpart.html#ae8f9cc6d60857831ea83e25ba294f02a">clone</a> () <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classlpart.html#ad6c1868f6d5b812c6cf0e97a1c5ad83f">   21</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classlpart.html#ad6c1868f6d5b812c6cf0e97a1c5ad83f">apply</a> (<a class="code" href="classbun.html">bun</a> &amp;b) = 0;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classlpart.html#ab3792631b398e5aeddcffa45a5577094">   25</a></span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="classlpart.html#ab3792631b398e5aeddcffa45a5577094">print_str</a> () <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classlpart.html#a210742590cef4eb567e6395b6ec548c8">   28</a></span>&#160;  <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="classlpart.html#a210742590cef4eb567e6395b6ec548c8">operator&lt;&lt; </a>(std::ostream &amp;out, <span class="keyword">const</span> <a class="code" href="classlpart.html">lpart</a> &amp;lp) {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    out &lt;&lt; lp.<a class="code" href="classlpart.html#ab3792631b398e5aeddcffa45a5577094">print_str</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> out;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  };</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LPART_H</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classlpart.html#afb035d7a2ed4022433b91789456c9ea4">   23</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classlpart.html#afb035d7a2ed4022433b91789456c9ea4">is_transfer</a> () = 0;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classlpart.html#ab3792631b398e5aeddcffa45a5577094">   27</a></span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="classlpart.html#ab3792631b398e5aeddcffa45a5577094">print_str</a> () <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classlpart.html#a210742590cef4eb567e6395b6ec548c8">   30</a></span>&#160;  <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="classlpart.html#a210742590cef4eb567e6395b6ec548c8">operator&lt;&lt; </a>(std::ostream &amp;out, <span class="keyword">const</span> <a class="code" href="classlpart.html">lpart</a> &amp;lp) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    out &lt;&lt; lp.<a class="code" href="classlpart.html#ab3792631b398e5aeddcffa45a5577094">print_str</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> out;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  };</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LPART_H</span></div>
 <div class="ttc" id="abun_8h_html"><div class="ttname"><a href="bun_8h.html">bun.h</a></div></div>
 <div class="ttc" id="aclassbun_html"><div class="ttname"><a href="classbun.html">bun</a></div><div class="ttdoc">Class for ray bundles.</div><div class="ttdef"><b>Definition:</b> bun.h:13</div></div>
 <div class="ttc" id="aclasslpart_html"><div class="ttname"><a href="classlpart.html">lpart</a></div><div class="ttdoc">Virtual class for elementary optical parts which can be applied to ray bundles.</div><div class="ttdef"><b>Definition:</b> lpart.h:12</div></div>
-<div class="ttc" id="aclasslpart_html_a210742590cef4eb567e6395b6ec548c8"><div class="ttname"><a href="classlpart.html#a210742590cef4eb567e6395b6ec548c8">lpart::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const lpart &amp;lp)</div><div class="ttdoc">Printer.</div><div class="ttdef"><b>Definition:</b> lpart.h:28</div></div>
+<div class="ttc" id="aclasslpart_html_a210742590cef4eb567e6395b6ec548c8"><div class="ttname"><a href="classlpart.html#a210742590cef4eb567e6395b6ec548c8">lpart::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const lpart &amp;lp)</div><div class="ttdoc">Printer.</div><div class="ttdef"><b>Definition:</b> lpart.h:30</div></div>
 <div class="ttc" id="aclasslpart_html_ab3792631b398e5aeddcffa45a5577094"><div class="ttname"><a href="classlpart.html#ab3792631b398e5aeddcffa45a5577094">lpart::print_str</a></div><div class="ttdeci">virtual std::string print_str() const =0</div><div class="ttdoc">String for printing the object.</div></div>
 <div class="ttc" id="aclasslpart_html_ad6c1868f6d5b812c6cf0e97a1c5ad83f"><div class="ttname"><a href="classlpart.html#ad6c1868f6d5b812c6cf0e97a1c5ad83f">lpart::apply</a></div><div class="ttdeci">virtual void apply(bun &amp;b)=0</div><div class="ttdoc">Apply the lpart's operations to the ray bundle b.</div></div>
 <div class="ttc" id="aclasslpart_html_ae8f9cc6d60857831ea83e25ba294f02a"><div class="ttname"><a href="classlpart.html#ae8f9cc6d60857831ea83e25ba294f02a">lpart::clone</a></div><div class="ttdeci">virtual std::unique_ptr&lt; lpart &gt; clone() const =0</div><div class="ttdoc">Obtain a copy of the lpart.</div></div>
+<div class="ttc" id="aclasslpart_html_afb035d7a2ed4022433b91789456c9ea4"><div class="ttname"><a href="classlpart.html#afb035d7a2ed4022433b91789456c9ea4">lpart::is_transfer</a></div><div class="ttdeci">virtual bool is_transfer()=0</div><div class="ttdoc">Is the part a transfer?</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
