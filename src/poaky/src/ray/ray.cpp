@@ -19,7 +19,7 @@ ray::ray (Vec3 _p, Vec3 _v) {
 }
 
 /** Status code shorthand for checking ray validity. */
-bool ray::is_valid () {
+bool ray::is_valid () const {
   return (code == 0);
 }
 

@@ -40,7 +40,7 @@ class ray {
     /** @brief Initialization constructor. */
     ray (Vec3 _p, Vec3 _v);
     /** @brief Check whether the ray holds valid data. */
-    bool is_valid();
+    bool is_valid() const;
     /** @brief Printer. */
     friend std::ostream& operator<< (std::ostream &out, const ray &r);
 };
