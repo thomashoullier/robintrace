@@ -18,6 +18,10 @@ void transfer_part::apply (bun &b) {
   }
 }
 
+void transfer_part::intersect (bun &b) {
+  // Do nothing.
+}
+
 std::string transfer_part::print_str () const {
   std::stringstream ss;
   ss << "transfer_part<" << trf << ">";

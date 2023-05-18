@@ -41,6 +41,13 @@ class shape_reflect_part: public lpart {
         reflect(r, N);
       }
     };
+    
+    virtual void intersect (bun &b) override {
+      for (auto &r : b.rays) {
+        if (not(r.is_valid())) { return; }
+        shp.intersect(r);
+      }
+    };
 
     virtual std::unique_ptr<lpart> clone () const override {
       return std::make_unique<shape_reflect_part>(*this);
@@ -103,6 +110,13 @@ class shape_refract_part: public lpart {
         auto N = shp.normal(r);
         if (not(r.is_valid())) {return;}
         refract(r, N, nr);
+      }
+    };
+
+    virtual void intersect (bun &b) override {
+      for (auto &r : b.rays) {
+        if (not(r.is_valid())) { return; }
+        shp.intersect(r);
       }
     };
 

@@ -18,6 +18,11 @@ class transfer_part: public lpart {
 
     /** @brief Apply the transfer operation to ray bundle \p b. */
     virtual void apply (bun &b) override;
+
+    /** @brief Do nothing.
+     * 
+     * \todo We need to revise the abstraction lpart and intersect. */
+    virtual void intersect (bun &b) override;
     /** @brief Clone */
     virtual std::unique_ptr<lpart> clone () const override {
       return std::make_unique<transfer_part>(*this);

@@ -19,6 +19,11 @@ class lpart {
      * ray level. The default behaviour is to leave non-valid rays out of any
      * computations and continue with valid rays. */
     virtual void apply (bun &b) = 0;
+    /** @brief Apply only the eventual intersection of the lpart with ray
+     *  bundle \p b.
+     *
+     *  This is used typically for rendering the part. */
+    virtual void intersect (bun &b) = 0;
     /** @brief Is the part a transfer? */
     virtual bool is_transfer () = 0;
     /** @brief Is the part renderable? */
