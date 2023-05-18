@@ -27,6 +27,8 @@ class standard: public shape {
     standard ();
     /** @brief Initialization constructor */
     standard (double _c, double _k);
+    /** @brief Sphere constructor */
+    standard (double _c);
 
     /** @brief Operate the intersection of ray \p r with standard shape. */
     virtual void intersect (ray &r) override;

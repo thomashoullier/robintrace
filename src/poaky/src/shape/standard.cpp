@@ -17,6 +17,14 @@ standard::standard (double _c, double _k) {
   k = _k;
 }
 
+/** Initialize a sphere of curvature \p _c.
+ *
+ * @param _c Initial sphere curvature. */
+standard::standard (double _c) {
+  c = _c;
+  k = 0;
+}
+
 /* Printer */
 std::string standard::print_str () const {
   std::stringstream ss;
