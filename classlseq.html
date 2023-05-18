@@ -90,8 +90,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aac2f3c2c802b189beaffc0eaf8c9ed17"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#aac2f3c2c802b189beaffc0eaf8c9ed17">lseq</a> (const <a class="el" href="classlpart__vec.html">lpart_vec</a> &amp;_parts, const <a class="el" href="ray__pack_8h.html#a7412d76216e174176f3356696946a268">ray_pack</a> &amp;_ray_buns, const std::vector&lt; int &gt; &amp;_states_tosave)</td></tr>
 <tr class="memdesc:aac2f3c2c802b189beaffc0eaf8c9ed17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization constructor.  <a href="classlseq.html#aac2f3c2c802b189beaffc0eaf8c9ed17">More...</a><br /></td></tr>
 <tr class="separator:aac2f3c2c802b189beaffc0eaf8c9ed17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9fee26713a471075e7203b49c25dc25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#ac9fee26713a471075e7203b49c25dc25">apply_next</a> ()</td></tr>
-<tr class="memdesc:ac9fee26713a471075e7203b49c25dc25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the next part in the sequence to the ray pack, saving ray states along the way as specified.  <a href="classlseq.html#ac9fee26713a471075e7203b49c25dc25">More...</a><br /></td></tr>
+<tr class="memitem:ac9fee26713a471075e7203b49c25dc25"><td class="memItemLeft" align="right" valign="top"><a id="ac9fee26713a471075e7203b49c25dc25"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#ac9fee26713a471075e7203b49c25dc25">apply_next</a> ()</td></tr>
+<tr class="memdesc:ac9fee26713a471075e7203b49c25dc25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the next part in the sequence to the ray pack, saving ray states along the way as specified. <br /></td></tr>
 <tr class="separator:ac9fee26713a471075e7203b49c25dc25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fa42aec8d9f9e36c0ed8312f40f7238"><td class="memItemLeft" align="right" valign="top"><a id="a4fa42aec8d9f9e36c0ed8312f40f7238"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#a4fa42aec8d9f9e36c0ed8312f40f7238">apply_remaining</a> ()</td></tr>
@@ -112,18 +113,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <a class="el" href="ray__pack_8h.html#a7412d76216e174176f3356696946a268">ray_pack</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#a3a0e053671940a74ee5c330119b7d9d0">ray_buns</a></td></tr>
 <tr class="memdesc:a3a0e053671940a74ee5c330119b7d9d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current ray state. <br /></td></tr>
 <tr class="separator:a3a0e053671940a74ee5c330119b7d9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61459e15712fdc93c5d7435c199e9999"><td class="memItemLeft" align="right" valign="top"><a id="a61459e15712fdc93c5d7435c199e9999"></a>
-std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#a61459e15712fdc93c5d7435c199e9999">states_tosave</a></td></tr>
-<tr class="memdesc:a61459e15712fdc93c5d7435c199e9999"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indices of parts at which to save ray states. <br /></td></tr>
-<tr class="separator:a61459e15712fdc93c5d7435c199e9999"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77ed7a3e08109933137e5d20e2156009"><td class="memItemLeft" align="right" valign="top"><a id="a77ed7a3e08109933137e5d20e2156009"></a>
+std::queue&lt; int, std::deque&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#a77ed7a3e08109933137e5d20e2156009">states_tosave</a></td></tr>
+<tr class="memdesc:a77ed7a3e08109933137e5d20e2156009"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indices of parts at which to save ray states. <br /></td></tr>
+<tr class="separator:a77ed7a3e08109933137e5d20e2156009"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff557339e0c720cef434be271c5af585"><td class="memItemLeft" align="right" valign="top"><a id="aff557339e0c720cef434be271c5af585"></a>
 std::vector&lt; <a class="el" href="ray__pack_8h.html#a7412d76216e174176f3356696946a268">ray_pack</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#aff557339e0c720cef434be271c5af585">saved_states</a></td></tr>
 <tr class="memdesc:aff557339e0c720cef434be271c5af585"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saved ray state data. <br /></td></tr>
 <tr class="separator:aff557339e0c720cef434be271c5af585"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4346244d3ffbc0f6caffad5c0b9b5591"><td class="memItemLeft" align="right" valign="top"><a id="a4346244d3ffbc0f6caffad5c0b9b5591"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#a4346244d3ffbc0f6caffad5c0b9b5591">next_saved</a></td></tr>
-<tr class="memdesc:a4346244d3ffbc0f6caffad5c0b9b5591"><td class="mdescLeft">&#160;</td><td class="mdescRight">State variable: next part at which to save the ray states. <br /></td></tr>
-<tr class="separator:a4346244d3ffbc0f6caffad5c0b9b5591"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Sequence of optical parts with associated ray pack, raytracing application and ray states saving. </p>
@@ -208,35 +205,6 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </dl>
 <p>The arguments are all copied into lseq.</p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Initialize the saved states buffer at the right size. </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac9fee26713a471075e7203b49c25dc25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9fee26713a471075e7203b49c25dc25">&#9670;&nbsp;</a></span>apply_next()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lseq::apply_next </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Apply the next part in the sequence to the ray pack, saving ray states along the way as specified. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Have states_tosave as a container where we can read and pop the front element as we go along saving states. It contains the states which remain to be saved. </dd></dl>
 
 </div>
 </div>
