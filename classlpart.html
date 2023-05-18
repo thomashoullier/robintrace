@@ -103,6 +103,9 @@ virtual std::unique_ptr&lt; <a class="el" href="classlpart.html">lpart</a> &gt;&
 <tr class="memitem:ad6c1868f6d5b812c6cf0e97a1c5ad83f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlpart.html#ad6c1868f6d5b812c6cf0e97a1c5ad83f">apply</a> (<a class="el" href="classbun.html">bun</a> &amp;b)=0</td></tr>
 <tr class="memdesc:ad6c1868f6d5b812c6cf0e97a1c5ad83f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the lpart's operations to the ray bundle <code>b</code>.  <a href="classlpart.html#ad6c1868f6d5b812c6cf0e97a1c5ad83f">More...</a><br /></td></tr>
 <tr class="separator:ad6c1868f6d5b812c6cf0e97a1c5ad83f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd30f312d36f6938aed3f8051daea260"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlpart.html#abd30f312d36f6938aed3f8051daea260">intersect</a> (<a class="el" href="classbun.html">bun</a> &amp;b)=0</td></tr>
+<tr class="memdesc:abd30f312d36f6938aed3f8051daea260"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply only the eventual intersection of the lpart with ray bundle <code>b</code>.  <a href="classlpart.html#abd30f312d36f6938aed3f8051daea260">More...</a><br /></td></tr>
+<tr class="separator:abd30f312d36f6938aed3f8051daea260"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb035d7a2ed4022433b91789456c9ea4"><td class="memItemLeft" align="right" valign="top"><a id="afb035d7a2ed4022433b91789456c9ea4"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlpart.html#afb035d7a2ed4022433b91789456c9ea4">is_transfer</a> ()=0</td></tr>
 <tr class="memdesc:afb035d7a2ed4022433b91789456c9ea4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the part a transfer? <br /></td></tr>
@@ -157,6 +160,37 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 <p>A part typically manages the error cases which occur at the individual ray level. The default behaviour is to leave non-valid rays out of any computations and continue with valid rays. </p>
 
 <p>Implemented in <a class="el" href="classtransfer__part.html#a9a4d0dd4659853331af2e9cbb80b1efa">transfer_part</a>, <a class="el" href="classshape__refract__part.html#adfa0da607ed097a33905b2582d5c9bbf">shape_refract_part&lt; T &gt;</a>, and <a class="el" href="classshape__reflect__part.html#a02a2549fd37abc1a6f94f34391298d1d">shape_reflect_part&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<a id="abd30f312d36f6938aed3f8051daea260"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd30f312d36f6938aed3f8051daea260">&#9670;&nbsp;</a></span>intersect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void lpart::intersect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbun.html">bun</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Apply only the eventual intersection of the lpart with ray bundle <code>b</code>. </p>
+<p>This is used typically for rendering the part. </p>
+
+<p>Implemented in <a class="el" href="classtransfer__part.html#a54123e1d5bdc1fe9b4e8a71f1ddaf6bf">transfer_part</a>, <a class="el" href="classshape__refract__part.html#a5d17a93cacc84ecd50a375d6afc37e9b">shape_refract_part&lt; T &gt;</a>, and <a class="el" href="classshape__reflect__part.html#acdfb3e98ef819fc314436c0f57058700">shape_reflect_part&lt; T &gt;</a>.</p>
 
 </div>
 </div>

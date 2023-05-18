@@ -100,6 +100,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a02a2549fd37abc1a6f94f34391298d1d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshape__reflect__part.html#a02a2549fd37abc1a6f94f34391298d1d">apply</a> (<a class="el" href="classbun.html">bun</a> &amp;b) override</td></tr>
 <tr class="memdesc:a02a2549fd37abc1a6f94f34391298d1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply reflective shape lpart operations to the ray bundle <code>b</code>.  <a href="classshape__reflect__part.html#a02a2549fd37abc1a6f94f34391298d1d">More...</a><br /></td></tr>
 <tr class="separator:a02a2549fd37abc1a6f94f34391298d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdfb3e98ef819fc314436c0f57058700"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshape__reflect__part.html#acdfb3e98ef819fc314436c0f57058700">intersect</a> (<a class="el" href="classbun.html">bun</a> &amp;b) override</td></tr>
+<tr class="memdesc:acdfb3e98ef819fc314436c0f57058700"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply only the eventual intersection of the lpart with ray bundle <code>b</code>.  <a href="classshape__reflect__part.html#acdfb3e98ef819fc314436c0f57058700">More...</a><br /></td></tr>
+<tr class="separator:acdfb3e98ef819fc314436c0f57058700"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9462b04fe08b7a0eb825607ff7172a64"><td class="memItemLeft" align="right" valign="top"><a id="a9462b04fe08b7a0eb825607ff7172a64"></a>
 virtual std::unique_ptr&lt; <a class="el" href="classlpart.html">lpart</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshape__reflect__part.html#a9462b04fe08b7a0eb825607ff7172a64">clone</a> () const override</td></tr>
 <tr class="memdesc:a9462b04fe08b7a0eb825607ff7172a64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain a copy of the lpart. <br /></td></tr>
@@ -209,6 +212,39 @@ template&lt;class T &gt; </div>
 </ol>
 
 <p>Implements <a class="el" href="classlpart.html#ad6c1868f6d5b812c6cf0e97a1c5ad83f">lpart</a>.</p>
+
+</div>
+</div>
+<a id="acdfb3e98ef819fc314436c0f57058700"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdfb3e98ef819fc314436c0f57058700">&#9670;&nbsp;</a></span>intersect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classshape__reflect__part.html">shape_reflect_part</a>&lt; T &gt;::intersect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbun.html">bun</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Apply only the eventual intersection of the lpart with ray bundle <code>b</code>. </p>
+<p>This is used typically for rendering the part. </p>
+
+<p>Implements <a class="el" href="classlpart.html#abd30f312d36f6938aed3f8051daea260">lpart</a>.</p>
 
 </div>
 </div>
