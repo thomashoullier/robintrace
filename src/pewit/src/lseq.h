@@ -6,6 +6,7 @@
 #include "lpart_vec.h"
 #include "ray_pack.h"
 #include <vector>
+#include <queue>
 #include <stdexcept>
 
 /** @brief Sequence of optical parts with associated ray pack, raytracing
@@ -23,11 +24,9 @@ class lseq {
     /** @brief Current ray state. */
     ray_pack ray_buns;
     /** @brief Indices of parts at which to save ray states. */
-    std::vector<int> states_tosave;
+    std::queue<int, std::deque<int>> states_tosave;
     /** @brief Saved ray state data. */
     std::vector<ray_pack> saved_states;
-    /** @brief State variable: next part at which to save the ray states. */
-    int next_saved;
     
     /** @brief Default constructor.
      *
@@ -35,7 +34,6 @@ class lseq {
     lseq () {
       // Default constructor
       last_part = -1;
-      next_saved = 0;
     };
 
     /** @brief Initialization constructor.
@@ -53,17 +51,14 @@ class lseq {
       parts = _parts.cpy();
       last_part = -1;
       ray_buns = _ray_buns;
-      states_tosave = _states_tosave;
-      next_saved = 0;
+      // Convert the input vector to queue.
+      states_tosave = std::queue<int, std::deque<int>>(
+        std::deque<int>(_states_tosave.begin(),
+                        _states_tosave.end()));
     };
     
     /** @brief Apply the next part in the sequence to the ray pack, saving
-     * ray states along the way as specified.
-     *
-     * \todo
-     * Have states_tosave as a container where we can read and pop the
-     * front element as we go along saving states. It contains the states
-     * which remain to be saved. */
+     * ray states along the way as specified.*/
     void apply_next () {
       if (last_part + 1 >= int(parts.v.size())) {
         throw std::length_error("lseq::apply_next: No more parts to raytrace.");
@@ -73,9 +68,9 @@ class lseq {
       last_part++;
       // Save the state if requested
       if (not(states_tosave.empty())
-          && (last_part == states_tosave.at(next_saved))) {
+          && (last_part == states_tosave.front())) {
         saved_states.push_back(ray_buns);
-        next_saved++;
+        states_tosave.pop();
       }
     };
     

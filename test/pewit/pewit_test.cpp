@@ -37,4 +37,23 @@ TEST_CASE("lseq", "[lseq]") {
     SUCCEED("Apply remaining.");
     CHECK_THROWS(ls.apply_next()); // No more parts to raytrace through.
   }
+  SECTION("BUG #1: One surface then one transfer.") {
+    // Parts
+    shape_refract_part entrance(plane(), 1.0);
+    transfer_part gap(Vec3(0, 0, 20));
+    lpart_vec parts;
+    parts.add_lpart(entrance);
+    parts.add_lpart(gap);
+    ray r1(Vec3(0, 0, 0), Vec3(0, 0, 1));
+    bun b1;
+    b1.rays.push_back(r1);
+    ray_pack ray_buns;
+    ray_buns.push_back(b1);
+    // Not wanting the last state generated the bug
+    std::vector<int> states_tosave {0};
+    lseq ls (parts, ray_buns, states_tosave);
+    SUCCEED("lseq instantiation.");
+    ls.apply_remaining();
+    SUCCEED("Apply remaining.");
+  }
 }
