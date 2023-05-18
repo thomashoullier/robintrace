@@ -100,6 +100,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0540adb9f0e046c3282605abbf7e4483"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstandard.html#a0540adb9f0e046c3282605abbf7e4483">standard</a> (double _c, double _k)</td></tr>
 <tr class="memdesc:a0540adb9f0e046c3282605abbf7e4483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization constructor.  <a href="classstandard.html#a0540adb9f0e046c3282605abbf7e4483">More...</a><br /></td></tr>
 <tr class="separator:a0540adb9f0e046c3282605abbf7e4483"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3eaec19318388b882e4f45802d45c5cf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstandard.html#a3eaec19318388b882e4f45802d45c5cf">standard</a> (double _c)</td></tr>
+<tr class="memdesc:a3eaec19318388b882e4f45802d45c5cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sphere constructor.  <a href="classstandard.html#a3eaec19318388b882e4f45802d45c5cf">More...</a><br /></td></tr>
+<tr class="separator:a3eaec19318388b882e4f45802d45c5cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56b619019d27ce934d09ad2e0cdd27fc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstandard.html#a56b619019d27ce934d09ad2e0cdd27fc">intersect</a> (<a class="el" href="classray.html">ray</a> &amp;r) override</td></tr>
 <tr class="memdesc:a56b619019d27ce934d09ad2e0cdd27fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operate the intersection of ray <code>r</code> with standard shape.  <a href="classstandard.html#a56b619019d27ce934d09ad2e0cdd27fc">More...</a><br /></td></tr>
 <tr class="separator:a56b619019d27ce934d09ad2e0cdd27fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,7 +130,7 @@ virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <div class="textblock"><p>Standard shape specialization. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a98360463d4ea2c2c34040f6bc2c02ee4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98360463d4ea2c2c34040f6bc2c02ee4">&#9670;&nbsp;</a></span>standard() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a98360463d4ea2c2c34040f6bc2c02ee4">&#9670;&nbsp;</a></span>standard() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,7 +153,7 @@ virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class=
 </div>
 </div>
 <a id="a0540adb9f0e046c3282605abbf7e4483"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0540adb9f0e046c3282605abbf7e4483">&#9670;&nbsp;</a></span>standard() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0540adb9f0e046c3282605abbf7e4483">&#9670;&nbsp;</a></span>standard() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -180,6 +183,33 @@ virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class=
   <table class="params">
     <tr><td class="paramname">_c</td><td>Initial curvature of the standard shape. </td></tr>
     <tr><td class="paramname">_k</td><td>Initial quadric constant of the standard shape. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3eaec19318388b882e4f45802d45c5cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3eaec19318388b882e4f45802d45c5cf">&#9670;&nbsp;</a></span>standard() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">standard::standard </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>_c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sphere constructor. </p>
+<p>Initialize a sphere of curvature <code>_c</code>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_c</td><td>Initial sphere curvature. </td></tr>
   </table>
   </dd>
 </dl>
