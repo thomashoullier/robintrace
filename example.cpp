@@ -65,4 +65,7 @@ int main(){
   std::cout << "Saved states ls2:" << std::endl << "#1: "
             << ls2.saved_states.front() << std::endl << "#2: "
             << ls2.saved_states.at(1) << std::endl;
+
+  // Testing the new_lseq
+  new_lseq nls (parts);
 }

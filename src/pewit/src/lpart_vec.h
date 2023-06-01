@@ -1,4 +1,7 @@
 /** @file */
+#ifndef LPART_VEC_H
+#define LPART_VEC_H
+
 #include <vector>
 #include <memory>
 #include <iostream>
@@ -52,3 +55,5 @@ class lpart_vec {
     return out;
   };
 };
+
+#endif // LPART_VEC_H
