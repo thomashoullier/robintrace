@@ -26,6 +26,7 @@ class new_lseq {
     /** @brief Initialization constructor. */
     new_lseq (const lpart_vec &parts);
 
+    /** @brief Add an input to lseq. */
     template <typename T>
     void add_input (const T &input) {
       static_assert(std::is_base_of<lseq_input, T>::value,
@@ -33,8 +34,11 @@ class new_lseq {
       inputs[std::type_index(typeid(T))] = std::make_unique<T>(input);
     }
 
+    /** @brief Get a reference to a lseq input. */
     template <typename T>
     T& get_input() {
+      static_assert(std::is_base_of<lseq_input, T>::value,
+                    "T must be derived from lseq_input.");     
       auto it = inputs.find(std::type_index(typeid(T)));
       if (it != inputs.end()) {
           return *static_cast<T*>(it->second.get());
@@ -42,6 +46,9 @@ class new_lseq {
           throw std::runtime_error("Input not found.");
       }
     }
+
+    /** @brief Trace the lseq_rays through the next part. */
+    void trace_next ();
 };
 
 #endif // NEW_LSEQ_H

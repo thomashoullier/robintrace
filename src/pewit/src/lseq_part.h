@@ -3,6 +3,7 @@
 #define LSEQ_PART_H
 
 #include <memory>
+#include "ray_pack.h"
 #include "pinyo.h"
 
 /** @brief A part in a lseq. It contains both data and methods relative to a
@@ -12,13 +13,22 @@ class lseq_part {
     /** @brief A copy of the underlying lpart. */
     std::unique_ptr<lpart> part;
 
+    /** @brief Whether to save ray states when tracing. */
+    bool save_rays;
+
     /** @brief Constructor. */
     template <typename T>
     lseq_part (const T &part) {
       static_assert(std::is_base_of<lpart, T>::value,
                     "T must be derived from lpart.");
       this->part = part.clone();
+      save_rays = false;
     }
+
+    /** @brief Apply raytracing of the part to a ray_pack.
+     *   
+     *  Also save the ray states if the option is enabled. */
+    void trace (ray_pack &ray_buns);
 };
 
 #endif // LSEQ_PART_H
