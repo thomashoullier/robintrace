@@ -28,7 +28,7 @@ class new_lseq {
 
     /** @brief Add an input to lseq. */
     template <typename T>
-    void add_input (const T &input) {
+    void add_input (T &input) {
       static_assert(std::is_base_of<lseq_input, T>::value,
                     "T must be derived from lseq_input.");
       inputs[std::type_index(typeid(T))] = std::make_unique<T>(input);

@@ -7,7 +7,7 @@ new_lseq::new_lseq (const lpart_vec &parts) {
 }
 
 void new_lseq::trace_next () {
-  auto rays = this->get_input<lseq_rays>();
+  lseq_rays &rays = this->get_input<lseq_rays>();
   if (rays.last_part + 1 >= int(parts.size())) {
     throw std::length_error("lseq::trace_next: No more parts to raytrace.");
   }
