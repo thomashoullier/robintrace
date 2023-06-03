@@ -24,6 +24,8 @@ class new_lseq {
 
     /** @brief Trace the lseq_rays through the next part. */
     void trace_next ();
+    /** @brief Trace the lseq_rays through the remaining parts. */
+    void trace_remaining ();
 };
 
 #endif // NEW_LSEQ_H

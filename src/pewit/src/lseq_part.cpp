@@ -6,6 +6,6 @@ void lseq_part::trace (ray_pack &ray_buns) {
   }
   if (save_rays) {
     lseq_part_rays ray_state(ray_buns);
-    add_result(ray_state);
+    results.add(ray_state);
   }
 }

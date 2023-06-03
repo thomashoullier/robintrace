@@ -73,10 +73,9 @@ int main(){
   nls.inputs.add(n_rays);
   nls.parts.at(0).save_rays = true;
   nls.parts.at(1).save_rays = true;
-  nls.trace_next(); // surf0
-  nls.trace_next(); // surf1
-  auto rays_surf0 = nls.parts.at(0).get_result<lseq_part_rays>();
-  auto rays_surf1 = nls.parts.at(1).get_result<lseq_part_rays>();
+  nls.trace_remaining();
+  auto rays_surf0 = nls.parts.at(0).results.get<lseq_part_rays>();
+  auto rays_surf1 = nls.parts.at(1).results.get<lseq_part_rays>();
   std::cout << rays_surf0.ray_buns << std::endl;
   std::cout << rays_surf1.ray_buns << std::endl;
 }

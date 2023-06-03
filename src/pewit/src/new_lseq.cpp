@@ -14,3 +14,10 @@ void new_lseq::trace_next () {
   parts.at(rays.last_part + 1).trace(rays.ray_buns);
   rays.last_part++;
 }
+
+void new_lseq::trace_remaining () {
+  lseq_rays &rays = inputs.get<lseq_rays>();
+  while (rays.last_part + 1 < int(parts.size())) {
+    trace_next();
+  }
+}
