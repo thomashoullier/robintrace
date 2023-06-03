@@ -68,4 +68,13 @@ int main(){
 
   // Testing the new_lseq
   new_lseq nls (parts);
+  lseq_rays n_rays(ray_buns);
+  nls.add_input(n_rays);
+  lseq_rays &getrays = nls.get_input<lseq_rays>();
+  std::cout << "Input rays: " << std::endl;
+  std::cout << getrays.ray_buns << std::endl;
+  getrays.last_part = 10;
+  lseq_rays &getrays2 = nls.get_input<lseq_rays>();
+  std::cout << getrays2.last_part << std::endl;
 }
+
