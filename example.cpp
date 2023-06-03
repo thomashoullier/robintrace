@@ -70,7 +70,7 @@ int main(){
   std::cout << "## new_lseq ##" << std::endl;
   new_lseq nls (parts);
   lseq_rays n_rays(ray_buns);
-  nls.add_input(n_rays);
+  nls.inputs.add(n_rays);
   nls.parts.at(0).save_rays = true;
   nls.parts.at(1).save_rays = true;
   nls.trace_next(); // surf0
@@ -79,7 +79,5 @@ int main(){
   auto rays_surf1 = nls.parts.at(1).get_result<lseq_part_rays>();
   std::cout << rays_surf0.ray_buns << std::endl;
   std::cout << rays_surf1.ray_buns << std::endl;
-  std::cout << "Image rays:" << std::endl;
-  std::cout << nls.get_input<lseq_rays>().ray_buns << std::endl;
 }
 
