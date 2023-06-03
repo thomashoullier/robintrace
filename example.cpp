@@ -49,33 +49,15 @@ int main(){
   std::cout << parts << std::endl;
   bun b2 (b);
   ray_pack ray_buns; ray_buns.push_back(b); ray_buns.push_back(b2);
-  std::vector<int> states_tosave {0, 1};
-  lseq ls (parts, ray_buns, states_tosave);
-  ls.apply_next();
-  std::cout << "After lseq first surface: " << ls.ray_buns << std::endl;
-  ls.apply_next();
-  std::cout << "After lseq second surface: "
-            << ls.ray_buns << std::endl;
-  std::cout << "Saved states ls:" << std::endl << "#1: "
-            << ls.saved_states.front() << std::endl << "#2: "
-            << ls.saved_states.at(1) << std::endl;
-  // A second time with raytrace all.
-  lseq ls2 (parts, ray_buns, states_tosave);
-  ls2.apply_remaining();
-  std::cout << "Saved states ls2:" << std::endl << "#1: "
-            << ls2.saved_states.front() << std::endl << "#2: "
-            << ls2.saved_states.at(1) << std::endl;
-
-  // Testing the new_lseq
-  std::cout << "## new_lseq ##" << std::endl;
-  new_lseq nls (parts);
+  std::cout << "### lseq ###" << std::endl;
+  lseq ls (parts);
   lseq_rays n_rays(ray_buns);
-  nls.inputs.add(n_rays);
-  nls.parts.at(0).save_rays = true;
-  nls.parts.at(1).save_rays = true;
-  nls.trace_remaining();
-  auto rays_surf0 = nls.parts.at(0).results.get<lseq_part_rays>();
-  auto rays_surf1 = nls.parts.at(1).results.get<lseq_part_rays>();
+  ls.inputs.add(n_rays);
+  ls.parts.at(0).save_rays = true;
+  ls.parts.at(1).save_rays = true;
+  ls.trace_remaining();
+  auto rays_surf0 = ls.parts.at(0).results.get<lseq_part_rays>();
+  auto rays_surf1 = ls.parts.at(1).results.get<lseq_part_rays>();
   std::cout << rays_surf0.ray_buns << std::endl;
   std::cout << rays_surf1.ray_buns << std::endl;
 }

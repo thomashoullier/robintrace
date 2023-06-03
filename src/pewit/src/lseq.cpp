@@ -1,12 +1,12 @@
-#include "new_lseq.h"
+#include "lseq.h"
 
-new_lseq::new_lseq (const lpart_vec &parts) {
+lseq::lseq (const lpart_vec &parts) {
   for (const auto &part : parts.v) {
     this->parts.push_back(lseq_part(*part));
   }
 }
 
-void new_lseq::trace_next () {
+void lseq::trace_next () {
   lseq_rays &rays = inputs.get<lseq_rays>();
   if (rays.last_part + 1 >= int(parts.size())) {
     throw std::length_error("lseq::trace_next: No more parts to raytrace.");
@@ -15,7 +15,7 @@ void new_lseq::trace_next () {
   rays.last_part++;
 }
 
-void new_lseq::trace_remaining () {
+void lseq::trace_remaining () {
   lseq_rays &rays = inputs.get<lseq_rays>();
   while (rays.last_part + 1 < int(parts.size())) {
     trace_next();
