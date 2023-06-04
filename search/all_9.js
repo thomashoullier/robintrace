@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['operator_3c_3c_29',['operator&lt;&lt;',['../classlpart__vec.html#a5bb4e2ac84f585815748d0e3a2aaba10',1,'lpart_vec::operator&lt;&lt;()'],['../classbun.html#a116b7c621a3c4491578eaa1e85d56fe6',1,'bun::operator&lt;&lt;()'],['../classlpart.html#a210742590cef4eb567e6395b6ec548c8',1,'lpart::operator&lt;&lt;()'],['../classray.html#a1310a8c1cf140d34375689673754bba3',1,'ray::operator&lt;&lt;()'],['../classshape.html#a044e992715721e8a6cb212081d305c1d',1,'shape::operator&lt;&lt;()'],['../classtransfer.html#ae3c96faca93e39f04e0c7ea9fedb5aa9',1,'transfer::operator&lt;&lt;()'],['../Vec3_8h.html#ad5fa71919a5cd8ac6b425f18d8701281',1,'operator&lt;&lt;():&#160;Vec3.cpp']]]
+  ['normal_38',['normal',['../classplane.html#a620828966fb2f9de87e0b230257f0a5c',1,'plane::normal()'],['../classshape.html#aaa93301745a42ed383cbd156804cc9d0',1,'shape::normal()'],['../classstandard.html#a28741271a582fdde81392605dfa499b3',1,'standard::normal()']]],
+  ['nr_39',['nr',['../classshape__refract__part.html#aca8782fc273bd21d20f1858db12237d0',1,'shape_refract_part']]]
 ];

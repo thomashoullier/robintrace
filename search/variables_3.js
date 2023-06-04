@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['k_121',['k',['../classstandard.html#aaa069ef6193e410eb96b5a4cb6fa4af6',1,'standard']]]
+  ['inputs_161',['inputs',['../classlseq.html#a4c2339e2d48936a98fc86d281f7b8a8c',1,'lseq']]]
 ];

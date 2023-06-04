@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['saved_5fstates_128',['saved_states',['../classlseq.html#aff557339e0c720cef434be271c5af585',1,'lseq']]],
-  ['shp_129',['shp',['../classshape__reflect__part.html#a2b4c0aa6a2c6a10b8e6e761889665660',1,'shape_reflect_part::shp()'],['../classshape__refract__part.html#aee05f4a99cbad85cd82d6a5ee57a0c87',1,'shape_refract_part::shp()']]],
-  ['states_5ftosave_130',['states_tosave',['../classlseq.html#a77ed7a3e08109933137e5d20e2156009',1,'lseq']]]
+  ['ray_5fbuns_168',['ray_buns',['../classlseq__rays.html#a3751a97c7c34080b893293f91287313e',1,'lseq_rays::ray_buns()'],['../classlseq__part__rays.html#a7c6078e42f733c8ebf86ee4c881190e1',1,'lseq_part_rays::ray_buns()']]],
+  ['rays_169',['rays',['../classbun.html#a7746631f6ba8a333c124b0043765623e',1,'bun']]],
+  ['results_170',['results',['../classlseq__part.html#abda38812d6a08266526530707631d4c0',1,'lseq_part']]]
 ];

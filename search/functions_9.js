@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['shape_5freflect_5fpart_111',['shape_reflect_part',['../classshape__reflect__part.html#a5d174ee14db57cfcd62b144529015890',1,'shape_reflect_part']]],
-  ['shape_5frefract_5fpart_112',['shape_refract_part',['../classshape__refract__part.html#ab82928f1aa757abd280a94b6f697cf32',1,'shape_refract_part']]],
-  ['standard_113',['standard',['../classstandard.html#a98360463d4ea2c2c34040f6bc2c02ee4',1,'standard::standard()'],['../classstandard.html#a0540adb9f0e046c3282605abbf7e4483',1,'standard::standard(double _c, double _k)'],['../classstandard.html#a3eaec19318388b882e4f45802d45c5cf',1,'standard::standard(double _c)']]]
+  ['ray_145',['ray',['../classray.html#a6a81906c090ceff40ac9a288639f4861',1,'ray::ray()'],['../classray.html#a5c5b00676ae7c16d158b5a7d77b28609',1,'ray::ray(Vec3 _p, Vec3 _v)']]],
+  ['reflect_146',['reflect',['../rop_8h.html#a8ca8ddf23bd3b96a2a1309ea724d4d1f',1,'rop.cpp']]],
+  ['refract_147',['refract',['../rop_8h.html#aa74fa847bd4488dbd734a4620aa32bf0',1,'rop.cpp']]]
 ];

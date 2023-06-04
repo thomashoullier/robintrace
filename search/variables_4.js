@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['last_5fpart_122',['last_part',['../classlseq.html#a450f2ec382119397e2e506083c185eff',1,'lseq']]]
+  ['k_162',['k',['../classstandard.html#aaa069ef6193e410eb96b5a4cb6fa4af6',1,'standard']]]
 ];

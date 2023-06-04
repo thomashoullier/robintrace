@@ -77,139 +77,46 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Sequence of optical parts with associated ray pack, raytracing application and ray states saving.  
+<p>Top-level API for robintrace. Holds parts, rays and manages the computations.  
  <a href="classlseq.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="lseq_8h_source.html">lseq.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0abb1af16ec31fb7403cd4471cf1f1f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#a0abb1af16ec31fb7403cd4471cf1f1f9">lseq</a> ()</td></tr>
-<tr class="memdesc:a0abb1af16ec31fb7403cd4471cf1f1f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="classlseq.html#a0abb1af16ec31fb7403cd4471cf1f1f9">More...</a><br /></td></tr>
+<tr class="memitem:a0abb1af16ec31fb7403cd4471cf1f1f9"><td class="memItemLeft" align="right" valign="top"><a id="a0abb1af16ec31fb7403cd4471cf1f1f9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#a0abb1af16ec31fb7403cd4471cf1f1f9">lseq</a> ()</td></tr>
+<tr class="memdesc:a0abb1af16ec31fb7403cd4471cf1f1f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
 <tr class="separator:a0abb1af16ec31fb7403cd4471cf1f1f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac2f3c2c802b189beaffc0eaf8c9ed17"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#aac2f3c2c802b189beaffc0eaf8c9ed17">lseq</a> (const <a class="el" href="classlpart__vec.html">lpart_vec</a> &amp;_parts, const <a class="el" href="ray__pack_8h.html#a7412d76216e174176f3356696946a268">ray_pack</a> &amp;_ray_buns, const std::vector&lt; int &gt; &amp;_states_tosave)</td></tr>
-<tr class="memdesc:aac2f3c2c802b189beaffc0eaf8c9ed17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization constructor.  <a href="classlseq.html#aac2f3c2c802b189beaffc0eaf8c9ed17">More...</a><br /></td></tr>
-<tr class="separator:aac2f3c2c802b189beaffc0eaf8c9ed17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9fee26713a471075e7203b49c25dc25"><td class="memItemLeft" align="right" valign="top"><a id="ac9fee26713a471075e7203b49c25dc25"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#ac9fee26713a471075e7203b49c25dc25">apply_next</a> ()</td></tr>
-<tr class="memdesc:ac9fee26713a471075e7203b49c25dc25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the next part in the sequence to the ray pack, saving ray states along the way as specified. <br /></td></tr>
-<tr class="separator:ac9fee26713a471075e7203b49c25dc25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fa42aec8d9f9e36c0ed8312f40f7238"><td class="memItemLeft" align="right" valign="top"><a id="a4fa42aec8d9f9e36c0ed8312f40f7238"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#a4fa42aec8d9f9e36c0ed8312f40f7238">apply_remaining</a> ()</td></tr>
-<tr class="memdesc:a4fa42aec8d9f9e36c0ed8312f40f7238"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classlseq.html#ac9fee26713a471075e7203b49c25dc25" title="Apply the next part in the sequence to the ray pack, saving ray states along the way as specified.">apply_next()</a> until all remaining parts are raytraced through. <br /></td></tr>
-<tr class="separator:a4fa42aec8d9f9e36c0ed8312f40f7238"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5f76233f22a78f9a7b96aa35f4b6c3c"><td class="memItemLeft" align="right" valign="top"><a id="af5f76233f22a78f9a7b96aa35f4b6c3c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#af5f76233f22a78f9a7b96aa35f4b6c3c">lseq</a> (const <a class="el" href="classlpart__vec.html">lpart_vec</a> &amp;<a class="el" href="classlseq.html#ab60d1e85219acfafcda1d876217f61b9">parts</a>)</td></tr>
+<tr class="memdesc:af5f76233f22a78f9a7b96aa35f4b6c3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization constructor. <br /></td></tr>
+<tr class="separator:af5f76233f22a78f9a7b96aa35f4b6c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9067860573201ad64e2fe72a7c88ea9b"><td class="memItemLeft" align="right" valign="top"><a id="a9067860573201ad64e2fe72a7c88ea9b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#a9067860573201ad64e2fe72a7c88ea9b">trace_next</a> ()</td></tr>
+<tr class="memdesc:a9067860573201ad64e2fe72a7c88ea9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trace the <a class="el" href="classlseq__rays.html" title="Input rays to lseq.">lseq_rays</a> through the next part. <br /></td></tr>
+<tr class="separator:a9067860573201ad64e2fe72a7c88ea9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac26bd045ba823c2af2e6fd23958eb35b"><td class="memItemLeft" align="right" valign="top"><a id="ac26bd045ba823c2af2e6fd23958eb35b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#ac26bd045ba823c2af2e6fd23958eb35b">trace_remaining</a> ()</td></tr>
+<tr class="memdesc:ac26bd045ba823c2af2e6fd23958eb35b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trace the <a class="el" href="classlseq__rays.html" title="Input rays to lseq.">lseq_rays</a> through the remaining parts. <br /></td></tr>
+<tr class="separator:ac26bd045ba823c2af2e6fd23958eb35b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a98314ec4580df4945530a040d469d7af"><td class="memItemLeft" align="right" valign="top"><a id="a98314ec4580df4945530a040d469d7af"></a>
-<a class="el" href="classlpart__vec.html">lpart_vec</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#a98314ec4580df4945530a040d469d7af">parts</a></td></tr>
-<tr class="memdesc:a98314ec4580df4945530a040d469d7af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sequence of parts. <br /></td></tr>
-<tr class="separator:a98314ec4580df4945530a040d469d7af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a450f2ec382119397e2e506083c185eff"><td class="memItemLeft" align="right" valign="top"><a id="a450f2ec382119397e2e506083c185eff"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#a450f2ec382119397e2e506083c185eff">last_part</a></td></tr>
-<tr class="memdesc:a450f2ec382119397e2e506083c185eff"><td class="mdescLeft">&#160;</td><td class="mdescRight">State variable: last raytraced part. <br /></td></tr>
-<tr class="separator:a450f2ec382119397e2e506083c185eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a0e053671940a74ee5c330119b7d9d0"><td class="memItemLeft" align="right" valign="top"><a id="a3a0e053671940a74ee5c330119b7d9d0"></a>
-<a class="el" href="ray__pack_8h.html#a7412d76216e174176f3356696946a268">ray_pack</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#a3a0e053671940a74ee5c330119b7d9d0">ray_buns</a></td></tr>
-<tr class="memdesc:a3a0e053671940a74ee5c330119b7d9d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current ray state. <br /></td></tr>
-<tr class="separator:a3a0e053671940a74ee5c330119b7d9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77ed7a3e08109933137e5d20e2156009"><td class="memItemLeft" align="right" valign="top"><a id="a77ed7a3e08109933137e5d20e2156009"></a>
-std::queue&lt; int, std::deque&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#a77ed7a3e08109933137e5d20e2156009">states_tosave</a></td></tr>
-<tr class="memdesc:a77ed7a3e08109933137e5d20e2156009"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indices of parts at which to save ray states. <br /></td></tr>
-<tr class="separator:a77ed7a3e08109933137e5d20e2156009"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff557339e0c720cef434be271c5af585"><td class="memItemLeft" align="right" valign="top"><a id="aff557339e0c720cef434be271c5af585"></a>
-std::vector&lt; <a class="el" href="ray__pack_8h.html#a7412d76216e174176f3356696946a268">ray_pack</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#aff557339e0c720cef434be271c5af585">saved_states</a></td></tr>
-<tr class="memdesc:aff557339e0c720cef434be271c5af585"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saved ray state data. <br /></td></tr>
-<tr class="separator:aff557339e0c720cef434be271c5af585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab60d1e85219acfafcda1d876217f61b9"><td class="memItemLeft" align="right" valign="top"><a id="ab60d1e85219acfafcda1d876217f61b9"></a>
+std::vector&lt; <a class="el" href="classlseq__part.html">lseq_part</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#ab60d1e85219acfafcda1d876217f61b9">parts</a></td></tr>
+<tr class="memdesc:ab60d1e85219acfafcda1d876217f61b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of the system's <a class="el" href="classlseq__part.html" title="A part in a lseq. It contains both data and methods relative to a single part.">lseq_part</a>. <br /></td></tr>
+<tr class="separator:ab60d1e85219acfafcda1d876217f61b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c2339e2d48936a98fc86d281f7b8a8c"><td class="memItemLeft" align="right" valign="top"><a id="a4c2339e2d48936a98fc86d281f7b8a8c"></a>
+<a class="el" href="classtype__map.html">type_map</a>&lt; <a class="el" href="classlseq__input.html">lseq_input</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq.html#a4c2339e2d48936a98fc86d281f7b8a8c">inputs</a></td></tr>
+<tr class="memdesc:a4c2339e2d48936a98fc86d281f7b8a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Table of inputs for computations in lseq. <br /></td></tr>
+<tr class="separator:a4c2339e2d48936a98fc86d281f7b8a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Sequence of optical parts with associated ray pack, raytracing application and ray states saving. </p>
-<p>lseq is the top-level API class for the RobinTrace raytracer. It holds the definition of a sequence of lparts, rays to apply the sequence to, and buffers for saving the ray states along the way. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0abb1af16ec31fb7403cd4471cf1f1f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0abb1af16ec31fb7403cd4471cf1f1f9">&#9670;&nbsp;</a></span>lseq() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">lseq::lseq </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Default constructor. </p>
-<p>Everything is empty by default. </p>
-
-</div>
-</div>
-<a id="aac2f3c2c802b189beaffc0eaf8c9ed17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac2f3c2c802b189beaffc0eaf8c9ed17">&#9670;&nbsp;</a></span>lseq() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">lseq::lseq </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classlpart__vec.html">lpart_vec</a> &amp;&#160;</td>
-          <td class="paramname"><em>_parts</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="ray__pack_8h.html#a7412d76216e174176f3356696946a268">ray_pack</a> &amp;&#160;</td>
-          <td class="paramname"><em>_ray_buns</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>_states_tosave</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initialization constructor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">_parts</td><td>Initial vector of parts. </td></tr>
-    <tr><td class="paramname">_ray_buns</td><td>Initial ray pack. </td></tr>
-    <tr><td class="paramname">_states_tosave</td><td>The part indices at which to save the ray states.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>The arguments are all copied into lseq.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Initialize the saved states buffer at the right size. </dd></dl>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<div class="textblock"><p>Top-level API for robintrace. Holds parts, rays and manages the computations. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/pewit/src/<a class="el" href="lseq_8h_source.html">lseq.h</a></li>
+<li>src/pewit/src/lseq.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

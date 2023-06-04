@@ -1,13 +1,14 @@
 var searchData=
 [
-  ['saved_5fstates_45',['saved_states',['../classlseq.html#aff557339e0c720cef434be271c5af585',1,'lseq']]],
-  ['shape_46',['shape',['../classshape.html',1,'']]],
-  ['shape_2eh_47',['shape.h',['../shape_8h.html',1,'']]],
-  ['shape_5fpart_2eh_48',['shape_part.h',['../shape__part_8h.html',1,'']]],
-  ['shape_5freflect_5fpart_49',['shape_reflect_part',['../classshape__reflect__part.html',1,'shape_reflect_part&lt; T &gt;'],['../classshape__reflect__part.html#a5d174ee14db57cfcd62b144529015890',1,'shape_reflect_part::shape_reflect_part()']]],
-  ['shape_5frefract_5fpart_50',['shape_refract_part',['../classshape__refract__part.html',1,'shape_refract_part&lt; T &gt;'],['../classshape__refract__part.html#ab82928f1aa757abd280a94b6f697cf32',1,'shape_refract_part::shape_refract_part()']]],
-  ['shp_51',['shp',['../classshape__reflect__part.html#a2b4c0aa6a2c6a10b8e6e761889665660',1,'shape_reflect_part::shp()'],['../classshape__refract__part.html#aee05f4a99cbad85cd82d6a5ee57a0c87',1,'shape_refract_part::shp()']]],
-  ['standard_52',['standard',['../classstandard.html',1,'standard'],['../classstandard.html#a98360463d4ea2c2c34040f6bc2c02ee4',1,'standard::standard()'],['../classstandard.html#a0540adb9f0e046c3282605abbf7e4483',1,'standard::standard(double _c, double _k)'],['../classstandard.html#a3eaec19318388b882e4f45802d45c5cf',1,'standard::standard(double _c)']]],
-  ['standard_2eh_53',['standard.h',['../standard_8h.html',1,'']]],
-  ['states_5ftosave_54',['states_tosave',['../classlseq.html#a77ed7a3e08109933137e5d20e2156009',1,'lseq']]]
+  ['ray_47',['ray',['../classray.html',1,'ray'],['../classray.html#a6a81906c090ceff40ac9a288639f4861',1,'ray::ray()'],['../classray.html#a5c5b00676ae7c16d158b5a7d77b28609',1,'ray::ray(Vec3 _p, Vec3 _v)']]],
+  ['ray_2eh_48',['ray.h',['../ray_8h.html',1,'']]],
+  ['ray_5fbuns_49',['ray_buns',['../classlseq__rays.html#a3751a97c7c34080b893293f91287313e',1,'lseq_rays::ray_buns()'],['../classlseq__part__rays.html#a7c6078e42f733c8ebf86ee4c881190e1',1,'lseq_part_rays::ray_buns()']]],
+  ['ray_5fpack_50',['ray_pack',['../ray__pack_8h.html#a7412d76216e174176f3356696946a268',1,'ray_pack.h']]],
+  ['ray_5fpack_2eh_51',['ray_pack.h',['../ray__pack_8h.html',1,'']]],
+  ['rays_52',['rays',['../classbun.html#a7746631f6ba8a333c124b0043765623e',1,'bun']]],
+  ['reflect_53',['reflect',['../rop_8h.html#a8ca8ddf23bd3b96a2a1309ea724d4d1f',1,'rop.cpp']]],
+  ['refract_54',['refract',['../rop_8h.html#aa74fa847bd4488dbd734a4620aa32bf0',1,'rop.cpp']]],
+  ['results_55',['results',['../classlseq__part.html#abda38812d6a08266526530707631d4c0',1,'lseq_part']]],
+  ['robintrace_20documentation_56',['RobinTrace documentation',['../index.html',1,'']]],
+  ['rop_2eh_57',['rop.h',['../rop_8h.html',1,'']]]
 ];

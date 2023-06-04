@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['todo_20list_55',['Todo List',['../todo.html',1,'']]],
-  ['transfer_56',['transfer',['../classtransfer.html',1,'transfer'],['../classtransfer.html#a2a3a13d95b1091e342be98556a010a98',1,'transfer::transfer()'],['../classtransfer.html#af9ca7134272af4b2b36cacc7469c5b1f',1,'transfer::transfer(Vec3 _D)'],['../classtransfer.html#aec12f8702dec2a131f9e9e0847323830',1,'transfer::transfer(Mat3 _Bt, Vec3 _D)']]],
-  ['transfer_2eh_57',['transfer.h',['../transfer_8h.html',1,'']]],
-  ['transfer_5fpart_58',['transfer_part',['../classtransfer__part.html',1,'transfer_part'],['../classtransfer__part.html#a26b24c0387b342cfc455764a76dc4665',1,'transfer_part::transfer_part()'],['../classtransfer__part.html#a7f7fc60c3fdf9b85bc2860a2dff732a4',1,'transfer_part::transfer_part(transfer _trf)']]],
-  ['transfer_5fpart_2eh_59',['transfer_part.h',['../transfer__part_8h.html',1,'']]],
-  ['trf_60',['trf',['../classtransfer__part.html#a9bb7bf9e19429fc7e334d2e68b339b5a',1,'transfer_part']]]
+  ['save_5frays_58',['save_rays',['../classlseq__part.html#a5fe6af76b2f4fcbccb4dbdae8dd03643',1,'lseq_part']]],
+  ['shape_59',['shape',['../classshape.html',1,'']]],
+  ['shape_2eh_60',['shape.h',['../shape_8h.html',1,'']]],
+  ['shape_5fpart_2eh_61',['shape_part.h',['../shape__part_8h.html',1,'']]],
+  ['shape_5freflect_5fpart_62',['shape_reflect_part',['../classshape__reflect__part.html',1,'shape_reflect_part&lt; T &gt;'],['../classshape__reflect__part.html#a5d174ee14db57cfcd62b144529015890',1,'shape_reflect_part::shape_reflect_part()']]],
+  ['shape_5frefract_5fpart_63',['shape_refract_part',['../classshape__refract__part.html',1,'shape_refract_part&lt; T &gt;'],['../classshape__refract__part.html#ab82928f1aa757abd280a94b6f697cf32',1,'shape_refract_part::shape_refract_part()']]],
+  ['shp_64',['shp',['../classshape__reflect__part.html#a2b4c0aa6a2c6a10b8e6e761889665660',1,'shape_reflect_part::shp()'],['../classshape__refract__part.html#aee05f4a99cbad85cd82d6a5ee57a0c87',1,'shape_refract_part::shp()']]],
+  ['standard_65',['standard',['../classstandard.html',1,'standard'],['../classstandard.html#a98360463d4ea2c2c34040f6bc2c02ee4',1,'standard::standard()'],['../classstandard.html#a0540adb9f0e046c3282605abbf7e4483',1,'standard::standard(double _c, double _k)'],['../classstandard.html#a3eaec19318388b882e4f45802d45c5cf',1,'standard::standard(double _c)']]],
+  ['standard_2eh_66',['standard.h',['../standard_8h.html',1,'']]]
 ];

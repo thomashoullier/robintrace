@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['p_124',['p',['../classray.html#a448aa37ec1c96e018cd91cf063a0ad02',1,'ray']]],
-  ['parts_125',['parts',['../classlseq.html#a98314ec4580df4945530a040d469d7af',1,'lseq']]]
+  ['nr_164',['nr',['../classshape__refract__part.html#aca8782fc273bd21d20f1858db12237d0',1,'shape_refract_part']]]
 ];
