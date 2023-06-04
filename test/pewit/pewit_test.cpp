@@ -29,13 +29,19 @@ TEST_CASE("lseq", "[lseq]") {
     bun b2 (b);
     ray_pack ray_buns; ray_buns.push_back(b); ray_buns.push_back(b2);
     std::vector<int> states_tosave {0, 1};
-    lseq ls (parts, ray_buns, states_tosave);
+    lseq ls (parts);
     SUCCEED("lseq instantiation.");
-    ls.apply_next();
-    SUCCEED("Apply next.");
-    ls.apply_remaining();
-    SUCCEED("Apply remaining.");
-    CHECK_THROWS(ls.apply_next()); // No more parts to raytrace through.
+    lseq_rays ls_rays(ray_buns);
+    ls.inputs.add(ls_rays);
+    SUCCEED("Adding rays.");
+    ls.parts.at(0).save_rays = true;
+    ls.parts.at(1).save_rays = true;
+    SUCCEED("Indicating at which parts to save rays.");
+    ls.trace_next();
+    SUCCEED("trace next.");
+    ls.trace_remaining();
+    SUCCEED("trace remaining.");
+    CHECK_THROWS(ls.trace_next()); // No more parts to raytrace through.
   }
   SECTION("BUG #1: One surface then one transfer.") {
     // Parts
@@ -50,10 +56,11 @@ TEST_CASE("lseq", "[lseq]") {
     ray_pack ray_buns;
     ray_buns.push_back(b1);
     // Not wanting the last state generated the bug
-    std::vector<int> states_tosave {0};
-    lseq ls (parts, ray_buns, states_tosave);
+    lseq ls(parts);
+    ls.inputs.add(lseq_rays(ray_buns));
+    ls.parts.at(0).save_rays = true;
     SUCCEED("lseq instantiation.");
-    ls.apply_remaining();
+    ls.trace_remaining();
     SUCCEED("Apply remaining.");
   }
 }
