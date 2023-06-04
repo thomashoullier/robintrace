@@ -5,6 +5,7 @@
 #include "lseq_part_result.h"
 #include "../ray_pack.h"
 
+/** @brief Saved ray states at a lseq part. */
 class lseq_part_rays : public lseq_part_result {
   public:
     /** @brief Saved ray states. */

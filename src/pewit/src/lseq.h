@@ -11,10 +11,13 @@
 #include "lseq_input/lseq_rays.h"
 #include "type_map/type_map.h"
 
+/** @brief Top-level API for robintrace. Holds parts, rays and manages the
+ *  computations. */
 class lseq {
   public:
     /** @brief Vector of the system's lseq_part. */
     std::vector<lseq_part> parts;
+    /** @brief Table of inputs for computations in lseq. */
     type_map<lseq_input> inputs;
 
     /** @brief Default constructor. */

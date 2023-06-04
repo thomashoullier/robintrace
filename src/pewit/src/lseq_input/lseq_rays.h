@@ -5,6 +5,7 @@
 #include "lseq_input.h"
 #include "../ray_pack.h"
 
+/** @brief Input rays to lseq. */
 class lseq_rays : public lseq_input {
   public:
     /** @brief Current ray states. */
