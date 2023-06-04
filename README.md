@@ -12,6 +12,35 @@ It is implemented in C++.
 <img src="latex-poaky/images/robintrace-logo.png"
      alt="RobinTrace logo" width="256"/>
 
+## Development roadmap
+We follow a roughly bottom-up development approach. The approximate current
+roadmap is the following.
+
+* ✅ RobinTrace (core): Done. API and features will continue to evolve.
+* ✅ [rbt-samplings](https://github.com/thomashoullier/rbt-samplings): Done.
+  New samplings and features will be added as the need arises.
+* ⚙️  Render: 90% done. 3D rendering of optical parts and ray results.
+* 💭 High-level optical systems class: In definition. This is the description
+  of optical systems in a format familiar to optical designers. This includes
+  interfaces to save and load optical system files.
+* 💭 Ray-aiming: In definition. This allows defining optical systems with an
+  aperture stop at an arbitrary optical part. Different kinds of solutions
+  exist, we are still in the process of fleshing out how the API will look.
+* 💭 Optical systems interface with optimization engines. Devise the tools for
+  defining a callable interface with inputs and objectives.
+* Milestone 1: RobinTrace is able to robustly optimize any kind of simple
+  optical system.
+* 💭 Freeform optical parts: adding freeform surfaces to the core engine. We
+  delay this addition because of the potential complexity it introduces.
+* 💭 Differential raytracing: Add "automatic" differentiation to raytracing,
+  probably with [autodiff](https://autodiff.github.io/). This has applications
+  in using optimization engines which make use of derivatives data. This also
+  can help with ray-aiming.
+* 💭 Performance overhaul and multithreading/GPU work. The idea is to take
+  advantage of multi-core CPU and GPU. The parallelization will probably happen
+  at the optimization engine interface. Opportunities to use GPU are not
+  identified at this time.
+
 ## Documentation
 Please refer to the [Doxygen documentation](https://thomashoullier.github.io/robintrace/index.html) (in progress).
 
