@@ -30,14 +30,14 @@ TEST_CASE("lseq apply", "[lseq]") {
       parts.add_lpart(trfp);
       parts.add_lpart(srp);
     }
-    // Ray states to save
-    std::vector<int> states_tosave;
-    for (int i = 0 ; i < NUM_SURF*2 ; i++) {
-      states_tosave.push_back(i);
-    }
     // lseq system
-    lseq ls (parts, ray_buns, states_tosave);
-    ls.apply_remaining();
+    lseq ls(parts);
+    // Ray states to save
+    for (int i = 0 ; i < NUM_SURF*2 ; i++) {
+      ls.parts.at(i).save_rays = true;
+    }
+    ls.inputs.add(lseq_rays(ray_buns));
+    ls.trace_remaining();
   };
 
   BENCHMARK("10 surfaces (full setup and no save)") {
@@ -65,11 +65,9 @@ TEST_CASE("lseq apply", "[lseq]") {
       parts.add_lpart(trfp);
       parts.add_lpart(srp);
     }
-    // Ray states to save
-    std::vector<int> states_tosave {};
-    
     // lseq system
-    lseq ls (parts, ray_buns, states_tosave);
-    ls.apply_remaining();
+    lseq ls(parts);
+    ls.inputs.add(lseq_rays(ray_buns));
+    ls.trace_remaining();
   };
 }
