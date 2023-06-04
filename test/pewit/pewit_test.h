@@ -5,5 +5,6 @@
 #include <catch2/catch_approx.hpp>
 
 #include "pewit.h"
+#include "../utils/ray_eq.h"
 
 #endif // PEWIT_TEST_H
