@@ -160,12 +160,16 @@ Example</h1>
 <div class="line">  <span class="keyword">auto</span> rays_surf1 = ls.parts.at(1).results.get&lt;<a class="code" href="classlseq__part__rays.html">lseq_part_rays</a>&gt;();</div>
 <div class="line">  std::cout &lt;&lt; rays_surf0.<a class="code" href="classlseq__part__rays.html#a7c6078e42f733c8ebf86ee4c881190e1">ray_buns</a> &lt;&lt; std::endl;</div>
 <div class="line">  std::cout &lt;&lt; rays_surf1.<a class="code" href="classlseq__part__rays.html#a7c6078e42f733c8ebf86ee4c881190e1">ray_buns</a> &lt;&lt; std::endl;</div>
+<div class="line">  ls.compute_parts_global_position();</div>
+<div class="line">  std::cout &lt;&lt; ls.parts.at(1).results.get&lt;<a class="code" href="classlseq__part__global__position.html">lseq_part_global_position</a>&gt;()</div>
+<div class="line">            &lt;&lt; std::endl;</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="ttc" id="aVec3_8h_html_a8daa2fe909f826a828953371253c9bc0"><div class="ttname"><a href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a></div><div class="ttdeci">Eigen::Vector3d Vec3</div><div class="ttdef"><b>Definition:</b> Vec3.h:11</div></div>
 <div class="ttc" id="aclassbun_html"><div class="ttname"><a href="classbun.html">bun</a></div><div class="ttdoc">Class for ray bundles.</div><div class="ttdef"><b>Definition:</b> bun.h:13</div></div>
 <div class="ttc" id="aclasslpart__vec_html"><div class="ttname"><a href="classlpart__vec.html">lpart_vec</a></div><div class="ttdoc">Vector of lparts.</div><div class="ttdef"><b>Definition:</b> lpart_vec.h:12</div></div>
 <div class="ttc" id="aclasslpart__vec_html_a601d8eb631557df3203d9e2f46b2931a"><div class="ttname"><a href="classlpart__vec.html#a601d8eb631557df3203d9e2f46b2931a">lpart_vec::add_lpart</a></div><div class="ttdeci">void add_lpart(T part)</div><div class="ttdoc">Add a lpart to the vector.</div><div class="ttdef"><b>Definition:</b> lpart_vec.h:21</div></div>
+<div class="ttc" id="aclasslseq__part__global__position_html"><div class="ttname"><a href="classlseq__part__global__position.html">lseq_part_global_position</a></div><div class="ttdoc">The global coordinates position of a lseq renderable part.</div><div class="ttdef"><b>Definition:</b> lseq_part_global_position.h:9</div></div>
 <div class="ttc" id="aclasslseq__part__rays_html"><div class="ttname"><a href="classlseq__part__rays.html">lseq_part_rays</a></div><div class="ttdoc">Saved ray states at a lseq part.</div><div class="ttdef"><b>Definition:</b> lseq_part_rays.h:9</div></div>
 <div class="ttc" id="aclasslseq__part__rays_html_a7c6078e42f733c8ebf86ee4c881190e1"><div class="ttname"><a href="classlseq__part__rays.html#a7c6078e42f733c8ebf86ee4c881190e1">lseq_part_rays::ray_buns</a></div><div class="ttdeci">ray_pack ray_buns</div><div class="ttdoc">Saved ray states.</div><div class="ttdef"><b>Definition:</b> lseq_part_rays.h:12</div></div>
 <div class="ttc" id="aclasslseq__rays_html"><div class="ttname"><a href="classlseq__rays.html">lseq_rays</a></div><div class="ttdoc">Input rays to lseq.</div><div class="ttdef"><b>Definition:</b> lseq_rays.h:9</div></div>
