@@ -66,8 +66,13 @@ int main(){
   auto rays_surf1 = ls.parts.at(1).results.get<lseq_part_rays>();
   std::cout << rays_surf0.ray_buns << std::endl;
   std::cout << rays_surf1.ray_buns << std::endl;
+  // Compute part global position.
   ls.compute_parts_global_position();
   std::cout << ls.parts.at(1).results.get<lseq_part_global_position>()
             << std::endl;
+  // Compute part semi-diameter.
+  ls.parts.at(1).compute_semi_diameter();
+  auto sdia = ls.parts.at(1).results.get<lseq_part_semi_diameter>();
+  std::cout << "Semi-diameter: " << sdia.value << std::endl;
 }
 
