@@ -47,3 +47,4 @@ build/
 # Doxygen output
 docs/html
 token.txt
+Doxyfile.bak
