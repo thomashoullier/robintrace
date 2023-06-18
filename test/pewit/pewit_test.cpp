@@ -107,4 +107,25 @@ TEST_CASE("lseq", "[lseq]") {
     Vec3_eq(pose.apex, Vec3(0.01, 0, 0));
     Mat3_eq(pose.rotation, Mat3::Identity());
   }
+  SECTION("Testing semi-diameter computation") {
+    transfer_part trfp(transfer(Vec3(0, 0, 10)));
+    shape_reflect_part srp(standard(1.0/20, -2));
+    lpart_vec parts;
+    parts.add_lpart(trfp);
+    parts.add_lpart(srp);
+    lseq ls(parts);
+    ray r1(Vec3(0.2, 0, 0), Vec3(0, 0, 1));
+    std::vector<ray> rs;
+    rs.push_back(r1);
+    bun b(rs);
+    ray_pack ray_buns;
+    ray_buns.push_back(b);
+    ls.inputs.add(lseq_rays(ray_buns));
+    ls.parts.at(1).save_rays = true;
+    ls.trace_remaining();
+    ls.parts.at(1).compute_semi_diameter();
+    const auto &sd = ls.parts.at(1).results.get<lseq_part_semi_diameter>();
+    REQUIRE(sd.value == Catch::Approx(0.2));
+    REQUIRE(sd.validity);
+  }
 }
