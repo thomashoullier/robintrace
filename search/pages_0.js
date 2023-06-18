@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['robintrace_20documentation_195',['RobinTrace documentation',['../index.html',1,'']]]
+  ['robintrace_20documentation_206',['RobinTrace documentation',['../index.html',1,'']]]
 ];

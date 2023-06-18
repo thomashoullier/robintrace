@@ -160,9 +160,14 @@ Example</h1>
 <div class="line">  <span class="keyword">auto</span> rays_surf1 = ls.parts.at(1).results.get&lt;<a class="code" href="classlseq__part__rays.html">lseq_part_rays</a>&gt;();</div>
 <div class="line">  std::cout &lt;&lt; rays_surf0.<a class="code" href="classlseq__part__rays.html#a7c6078e42f733c8ebf86ee4c881190e1">ray_buns</a> &lt;&lt; std::endl;</div>
 <div class="line">  std::cout &lt;&lt; rays_surf1.<a class="code" href="classlseq__part__rays.html#a7c6078e42f733c8ebf86ee4c881190e1">ray_buns</a> &lt;&lt; std::endl;</div>
+<div class="line">  <span class="comment">// Compute part global position.</span></div>
 <div class="line">  ls.compute_parts_global_position();</div>
 <div class="line">  std::cout &lt;&lt; ls.parts.at(1).results.get&lt;<a class="code" href="classlseq__part__global__position.html">lseq_part_global_position</a>&gt;()</div>
 <div class="line">            &lt;&lt; std::endl;</div>
+<div class="line">  <span class="comment">// Compute part semi-diameter.</span></div>
+<div class="line">  ls.parts.at(1).compute_semi_diameter();</div>
+<div class="line">  <span class="keyword">auto</span> sdia = ls.parts.at(1).results.get&lt;<a class="code" href="classlseq__part__semi__diameter.html">lseq_part_semi_diameter</a>&gt;();</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Semi-diameter: &quot;</span> &lt;&lt; sdia.<a class="code" href="classlseq__part__semi__diameter.html#aff04bfd33164d00f947c907f055d384c">value</a> &lt;&lt; std::endl;</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="ttc" id="aVec3_8h_html_a8daa2fe909f826a828953371253c9bc0"><div class="ttname"><a href="Vec3_8h.html#a8daa2fe909f826a828953371253c9bc0">Vec3</a></div><div class="ttdeci">Eigen::Vector3d Vec3</div><div class="ttdef"><b>Definition:</b> Vec3.h:11</div></div>
@@ -172,6 +177,8 @@ Example</h1>
 <div class="ttc" id="aclasslseq__part__global__position_html"><div class="ttname"><a href="classlseq__part__global__position.html">lseq_part_global_position</a></div><div class="ttdoc">The global coordinates position of a lseq renderable part.</div><div class="ttdef"><b>Definition:</b> lseq_part_global_position.h:9</div></div>
 <div class="ttc" id="aclasslseq__part__rays_html"><div class="ttname"><a href="classlseq__part__rays.html">lseq_part_rays</a></div><div class="ttdoc">Saved ray states at a lseq part.</div><div class="ttdef"><b>Definition:</b> lseq_part_rays.h:9</div></div>
 <div class="ttc" id="aclasslseq__part__rays_html_a7c6078e42f733c8ebf86ee4c881190e1"><div class="ttname"><a href="classlseq__part__rays.html#a7c6078e42f733c8ebf86ee4c881190e1">lseq_part_rays::ray_buns</a></div><div class="ttdeci">ray_pack ray_buns</div><div class="ttdoc">Saved ray states.</div><div class="ttdef"><b>Definition:</b> lseq_part_rays.h:12</div></div>
+<div class="ttc" id="aclasslseq__part__semi__diameter_html"><div class="ttname"><a href="classlseq__part__semi__diameter.html">lseq_part_semi_diameter</a></div><div class="ttdoc">Part semi-diameter from the ray states results.</div><div class="ttdef"><b>Definition:</b> lseq_part_semi_diameter.h:8</div></div>
+<div class="ttc" id="aclasslseq__part__semi__diameter_html_aff04bfd33164d00f947c907f055d384c"><div class="ttname"><a href="classlseq__part__semi__diameter.html#aff04bfd33164d00f947c907f055d384c">lseq_part_semi_diameter::value</a></div><div class="ttdeci">double value</div><div class="ttdoc">The semi-diameter value.</div><div class="ttdef"><b>Definition:</b> lseq_part_semi_diameter.h:11</div></div>
 <div class="ttc" id="aclasslseq__rays_html"><div class="ttname"><a href="classlseq__rays.html">lseq_rays</a></div><div class="ttdoc">Input rays to lseq.</div><div class="ttdef"><b>Definition:</b> lseq_rays.h:9</div></div>
 <div class="ttc" id="aclasslseq_html"><div class="ttname"><a href="classlseq.html">lseq</a></div><div class="ttdoc">Top-level API for robintrace. Holds parts, rays and manages the computations.</div><div class="ttdef"><b>Definition:</b> lseq.h:16</div></div>
 <div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdoc">Class for individual rays.</div><div class="ttdef"><b>Definition:</b> ray.h:9</div></div>
