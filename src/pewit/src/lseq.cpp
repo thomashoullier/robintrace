@@ -28,7 +28,6 @@ void lseq::compute_parts_global_position () {
   Mat3 cur_mat = Mat3::Identity();
   // Iterate through the parts, accumulating transfers and storing positions in
   // renderable parts.
-  std::vector<lseq_part>::size_type renderable_index = 0;
   for (auto &part : parts) {
     if (part.part->is_renderable()) {
       lseq_part_global_position cur_pos(cur_apex, cur_mat);

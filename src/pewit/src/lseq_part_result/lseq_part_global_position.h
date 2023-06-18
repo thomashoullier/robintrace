@@ -8,8 +8,11 @@
 /** @brief The global coordinates position of a lseq renderable part. */
 class lseq_part_global_position : public lseq_part_result {
   public:
+    /** @brief Global coordinates position of the part. */
     struct position {
+      /** @brief Global coordinates position of the part's apex. */
       Vec3 apex;
+      /** @brief Global coordinates attitude matrix of the part. */
       Mat3 rotation;
     };
 

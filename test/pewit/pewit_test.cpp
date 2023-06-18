@@ -95,4 +95,16 @@ TEST_CASE("lseq", "[lseq]") {
     ray_eq(rays_surf0.ray_buns.at(0).rays.at(0), r1_s0_valid);
     ray_eq(rays_surf1.ray_buns.at(0).rays.at(0), r1_s1_valid);
   }
+  SECTION("Testing global position computation") {
+    transfer_part trfp(transfer(Vec3(0.01, 0, 0)));
+    shape_reflect_part srp(standard(1.0/20, -2));
+    lpart_vec parts;
+    parts.add_lpart(trfp);
+    parts.add_lpart(srp);
+    lseq ls(parts);
+    ls.compute_parts_global_position();
+    auto pose = ls.parts.at(1).results.get<lseq_part_global_position>().pose;
+    Vec3_eq(pose.apex, Vec3(0.01, 0, 0));
+    Mat3_eq(pose.rotation, Mat3::Identity());
+  }
 }
