@@ -29,6 +29,8 @@ class lseq {
     void trace_next ();
     /** @brief Trace the lseq_rays through the remaining parts. */
     void trace_remaining ();
+    /** @brief Compute the global position (apex and rotation) of all parts. */
+    void compute_parts_global_position ();
 };
 
 #endif // LSEQ_H

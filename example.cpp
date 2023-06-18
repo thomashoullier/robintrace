@@ -66,5 +66,8 @@ int main(){
   auto rays_surf1 = ls.parts.at(1).results.get<lseq_part_rays>();
   std::cout << rays_surf0.ray_buns << std::endl;
   std::cout << rays_surf1.ray_buns << std::endl;
+  ls.compute_parts_global_position();
+  std::cout << ls.parts.at(1).results.get<lseq_part_global_position>()
+            << std::endl;
 }
 
