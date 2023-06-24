@@ -128,4 +128,28 @@ TEST_CASE("lseq", "[lseq]") {
     REQUIRE(sd.value == Catch::Approx(0.2));
     REQUIRE(sd.validity);
   }
+  SECTION("Rays in global coordinates") {
+    transfer_part trfp(transfer(Vec3(0, 0, 10)));
+    shape_reflect_part srp(standard(1.0/20, -2));
+    lpart_vec parts;
+    parts.add_lpart(trfp);
+    parts.add_lpart(srp);
+    lseq ls(parts);
+    ray r1(Vec3(0.2, 0, 0), Vec3(0, 0, 1));
+    std::vector<ray> rs;
+    rs.push_back(r1);
+    bun b(rs);
+    ray_pack ray_buns;
+    ray_buns.push_back(b);
+    ls.inputs.add(lseq_rays(ray_buns));
+    ls.parts.at(1).save_rays = true;
+    ls.trace_remaining();
+    ls.compute_parts_global_position();
+    ls.parts.at(1).compute_global_rays();
+    auto &glob_rays = ls.parts.at(1).results.get<lseq_part_global_rays>();
+    SUCCEED("Rays conversion called.");
+    ray r1_val(Vec3(0.2, 0, 10.001), Vec3_lm(0.019997, 0, false));
+    ray r1_glob = glob_rays.ray_buns.front().rays.front();
+    ray_eq(r1_val, r1_glob);
+  }
 }
