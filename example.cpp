@@ -74,5 +74,10 @@ int main(){
   ls.parts.at(1).compute_semi_diameter();
   auto sdia = ls.parts.at(1).results.get<lseq_part_semi_diameter>();
   std::cout << "Semi-diameter: " << sdia.value << std::endl;
+  // Compute rays in global coordinates
+  ls.parts.at(1).compute_global_rays();
+  auto global_rays = ls.parts.at(1).results.get<lseq_part_global_rays>();
+  std::cout << "Global rays of part 1: " << std::endl
+            << global_rays.ray_buns << std::endl;
 }
 

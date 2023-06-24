@@ -11,6 +11,7 @@
 #include "lseq_part_result/lseq_part_rays.h"
 #include "lseq_part_result/lseq_part_global_position.h"
 #include "lseq_part_result/lseq_part_semi_diameter.h"
+#include "lseq_part_result/lseq_part_global_rays.h"
 
 /** @brief A part in a lseq. It contains both data and methods relative to a
  * single part. */
@@ -39,6 +40,10 @@ class lseq_part {
     void trace (ray_pack &ray_buns);
     /** @brief Compute the part semi-diameter from the saved ray states. */
     void compute_semi_diameter ();
+    /** @brief Convert the ray states to global coordinates.
+     *  
+     *  Requires lseq_part_global_position and lseq_part_rays. */
+    void compute_global_rays ();
 };
 
 #endif // LSEQ_PART_H
