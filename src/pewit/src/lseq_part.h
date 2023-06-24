@@ -40,9 +40,9 @@ class lseq_part {
     void trace (ray_pack &ray_buns);
     /** @brief Compute the part semi-diameter from the saved ray states. */
     void compute_semi_diameter ();
-    /** @brief Convert the ray states to global coordinates.
+    /** @brief Convert the lseq_part_rays to lseq_part_global_rays.
      *  
-     *  Requires lseq_part_global_position and lseq_part_rays. */
+     *  Requires lseq_part_global_position being present. */
     void compute_global_rays ();
 };
 
