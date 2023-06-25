@@ -25,12 +25,11 @@ void lseq_part::compute_semi_diameter () {
   results.add(sd);
 }
 
-void lseq_part::compute_global_rays () {
-  const auto &local_rays = results.get<lseq_part_rays>();
+ray_pack lseq_part::rays_to_global (const ray_pack &local_rays) {
   const auto &global_position = results.get<lseq_part_global_position>();
   ray_pack global_rays;
   bun cur_bundle;
-  for (const auto &bundle : local_rays.ray_buns) {
+  for (const auto &bundle : local_rays) {
     cur_bundle.rays.clear();
     for (const auto &r : bundle.rays) {
       Vec3 global_ray_p = global_position.pose.rotation * r.p
@@ -40,6 +39,12 @@ void lseq_part::compute_global_rays () {
     }
     global_rays.push_back(cur_bundle);
   }
+  return global_rays;
+}
+
+void lseq_part::compute_global_rays () {
+  const auto &local_rays = results.get<lseq_part_rays>();
+  ray_pack global_rays = rays_to_global(local_rays.ray_buns);
   results.add(lseq_part_global_rays(global_rays));
 }
 
