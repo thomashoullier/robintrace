@@ -2,6 +2,7 @@
 #define POAKY_H
 
 #include "base/Vec3.h"
+#include "base/Vec2.h"
 #include "base/Mat3.h"
 #include "ray/ray.h"
 #include "transfer/transfer.h"
