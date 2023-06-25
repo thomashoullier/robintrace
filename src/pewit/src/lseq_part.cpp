@@ -42,3 +42,29 @@ void lseq_part::compute_global_rays () {
   }
   results.add(lseq_part_global_rays(global_rays));
 }
+
+void lseq_part::compute_propagation_direction () {
+  const auto &local_rays = results.get<lseq_part_rays>();
+  // Collect the propagation direction of all valid rays.
+  std::vector<bool> collected_ray_directions;
+  for (const auto &bundle : local_rays.ray_buns) {
+    for (const auto &r : bundle.rays) {
+      if (r.is_valid()) { collected_ray_directions.push_back((r.v(2) > 0)); }
+    }
+  }
+  // Check the coherence of ray directions.
+  bool direction, validity;
+  if (not(collected_ray_directions.empty())) {
+    direction = collected_ray_directions.front();
+    validity = true;
+    for (const auto &dir : collected_ray_directions) {
+      if (dir != direction) { validity = false; }
+    }
+  } else {
+    direction = true;
+    validity = false;
+  }
+  // Adding the result to the table.
+  lseq_part_propagation_direction propag_dir(direction, validity);
+  results.add(propag_dir);
+}

@@ -1,6 +1,6 @@
 /** @file */
-#ifndef LSEQ_PART_SEMI_DIAMETER
-#define LSEQ_PART_SEMI_DIAMETER
+#ifndef LSEQ_PART_SEMI_DIAMETER_H
+#define LSEQ_PART_SEMI_DIAMETER_H
 
 #include "lseq_part_result.h"
 
@@ -18,4 +18,4 @@ class lseq_part_semi_diameter : public lseq_part_result {
     lseq_part_semi_diameter (double value);
 };
 
-#endif // LSEQ_PART_SEMI_DIAMETER
+#endif // LSEQ_PART_SEMI_DIAMETER_H

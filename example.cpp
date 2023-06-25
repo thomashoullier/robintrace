@@ -79,5 +79,12 @@ int main(){
   auto global_rays = ls.parts.at(1).results.get<lseq_part_global_rays>();
   std::cout << "Global rays of part 1: " << std::endl
             << global_rays.ray_buns << std::endl;
+  // Compute the local rays propagation direction.
+  ls.parts.at(1).compute_propagation_direction();
+  const auto &propagation_direction =
+    ls.parts.at(1).results.get<lseq_part_propagation_direction>();
+  std::cout << "Local rays propagation direction at part 1: "
+            << propagation_direction.direction << " "
+            << propagation_direction.validity << std::endl;
 }
 

@@ -152,4 +152,29 @@ TEST_CASE("lseq", "[lseq]") {
     ray r1_glob = glob_rays.ray_buns.front().rays.front();
     ray_eq(r1_val, r1_glob);
   }
+  SECTION("Rays propagation direction.") {
+    transfer_part trfp(transfer(Vec3(0, 0, 10)));
+    shape_reflect_part srp(standard(1.0/20, -2));
+    lpart_vec parts;
+    parts.add_lpart(trfp);
+    parts.add_lpart(srp);
+    lseq ls(parts);
+    ray r1(Vec3(0.2, 0, 0), Vec3(0, 0, 1));
+    std::vector<ray> rs;
+    rs.push_back(r1);
+    bun b(rs);
+    ray_pack ray_buns;
+    ray_buns.push_back(b);
+    ls.inputs.add(lseq_rays(ray_buns));
+    ls.parts.at(1).save_rays = true;
+    ls.trace_remaining();
+    ls.parts.at(1).compute_propagation_direction();
+    SUCCEED("Propagation direction computation called.");
+    const auto &propagation_direction =
+      ls.parts.at(1).results.get<lseq_part_propagation_direction>();
+    // Direction is negative.
+    REQUIRE(not(propagation_direction.direction));
+    // Direction is valid.
+    REQUIRE(propagation_direction.validity);
+  }
 }

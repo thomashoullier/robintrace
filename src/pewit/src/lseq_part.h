@@ -12,6 +12,7 @@
 #include "lseq_part_result/lseq_part_global_position.h"
 #include "lseq_part_result/lseq_part_semi_diameter.h"
 #include "lseq_part_result/lseq_part_global_rays.h"
+#include "lseq_part_result/lseq_part_propagation_direction.h"
 
 /** @brief A part in a lseq. It contains both data and methods relative to a
  * single part. */
@@ -44,6 +45,8 @@ class lseq_part {
      *  
      *  Requires lseq_part_global_position being present. */
     void compute_global_rays ();
+    /** @brief Compute the lseq_part_propagation_direction. */
+    void compute_propagation_direction ();
 };
 
 #endif // LSEQ_PART_H
