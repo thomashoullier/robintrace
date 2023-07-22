@@ -50,6 +50,12 @@ class lseq_part {
     void compute_global_rays ();
     /** @brief Compute the lseq_part_propagation_direction. */
     void compute_propagation_direction ();
+    /** @brief Query surface points in the LCS.
+     *
+     *  The surface is defined implicitely by the part's intersect operation
+     *  with rays propagating from the LCS plane in the
+     *  lseq_part_propagation_direction. */
+    //std::vector<Vec3> query_surface_points (const point_sampling query_points);
 };
 
 #endif // LSEQ_PART_H
