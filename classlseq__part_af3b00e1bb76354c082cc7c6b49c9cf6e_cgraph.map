@@ -1,0 +1,6 @@
+<map id="lseq_part::compute_global_rays" name="lseq_part::compute_global_rays">
+<area shape="rect" id="node1" title="Convert the lseq_part_rays to lseq_part_global_rays." alt="" coords="5,49,152,90"/>
+<area shape="rect" id="node2" href="$classtype__map.html#ab394f2de087619b06e3fa57a75eba5d2" title="Add an element of a type derived from element_type." alt="" coords="210,5,329,32"/>
+<area shape="rect" id="node3" href="$classtype__map.html#a27e8039ae2b3b19ab57e5fe51126bbcf" title="Get a reference to an element of the map." alt="" coords="387,85,503,112"/>
+<area shape="rect" id="node4" href="$classlseq__part.html#aad2940fd8e842caac4cb15aa09100e8a" title="Convert a ray_pack in the part&#39;s LCS to a ray_pack in global coordinates." alt="" coords="200,107,339,149"/>
+</map>

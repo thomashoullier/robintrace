@@ -1,10 +1,11 @@
 var searchData=
 [
-  ['lseq_163',['lseq',['../classlseq.html#a0abb1af16ec31fb7403cd4471cf1f1f9',1,'lseq::lseq()'],['../classlseq.html#af5f76233f22a78f9a7b96aa35f4b6c3c',1,'lseq::lseq(const lpart_vec &amp;parts)']]],
-  ['lseq_5fpart_164',['lseq_part',['../classlseq__part.html#a8ece4cb54ee6bf046387878ee3286f95',1,'lseq_part']]],
-  ['lseq_5fpart_5fglobal_5fposition_165',['lseq_part_global_position',['../classlseq__part__global__position.html#af4fff6a101706b522f06202d1cd6bec3',1,'lseq_part_global_position']]],
-  ['lseq_5fpart_5fglobal_5frays_166',['lseq_part_global_rays',['../classlseq__part__global__rays.html#a1dfaacbf00ebc9f43dce35019f2df5c6',1,'lseq_part_global_rays']]],
-  ['lseq_5fpart_5frays_167',['lseq_part_rays',['../classlseq__part__rays.html#a44ecb8bcb5ee5f7a8b33b0433ad1ee3e',1,'lseq_part_rays']]],
-  ['lseq_5fpart_5fsemi_5fdiameter_168',['lseq_part_semi_diameter',['../classlseq__part__semi__diameter.html#a66f00a9a023c50b2640a93fff1de71ce',1,'lseq_part_semi_diameter']]],
-  ['lseq_5frays_169',['lseq_rays',['../classlseq__rays.html#a0c8f7a1c19a0ab611b61f7344fa381b8',1,'lseq_rays']]]
+  ['lseq_183',['lseq',['../classlseq.html#a0abb1af16ec31fb7403cd4471cf1f1f9',1,'lseq::lseq()'],['../classlseq.html#af5f76233f22a78f9a7b96aa35f4b6c3c',1,'lseq::lseq(const lpart_vec &amp;parts)']]],
+  ['lseq_5fpart_184',['lseq_part',['../classlseq__part.html#a8ece4cb54ee6bf046387878ee3286f95',1,'lseq_part']]],
+  ['lseq_5fpart_5fglobal_5fposition_185',['lseq_part_global_position',['../classlseq__part__global__position.html#af4fff6a101706b522f06202d1cd6bec3',1,'lseq_part_global_position']]],
+  ['lseq_5fpart_5fglobal_5frays_186',['lseq_part_global_rays',['../classlseq__part__global__rays.html#a1dfaacbf00ebc9f43dce35019f2df5c6',1,'lseq_part_global_rays']]],
+  ['lseq_5fpart_5fpropagation_5fdirection_187',['lseq_part_propagation_direction',['../classlseq__part__propagation__direction.html#af4951ac9951fb49dc482b9fdd36e2ffa',1,'lseq_part_propagation_direction']]],
+  ['lseq_5fpart_5frays_188',['lseq_part_rays',['../classlseq__part__rays.html#a44ecb8bcb5ee5f7a8b33b0433ad1ee3e',1,'lseq_part_rays']]],
+  ['lseq_5fpart_5fsemi_5fdiameter_189',['lseq_part_semi_diameter',['../classlseq__part__semi__diameter.html#a66f00a9a023c50b2640a93fff1de71ce',1,'lseq_part_semi_diameter']]],
+  ['lseq_5frays_190',['lseq_rays',['../classlseq__rays.html#a0c8f7a1c19a0ab611b61f7344fa381b8',1,'lseq_rays']]]
 ];

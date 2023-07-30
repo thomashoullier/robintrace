@@ -1,0 +1,8 @@
+<map id="lseq_rays" name="lseq_rays">
+<area shape="rect" id="node1" title="Input rays to lseq." alt="" coords="53,363,137,389"/>
+<area shape="rect" id="node2" href="$classlseq__input.html" title="An input to lseq." alt="" coords="5,273,95,300"/>
+<area shape="rect" id="node3" title=" " alt="" coords="119,273,264,300"/>
+<area shape="rect" id="node4" href="$classbun.html" title="Class for ray bundles." alt="" coords="168,184,215,211"/>
+<area shape="rect" id="node5" title=" " alt="" coords="120,95,263,121"/>
+<area shape="rect" id="node6" href="$classray.html" title="Class for individual rays." alt="" coords="170,5,213,32"/>
+</map>

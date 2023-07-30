@@ -6,6 +6,7 @@ var searchData=
   ['code_10',['code',['../classray.html#a4428c5db165d4638938191ac87e17e2c',1,'ray']]],
   ['compute_5fglobal_5frays_11',['compute_global_rays',['../classlseq__part.html#af3b00e1bb76354c082cc7c6b49c9cf6e',1,'lseq_part']]],
   ['compute_5fparts_5fglobal_5fposition_12',['compute_parts_global_position',['../classlseq.html#a207d487d06037d8df8e890658c3e11ba',1,'lseq']]],
-  ['compute_5fsemi_5fdiameter_13',['compute_semi_diameter',['../classlseq__part.html#a44e41c3bab44f7737ddddf9490aa8bf2',1,'lseq_part']]],
-  ['cpy_14',['cpy',['../classlpart__vec.html#af8b4b7bec37ff232dff04649d906a725',1,'lpart_vec']]]
+  ['compute_5fpropagation_5fdirection_13',['compute_propagation_direction',['../classlseq__part.html#aa5e7699016d7517a3521d51ef9c5e8cc',1,'lseq_part']]],
+  ['compute_5fsemi_5fdiameter_14',['compute_semi_diameter',['../classlseq__part.html#a44e41c3bab44f7737ddddf9490aa8bf2',1,'lseq_part']]],
+  ['cpy_15',['cpy',['../classlpart__vec.html#af8b4b7bec37ff232dff04649d906a725',1,'lpart_vec']]]
 ];

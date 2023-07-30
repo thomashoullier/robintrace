@@ -1,0 +1,8 @@
+<map id="lseq" name="lseq">
+<area shape="rect" id="node1" title="Top&#45;level API for robintrace. Holds parts, rays and manages the computations." alt="" coords="314,288,363,315"/>
+<area shape="rect" id="node2" title=" " alt="" coords="93,199,275,225"/>
+<area shape="rect" id="node3" href="$classlseq__part.html" title="A part in a lseq. It contains both data and methods relative to a single part." alt="" coords="143,109,225,136"/>
+<area shape="rect" id="node4" href="$classtype__map.html" title=" " alt="" coords="5,5,168,47"/>
+<area shape="rect" id="node5" title=" " alt="" coords="192,13,371,39"/>
+<area shape="rect" id="node6" href="$classtype__map.html" title=" " alt="" coords="299,199,483,225"/>
+</map>

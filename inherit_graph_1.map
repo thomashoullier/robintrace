@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classlpart.html" title="Virtual class for elementary optical parts which can be applied to ray bundles." alt="" coords="5,56,57,83"/>
+<area shape="rect" id="node2" href="$classshape__reflect__part.html" title="Class template implementing the specialized lparts for reflective shape parts." alt="" coords="107,5,287,32"/>
+<area shape="rect" id="node3" href="$classshape__refract__part.html" title="Class template implementing the specialized lparts for refractive shape parts." alt="" coords="105,56,288,83"/>
+<area shape="rect" id="node4" href="$classtransfer__part.html" title="Part which applies a transfer operation to rays." alt="" coords="143,107,250,133"/>
+</map>

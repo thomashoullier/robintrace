@@ -1,0 +1,4 @@
+<map id="shape_refract_part::apply" name="shape_refract_part::apply">
+<area shape="rect" id="node1" title="Apply refractive shape lpart operations to the ray bundle b." alt="" coords="5,5,149,47"/>
+<area shape="rect" id="node2" href="$rop_8h.html#aa74fa847bd4488dbd734a4620aa32bf0" title="Refract ray operation." alt="" coords="197,13,263,39"/>
+</map>

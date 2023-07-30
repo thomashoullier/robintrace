@@ -1,0 +1,5 @@
+<map id="transfer_part" name="transfer_part">
+<area shape="rect" id="node1" title="Part which applies a transfer operation to rays." alt="" coords="21,95,127,121"/>
+<area shape="rect" id="node2" href="$classlpart.html" title="Virtual class for elementary optical parts which can be applied to ray bundles." alt="" coords="5,5,57,32"/>
+<area shape="rect" id="node3" href="$classtransfer.html" title="Transfer operation over a ray." alt="" coords="81,5,155,32"/>
+</map>

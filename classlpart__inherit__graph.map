@@ -1,0 +1,6 @@
+<map id="lpart" name="lpart">
+<area shape="rect" id="node1" title="Virtual class for elementary optical parts which can be applied to ray bundles." alt="" coords="275,5,327,32"/>
+<area shape="rect" id="node2" href="$classshape__reflect__part.html" title="Class template implementing the specialized lparts for reflective shape parts." alt="" coords="5,80,185,107"/>
+<area shape="rect" id="node3" href="$classshape__refract__part.html" title="Class template implementing the specialized lparts for refractive shape parts." alt="" coords="209,80,392,107"/>
+<area shape="rect" id="node4" href="$classtransfer__part.html" title="Part which applies a transfer operation to rays." alt="" coords="417,80,523,107"/>
+</map>

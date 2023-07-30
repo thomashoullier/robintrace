@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classlseq__part__result.html" title="A result relative to a lseq part." alt="" coords="5,115,132,141"/>
+<area shape="rect" id="node2" href="$classlseq__part__global__position.html" title="The global coordinates position of a lseq renderable part." alt="" coords="180,5,368,32"/>
+<area shape="rect" id="node3" href="$classlseq__part__global__rays.html" title="Saved ray states at a lseq part expressed in global coordinates." alt="" coords="192,56,356,83"/>
+<area shape="rect" id="node4" href="$classlseq__part__propagation__direction.html" title="Propagation direction of the lseq_part_rays." alt="" coords="191,107,357,149"/>
+<area shape="rect" id="node5" href="$classlseq__part__rays.html" title="Saved ray states at a lseq part." alt="" coords="215,173,333,200"/>
+<area shape="rect" id="node6" href="$classlseq__part__semi__diameter.html" title="Part semi&#45;diameter from the ray states results." alt="" coords="181,224,367,251"/>
+</map>

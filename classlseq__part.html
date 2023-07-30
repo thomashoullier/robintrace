@@ -81,6 +81,12 @@ $(function() {
  <a href="classlseq__part.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="lseq__part_8h_source.html">lseq_part.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for lseq_part:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classlseq__part__coll__graph.svg" width="376" height="142"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -96,9 +102,17 @@ template&lt;typename T &gt; </td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq__part.html#a44e41c3bab44f7737ddddf9490aa8bf2">compute_semi_diameter</a> ()</td></tr>
 <tr class="memdesc:a44e41c3bab44f7737ddddf9490aa8bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the part semi-diameter from the saved ray states. <br /></td></tr>
 <tr class="separator:a44e41c3bab44f7737ddddf9490aa8bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad2940fd8e842caac4cb15aa09100e8a"><td class="memItemLeft" align="right" valign="top"><a id="aad2940fd8e842caac4cb15aa09100e8a"></a>
+<a class="el" href="ray__pack_8h.html#a7412d76216e174176f3356696946a268">ray_pack</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq__part.html#aad2940fd8e842caac4cb15aa09100e8a">rays_to_global</a> (const <a class="el" href="ray__pack_8h.html#a7412d76216e174176f3356696946a268">ray_pack</a> &amp;local_rays)</td></tr>
+<tr class="memdesc:aad2940fd8e842caac4cb15aa09100e8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a ray_pack in the part's LCS to a ray_pack in global coordinates. <br /></td></tr>
+<tr class="separator:aad2940fd8e842caac4cb15aa09100e8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3b00e1bb76354c082cc7c6b49c9cf6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq__part.html#af3b00e1bb76354c082cc7c6b49c9cf6e">compute_global_rays</a> ()</td></tr>
 <tr class="memdesc:af3b00e1bb76354c082cc7c6b49c9cf6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the <a class="el" href="classlseq__part__rays.html" title="Saved ray states at a lseq part.">lseq_part_rays</a> to <a class="el" href="classlseq__part__global__rays.html" title="Saved ray states at a lseq part expressed in global coordinates.">lseq_part_global_rays</a>.  <a href="classlseq__part.html#af3b00e1bb76354c082cc7c6b49c9cf6e">More...</a><br /></td></tr>
 <tr class="separator:af3b00e1bb76354c082cc7c6b49c9cf6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5e7699016d7517a3521d51ef9c5e8cc"><td class="memItemLeft" align="right" valign="top"><a id="aa5e7699016d7517a3521d51ef9c5e8cc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlseq__part.html#aa5e7699016d7517a3521d51ef9c5e8cc">compute_propagation_direction</a> ()</td></tr>
+<tr class="memdesc:aa5e7699016d7517a3521d51ef9c5e8cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the <a class="el" href="classlseq__part__propagation__direction.html" title="Propagation direction of the lseq_part_rays.">lseq_part_propagation_direction</a>. <br /></td></tr>
+<tr class="separator:aa5e7699016d7517a3521d51ef9c5e8cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -135,6 +149,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Convert the <a class="el" href="classlseq__part__rays.html" title="Saved ray states at a lseq part.">lseq_part_rays</a> to <a class="el" href="classlseq__part__global__rays.html" title="Saved ray states at a lseq part expressed in global coordinates.">lseq_part_global_rays</a>. </p>
 <p>Requires <a class="el" href="classlseq__part__global__position.html" title="The global coordinates position of a lseq renderable part.">lseq_part_global_position</a> being present. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classlseq__part_af3b00e1bb76354c082cc7c6b49c9cf6e_cgraph.svg" width="508" height="155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -156,6 +176,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Apply raytracing of the part to a ray_pack. </p>
 <p>Also save the ray states if the option is enabled. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classlseq__part_a6fd626aa1f933ad000b382153a13b127_cgraph.svg" width="300" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>

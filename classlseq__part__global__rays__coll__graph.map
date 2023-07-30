@@ -1,0 +1,8 @@
+<map id="lseq_part_global_rays" name="lseq_part_global_rays">
+<area shape="rect" id="node1" title="Saved ray states at a lseq part expressed in global coordinates." alt="" coords="37,363,201,389"/>
+<area shape="rect" id="node2" href="$classlseq__part__result.html" title="A result relative to a lseq part." alt="" coords="5,273,132,300"/>
+<area shape="rect" id="node3" title=" " alt="" coords="156,273,301,300"/>
+<area shape="rect" id="node4" href="$classbun.html" title="Class for ray bundles." alt="" coords="205,184,252,211"/>
+<area shape="rect" id="node5" title=" " alt="" coords="157,95,300,121"/>
+<area shape="rect" id="node6" href="$classray.html" title="Class for individual rays." alt="" coords="207,5,250,32"/>
+</map>
