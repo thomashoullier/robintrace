@@ -1,3 +1,4 @@
+/** @file */
 #ifndef PINYO_H
 #define PINYO_H
 

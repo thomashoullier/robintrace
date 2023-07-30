@@ -1,3 +1,4 @@
+/** @file */
 #ifndef ROBINTRACE_H
 #define ROBINTRACE_H
 

@@ -1,3 +1,4 @@
+/** @file */
 #ifndef PEWIT_H
 #define PEWIT_H
 
