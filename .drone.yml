@@ -16,7 +16,7 @@ steps:
   pull: if-not-exists
   commands:
   # Build
-  - mkdir build
+  - mkdir -p build
   - cd build
   - cmake -Drobintrace_build_tests=ON -Drobintrace_build_coverage=ON ..
   - make robintrace_test
